@@ -282,25 +282,25 @@
 <li>화면 위 칩: <span class="ui">카메라 위치 보기</span>(3인칭으로 내 자리 확인) · <span class="ui">가로 사진</span>/<span class="ui">세로 사진</span> · <span class="ui">실루엣 보이기</span> · <span class="ui">이미지로 저장</span>. 화면을 끌면 시선을 옮길 수 있습니다.</li>
 </ul>
 <h3 id="sim-overseas">해외 실사 3D</h3>
-<p>해외 실사 3D 건물은 개인 Google API 키를 등록하거나 해외 실사 3D 구독으로 이용할 수 있습니다. 둘 다 없으면 지형만 표시됩니다.</p>
-<p>개인 키를 등록하면 구독 키보다 우선하여 사용합니다. 사용량에는 Google의 요금 정책이 적용되며, 무료 한도를 초과하면 비용이 발생할 수 있습니다. 계획 화면의 Google 지도도 개인 키가 필요하며 구독에는 포함되지 않습니다.</p>
+<p>해외 실사 3D 건물은 Google 지도 API로 불러오며, Google은 사용할 때마다 사용료를 받습니다. <span class="ui">해외 실사 3D 구독</span>은 이 사용료를 앱이 대신 내기 위한 것이며, 수익을 더 내기 위한 상품이 아닙니다. 그래서 <strong>개인 Google API 키를 등록하면 구독 없이 동일하게 이용할 수 있습니다.</strong> 둘 다 없으면 지형만 표시됩니다.</p>
+<p>개인 키는 설정의 <span class="ui">Google API 키</span>에 등록하며, 구독보다 우선하여 사용합니다. 키는 iCloud 키체인에 저장되어 내 Apple 기기 사이에서만 동기화되고, Google에만 전송됩니다. 일반적인 촬영 계획 용도는 대부분 Google의 월 무료 한도 안에 있으며, 한도를 초과하면 Google 요금 정책에 따라 비용이 발생할 수 있습니다. 계획 화면의 Google 지도도 개인 키가 필요하며 구독에는 포함되지 않습니다.</p>
 <p>건물 표시에는 하루 사용 한도가 있습니다. 한도에 도달하면 다음 날 다시 이용할 수 있습니다.</p>
 <p><strong>Google API 키 발급 및 설정</strong></p>
-<ol >
+<ol>
       <li><b>Google Cloud 콘솔에 로그인합니다.</b>
-        <span ><a href="https://console.cloud.google.com" rel="noopener">console.cloud.google.com</a> — 일반 Google 계정이면 됩니다.</span></li>
+        <span><a href="https://console.cloud.google.com" rel="noopener">console.cloud.google.com</a> — 일반 Google 계정이면 됩니다.</span></li>
       <li><b>프로젝트를 만듭니다.</b>
-        <span >상단 프로젝트 선택 → “새 프로젝트”. 원하는 이름을 입력합니다(예: <code>moonalign-3d</code>).</span></li>
+        <span>상단 프로젝트 선택 → “새 프로젝트”. 원하는 이름을 입력합니다(예: <code>moonalign-3d</code>).</span></li>
       <li><b>결제 계정을 연결합니다.</b>
-        <span >지도 API는 카드 등록이 필요합니다. 무료 한도를 초과하면 비용이 발생할 수 있습니다. 사용 전에 Google의 최신 요금 정책을 확인하세요.</span></li>
+        <span>지도 API는 카드 등록이 필요합니다. 무료 한도를 초과하면 비용이 발생할 수 있습니다. 사용 전에 Google의 최신 요금 정책을 확인하세요.</span></li>
       <li><b>Map Tiles API를 사용 설정합니다.</b>
-        <span >“API 및 서비스 → 라이브러리”에서 <code>Map Tiles API</code>를 검색해 사용 설정합니다. 실사 3D 타일이 이 API에 포함됩니다.</span></li>
+        <span>“API 및 서비스 → 라이브러리”에서 <code>Map Tiles API</code>를 검색해 사용 설정합니다. 실사 3D 타일이 이 API에 포함됩니다.</span></li>
       <li><b>API 키를 만듭니다.</b>
-        <span >“API 및 서비스 → 사용자 인증 정보 → + 사용자 인증 정보 만들기 → API 키”. 키 문자열을 복사합니다.</span></li>
+        <span>“API 및 서비스 → 사용자 인증 정보 → + 사용자 인증 정보 만들기 → API 키”. 키 문자열을 복사합니다.</span></li>
       <li><b>키를 제한합니다(권장).</b>
-        <span >키 편집 → “API 제한사항” → <code>Map Tiles API</code>만 허용합니다. 이 설정은 키를 사용할 수 있는 API를 제한합니다. “애플리케이션 제한사항”은 “없음”으로 설정합니다. iOS 앱 제한을 건 키는 MoonAlign에서 동작하지 않습니다.</span></li>
+        <span>키 편집 → “API 제한사항” → <code>Map Tiles API</code>만 허용합니다. 이 설정은 키를 사용할 수 있는 API를 제한합니다. “애플리케이션 제한사항”은 “없음”으로 설정합니다. iOS 앱 제한을 건 키는 MoonAlign에서 동작하지 않습니다.</span></li>
       <li><b>MoonAlign에 붙여넣습니다.</b>
-        <span >계획 화면 → 설정 → “Google API 키”. 다음에 시뮬레이션을 불러올 때 적용됩니다.</span></li>
+        <span>계획 화면 → 설정 → “Google API 키”. 다음에 시뮬레이션을 불러올 때 적용됩니다.</span></li>
     </ol>
 <p>Google Cloud 콘솔의 ‘결제 → 예산 및 알림’에서 비용 알림을 설정할 수 있습니다. 예산 알림은 사용량이나 과금을 자동으로 차단하지 않으므로, 사용량과 요금을 함께 확인하세요.</p>
 </section>

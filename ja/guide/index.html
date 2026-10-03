@@ -136,7 +136,7 @@
   </details>
   <article>
     <h1>使い方ガイド</h1>
-    <p class="lead">計画から現場での狙い定めまで、画面ごとに何をするかをまとめました。モード別に手短に試すなら、ホームページの使い方動画もあわせてご覧ください。</p>
+    <p class="lead">計画から現地確認まで — 各画面でできることと使い方。</p>
 <!-- 使い方ガイド本文(ja)。guide/ko.html の翻訳 — 節の id は ko・en と同じ順序で同じにすること(build_landing.py --check)。
      画面の名前はアプリの実際の日本語ラベル(Localizable.xcstrings)。 -->
 
@@ -280,13 +280,28 @@
 <li><span class="ui">高さを測る</span>:3Dモデルで構造物の高さを測り、<span class="ui">この高さを使う</span>でプランに入れます。</li>
 <li>画面上のチップ:<span class="ui">カメラ位置を見る</span>(自分の位置を外から確認)・<span class="ui">横位置</span>/<span class="ui">縦位置</span>・<span class="ui">シルエット表示</span>・<span class="ui">画像を保存</span>。画面をドラッグすると視線を動かせます。</li>
 </ul>
-<h3 id="sim-overseas">海外のフォトリアリスティック3D</h3>
-<p>韓国以外のフォトリアル3D建物はGoogleマップのAPIから読み込み、Googleは使うたびに利用料を請求します。サブスクリプションはその利用料をアプリが代わりに支払うためのものなので、自分のキーがあれば必要ありません。</p>
-<ul>
-<li><strong>自分のGoogle APIキー(無料)</strong> — 設定の<span class="ui">Google APIキー</span>に入れれば、サブスクリプションなしで同じように表示され、サブスクリプションより優先されます。Googleの月間無料枠内ならほとんど費用はかかりません。作り方は<a href="/ja/#google-key">ホームページのGoogle 3Dキーの節</a>にあります。</li>
-<li><span class="ui">海外3Dサブスクリプション</span>(月額・年額)— キーの用意が面倒なときに。設定なしですぐに表示されます。</li>
-</ul>
-<p>どちらもなければ地形だけが表示され、シーン内に案内カードが一度表示されます。建物の表示には1日の利用上限があり、達すると翌日にまた表示されます。</p>
+<h3 id="sim-overseas">海外の実写3D</h3>
+<p>海外の実写3D建物はGoogleマップAPIで読み込み、Googleは利用のたびに料金を請求します。<span class="ui">海外3Dサブスクリプション</span>はこの利用料をアプリが肩代わりするためのもので、利益を増やすための商品ではありません。そのため<strong>個人のGoogle APIキーを登録すれば、サブスクリプションなしで同じように利用できます。</strong>どちらもなければ地形だけが表示されます。</p>
+<p>個人のキーは設定の<span class="ui">Google APIキー</span>に登録し、サブスクリプションより優先して使われます。キーはiCloudキーチェーンに保存されて自分のApple製品の間でだけ同期され、Googleにだけ送信されます。一般的な撮影計画の用途ならほとんどがGoogleの月間無料枠に収まり、超えるとGoogleの料金体系に従って費用が発生することがあります。計画画面のGoogleマップも個人のキーが必要で、サブスクリプションには含まれません。</p>
+<p>建物の表示には1日の利用上限があります。上限に達したら翌日にまた利用できます。</p>
+<p><strong>Google APIキーの作成と設定</strong></p>
+<ol>
+      <li><b>Google Cloudコンソールにサインインします。</b>
+        <span><a href="https://console.cloud.google.com" rel="noopener">console.cloud.google.com</a> — 通常のGoogleアカウントで構いません。</span></li>
+      <li><b>プロジェクトを作成します。</b>
+        <span>上部のプロジェクト選択 → 「新しいプロジェクト」。名前は任意です（例：<code>moonalign-3d</code>）。</span></li>
+      <li><b>請求先アカウントをリンクします。</b>
+        <span>地図APIにはカード登録が必要です。無料枠を超えると費用が発生することがあるので、使う前にGoogleの最新の料金体系を確認してください。</span></li>
+      <li><b>Map Tiles APIを有効にします。</b>
+        <span>「APIとサービス → ライブラリ」で<code>Map Tiles API</code>を検索して有効にします。実写3DタイルはこのAPIに含まれます。</span></li>
+      <li><b>APIキーを作成します。</b>
+        <span>「APIとサービス → 認証情報 → + 認証情報を作成 → APIキー」。キー文字列をコピーします。</span></li>
+      <li><b>キーを制限します（推奨）。</b>
+        <span>キーを編集 → 「APIの制限」 → <code>Map Tiles API</code>のみ許可します。キーを使えるAPIを制限する設定です。「アプリケーションの制限」は「なし」にします。iOSアプリ制限を付けたキーはMoonAlignでは動作しません。</span></li>
+      <li><b>MoonAlignに貼り付けます。</b>
+        <span>計画画面 → 設定 → 「Google APIキー」。次にシミュレーションを読み込むときから有効になります。</span></li>
+    </ol>
+<p>Google Cloudコンソールの「お支払い → 予算とアラート」で費用アラートを設定できます。予算アラートは使用や課金を自動で止めないため、使用量と料金をあわせて確認してください。</p>
 </section>
 
 <section>

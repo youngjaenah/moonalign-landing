@@ -136,7 +136,7 @@
   </details>
   <article>
     <h1>User guide</h1>
-    <p class="lead">From planning to aiming on site — what each screen does. For short walkthroughs of each mode, see the tutorial videos on the home page.</p>
+    <p class="lead">From planning to on-site checks — what each screen does and how to use it.</p>
 <!-- User guide body (en). Translation of guide/ko.html — keep the same section ids in the same order (build_landing.py --check).
      UI names are the app's actual English labels (Localizable.xcstrings). -->
 
@@ -281,12 +281,27 @@
 <li>Chips over the scene: <span class="ui">View camera position</span> (see your spot from outside) · <span class="ui">Landscape</span>/<span class="ui">Portrait</span> · <span class="ui">Show silhouette</span> · <span class="ui">Save image</span>. Drag the scene to look around.</li>
 </ul>
 <h3 id="sim-overseas">Photorealistic 3D abroad</h3>
-<p>Photorealistic 3D buildings outside Korea come from the Google Maps API, and Google charges for each use. The subscription is there so the app can pay that fee for you — with your own key you don’t need it.</p>
-<ul>
-<li><strong>Your own Google API key (free)</strong> — add it under <span class="ui">Google API key</span> in settings and you see exactly the same thing without a subscription; it takes priority over the subscription. Within Google’s monthly free allowance it mostly costs nothing. How to create one is in <a href="/#google-key">the Google 3D key section of the home page</a>.</li>
-<li><span class="ui">Overseas 3D subscription</span> (monthly or yearly) — if setting up a key is a hassle. Works with no setup.</li>
-</ul>
-<p>With neither, you'll see terrain only and a one-time card in the scene. Building display has a daily usage limit; if you hit it, buildings come back the next day.</p>
+<p>Photorealistic 3D buildings abroad come from the Google Maps API, and Google charges each time it is used. The <span class="ui">Overseas 3D subscription</span> exists so the app can pay that fee for you — it isn’t there to make extra money. So <strong>register your own Google API key and you can use exactly the same thing without a subscription.</strong> With neither, only terrain is shown.</p>
+<p>Add your own key under <span class="ui">Google API key</span> in settings; it takes priority over the subscription. The key is stored in iCloud Keychain, syncs only between your Apple devices, and is sent only to Google. Typical planning use stays mostly within Google’s monthly free allowance; beyond it, costs may apply under Google’s pricing. Google Maps on the plan screen also needs your own key and is not part of the subscription.</p>
+<p>Building display has a daily usage limit. If you reach it, you can use it again the next day.</p>
+<p><strong>Creating and setting up a Google API key</strong></p>
+<ol>
+      <li><b>Sign in to the Google Cloud console.</b>
+        <span><a href="https://console.cloud.google.com" rel="noopener">console.cloud.google.com</a> — any regular Google account works.</span></li>
+      <li><b>Create a project.</b>
+        <span>Project picker at the top → “New project.” Enter any name (e.g. <code>moonalign-3d</code>).</span></li>
+      <li><b>Link a billing account.</b>
+        <span>Map APIs require a card on file. Costs may apply beyond the free allowance, so check Google’s current pricing before you start.</span></li>
+      <li><b>Enable the Map Tiles API.</b>
+        <span>In “APIs &amp; Services → Library,” search for <code>Map Tiles API</code> and enable it. Photorealistic 3D tiles are part of this API.</span></li>
+      <li><b>Create an API key.</b>
+        <span>“APIs &amp; Services → Credentials → + Create credentials → API key.” Copy the key string.</span></li>
+      <li><b>Restrict the key (recommended).</b>
+        <span>Edit the key → “API restrictions” → allow <code>Map Tiles API</code> only. This limits which APIs the key can be used for. Set “Application restrictions” to “None” — a key restricted to iOS apps won’t work in MoonAlign.</span></li>
+      <li><b>Paste it into MoonAlign.</b>
+        <span>Plan screen → Settings → “Google API key.” It takes effect the next time the simulation loads.</span></li>
+    </ol>
+<p>You can set cost alerts under “Billing → Budgets &amp; alerts” in the Google Cloud console. Budget alerts don’t stop usage or charges automatically, so keep an eye on both usage and charges.</p>
 </section>
 
 <section>
