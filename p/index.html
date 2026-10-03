@@ -5,7 +5,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="referrer" content="no-referrer">
+  <!-- 출처만 보낸다 — OSM 타일 서버는 Referer 없는 웹 요청을 막는다(no-referrer였을 때 403, 2026-10-03). 해시(#, 계획)는 Referer에 원래 안 실린다. -->
+  <meta name="referrer" content="origin">
   <meta name="robots" content="noindex">
   <title>Shared shooting plan — MoonAlign</title>
   <meta property="og:title" content="MoonAlign shooting plan">
