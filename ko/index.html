@@ -170,6 +170,10 @@
     .product.flip .p-visual { order: 0; }
     .product + .product { margin-top: 48px; }
   }
+  .product-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 40px; }
+  @media (max-width: 800px) { .product-pair { grid-template-columns: 1fr; gap: 40px; } }
+  .product-pair h3 { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .product-pair .lead { font-size: 1rem; color: var(--ink-dim); margin-bottom: 20px; line-height: 1.7; }
   .product h3 { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 12px; }
   .product .lead { font-size: 1rem; color: var(--ink-dim); margin-bottom: 20px; line-height: 1.7; }
   .p-visual {
@@ -347,21 +351,18 @@
     <span class="tag">사전 답사와 촬영 당일</span>
     <h2>현장에서 다시 확인하기</h2>
     <p class="lead sect-lead">시뮬레이션은 지형과 3D 건물까지 보여 주지만, 지도에 없는 나무·크레인·울타리는 현장에서 확인해야 합니다. 사전 답사에는 사진 확인, 촬영 당일에는 AR 확인을 씁니다.</p>
-    <div class="product">
+    <!-- 스크린샷(사진 확인·AR)이 준비되면 그림 칸을 다시 넣는다(2026-10-03 사용자 결정: 그때까지 글만). -->
+    <div class="product-pair">
       <div>
         <h3>사진 확인 — 사전 답사에서 시야 확인</h3>
         <p class="lead">답사 때 촬영지에서 찍은 사진(EXIF 포함)을 불러오면, 촬영 시각의 달 위치와 경로를 그 사진 위에 그립니다. 실제 시야에서 달이 어디로 지나가는지, 무엇에 가리는지 미리 확인해 둘 수 있습니다.</p>
         <ul class="feat"><li>사진 위 하늘 좌표 격자 — 방위·고도를 한눈에</li><li>시각 슬라이더로 계획한 시간대의 달 위치 확인</li><li>EXIF의 촬영 시각·초점거리·위치를 읽어 바로 맞춤</li><li>카메라 시계가 몇 초 틀렸다면 시계 보정에 넣어 바로잡기</li></ul>
       </div>
-      <div class="p-visual">사진 확인 스크린샷</div>
-    </div>
-    <div class="product flip">
       <div>
         <h3>AR 확인 — 촬영 당일 최종 확인</h3>
         <p class="lead">촬영 당일 현장에서 iPhone·iPad를 들면, 계획한 달의 경로가 실시간 카메라 화면 위에 겹쳐 보입니다. 달이 뜨기 전에 경로를 최종 확인하고 삼각대와 구도를 맞춥니다.</p>
         <ul class="feat"><li>달(또는 ISS, 은하수 코어)의 궤적을 실제 하늘 위에</li><li>‘맞추기’로 나침반 오차 보정 — 달이나 타겟 꼭대기를 십자선에 두고 누른 뒤 방위 미세 조절</li><li>시각 슬라이더로 천체가 떠 있는 동안 전체를 훑어보기</li><li>iPhone·iPad에서 동작 (카메라가 필요해 Mac은 제외)</li></ul>
       </div>
-      <div class="p-visual">AR 확인 스크린샷</div>
     </div>
   </div>
 </section>

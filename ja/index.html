@@ -170,6 +170,10 @@
     .product.flip .p-visual { order: 0; }
     .product + .product { margin-top: 48px; }
   }
+  .product-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 40px; }
+  @media (max-width: 800px) { .product-pair { grid-template-columns: 1fr; gap: 40px; } }
+  .product-pair h3 { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .product-pair .lead { font-size: 1rem; color: var(--ink-dim); margin-bottom: 20px; line-height: 1.7; }
   .product h3 { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 12px; }
   .product .lead { font-size: 1rem; color: var(--ink-dim); margin-bottom: 20px; line-height: 1.7; }
   .p-visual {
@@ -347,21 +351,18 @@
     <span class="tag">下見と撮影当日</span>
     <h2>現場でもう一度確かめる</h2>
     <p class="lead sect-lead">シミュレーションは地形と3D建物まで見せますが、地図にない木・クレーン・フェンスは現場で確かめる必要があります。下見では写真チェック、撮影当日はARチェックを使います。</p>
-    <div class="product">
+    <!-- 스크린샷(사진 확인·AR)이 준비되면 그림 칸을 다시 넣는다(2026-10-03 사용자 결정: 그때까지 글만). -->
+    <div class="product-pair">
       <div>
         <h3>写真チェック — 下見で視界を確かめる</h3>
         <p class="lead">下見で撮影地から撮った写真(EXIF付き)を読み込むと、撮影時刻の月の位置と経路をその写真の上に描きます。実際の視界で月がどこを通り、何に遮られるかを事前に確かめておけます。</p>
         <ul class="feat"><li>写真に空の座標グリッド — 方位・高度がひと目で</li><li>時刻スライダーで予定の時間帯の月の位置を確認</li><li>EXIFの撮影時刻・焦点距離・位置を読み取ってすぐに合わせる</li><li>カメラの時計が数秒ずれていたら時計補正で直す</li></ul>
       </div>
-      <div class="p-visual">写真確認のスクリーンショット</div>
-    </div>
-    <div class="product flip">
       <div>
         <h3>ARチェック — 撮影当日の最終確認</h3>
         <p class="lead">撮影当日に現場でiPhone・iPadをかざすと、予定した月の経路がリアルタイムのカメラ画面に重なって見えます。月が昇る前に経路を最終確認し、三脚と構図を合わせます。</p>
         <ul class="feat"><li>月（またはISS、天の川の中心）の軌跡を実際の空の上に</li><li>「合わせる」でコンパスの誤差を補正 — 月やターゲットの頂上を十字線に入れて押し、方位を微調整</li><li>時刻スライダーで天体が出ている間全体を見渡す</li><li>iPhone・iPadで動作（カメラが必要なためMacは非対応）</li></ul>
       </div>
-      <div class="p-visual">AR確認のスクリーンショット</div>
     </div>
   </div>
 </section>
