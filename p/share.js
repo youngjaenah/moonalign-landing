@@ -138,6 +138,16 @@
     return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
   }
 
+  /**
+   * '앱에서 열기' 주소 — 같은 도메인 안 링크로는 유니버설 링크·앱 링크가 열리지 않아 앱 스킴을 쓴다. 계획은 쿼리(d)에 — 이 주소는 서버로 가지 않는다.
+   * Android는 intent 주소(앱이 없으면 Chrome이 Play 스토어의 그 패키지로 보낸다), 그 밖은 moonalign://.
+   */
+  function appLink(fragment, platform) {
+    var d = String(fragment || '').replace(/^#/, '');
+    if (platform === 'android') return 'intent://p?d=' + d + '#Intent;scheme=moonalign;package=io.yjlab.moonalign;end';
+    return 'moonalign://p?d=' + d;
+  }
+
   function mapLinks(p) {
     var ll = p.la + ',' + p.lo;
     return {
@@ -148,7 +158,7 @@
 
   var api = {
     parseShareFragment: parseShareFragment, browserInflateRaw: browserInflateRaw,
-    distanceKm: distanceKm, mapLinks: mapLinks, VERSION: VERSION,
+    distanceKm: distanceKm, mapLinks: mapLinks, appLink: appLink, VERSION: VERSION,
   };
   if (typeof module === 'object' && module.exports) { module.exports = api; return; }
   root.MoonShare = api;
@@ -242,6 +252,7 @@
       showClass('row-distance');
     }
     setText('plan-spot', p.s.la.toFixed(5) + ', ' + p.s.lo.toFixed(5));
+    el('open-app').href = appLink(location.hash, order);
     var links = mapLinks(p.s);
     el('open-google').href = links.google;
     el('open-apple').href = links.apple;
