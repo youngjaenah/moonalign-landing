@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<!-- 생성물 — 직접 고치지 말 것. 원본: template.html + strings/<lang>.json + videos.json + Fixtures/demo/steps (spec 009) -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoonAlign — Put the Moon exactly where you planned</title>
+  <meta name="description" content="MoonAlign computes where to stand and when to shoot for moon, sun, ISS, plane and Milky Way alignment photos — then lets you verify in 3D, with a photo, and in AR.">
+  <link rel="canonical" href="https://moonalign.yjlab.io/">
+  <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/">
+  <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/">
+  <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/">
+  <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/">
+  <meta property="og:title" content="MoonAlign — Put the Moon exactly where you planned">
+  <meta property="og:description" content="MoonAlign computes where to stand and when to shoot for moon, sun, ISS, plane and Milky Way alignment photos — then lets you verify in 3D, with a photo, and in AR.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f7f7f5;
+    --ink: #17191d;
+    --ink-dim: #585d66;
+    --ink-faint: #8b9099;
+    --accent: #2d5bd7;
+    --line: #e7e7e4;
+    /* MoonAlign map symbols — the app draws a gold band where the moon rises
+       into alignment and a blue band where it sets. Used only inside app visuals. */
+    --rise: #b8860b;
+    --set: #2d5bd7;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  /* ── header ── */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.98rem; font-weight: 700; letter-spacing: -0.01em;
+    color: var(--ink); text-decoration: none;
+  }
+  .brand .mark { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+  .brand .sub { color: var(--ink-faint); font-weight: 500; }
+  .nav-links { display: flex; align-items: center; gap: 24px; font-size: 0.9rem; }
+  .nav-links a { color: var(--ink-dim); text-decoration: none; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* ── hero ── */
+  .hero { padding: 96px 0 80px; }
+  .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 64px; align-items: center; }
+  @media (max-width: 800px) {
+    .hero { padding: 64px 0 56px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .eyebrow {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .nocaps { text-transform: none; }
+  .hero h1 {
+    font-weight: 700;
+    font-size: clamp(2rem, 4.6vw, 3.1rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 22px;
+    text-wrap: balance;
+  }
+  .hero .lead {
+    font-size: 1.08rem; color: var(--ink-dim); max-width: 50ch; line-height: 1.7; margin-bottom: 26px;
+  }
+
+  .feat { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .feat li {
+    display: flex; gap: 11px; align-items: flex-start;
+    font-size: 0.95rem; color: var(--ink); line-height: 1.55;
+  }
+  .feat li::before {
+    content: "";
+    flex-shrink: 0;
+    width: 16px; height: 16px; margin-top: 3px;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%232d5bd7' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' d='M2.5 8.5l3.5 3.5 7-8'/%3E%3C/svg%3E") no-repeat center / contain;
+  }
+
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 9px; font-size: 0.94rem; font-weight: 600;
+    text-decoration: none; transition: background .2s, border-color .2s;
+  }
+  .btn-primary { background: var(--ink); color: #fff; }
+  .btn-primary:hover { background: #2c2f36; }
+  .btn-ghost { background: var(--bg); color: var(--ink); border: 1px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--ink-faint); background: var(--bg-soft); }
+  .cta-meta { font-size: 0.83rem; color: var(--ink-faint); margin-top: 14px; }
+
+  /* hero visual — the app's alignment geometry, drawn with its own map symbols */
+  .visual {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: linear-gradient(180deg, #fbfbfa, #f2f2ef);
+    overflow: hidden;
+  }
+  .visual svg { display: block; width: 100%; height: auto; }
+  .visual figcaption {
+    font-size: 0.72rem; color: var(--ink-faint); padding: 10px 14px;
+    border-top: 1px solid var(--line); font-variant-numeric: tabular-nums;
+  }
+
+  /* ── sections ── */
+  .section { padding: 72px 0; border-top: 1px solid var(--line); }
+  @media (max-width: 800px) { .section { padding: 56px 0; } }
+  .tag {
+    display: inline-block;
+    font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 16px;
+  }
+  .section h2 {
+    font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.1rem);
+    letter-spacing: -0.025em; margin-bottom: 14px; line-height: 1.2; text-wrap: balance;
+  }
+  .section > .wrap > .lead, .section .sect-lead {
+    font-size: 1.03rem; color: var(--ink-dim); margin-bottom: 36px; line-height: 1.7; max-width: 60ch;
+  }
+
+  /* workflow — a real sequence, so the numbers carry information */
+  .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .stages { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .stages { grid-template-columns: 1fr; } }
+  .stage {
+    border: 1px solid var(--line); border-radius: 14px; padding: 22px;
+    background: var(--bg);
+  }
+  .stage .no {
+    display: inline-block; font-size: 0.78rem; font-weight: 600; color: var(--accent);
+    border: 1px solid var(--line); border-radius: 7px; padding: 2px 8px; margin-bottom: 14px;
+    font-variant-numeric: tabular-nums;
+  }
+  .stage h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .stage .where { font-size: 0.76rem; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .stage p { font-size: 0.92rem; color: var(--ink-dim); line-height: 1.65; }
+
+  /* verify blocks (Photo Check / AR) — product-style two-column rows */
+  .product { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .product + .product { margin-top: 64px; }
+  .product.flip .p-visual { order: -1; }
+  @media (max-width: 800px) {
+    .product { grid-template-columns: 1fr; gap: 32px; }
+    .product.flip .p-visual { order: 0; }
+    .product + .product { margin-top: 48px; }
+  }
+  .product h3 { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .product .lead { font-size: 1rem; color: var(--ink-dim); margin-bottom: 20px; line-height: 1.7; }
+  .p-visual {
+    border: 1px solid var(--line); border-radius: 16px;
+    background: linear-gradient(180deg, #fbfbfa, #f2f2ef);
+    aspect-ratio: 4 / 3;
+    display: grid; place-items: center;
+    color: var(--ink-faint); font-size: 0.8rem;
+  }
+
+  /* modes */
+  .modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 800px) { .modes { grid-template-columns: 1fr; } }
+  .mode { border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .mode h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+  .mode h3 a { color: var(--ink); text-decoration: none; }
+  .mode h3 a:hover { color: var(--accent); }
+  .mode p { font-size: 0.9rem; color: var(--ink-dim); line-height: 1.65; }
+
+  /* how-to flows */
+  .howto { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
+  .howto:first-of-type { margin-top: 8px; }
+  .howto h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+  .howto .k { color: var(--accent); margin-right: 6px; }
+  .howto .h-lead { font-size: 0.95rem; color: var(--ink-dim); margin-bottom: 18px; max-width: 58ch; }
+  ol.flow { counter-reset: n; list-style: none; max-width: 62ch; }
+  ol.flow > li { counter-increment: n; position: relative; padding: 0 0 18px 52px; }
+  ol.flow > li::before {
+    content: counter(n, decimal-leading-zero); position: absolute; left: 0; top: 1px;
+    font-size: 0.78rem; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums;
+    border: 1px solid var(--line); border-radius: 7px; padding: 2px 7px; background: var(--bg-soft);
+  }
+  ol.flow b { font-weight: 600; }
+  ol.flow .d { color: var(--ink-dim); font-size: 0.92rem; display: block; margin-top: 2px; line-height: 1.65; }
+  .note {
+    border-left: 3px solid var(--accent); background: var(--bg-soft);
+    padding: 13px 16px; border-radius: 0 10px 10px 0; font-size: 0.92rem;
+    color: var(--ink-dim); max-width: 62ch; margin-top: 16px; line-height: 1.65;
+  }
+  .note b { color: var(--ink); }
+  .video-slot {
+    margin: 18px 0 22px; aspect-ratio: 16 / 9; max-width: 620px;
+    border: 1px dashed var(--line); border-radius: 12px;
+    display: grid; place-items: center; color: var(--ink-faint); font-size: 0.8rem;
+    background: var(--bg-soft);
+  }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.86em;
+    background: var(--bg-soft); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px;
+  }
+
+  /* pricing table */
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; font-size: 0.93rem; min-width: 520px; width: 100%; }
+  th, td { text-align: left; padding: 12px 18px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th {
+    color: var(--ink-faint); font-weight: 600; font-size: 0.74rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  td { color: var(--ink); } td .m { color: var(--ink-faint); }
+
+  /* FAQ */
+  details { border-top: 1px solid var(--line); max-width: 66ch; }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
+  summary {
+    cursor: pointer; font-weight: 600; font-size: 0.98rem; padding: 16px 0; list-style: none;
+    display: flex; justify-content: space-between; gap: 16px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--ink-faint); font-weight: 500; }
+  details[open] summary::after { content: "−"; }
+  details p { color: var(--ink-dim); font-size: 0.93rem; margin: 0 0 18px; line-height: 1.7; }
+
+  /* ── footer ── */
+  footer { border-top: 1px solid var(--line); padding: 48px 0 40px; }
+  .foot-desc { font-size: 0.9rem; color: var(--ink-dim); max-width: 60ch; margin-bottom: 10px; }
+  .srcs { font-size: 0.78rem; color: var(--ink-faint); line-height: 1.9; margin-bottom: 20px; }
+  .copy { color: var(--ink-faint); font-size: 0.82rem; }
+  .copy a { color: var(--ink-dim); }
+</style>
+<style>
+  /* spec 009 — 언어 스위처·영상·언어 안내 바 */
+  .lang-switch { display: flex; gap: 12px; font-size: 0.84rem; margin-left: 20px; }
+  .lang-switch a { color: var(--ink-dim); text-decoration: none; }
+  .lang-switch a:hover { color: var(--ink); }
+  .lang-switch .lang-on { color: var(--ink); font-weight: 600; }
+  .video { margin: 18px 0 22px; max-width: 620px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
+  .video iframe { width: 100%; height: 100%; border: 0; display: block; }
+  #lang-notice { background: var(--bg-soft); border-bottom: 1px solid var(--line); font-size: 0.88rem;
+    padding: 8px 24px; display: flex; gap: 10px; align-items: center; justify-content: center; }
+  #lang-notice a { color: var(--accent); font-weight: 600; }
+  #lang-notice button { background: none; border: 0; font-size: 1.1rem; color: var(--ink-faint); cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+  <div id="lang-notice" hidden><span id="lang-notice-text"></span>
+  <a id="lang-notice-link" href="#"></a> <button type="button" id="lang-notice-close" aria-label="close">×</button></div>
+<script>
+(function () {
+  try {
+    if (localStorage.getItem("langNoticeDismissed")) return;
+    var l = (navigator.language || "").toLowerCase();
+    var map = { ko: ["ko/", "한국어 페이지 보기"], ja: ["ja/", "日本語ページへ"] };
+    var k = l.slice(0, 2); if (!map[k]) return;
+    var box = document.getElementById("lang-notice"), a = document.getElementById("lang-notice-link");
+    a.href = map[k][0]; a.textContent = map[k][1]; box.hidden = false;
+    document.getElementById("lang-notice-close").onclick = function () {
+      box.hidden = true; try { localStorage.setItem("langNoticeDismissed", "1"); } catch (e) {}
+    };
+  } catch (e) {}
+})();
+</script>
+  <div class="wrap nav">
+    <a class="brand" href=""><span class="mark"></span>YJLAB <span class="sub">/ MoonAlign</span></a>
+    <nav class="nav-links">
+      <a href="#workflow">Workflow</a>
+      <a href="#modes">Modes</a>
+      <a href="#howto">How to</a>
+      <a href="#google-key">Google 3D key</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <span class="lang-switch"><span class="lang-on">English</span> <a href="ko/" hreflang="ko" lang="ko">한국어</a> <a href="ja/" hreflang="ja" lang="ja">日本語</a></span>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac</span> — Photography planner</p>
+      <h1>Put the Moon exactly where you planned.</h1>
+      <p class="lead">The Moon rising behind a tower, the ISS skimming the lunar disk, a person silhouetted in front of the Moon — MoonAlign computes <strong>where to stand and when to shoot</strong>, then lets you verify the frame in 3D, against your own scouting photo, and in AR on site.</p>
+      <ul class="feat">
+        <li>Astronomy-engine accuracy — within 0.002°, terrain included</li>
+        <li>Shooting-spot bands drawn right on the map: gold for rise, blue for set</li>
+        <li>Moon, sun, ISS transits, live plane watch, and the Milky Way</li>
+        <li>Buy once, use on iPhone, iPad, and Mac — projects sync via iCloud</li>
+      </ul>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#appstore-link">Download on the App Store</a>
+        <a class="btn btn-ghost" href="#workflow">See how it works</a>
+      </div>
+      <p class="cta-meta">$9.99 once · overseas 3D by subscription · English, 한국어, 日本語</p>
+    </div>
+    <figure class="visual" aria-label="A sightline from the shooting spot past the target to the rising moon">
+      <svg viewBox="0 0 420 320" role="img" aria-label="A sightline from the shooting spot past the target to the rising moon">
+        <rect width="420" height="320" fill="#fbfbfa"/>
+        <g stroke="#ecece8" stroke-width="1">
+          <path d="M0 80H420M0 160H420M0 240H420M84 0V320M168 0V320M252 0V320M336 0V320"/>
+        </g>
+        <path d="M60 268 Q 200 150 332 84" fill="none" stroke="#b8860b" stroke-width="22" opacity=".18" stroke-linecap="round"/>
+        <path d="M60 268 Q 150 260 240 300" fill="none" stroke="#2d5bd7" stroke-width="22" opacity=".14" stroke-linecap="round"/>
+        <path d="M60 268 L 332 84" stroke="#b8860b" stroke-width="1.6" stroke-dasharray="6 6"/>
+        <g font-family="Inter, sans-serif" font-size="11">
+          <circle cx="60" cy="268" r="7" fill="#2d5bd7"/>
+          <circle cx="60" cy="268" r="12" fill="none" stroke="#2d5bd7" opacity=".45"/>
+          <text x="78" y="288" fill="#8b9099">shooting spot</text>
+          <rect x="196" y="150" width="10" height="46" rx="2" fill="#585d66"/>
+          <text x="180" y="216" fill="#8b9099">target 236 m</text>
+          <circle cx="332" cy="84" r="17" fill="#e8c258"/>
+          <circle cx="326" cy="79" r="4" fill="#fbfbfa" opacity=".5"/>
+          <text x="290" y="56" fill="#b8860b" font-weight="600">moonrise 19:31</text>
+        </g>
+      </svg>
+      <figcaption>az 118.4° · alt 6.2° · 2026-08-29 19:44 (UTC+9)</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section" id="workflow">
+  <div class="wrap">
+    <span class="tag">The workflow</span>
+    <h2>Plan it, prove it, then shoot it.</h2>
+    <p class="lead sect-lead">An alignment shot fails in seconds if anything is off. MoonAlign walks the same four stages photographers already use — and puts numbers behind every one of them.</p>
+    <div class="stages">
+      <div class="stage"><span class="no">1</span><p class="where">At home · any device</p><h3>Plan</h3><p>Pick a target, pick a shooting spot from the alignment band, and get the dates and exact times when the moon lines up.</p></div>
+      <div class="stage"><span class="no">2</span><p class="where">At home · any device</p><h3>Simulate</h3><p>Preview the frame in 3D — terrain, buildings, your lens&#x27;s focal length. Scrub time and watch the moon slide behind the target.</p></div>
+      <div class="stage"><span class="no">3</span><p class="where">Scouting trip · Photo Check</p><h3>Verify with a photo</h3><p>Visit the spot beforehand, take one photo, and MoonAlign draws the planned moon path on top of it — proof against the real scene, not a model.</p></div>
+      <div class="stage"><span class="no">4</span><p class="where">Shoot day · AR Check</p><h3>Aim with AR</h3><p>On site, hold up your iPhone: the planned path is overlaid on the live sky, so you point the camera before the moon ever appears.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="verify">
+  <div class="wrap">
+    <span class="tag">Stages 3 &amp; 4 — verification</span>
+    <h2>Trust it before the sky moves.</h2>
+    <p class="lead sect-lead">Simulation gets you 95% of the way. The last 5% — an unmapped tree line, a crane, a fence — is what Photo Check and AR Check exist for.</p>
+    <div class="product">
+      <div>
+        <h3>Photo Check — proof from your scouting trip</h3>
+        <p class="lead">Load a photo you took at the shooting spot (EXIF intact), and MoonAlign projects the planned date&#x27;s moon path onto it, anchored by the moon or target in the frame and the photo&#x27;s capture time.</p>
+        <ul class="feat"><li>A sky-coordinate grid over your photo — read azimuth and altitude at a glance</li><li>Scrub the time slider to see where the moon sits at any minute of the plan</li><li>Shoot the scouting photo with your actual lens and the framing carries over</li><li>Camera clock off by a few seconds? Enter a clock offset and the path shifts to match</li></ul>
+      </div>
+      <div class="p-visual">Photo Check screenshot</div>
+    </div>
+    <div class="product flip">
+      <div>
+        <h3>AR Check — aim before the moon shows up</h3>
+        <p class="lead">On location, AR Check draws the planned path over the live camera view. You level the tripod and frame the shot minutes early — no guessing which gap in the skyline the moon will use.</p>
+        <ul class="feat"><li>The moon&#x27;s (or ISS&#x27;s, or Milky Way core&#x27;s) track overlaid on the real sky</li><li>One-tap calibration: center the moon — or the target&#x27;s top — on the crosshair</li><li>ISS passes show the visible-to-the-naked-eye section, minute-marked</li><li>Works on iPhone and iPad (needs the camera, so not on Mac)</li></ul>
+      </div>
+      <div class="p-visual">AR Check screenshot</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="modes">
+  <div class="wrap">
+    <span class="tag">Modes</span>
+    <h2>Five subjects, one grammar.</h2>
+    <p class="lead sect-lead">Choose what stands in front of the moon (or sun), and the flow adapts.</p>
+    <div class="modes">
+      <div class="mode"><h3><a href="#howto-structure">Structure</a></h3>
+        <p>Hang the moon behind a tower, bridge, or skyline. Landmarks auto-fill their height.</p></div>
+      <div class="mode"><h3><a href="#howto-person">Person</a></h3>
+        <p>The giant-moon silhouette shot. Alignment bands drawn on the map for a 1.7 m human figure.</p></div>
+      <div class="mode"><h3><a href="#howto-iss">ISS</a></h3>
+        <p>Lunar and solar transits forecast to the second from NASA orbit data — plus visible night passes.</p></div>
+      <div class="mode"><h3><a href="#howto-plane">Plane</a></h3>
+        <p>Planes can&#x27;t be forecast — so MoonAlign watches live traffic and sounds an alert seconds before a transit.</p></div>
+      <div class="mode"><h3>Milky Way</h3>
+        <p>When the galactic core rises, and the best window free of moonlight interference.</p></div>
+      <div class="mode"><h3>Anywhere on Earth</h3>
+        <p>Global terrain data. 3D simulation uses V-World in Korea and Google photorealistic 3D abroad (subscription or your own key).</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="howto">
+  <div class="wrap">
+    <span class="tag">How to</span>
+    <h2>Step by step, per mode.</h2>
+    <p class="lead sect-lead">Each mode has a 1–3 minute tutorial video. The steps below are the video&#x27;s own captions.</p>
+    
+    <div class="howto" id="howto-structure">
+      <h3><span class="k">A</span>Structure — the Moon behind N Seoul Tower</h3>
+      <p class="h-lead">The canonical MoonAlign shot, and the flow every other mode builds on.</p>
+      <div class="video-slot">Tutorial video — coming soon</div>
+      <ol class="flow">
+  <li><b>Plan where and when the Moon will be aligned, then shape the framing you like in the simulation.
+No complex math. Finding the spot and the moment is easy and intuitive.</b>
+    <span class="d">Create a new project and set the subject to &#x27;Structure&#x27;.</span></li>
+  <li><b>Search for the target to put the Moon behind. For major landmarks, the structure height is filled in automatically.</b>
+    <span class="d">Tap the &#x27;Target&#x27; chip below and a crosshair appears. Put the crosshair on the target and tap &#x27;Target here&#x27;.</span></li>
+  <li><b>The yellow band shows where the Moon aligns with the target at moonrise, the blue band at moonset.</b>
+    <span class="d">Zoom in on the band and pick a spot to stand. Somewhere with a clear view ahead, like a riverside, works best. Set this point as the shooting spot. Even within the band, the alignment time and framing vary from spot to spot, so check them in the simulation.</span></li>
+  <li><b>Preview the shot in the simulation before you go.</b>
+    <span class="d">Move the time slider to watch the Moon pass the tower, and check that the framing is what you want.</span></li>
+  <li><b>What happens if you move a little? Let&#x27;s see how the framing changes.</b>
+    <span class="d">Let&#x27;s move the spot. Tap the &#x27;Shooting spot&#x27; chip below and the crosshair appears again. Pan the map to put the crosshair where you want to stand. Tap &#x27;Shooting spot here&#x27; to move the spot. The alignment time and the Moon&#x27;s altitude change with it. Check the framing from the new spot. This time the Moon sits halfway up the tower.</span></li>
+  <li><b>What about other nights? Let&#x27;s find the dates when the Moon aligns from this spot.</b>
+    <span class="d">The app finds the dates when the Moon aligns with the tower from this spot. Each date shows the time, moon age and visibility at a glance. Just pick the night you like. Pick a date and the plan switches to that time.</span></li>
+  <li><b>Check the framing for the chosen date in the simulation.</b>
+    <span class="d">Change the focal length to preview the expected field of view for that lens.</span></li>
+  <li><b>The right time and the right spot, found for you. Your projects sync over iCloud to iPhone, iPad and Mac.</b></li>
+</ol>
+    </div>
+    
+    <div class="howto" id="howto-person">
+      <h3><span class="k">B</span>Person — a silhouette in front of the Moon</h3>
+      <p class="h-lead">Stand far back, zoom long: the person stays small while the moon grows huge.</p>
+      <div class="video-slot">Tutorial video — coming soon</div>
+      <ol class="flow">
+  <li><b>A person standing in front of the Moon. Not a composite: a photo planned for the right spot and the right time.</b>
+    <span class="d">First, find a spot like a ridge where the sky opens up behind the person. That&#x27;s where the Moon can line up. Start a new project.</span></li>
+  <li><b>Switch the subject to &#x27;Person&#x27; and set the ridge where the person will stand as the target.</b></li>
+  <li><b>Switch to the satellite map to look for trees or buildings that might block the view between the person and the photographer. Confirm the actual line of sight on site.</b></li>
+  <li><b>A band of shooting spots appears where the rising or setting Moon lines up with the person.</b></li>
+  <li><b>Lower the camera and more sky shows behind the person, so the Moon lines up more easily. Let&#x27;s switch to a prone shooting height.</b></li>
+  <li><b>Check the framing in the simulation.</b>
+    <span class="d">The Moon moves faster than you&#x27;d think. The overlap is brief, so if it&#x27;s off, the photographer moves, not the person.</span></li>
+  <li><b>At longer focal lengths, it&#x27;s harder to get both the person and the Moon sharp. Whether you can depends on the focal length, the distance and the aperture.</b>
+    <span class="d">Change the aperture and the app shows where to focus, or tells you when a single shot can&#x27;t get both sharp.</span></li>
+  <li><b>The right time and the right spot, found for you. Your projects sync over iCloud to iPhone, iPad and Mac.</b></li>
+</ol>
+    </div>
+    
+    <div class="howto" id="howto-iss">
+      <h3><span class="k">C</span>ISS — a transit across the lunar disk</h3>
+      <p class="h-lead">The whole event lasts about half a second. MoonAlign forecasts it to the second.</p>
+      <div class="video-slot">Tutorial video — coming soon</div>
+      <ol class="flow">
+  <li><b>Predict when the space station will cross the Moon, and photograph it.</b></li>
+  <li><b>With the subject set to &#x27;ISS&#x27;, you can find where a transit will be visible before choosing a shooting spot.</b>
+    <span class="d">Switch to the satellite map and look around Sydney. Transit predictions are searched around the map you&#x27;re viewing.</span></li>
+  <li><b>Tap &#x27;Find transit spots&#x27; and the predicted transit areas for the next 14 days are drawn on the map as bands. Only night transits with the Moon clear of the horizon are listed expanded.</b></li>
+  <li><b>Pick the early-morning transit on September 25, close to full Moon, and the map moves to that band. With the Moon at 41°, terrain is unlikely to block it, but check for trees and buildings on site.</b>
+    <span class="d">Scan along the band for a wide open space. This looks good — tap the &#x27;Shooting spot&#x27; chip and set the crosshair point as the shooting spot.</span></li>
+  <li><b>The band only tells you where. With the spot set, &#x27;Search 14 days&#x27; shows the predicted transit time from here in detail, and whether it crosses the Moon&#x27;s disk.</b></li>
+  <li><b>Pick one and it&#x27;s saved as a project.</b></li>
+  <li><b>In the simulation you can check it in 0.1-second steps. Preview where it crosses the Moon.</b>
+    <span class="d">Even at 800mm, the ISS is only 2% of the Moon&#x27;s diameter — a tiny dot. This transit lasts 0.5 s, which is why you need burst shooting. Move the slider in 0.1-second steps to see where it crosses the disk.</span></li>
+  <li><b>Even when it isn&#x27;t crossing the Moon, it lists the times you can see the station as a bright point crossing the night sky.</b>
+    <span class="d">Pick the 3 a.m. pass on September 16 and that time window becomes the plan. This pass stays low near the horizon, peaking at 14°. The simulation shows the path across the night sky — the bright stretch and the point where it fades into Earth&#x27;s shadow. Switch the focal length to 20mm and the whole sweep across the sky fits in one view. Move the time and follow where the ISS appears and where it disappears.</span></li>
+  <li><b>The ISS orbit is adjusted from time to time, so predicted times can shift. Search again the day before you shoot.</b></li>
+</ol>
+    </div>
+    
+    <div class="howto" id="howto-plane">
+      <h3><span class="k">D</span>Plane — caught live, not forecast</h3>
+      <p class="h-lead">A plane crossing the moon is knowable only seconds ahead. MoonAlign buys you those seconds.</p>
+      <div class="video-slot">Tutorial video — coming soon</div>
+      <ol class="flow">
+  <li><b>You only know a plane will cross the Moon a few seconds ahead. The app buys you those seconds.</b></li>
+  <li><b>Set the subject to &#x27;Plane&#x27; and set the shooting spot.</b></li>
+  <li><b>Start the live watch at the shooting spot. It keeps tracking aircraft in the sky around you.</b></li>
+  <li><b>For aircraft that might cross, it shows the predicted time and how close they&#x27;ll pass to the Moon (separation). The smaller the separation, the higher the grade.</b></li>
+  <li><b>When &#x27;Transit expected&#x27; appears, you get a banner and a sound. A 10-second countdown — that&#x27;s when you fire a burst.</b></li>
+  <li><b>Have an ADS-B receiver? Connect it for 1 s updates with no session limit.</b></li>
+  <li><b>Don&#x27;t wait on a hunch. Let the data tell you.</b></li>
+</ol>
+    </div>
+    
+  </div>
+</section>
+
+<section class="section" id="google-key">
+  <div class="wrap">
+    <span class="tag">Google 3D key</span>
+    <h2>Photorealistic 3D abroad — with a subscription, or your own Google key.</h2>
+    <p class="lead sect-lead">Shooting spots in Korea are fully covered by V-World 3D, no key needed. Outside Korea, a subscription shows photorealistic 3D buildings with no setup. Prefer not to subscribe? Bring your own Google key instead (optional) — it takes priority over the subscription and is mostly free within Google's monthly allowance. Your own key also unlocks the “Google Maps” source on the Plan map; that source is not part of the subscription because 2D map tiles are billed per tile. Here is how to get one.</p>
+    <ol class="flow">
+      <li><b>Sign in to the Google Cloud console.</b>
+        <span class="d"><a href="https://console.cloud.google.com" rel="noopener">console.cloud.google.com</a> — any regular Google account works.</span></li>
+      <li><b>Create a project.</b>
+        <span class="d">Project picker at the top → “New project.” Any name (e.g. <code>moonalign-3d</code>).</span></li>
+      <li><b>Link a billing account.</b>
+        <span class="d">Map APIs require a card on file. You won't be charged within the free monthly allowance, and new accounts get free credits on top.</span></li>
+      <li><b>Enable the Map Tiles API.</b>
+        <span class="d">“APIs &amp; Services → Library,” search <code>Map Tiles API</code>, press Enable. Photorealistic 3D Tiles are part of this API.</span></li>
+      <li><b>Create an API key.</b>
+        <span class="d">“APIs &amp; Services → Credentials → + Create credentials → API key.” Copy the key string.</span></li>
+      <li><b>Restrict the key (recommended).</b>
+        <span class="d">Edit the key → “API restrictions” → allow <code>Map Tiles API</code> only. If the key ever leaks, it can't be used for anything else. Leave “Application restrictions” at “None” — a key restricted to iOS apps won't work in MoonAlign.</span></li>
+      <li><b>Paste it into MoonAlign.</b>
+        <span class="d">Plan screen → gear (Settings) → “Google API key.” It takes effect from the next simulation load.</span></li>
+    </ol>
+    <p class="note">Your key is stored in iCloud Keychain — shared across your own Mac, iPad, and iPhone, sent only to Google, and <b>never to us</b>.</p>
+    <p class="note">Worried about cost? Set a budget alert in the console (“Billing → Budgets &amp; alerts,” e.g. $1/month). Planning use — a few dozen simulations a month — stays within the free allowance. Allowances and pricing are Google's and can change; check their billing page.</p>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="wrap">
+    <span class="tag">Pricing</span>
+    <h2>The app is $9.99, once. Only overseas 3D is a subscription.</h2>
+    <p class="lead sect-lead">The app ($9.99) includes everything — planning, 3D simulation, ISS, planes, the Milky Way, AR, and Photo Check — on iPhone, iPad, and Mac together. Only photorealistic 3D buildings outside Korea are a subscription ($1.99/mo · $11.99/yr), and you can subscribe just for the months you travel. With your own Google key you don&#x27;t need it at all.</p>
+    <div class="table-wrap"><table>
+        <tr><th>App — $9.99 once</th><th>Overseas 3D subscription — $1.99/mo · $11.99/yr</th></tr>
+        <tr><td>Moon &amp; sun alignment planning <span class="m">— structure, person, no subject</span></td><td>Photorealistic 3D buildings outside Korea in Simulation, no key needed</td></tr>
+        <tr><td>Alignment dates up to 90 days ahead</td><td>Subscribe only for the months you travel, cancel anytime</td></tr>
+        <tr><td>ISS transit &amp; pass search · plane live watch &amp; alerts</td><td>Applies on iPhone, iPad, and Mac together</td></tr>
+        <tr><td>Milky Way alignment planning</td><td>Your own Google key gives the same result without subscribing <span class="m">— your key takes priority</span></td></tr>
+        <tr><td>AR Check on site · Photo Check from scouting shots</td><td><span class="m">The Plan map's Google Maps source still needs your own key — not part of the subscription</span></td></tr>
+        <tr><td>3D simulation <span class="m">— V-World with buildings in Korea, terrain abroad</span></td><td></td></tr>
+        <tr><td>Frame capture to file or photo library · projects with iCloud sync</td><td></td></tr>
+      </table></div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <span class="tag">FAQ</span>
+    <h2>Questions we actually get.</h2>
+    <details><summary>How accurate are the celestial positions?</summary><p>Within 0.002°, computed by an astronomy engine — about 1/250 of the moon's apparent diameter. One honest caveat: terrain data is bare ground without trees, so a scene rising over a wooded ridgeline can run about a minute later than shown (tree height raises the real ridge). Building targets aren't affected.</p></details>
+    <details><summary>Why do ISS predictions ask to be re-run?</summary><p>The station adjusts its orbit routinely. Predictions are based on NASA's published orbit data (OEM) and carry a valid-until date — re-running the search the day before your shoot keeps them accurate to the second.</p></details>
+    <details><summary>Where does the live plane data come from?</summary><p>The default feed is adsb.lol community data (ODbL 1.0). If you run your own ADS-B receiver (readsb/dump1090), connect its LAN address for 1-second updates with no session limit.</p></details>
+    <details><summary>Does it work outside Korea?</summary><p>Yes. Alignment math and terrain are global (Copernicus satellite elevation data). For 3D simulation, Korea uses V-World; elsewhere a subscription shows photorealistic 3D buildings, or you can add your own Google key — without either you still get the moon path and terrain.</p></details>
+    <details><summary>Which devices and languages?</summary><p>iPhone, iPad, and Mac (macOS 14+), one purchase for all, projects synced via iCloud. AR Check needs a camera, so it's iPhone/iPad only. Languages: English, Korean, Japanese — following your system setting, or switchable in the app.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-desc"><strong>MoonAlign</strong> — plan moon, sun, ISS, plane, and Milky Way alignment shots. Questions: <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+    <p class="srcs">astronomy: astronomy-engine · terrain: V-World DEM (Korea) · Copernicus DEM · maps &amp; 3D: Apple, V-World (Korea MOLIT), Google · ISS: NASA OEM/TLE · live aircraft: adsb.lol (ODbL 1.0)</p>
+    <p class="copy">© 2026 <a href="">YJLAB</a>. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

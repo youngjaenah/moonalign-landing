@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["9C2P9Z467K.io.yjlab.moonalign"],
+        "components": [
+          { "/": "/p", "#": "*", "comment": "계획 공유 링크(spec 019)" },
+          { "/": "/p/", "#": "*" }
+        ]
+      }
+    ]
+  }
+}

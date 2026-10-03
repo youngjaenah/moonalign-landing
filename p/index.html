@@ -1,0 +1,89 @@
+<!-- 생성물 — 직접 고치지 말 것. 원본: share-template.html + strings/<lang>.json의 share.* (spec 019) -->
+<!DOCTYPE html>
+<!-- 원본(손으로 고치는 곳) — 생성물 p/index.html은 build_landing.py가 만든다. spec 019 contracts/share-page.md -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex">
+  <title>Shared shooting plan — MoonAlign</title>
+  <meta property="og:title" content="MoonAlign shooting plan">
+  <meta property="og:description" content="A plan for the moment the moon or sun lines up with a landmark. Open the link to see it.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+<style>
+  :root { --bg: #ffffff; --card: #f7f7f5; --ink: #17191d; --dim: #585d66; --line: #e7e7e4; --accent: #2d5bd7; --warn: #b26a00; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111317; --card: #1b1e24; --ink: #eceef2; --dim: #9aa0aa; --line: #2b2f37; --accent: #7aa2ff; --warn: #f0b350; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 560px; margin: 0 auto; padding: 24px 16px 40px; }
+  header { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+  header a { color: var(--ink); text-decoration: none; font-weight: 700; font-size: 18px; }
+  .eyebrow { color: var(--dim); font-size: 14px; margin-bottom: 4px; }
+  h1 { font-size: 24px; line-height: 1.3; margin-bottom: 14px; overflow-wrap: anywhere; }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin-bottom: 16px; }
+  dt { color: var(--dim); }
+  dd { overflow-wrap: anywhere; }
+  #map { height: 300px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 10px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+  .btn { display: inline-block; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; background: var(--card); font-size: 15px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .card { background: var(--card); border-radius: 14px; padding: 16px; }
+  .card p { color: var(--dim); font-size: 15px; margin-bottom: 12px; }
+  .msg h2 { font-size: 20px; margin-bottom: 8px; color: var(--warn); }
+  .msg p { color: var(--dim); margin-bottom: 16px; }
+  footer { color: var(--dim); font-size: 13px; margin-top: 28px; }
+</style>
+</head>
+<body>
+<main>
+  <header><a href="/">MoonAlign</a></header>
+
+  <section id="state-ok" hidden>
+    <p class="eyebrow" data-s="heading">Shared plan</p>
+    <h1 id="plan-name"></h1>
+    <dl>
+      <dt data-s="time">Time</dt><dd id="plan-time"></dd>
+      <dt data-s="subject">Subject</dt><dd id="plan-subject"></dd>
+      <dt class="row-target" hidden data-s="target">Target</dt><dd class="row-target" hidden id="plan-target"></dd>
+      <dt data-s="spot">Shooting spot</dt><dd id="plan-spot"></dd>
+      <dt class="row-distance" hidden data-s="distance">To target</dt><dd class="row-distance" hidden id="plan-distance"></dd>
+    </dl>
+    <div id="map" role="img" aria-label="Map of the target and shooting spot"></div>
+    <div class="row">
+      <a class="btn" id="open-google" rel="noopener noreferrer" target="_blank" data-s="open.google">Open in Google Maps</a>
+      <a class="btn" id="open-apple" rel="noopener noreferrer" target="_blank" data-s="open.apple">Open in Apple Maps</a>
+    </div>
+  </section>
+
+  <section id="state-unsupported" class="msg" hidden>
+    <h2 data-s="unsupported.title">A newer version of the app is needed</h2>
+    <p data-s="unsupported.detail">This link was made with a newer version of MoonAlign. Install or update the app, then tap the link again.</p>
+  </section>
+  <section id="state-corrupt" class="msg" hidden>
+    <h2 data-s="corrupt.title">Can&#x27;t open this link</h2>
+    <p data-s="corrupt.detail">The link may have been cut off or altered. Ask the sender to send it again.</p>
+  </section>
+  <section id="state-browser" class="msg" hidden>
+    <h2 data-s="corrupt.title">Can&#x27;t open this link</h2>
+    <p data-s="browser.detail">This browser can&#x27;t open the plan. Update the browser or open the link in the MoonAlign app.</p>
+  </section>
+
+  <div class="card">
+    <p data-s="install.note">With the MoonAlign app you can import this plan as is and check it in the simulation. After installing, tap this link again to import it.</p>
+    <div class="row" id="stores" style="margin-bottom:0">
+      <a class="btn primary" id="store-apple" href="/" data-s="store.apple">Download on the App Store</a>
+      <a class="btn primary" id="store-play" href="https://play.google.com/store/apps/details?id=io.yjlab.moonalign" data-s="store.play">Get it on Google Play</a>
+    </div>
+  </div>
+
+  <footer data-s="footer">The plan lives only inside the link and is not stored on any server. Map © OpenStreetMap contributors.</footer>
+</main>
+<script>window.SHARE_STRINGS = {"en": {"body.gc": "Milky Way", "body.moon": "Moon", "body.sun": "Sun", "browser.detail": "This browser can't open the plan. Update the browser or open the link in the MoonAlign app.", "corrupt.detail": "The link may have been cut off or altered. Ask the sender to send it again.", "corrupt.title": "Can't open this link", "distance": "To target", "footer": "The plan lives only inside the link and is not stored on any server. Map © OpenStreetMap contributors.", "heading": "Shared plan", "install.note": "With the MoonAlign app you can import this plan as is and check it in the simulation. After installing, tap this link again to import it.", "map.aria": "Map of the target and shooting spot", "mode.hu": "Person", "mode.ip": "ISS pass", "mode.is.moon": "ISS lunar transit", "mode.is.sun": "ISS solar transit", "mode.pl": "Plane", "mode.st": "Structure", "og.description": "A plan for the moment the moon or sun lines up with a landmark. Open the link to see it.", "og.title": "MoonAlign shooting plan", "open.apple": "Open in Apple Maps", "open.google": "Open in Google Maps", "page.title": "Shared shooting plan — MoonAlign", "spot": "Shooting spot", "store.apple": "Download on the App Store", "store.play": "Get it on Google Play", "subject": "Subject", "target": "Target", "time": "Time", "unsupported.detail": "This link was made with a newer version of MoonAlign. Install or update the app, then tap the link again.", "unsupported.title": "A newer version of the app is needed"}, "ja": {"body.gc": "天の川", "body.moon": "月", "body.sun": "太陽", "browser.detail": "このブラウザではプランを開けません。ブラウザをアップデートするか、MoonAlignアプリでリンクを開いてください。", "corrupt.detail": "リンクが途中で切れたか、変更された可能性があります。送った人にもう一度送ってもらってください。", "corrupt.title": "このリンクを開けません", "distance": "ターゲットまで", "footer": "プランの内容はリンクの中だけにあり、サーバーには保存されません。地図 © OpenStreetMap contributors.", "heading": "共有されたプラン", "install.note": "MoonAlignアプリがあれば、このプランをそのまま読み込んでシミュレーションで確認できます。インストール後にもう一度このリンクをタップすると読み込めます。", "map.aria": "ターゲットと撮影地の地図", "mode.hu": "人物", "mode.ip": "ISS上空通過", "mode.is.moon": "ISS月面通過", "mode.is.sun": "ISS太陽面通過", "mode.pl": "飛行機", "mode.st": "構造物", "og.description": "月や太陽がランドマークと重なる瞬間の撮影プランです。リンクを開いて内容を確認してください。", "og.title": "MoonAlign 撮影プラン", "open.apple": "Appleマップで開く", "open.google": "Googleマップで開く", "page.title": "共有された撮影プラン — MoonAlign", "spot": "撮影地", "store.apple": "App Storeで入手", "store.play": "Google Playで入手", "subject": "被写体", "target": "ターゲット", "time": "時刻", "unsupported.detail": "このリンクはより新しいバージョンのMoonAlignで作成されました。アプリをインストールまたはアップデートしてから、もう一度リンクをタップしてください。", "unsupported.title": "新しいバージョンのアプリが必要です"}, "ko": {"body.gc": "은하수", "body.moon": "달", "body.sun": "태양", "browser.detail": "이 브라우저에서는 계획을 열 수 없어요. 브라우저를 업데이트하거나 MoonAlign 앱에서 링크를 여세요.", "corrupt.detail": "링크가 잘렸거나 바뀌었을 수 있어요. 보낸 사람에게 다시 보내 달라고 하세요.", "corrupt.title": "이 링크를 열 수 없어요", "distance": "타겟까지", "footer": "계획 내용은 링크 안에만 있고 서버에 저장되지 않아요. 지도 © OpenStreetMap contributors.", "heading": "공유받은 계획", "install.note": "MoonAlign 앱이 있으면 이 계획을 그대로 가져와 시뮬레이션으로 확인할 수 있어요. 설치한 뒤 이 링크를 다시 누르면 가져올 수 있어요.", "map.aria": "타겟과 촬영지 지도", "mode.hu": "사람", "mode.ip": "ISS 밤하늘 지나감", "mode.is.moon": "ISS 달 통과", "mode.is.sun": "ISS 태양면 통과", "mode.pl": "비행기", "mode.st": "구조물", "og.description": "달·해가 랜드마크와 겹치는 순간을 계획한 촬영 계획이에요. 링크를 눌러 내용을 확인하세요.", "og.title": "MoonAlign 촬영 계획", "open.apple": "Apple 지도에서 열기", "open.google": "Google 지도에서 열기", "page.title": "공유받은 촬영 계획 — MoonAlign", "spot": "촬영지", "store.apple": "App Store에서 받기", "store.play": "Google Play에서 받기", "subject": "피사체", "target": "타겟", "time": "시각", "unsupported.detail": "이 링크는 더 새 버전의 MoonAlign에서 만들었어요. 앱을 설치하거나 업데이트한 뒤 링크를 다시 눌러 주세요.", "unsupported.title": "새 버전 앱이 필요해요"}};</script>
+<script src="/vendor/leaflet/leaflet.js"></script>
+<script src="/p/share.js"></script>
+</body>
+</html>
