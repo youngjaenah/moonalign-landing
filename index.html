@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MoonAlign — Put the Moon exactly where you planned</title>
+  <title>MoonAlign — Planning Moon and Sun alignment shots</title>
   <meta name="description" content="MoonAlign computes where to stand and when to shoot for moon, sun, ISS, plane and Milky Way alignment photos — then lets you verify in 3D, with a photo, and in AR.">
   <link rel="canonical" href="https://moonalign.yjlab.io/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/">
-  <meta property="og:title" content="MoonAlign — Put the Moon exactly where you planned">
+  <meta property="og:title" content="MoonAlign — Planning Moon and Sun alignment shots">
   <meta property="og:description" content="MoonAlign computes where to stand and when to shoot for moon, sun, ISS, plane and Milky Way alignment photos — then lets you verify in 3D, with a photo, and in AR.">
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
@@ -221,6 +221,12 @@
     background: var(--bg-soft); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px;
   }
 
+  /* more tools */
+  .tools { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px 32px; margin-top: 24px; }
+  .tools li { font-size: 0.95rem; color: var(--ink-dim); line-height: 1.6; }
+  .tools b { color: var(--ink); }
+  .sect-lead a { color: var(--accent); }
+
   /* pricing table */
   .table-wrap { overflow-x: auto; }
   table { border-collapse: collapse; font-size: 0.93rem; min-width: 520px; width: 100%; }
@@ -304,10 +310,10 @@
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac</span> — Photography planner</p>
-      <h1>Put the Moon exactly where you planned.</h1>
+      <h1>Find the spot and the moment the Moon rises behind the tower.</h1>
       <p class="lead">The Moon rising behind a tower, the ISS skimming the lunar disk, a person silhouetted in front of the Moon — MoonAlign computes <strong>where to stand and when to shoot</strong>, then lets you verify the frame in 3D, against your own scouting photo, and in AR on site.</p>
       <ul class="feat">
-        <li>Astronomy-engine accuracy — within 0.002°, terrain included</li>
+        <li>Calculated with terrain and structure heights</li>
         <li>Shooting-spot bands drawn right on the map: gold for rise, blue for set</li>
         <li>Moon, sun, ISS transits, live plane watch, and the Milky Way</li>
         <li>Buy once, use on iPhone, iPad, and Mac — projects sync via iCloud</li>
@@ -347,11 +353,11 @@
   <div class="wrap">
     <span class="tag">The workflow</span>
     <h2>Plan it, prove it, then shoot it.</h2>
-    <p class="lead sect-lead">An alignment shot fails in seconds if anything is off. MoonAlign walks the same four stages photographers already use — and puts numbers behind every one of them.</p>
+    <p class="lead sect-lead">Plan → Simulation → Photo Check → AR Check: four steps.</p>
     <div class="stages">
-      <div class="stage"><span class="no">1</span><p class="where">At home · any device</p><h3>Plan</h3><p>Pick a target, pick a shooting spot from the alignment band, and get the dates and exact times when the moon lines up.</p></div>
-      <div class="stage"><span class="no">2</span><p class="where">At home · any device</p><h3>Simulate</h3><p>Preview the frame in 3D — terrain, buildings, your lens&#x27;s focal length. Scrub time and watch the moon slide behind the target.</p></div>
-      <div class="stage"><span class="no">3</span><p class="where">Scouting trip · Photo Check</p><h3>Verify with a photo</h3><p>Visit the spot beforehand, take one photo, and MoonAlign draws the planned moon path on top of it — proof against the real scene, not a model.</p></div>
+      <div class="stage"><span class="no">1</span><p class="where">At home · any device</p><h3>Plan</h3><p>Pick a target, pick a shooting spot from the alignment band, and get the dates and times when the Moon lines up.</p></div>
+      <div class="stage"><span class="no">2</span><p class="where">At home · any device</p><h3>Simulate</h3><p>Preview terrain, buildings, and your lens focal length in 3D. Move the time and watch the Moon slide behind the target.</p></div>
+      <div class="stage"><span class="no">3</span><p class="where">Scouting trip · Photo Check</p><h3>Verify with a photo</h3><p>Take one photo from the spot ahead of time, and MoonAlign draws the planned path of the Moon on it.</p></div>
       <div class="stage"><span class="no">4</span><p class="where">Shoot day · AR Check</p><h3>Aim with AR</h3><p>On site, hold up your iPhone: the planned path is overlaid on the live sky, so you point the camera before the moon ever appears.</p></div>
     </div>
   </div>
@@ -360,21 +366,21 @@
 <section class="section" id="verify">
   <div class="wrap">
     <span class="tag">Stages 3 &amp; 4 — verification</span>
-    <h2>Trust it before the sky moves.</h2>
-    <p class="lead sect-lead">Simulation gets you 95% of the way. The last 5% — an unmapped tree line, a crane, a fence — is what Photo Check and AR Check exist for.</p>
+    <h2>Checking again on site</h2>
+    <p class="lead sect-lead">The simulation shows terrain and 3D buildings. Trees, cranes, and fences that aren’t on any map have to be checked on site — that’s what Photo Check and AR Check are for.</p>
     <div class="product">
       <div>
-        <h3>Photo Check — proof from your scouting trip</h3>
-        <p class="lead">Load a photo you took at the shooting spot (EXIF intact), and MoonAlign projects the planned date&#x27;s moon path onto it, anchored by the moon or target in the frame and the photo&#x27;s capture time.</p>
-        <ul class="feat"><li>A sky-coordinate grid over your photo — read azimuth and altitude at a glance</li><li>Scrub the time slider to see where the moon sits at any minute of the plan</li><li>Shoot the scouting photo with your actual lens and the framing carries over</li><li>Camera clock off by a few seconds? Enter a clock offset and the path shifts to match</li></ul>
+        <h3>Photo Check — the path on your scouting photo</h3>
+        <p class="lead">Load a photo taken at the shooting spot (with EXIF) and MoonAlign draws the planned day’s path of the Moon on it. Line up the markers with the Moon or the top of the target in the photo, and the path fits the photo.</p>
+        <ul class="feat"><li>A sky grid over the photo — azimuth and altitude at a glance</li><li>Check the Moon’s position across the planned time with the time slider</li><li>Reads capture time, focal length, and location from EXIF</li><li>Camera clock off by a few seconds? Fix it with the clock offset</li></ul>
       </div>
       <div class="p-visual">Photo Check screenshot</div>
     </div>
     <div class="product flip">
       <div>
         <h3>AR Check — aim before the moon shows up</h3>
-        <p class="lead">On location, AR Check draws the planned path over the live camera view. You level the tripod and frame the shot minutes early — no guessing which gap in the skyline the moon will use.</p>
-        <ul class="feat"><li>The moon&#x27;s (or ISS&#x27;s, or Milky Way core&#x27;s) track overlaid on the real sky</li><li>One-tap calibration: center the moon — or the target&#x27;s top — on the crosshair</li><li>ISS passes show the visible-to-the-naked-eye section, minute-marked</li><li>Works on iPhone and iPad (needs the camera, so not on Mac)</li></ul>
+        <p class="lead">On site, AR Check draws the planned path over the live camera view. Before the Moon rises you can set up the tripod and see which gap in the skyline it will come through.</p>
+        <ul class="feat"><li>The moon&#x27;s (or ISS&#x27;s, or Milky Way core&#x27;s) track overlaid on the real sky</li><li>Correct compass error with Align — put the Moon or the top of the target in the crosshair, then fine-tune</li><li>Scrub through the whole time the body is up with the time slider</li><li>Works on iPhone and iPad (needs the camera, so not on Mac)</li></ul>
       </div>
       <div class="p-visual">AR Check screenshot</div>
     </div>
@@ -384,7 +390,7 @@
 <section class="section" id="modes">
   <div class="wrap">
     <span class="tag">Modes</span>
-    <h2>Five subjects, one grammar.</h2>
+    <h2>Choose what to shoot it with</h2>
     <p class="lead sect-lead">Choose what stands in front of the moon (or sun), and the flow adapts.</p>
     <div class="modes">
       <div class="mode"><h3><a href="#howto-structure">Structure</a></h3>
@@ -396,10 +402,26 @@
       <div class="mode"><h3><a href="#howto-plane">Plane</a></h3>
         <p>Planes can&#x27;t be forecast — so MoonAlign watches live traffic and sounds an alert seconds before a transit.</p></div>
       <div class="mode"><h3>Milky Way</h3>
-        <p>When the galactic core rises, and the best window free of moonlight interference.</p></div>
+        <p>When the galactic core is visible, and the shooting spot’s light pollution (estimated Bortle class).</p></div>
       <div class="mode"><h3>Anywhere on Earth</h3>
         <p>Global terrain data. 3D simulation uses V-World in Korea and Google photorealistic 3D abroad (subscription or your own key).</p></div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="tools">
+  <div class="wrap">
+    <span class="tag">More tools</span>
+    <h2>For before and after the shot</h2>
+    <ul class="tools">
+      <li><b>Sky calendar</b> — full moons and supermoons, lunar and solar eclipses, meteor showers, planet oppositions and conjunctions, and Moon–planet close approaches, at the times they’re visible from your reference location.</li>
+      <li><b>Widgets</b> — Today’s sky · Today’s Moon · Today’s Sun · Next shooting chance, plus Lock Screen widgets.</li>
+      <li><b>Add to Calendar</b> — put plans and sky events in your device’s calendar, with reminders the evening before and an hour before.</li>
+      <li><b>Landmarks</b> — start from landmarks around the world with researched heights; save heights you measured yourself as your own landmarks.</li>
+      <li><b>Moon Exposure Table · Hyperfocal Table</b> — starting ISO by lunar phase, and the target distance that stays sharp when focused on the Moon or stars.</li>
+      <li><b>Share as link</b> — send a plan as a single link; the recipient imports it as is in the app, or sees a summary and map on the web without it.</li>
+      <li><b>Camera auto capture (Sony · Canon)</b> — automatic burst around a plane crossing with a USB-connected camera.</li>
+    </ul>
   </div>
 </section>
 
@@ -407,12 +429,12 @@
   <div class="wrap">
     <span class="tag">How to</span>
     <h2>Step by step, per mode.</h2>
-    <p class="lead sect-lead">Each mode has a 1–3 minute tutorial video. The steps below are the video&#x27;s own captions.</p>
+    <p class="lead sect-lead">The basic flow for each mode. Every screen is explained in detail in the <a href="guide/">user guide</a>.</p>
     
     <div class="howto" id="howto-structure">
       <h3><span class="k">A</span>Structure — the Moon behind N Seoul Tower</h3>
-      <p class="h-lead">The canonical MoonAlign shot, and the flow every other mode builds on.</p>
-      <div class="video-slot">Tutorial video — coming soon</div>
+      <p class="h-lead">The core flow. The other modes follow the same order.</p>
+      
       <ol class="flow">
   <li><b>Plan where and when the Moon will be aligned, then shape the framing you like in the simulation.
 No complex math. Finding the spot and the moment is easy and intuitive.</b>
@@ -436,7 +458,7 @@ No complex math. Finding the spot and the moment is easy and intuitive.</b>
     <div class="howto" id="howto-person">
       <h3><span class="k">B</span>Person — a silhouette in front of the Moon</h3>
       <p class="h-lead">Stand far back, zoom long: the person stays small while the moon grows huge.</p>
-      <div class="video-slot">Tutorial video — coming soon</div>
+      
       <ol class="flow">
   <li><b>A person standing in front of the Moon. Not a composite: a photo planned for the right spot and the right time.</b>
     <span class="d">First, find a spot like a ridge where the sky opens up behind the person. That&#x27;s where the Moon can line up. Start a new project.</span></li>
@@ -454,8 +476,8 @@ No complex math. Finding the spot and the moment is easy and intuitive.</b>
     
     <div class="howto" id="howto-iss">
       <h3><span class="k">C</span>ISS — a transit across the lunar disk</h3>
-      <p class="h-lead">The whole event lasts about half a second. MoonAlign forecasts it to the second.</p>
-      <div class="video-slot">Tutorial video — coming soon</div>
+      <p class="h-lead">The whole event lasts about half a second. MoonAlign forecasts the transit time from NASA orbit data.</p>
+      
       <ol class="flow">
   <li><b>Predict when the space station will cross the Moon, and photograph it.</b></li>
   <li><b>With the subject set to &#x27;ISS&#x27;, you can find where a transit will be visible before choosing a shooting spot.</b>
@@ -475,8 +497,8 @@ No complex math. Finding the spot and the moment is easy and intuitive.</b>
     
     <div class="howto" id="howto-plane">
       <h3><span class="k">D</span>Plane — caught live, not forecast</h3>
-      <p class="h-lead">A plane crossing the moon is knowable only seconds ahead. MoonAlign buys you those seconds.</p>
-      <div class="video-slot">Tutorial video — coming soon</div>
+      <p class="h-lead">A plane crossing the Moon can’t be known in advance. MoonAlign watches live air traffic and sends an alert and countdown seconds before a crossing.</p>
+      
       <ol class="flow">
   <li><b>You only know a plane will cross the Moon a few seconds ahead. The app buys you those seconds.</b></li>
   <li><b>Set the subject to &#x27;Plane&#x27; and set the shooting spot.</b></li>
@@ -530,7 +552,8 @@ No complex math. Finding the spot and the moment is easy and intuitive.</b>
         <tr><td>Milky Way alignment planning</td><td>Your own Google key gives the same result without subscribing <span class="m">— your key takes priority</span></td></tr>
         <tr><td>AR Check on site · Photo Check from scouting shots</td><td><span class="m">The Plan map's Google Maps source still needs your own key — not part of the subscription</span></td></tr>
         <tr><td>3D simulation <span class="m">— V-World with buildings in Korea, terrain abroad</span></td><td></td></tr>
-        <tr><td>Frame capture to file or photo library · projects with iCloud sync</td><td></td></tr>
+        <tr><td>Save image to file or photo library · projects with iCloud sync</td><td></td></tr>
+        <tr><td>Sky calendar, widgets, Add to Calendar · landmarks · Moon Exposure and Hyperfocal tables · share as link</td><td></td></tr>
       </table></div>
   </div>
 </section>
@@ -538,12 +561,12 @@ No complex math. Finding the spot and the moment is easy and intuitive.</b>
 <section class="section" id="faq">
   <div class="wrap">
     <span class="tag">FAQ</span>
-    <h2>Questions we actually get.</h2>
-    <details><summary>How accurate are the celestial positions?</summary><p>Within 0.002°, computed by an astronomy engine — about 1/250 of the moon's apparent diameter. One honest caveat: terrain data is bare ground without trees, so a scene rising over a wooded ridgeline can run about a minute later than shown (tree height raises the real ridge). Building targets aren't affected.</p></details>
-    <details><summary>Why do ISS predictions ask to be re-run?</summary><p>The station adjusts its orbit routinely. Predictions are based on NASA's published orbit data (OEM) and carry a valid-until date — re-running the search the day before your shoot keeps them accurate to the second.</p></details>
-    <details><summary>Where does the live plane data come from?</summary><p>The default feed is adsb.lol community data (ODbL 1.0). If you run your own ADS-B receiver (readsb/dump1090), connect its LAN address for 1-second updates with no session limit.</p></details>
-    <details><summary>Does it work outside Korea?</summary><p>Yes. Alignment math and terrain are global (Copernicus satellite elevation data). For 3D simulation, Korea uses V-World; elsewhere a subscription shows photorealistic 3D buildings, or you can add your own Google key — without either you still get the moon path and terrain.</p></details>
-    <details><summary>Which devices and languages?</summary><p>iPhone, iPad, and Mac (macOS 14+), one purchase for all, projects synced via iCloud. AR Check needs a camera, so it's iPhone/iPad only. Languages: English, Korean, Japanese — following your system setting, or switchable in the app.</p></details>
+    <h2>Frequently asked questions</h2>
+    <details><summary>How accurate is it?</summary><p>The error in computing the Moon’s or Sun’s position itself is tiny. Most of the error in a real result comes from terrain data and the heights you enter. Terrain data can be off by meters to tens of meters depending on the place, so a scene rising over a wooded ridge can come later than shown, and in narrow cases such as person mode a few meters can change the result. For an important shot, check again with the simulation and with Photo Check and AR Check on site.</p></details>
+    <details><summary>Why does it ask me to search the ISS again?</summary><p>The station adjusts its orbit from time to time. Forecasts use NASA’s published orbit data (OEM), and each data set has a validity period. A forecast is only right when recalculated with fresh orbit data, so search again the day before you shoot.</p></details>
+    <details><summary>Where does the live plane data come from?</summary><p>By default, adsb.lol community data (ODbL 1.0), updated every 30 seconds and stopping automatically after 2 hours. If you run your own ADS-B receiver (readsb/dump1090), enter its LAN address for 1-second updates with no time limit.</p></details>
+    <details><summary>Does it work outside Korea?</summary><p>Yes. Alignment calculations and terrain cover the whole world (Copernicus terrain data). The 3D simulation uses V-World in Korea; elsewhere it shows photorealistic 3D buildings with the subscription or your own Google key. Without either, you still see the Moon’s path and the terrain.</p></details>
+    <details><summary>Which devices and languages are supported?</summary><p>iPhone, iPad, and Mac (macOS 14 or later), all with one purchase. Projects sync through iCloud. AR Check needs a camera, so it’s iPhone and iPad only. Languages: English, Korean, and Japanese — follow the system setting or change it in the app.</p></details>
   </div>
 </section>
 
@@ -552,7 +575,7 @@ No complex math. Finding the spot and the moment is easy and intuitive.</b>
 <footer>
   <div class="wrap">
     <p class="foot-desc"><strong>MoonAlign</strong> — plan moon, sun, ISS, plane, and Milky Way alignment shots. Questions: <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
-    <p class="srcs">astronomy: astronomy-engine · terrain: V-World DEM (Korea) · Copernicus DEM · maps &amp; 3D: Apple, V-World (Korea MOLIT), Google · ISS: NASA OEM/TLE · live aircraft: adsb.lol (ODbL 1.0)</p>
+    <p class="srcs">Maps: Apple Maps · V-World (Korea MOLIT, KOGL Type 1) · Google Maps (your key) · Ground elevation: V-World 3D terrain (Korea) · Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018, provided under the Copernicus programme (EU, ESA) · Light pollution: EOG VIIRS night lights (VNL V2), estimated by the app from the OpenGeoHub redistribution (CC BY 4.0) · ISS orbit: NASA OEM · CelesTrak TLE · Air traffic: adsb.lol (ODbL 1.0) · Geoid: EGM96 (NGA) · 3D simulation: V-World · Google Photorealistic 3D Tiles · Weather: Apple Weather · Astronomy: astronomy-engine</p>
     <p class="copy">© 2026 <a href="">YJLAB</a>. All rights reserved.</p>
   </div>
 </footer>
