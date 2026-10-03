@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoonAlign — 月・太陽の重なり撮影プランナー</title>
-  <meta name="description" content="MoonAlignは月・太陽・ISS・飛行機・天の川を重ねる写真のために「どこで・いつ撮るか」を計算し、3D・写真・ARで確かめられる撮影計画アプリです。">
+  <meta name="description" content="撮りたいターゲットと日付を選ぶと、月が重なる撮影位置を地図に示す撮影計画アプリ。3Dシミュレーションで構図を探し、下見写真と撮影当日のARで現場で確かめます。ISS通過の予報と飛行機のリアルタイム通知も。">
   <link rel="canonical" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/">
   <meta property="og:title" content="MoonAlign — 月・太陽の重なり撮影プランナー">
-  <meta property="og:description" content="MoonAlignは月・太陽・ISS・飛行機・天の川を重ねる写真のために「どこで・いつ撮るか」を計算し、3D・写真・ARで確かめられる撮影計画アプリです。">
+  <meta property="og:description" content="撮りたいターゲットと日付を選ぶと、月が重なる撮影位置を地図に示す撮影計画アプリ。3Dシミュレーションで構図を探し、下見写真と撮影当日のARで現場で確かめます。ISS通過の予報と飛行機のリアルタイム通知も。">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -294,13 +294,13 @@
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac</span> — 撮影計画アプリ</p>
-      <h1>月がタワーの後ろに昇る、その場所とその時刻を見つけます。</h1>
-      <p class="lead">塔の後ろに昇る月、月面をかすめるISS、月の前に立つ人のシルエット — MoonAlignは<strong>どこに立ち、いつ撮るか</strong>を計算し、3D・ロケハン写真・現地ARでその構図を確かめさせてくれます。</p>
+      <h1>ターゲットと日付を選べば、立つ場所がわかります。</h1>
+      <p class="lead">タワーの後ろに昇る月、月の前に立つ人、月の前を横切るISSや飛行機。角度・高さ・距離を自分で計算しなくても、撮りたいターゲットと日付を選べばMoonAlignが<strong>立つべき場所</strong>を地図に描きます。場所を動かしながら3Dシミュレーションで構図を探し、下見と撮影当日はiPhoneで現場で確かめます。</p>
       <ul class="feat">
-        <li>地形と構造物の高さまで含めて計算</li>
-        <li>撮影地の帯を地図上に直接 — 昇るときは金色、沈むときは青</li>
-        <li>月・太陽・ISS通過・飛行機ライブ監視・天の川</li>
-        <li>一度買えばiPhone・iPad・Macで — プロジェクトはiCloudで同期</li>
+        <li>ターゲットと日付を選ぶと撮影位置が地図に — 昇るときは黄色、沈むときは青の帯</li>
+        <li>場所を動かしながら3Dシミュレーションで構図を探す</li>
+        <li>ISS通過の時刻は事前に計算、月の前を横切る飛行機はリアルタイム通知</li>
+        <li>一度買えばMac・iPhone・iPadで — Macで作ったプランをiPhoneでそのまま</li>
       </ul>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#appstore-link">App Storeでダウンロード</a>
@@ -337,33 +337,46 @@
   <div class="wrap">
     <span class="tag">ワークフロー</span>
     <h2>計画し、確かめ、撮る。</h2>
-    <p class="lead sect-lead">計画 → シミュレーション → 写真チェック → ARチェック、4つのステップで使います。</p>
+    <p class="lead sect-lead">家で計画し、下見で確かめ、撮影当日に現場で最終確認します。</p>
     <div class="stages">
-      <div class="stage"><span class="no">1</span><p class="where">自宅で · どの端末でも</p><h3>計画</h3><p>ターゲットを選び、重なる帯から撮影地を選ぶと、月が重なる日付と時刻が出ます。</p></div>
-      <div class="stage"><span class="no">2</span><p class="where">自宅で · どの端末でも</p><h3>シミュレーション</h3><p>地形・建物・レンズの焦点距離まで3Dで事前に確認します。時刻を動かすと月がターゲットの後ろに入っていく様子が見えます。</p></div>
-      <div class="stage"><span class="no">3</span><p class="where">ロケハン · 写真確認</p><h3>写真で確かめる</h3><p>事前にその場所で写真を1枚撮ると、MoonAlignがその上に予定した月の経路を描きます。</p></div>
-      <div class="stage"><span class="no">4</span><p class="where">撮影当日 · AR確認</p><h3>ARで狙う</h3><p>現地でiPhoneをかざすと、計画した経路が実際の空に重なって見え、月が出る前にカメラを向けられます。</p></div>
+      <div class="stage"><span class="no">1</span><p class="where">家で・Macが便利</p><h3>計画</h3><p>撮りたいターゲットと日付を選ぶと、そのターゲットに月が重なる撮影位置が地図に帯で出ます。角度・高さ・距離はアプリが計算します。</p></div>
+      <div class="stage"><span class="no">2</span><p class="where">家で</p><h3>シミュレーション</h3><p>帯の上で場所を動かしながら3Dで構図を見ます。地形・建物・レンズの焦点距離まで反映され、時刻を動かすと月がターゲットの後ろに入る様子が見えます。</p></div>
+      <div class="stage"><span class="no">3</span><p class="where">下見・iPhone</p><h3>写真チェック</h3><p>事前に撮影地で写真を1枚撮っておくと、その写真の上に撮影時刻の月の位置と経路を描きます。実際の視界で木や建物が遮らないか確かめます。</p></div>
+      <div class="stage"><span class="no">4</span><p class="where">撮影当日・iPhone</p><h3>ARチェック</h3><p>現場でiPhoneを空にかざすと、月が通る経路が画面に重なって見えます。月が昇る前に最終確認し、カメラを合わせます。</p></div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="devices">
+  <div class="wrap">
+    <span class="tag">Mac・iPhone・iPad</span>
+    <h2>Macで計画し、iPhoneで現場へ。</h2>
+    <p class="lead sect-lead">同じApple Accountで一度買えば、Mac・iPhone・iPadのすべてで使えます。</p>
+    <ul class="tools">
+      <li><b>Mac</b> — 広い画面で地図と3Dシミュレーションを大きく見ながらプランを作ります。</li>
+      <li><b>iCloud</b> — 作ったプロジェクトがそのままiPhone・iPadに移ります。書き出しや移動は不要です。</li>
+      <li><b>iPhone・iPad</b> — 同じプランで、下見では写真チェック、撮影当日はARチェック。</li>
+    </ul>
   </div>
 </section>
 
 <section class="section" id="verify">
   <div class="wrap">
-    <span class="tag">3・4段階 — 検証</span>
+    <span class="tag">下見と撮影当日</span>
     <h2>現場でもう一度確かめる</h2>
-    <p class="lead sect-lead">シミュレーションは地形と3D建物まで見せます。地図にない木・クレーン・フェンスは現場で確かめる必要があり、そのために写真チェックとARチェックがあります。</p>
+    <p class="lead sect-lead">シミュレーションは地形と3D建物まで見せますが、地図にない木・クレーン・フェンスは現場で確かめる必要があります。下見では写真チェック、撮影当日はARチェックを使います。</p>
     <div class="product">
       <div>
-        <h3>写真チェック — 下見写真に経路を描く</h3>
-        <p class="lead">撮影地で撮った写真(EXIF付き)を読み込むと、予定日の月の経路をその上に描きます。写真の月やターゲットの頂上に印を合わせると、経路が写真に合います。</p>
+        <h3>写真チェック — 下見で視界を確かめる</h3>
+        <p class="lead">下見で撮影地から撮った写真(EXIF付き)を読み込むと、撮影時刻の月の位置と経路をその写真の上に描きます。実際の視界で月がどこを通り、何に遮られるかを事前に確かめておけます。</p>
         <ul class="feat"><li>写真に空の座標グリッド — 方位・高度がひと目で</li><li>時刻スライダーで予定の時間帯の月の位置を確認</li><li>EXIFの撮影時刻・焦点距離・位置を読み取ってすぐに合わせる</li><li>カメラの時計が数秒ずれていたら時計補正で直す</li></ul>
       </div>
       <div class="p-visual">写真確認のスクリーンショット</div>
     </div>
     <div class="product flip">
       <div>
-        <h3>AR確認 — 月が出る前に狙う</h3>
-        <p class="lead">現場ではARチェックが予定の経路をリアルタイムのカメラ画面の上に描きます。月が昇る前に三脚を据え、スカイラインのどの隙間から月が出るかを事前に確かめられます。</p>
+        <h3>ARチェック — 撮影当日の最終確認</h3>
+        <p class="lead">撮影当日に現場でiPhone・iPadをかざすと、予定した月の経路がリアルタイムのカメラ画面に重なって見えます。月が昇る前に経路を最終確認し、三脚と構図を合わせます。</p>
         <ul class="feat"><li>月（またはISS、天の川の中心）の軌跡を実際の空の上に</li><li>「合わせる」でコンパスの誤差を補正 — 月やターゲットの頂上を十字線に入れて押し、方位を微調整</li><li>時刻スライダーで天体が出ている間全体を見渡す</li><li>iPhone・iPadで動作（カメラが必要なためMacは非対応）</li></ul>
       </div>
       <div class="p-visual">AR確認のスクリーンショット</div>
@@ -382,9 +395,9 @@
       <div class="mode"><h3><a href="#howto-person">人</a></h3>
         <p>巨大な月の前のシルエット写真。身長1.7 mの人を基準に重なる帯を地図に示します。</p></div>
       <div class="mode"><h3><a href="#howto-iss">ISS</a></h3>
-        <p>NASAの軌道データから月面・太陽面通過を秒単位で予報 — 夜空を横切るパスも。</p></div>
+        <p>NASAの軌道データから月・太陽の前を通過する瞬間を事前に計算し、通過時刻を秒単位で知らせます。撮影の前日にもう一度検索してください。</p></div>
       <div class="mode"><h3><a href="#howto-plane">飛行機</a></h3>
-        <p>飛行機は予報できません — だからライブの航跡を監視し、通過の数秒前に知らせます。</p></div>
+        <p>飛行機は事前に計算できないので、リアルタイムの航跡を監視し、月の前を通る数秒前に通知とカウントダウンを送ります。瞬間を逃さないよう連写の準備ができます。</p></div>
       <div class="mode"><h3>天の川</h3>
         <p>天の川のコアが見える時間と、撮影地の光害(推定ボートル等級)。</p></div>
       <div class="mode"><h3>地球上どこでも</h3>
@@ -460,7 +473,7 @@
     
     <div class="howto" id="howto-iss">
       <h3><span class="k">C</span>ISS — 月面通過</h3>
-      <p class="h-lead">現象全体は約0.5秒。NASAの軌道データから通過時刻を予報します。</p>
+      <p class="h-lead">現象全体は約0.5秒。NASAの軌道データから通過時刻を事前に計算しておきます。</p>
       
       <ol class="flow">
   <li><b>宇宙ステーションが月の前を横切る時刻を予測して撮影できます。</b></li>

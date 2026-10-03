@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoonAlign — 달·해 정렬 사진 촬영 계획</title>
-  <meta name="description" content="MoonAlign은 달·해·ISS·비행기·은하수 정렬 사진을 위해 어디서, 언제 찍을지 계산하고 3D·사진·AR로 확인하게 해 주는 촬영 계획 앱입니다.">
+  <meta name="description" content="찍고 싶은 타겟과 날짜를 고르면 달이 걸리는 촬영 위치를 지도에 보여 주는 촬영 계획 앱. 3D 시뮬레이션으로 구도를 찾고, 답사 사진과 촬영 당일 AR로 현장에서 확인합니다. ISS 통과 예보와 비행기 실시간 알림까지.">
   <link rel="canonical" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/">
   <meta property="og:title" content="MoonAlign — 달·해 정렬 사진 촬영 계획">
-  <meta property="og:description" content="MoonAlign은 달·해·ISS·비행기·은하수 정렬 사진을 위해 어디서, 언제 찍을지 계산하고 3D·사진·AR로 확인하게 해 주는 촬영 계획 앱입니다.">
+  <meta property="og:description" content="찍고 싶은 타겟과 날짜를 고르면 달이 걸리는 촬영 위치를 지도에 보여 주는 촬영 계획 앱. 3D 시뮬레이션으로 구도를 찾고, 답사 사진과 촬영 당일 AR로 현장에서 확인합니다. ISS 통과 예보와 비행기 실시간 알림까지.">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -294,13 +294,13 @@
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac</span> — 촬영 계획 앱</p>
-      <h1>달이 타워 뒤로 뜨는 그 자리와 그 시각을 찾습니다.</h1>
-      <p class="lead">타워 뒤로 떠오르는 달, 달 원반을 스치는 ISS, 달 앞에 선 사람 실루엣 — MoonAlign은 <strong>어디에 서서 언제 찍을지</strong> 계산하고, 3D·답사 사진·현장 AR로 그 구도를 확인하게 해 줍니다.</p>
+      <h1>타겟과 날짜만 고르면, 설 자리가 나옵니다.</h1>
+      <p class="lead">타워 뒤로 떠오르는 달, 달 앞에 선 사람, 달 앞을 지나는 ISS와 비행기. 각도·높이·거리를 직접 계산하지 않아도, 찍고 싶은 타겟과 날짜를 고르면 MoonAlign이 <strong>서야 할 위치</strong>를 지도에 그려 줍니다. 위치를 옮겨 가며 3D 시뮬레이션으로 구도를 찾고, 답사와 촬영 당일에는 iPhone으로 현장에서 확인합니다.</p>
       <ul class="feat">
-        <li>지형과 구조물 높이까지 넣어 계산</li>
-        <li>촬영지 띠를 지도 위에 바로 — 뜰 때는 노란색, 질 때는 파란색</li>
-        <li>달·해·ISS 통과·비행기 라이브 감시·은하수</li>
-        <li>한 번 사면 iPhone·iPad·Mac에서 — 프로젝트는 iCloud로 동기화</li>
+        <li>타겟과 날짜만 고르면 촬영 위치가 지도에 — 뜰 때는 노란 띠, 질 때는 파란 띠</li>
+        <li>위치를 옮겨 가며 3D 시뮬레이션으로 구도 찾기</li>
+        <li>ISS 통과 시점은 미리 계산, 달 앞을 지나는 비행기는 실시간 알림</li>
+        <li>한 번 사면 Mac·iPhone·iPad에서 — Mac에서 만든 계획을 iPhone에서 그대로</li>
       </ul>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#appstore-link">App Store에서 받기</a>
@@ -337,33 +337,46 @@
   <div class="wrap">
     <span class="tag">워크플로</span>
     <h2>계획하고, 확인하고, 찍는다.</h2>
-    <p class="lead sect-lead">계획 → 시뮬레이션 → 사진 확인 → AR 확인, 네 단계로 씁니다.</p>
+    <p class="lead sect-lead">집에서 계획하고, 사전 답사에서 확인하고, 촬영 당일 현장에서 마지막으로 맞춥니다.</p>
     <div class="stages">
-      <div class="stage"><span class="no">1</span><p class="where">집에서 · 어느 기기든</p><h3>계획</h3><p>타겟을 고르고, 정렬 띠에서 촬영지를 고르면 달이 겹치는 날짜와 시각이 나옵니다.</p></div>
-      <div class="stage"><span class="no">2</span><p class="where">집에서 · 어느 기기든</p><h3>시뮬레이션</h3><p>지형·건물·렌즈 초점거리까지 3D로 미리 봅니다. 시각을 움직이면 달이 타겟 뒤로 들어가는 모습이 보입니다.</p></div>
-      <div class="stage"><span class="no">3</span><p class="where">답사 · 사진 확인</p><h3>사진으로 확인</h3><p>미리 그 자리에 가서 사진 한 장을 찍으면, MoonAlign이 그 위에 계획한 달 경로를 그립니다.</p></div>
-      <div class="stage"><span class="no">4</span><p class="where">촬영일 · AR 확인</p><h3>AR로 조준</h3><p>현장에서 iPhone을 들면 계획한 경로가 실제 하늘 위에 겹쳐 보여, 달이 뜨기 전에 카메라를 맞출 수 있습니다.</p></div>
+      <div class="stage"><span class="no">1</span><p class="where">집에서 · Mac이 편해요</p><h3>계획</h3><p>찍고 싶은 타겟과 날짜를 고르면, 그 타겟에 달이 걸리는 촬영 위치가 지도에 띠로 나옵니다. 각도·높이·거리는 앱이 계산합니다.</p></div>
+      <div class="stage"><span class="no">2</span><p class="where">집에서</p><h3>시뮬레이션</h3><p>띠 위에서 위치를 옮겨 가며 3D로 구도를 봅니다. 지형·건물·렌즈 초점거리까지 반영되고, 시각을 움직이면 달이 타겟 뒤로 들어가는 모습이 보입니다.</p></div>
+      <div class="stage"><span class="no">3</span><p class="where">사전 답사 · iPhone</p><h3>사진 확인</h3><p>촬영지에 미리 가서 사진 한 장을 찍어 두면, 그 사진 위에 촬영 시각의 달 위치와 경로를 그립니다. 실제 시야에서 나무나 건물이 가리지 않는지 확인합니다.</p></div>
+      <div class="stage"><span class="no">4</span><p class="where">촬영 당일 · iPhone</p><h3>AR 확인</h3><p>현장에서 iPhone을 하늘로 들면 달이 지나갈 경로가 화면 위에 겹쳐 보입니다. 달이 뜨기 전에 최종 확인하고 카메라를 맞춥니다.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="devices">
+  <div class="wrap">
+    <span class="tag">Mac · iPhone · iPad</span>
+    <h2>Mac에서 계획하고, iPhone으로 현장에.</h2>
+    <p class="lead sect-lead">같은 Apple 계정으로 한 번만 사면 Mac·iPhone·iPad에서 모두 씁니다.</p>
+    <ul class="tools">
+      <li><b>Mac</b> — 넓은 화면에서 지도와 3D 시뮬레이션을 크게 보며 계획을 만듭니다.</li>
+      <li><b>iCloud</b> — 만든 프로젝트가 그대로 iPhone·iPad로 넘어갑니다. 따로 내보내거나 옮길 필요가 없습니다.</li>
+      <li><b>iPhone · iPad</b> — 같은 계획으로 사전 답사에서 사진 확인, 촬영 당일 AR 확인.</li>
+    </ul>
   </div>
 </section>
 
 <section class="section" id="verify">
   <div class="wrap">
-    <span class="tag">3·4단계 — 검증</span>
+    <span class="tag">사전 답사와 촬영 당일</span>
     <h2>현장에서 다시 확인하기</h2>
-    <p class="lead sect-lead">시뮬레이션은 지형과 3D 건물까지 보여 줍니다. 지도에 없는 나무·크레인·울타리는 현장에서 확인해야 하고, 그때 쓰는 것이 사진 확인과 AR 확인입니다.</p>
+    <p class="lead sect-lead">시뮬레이션은 지형과 3D 건물까지 보여 주지만, 지도에 없는 나무·크레인·울타리는 현장에서 확인해야 합니다. 사전 답사에는 사진 확인, 촬영 당일에는 AR 확인을 씁니다.</p>
     <div class="product">
       <div>
-        <h3>사진 확인 — 답사 사진 위에 경로 그리기</h3>
-        <p class="lead">촬영지에서 찍은 사진(EXIF 포함)을 불러오면, 계획한 날의 달 경로를 그 위에 그립니다. 사진 속 달이나 타겟 꼭대기에 표식을 맞추면 경로가 사진에 맞춰집니다.</p>
+        <h3>사진 확인 — 사전 답사에서 시야 확인</h3>
+        <p class="lead">답사 때 촬영지에서 찍은 사진(EXIF 포함)을 불러오면, 촬영 시각의 달 위치와 경로를 그 사진 위에 그립니다. 실제 시야에서 달이 어디로 지나가는지, 무엇에 가리는지 미리 확인해 둘 수 있습니다.</p>
         <ul class="feat"><li>사진 위 하늘 좌표 격자 — 방위·고도를 한눈에</li><li>시각 슬라이더로 계획한 시간대의 달 위치 확인</li><li>EXIF의 촬영 시각·초점거리·위치를 읽어 바로 맞춤</li><li>카메라 시계가 몇 초 틀렸다면 시계 보정에 넣어 바로잡기</li></ul>
       </div>
       <div class="p-visual">사진 확인 스크린샷</div>
     </div>
     <div class="product flip">
       <div>
-        <h3>AR 확인 — 달이 뜨기 전에 조준</h3>
-        <p class="lead">현장에서 AR 확인은 계획한 경로를 실시간 카메라 화면 위에 그립니다. 달이 뜨기 전에 삼각대를 놓고, 스카이라인의 어느 틈으로 달이 나올지 미리 확인할 수 있습니다.</p>
+        <h3>AR 확인 — 촬영 당일 최종 확인</h3>
+        <p class="lead">촬영 당일 현장에서 iPhone·iPad를 들면, 계획한 달의 경로가 실시간 카메라 화면 위에 겹쳐 보입니다. 달이 뜨기 전에 경로를 최종 확인하고 삼각대와 구도를 맞춥니다.</p>
         <ul class="feat"><li>달(또는 ISS, 은하수 코어)의 궤적을 실제 하늘 위에</li><li>‘맞추기’로 나침반 오차 보정 — 달이나 타겟 꼭대기를 십자선에 두고 누른 뒤 방위 미세 조절</li><li>시각 슬라이더로 천체가 떠 있는 동안 전체를 훑어보기</li><li>iPhone·iPad에서 동작 (카메라가 필요해 Mac은 제외)</li></ul>
       </div>
       <div class="p-visual">AR 확인 스크린샷</div>
@@ -382,9 +395,9 @@
       <div class="mode"><h3><a href="#howto-person">사람</a></h3>
         <p>거대한 달 앞 실루엣 사진. 1.7 m 사람 기준으로 정렬 띠를 지도에 그려 줍니다.</p></div>
       <div class="mode"><h3><a href="#howto-iss">ISS</a></h3>
-        <p>NASA 궤도 자료로 달·태양면 통과를 초 단위로 예보 — 밤하늘 지나감까지.</p></div>
+        <p>NASA 궤도 자료로 달·태양 앞을 지나는 순간을 미리 계산해, 통과 시각을 초 단위로 알려 줍니다. 촬영 전날 다시 탐색하세요.</p></div>
       <div class="mode"><h3><a href="#howto-plane">비행기</a></h3>
-        <p>비행기는 예보가 안 됩니다 — 그래서 라이브 항적을 감시하다 통과 몇 초 전에 알려 줍니다.</p></div>
+        <p>비행기는 미리 계산할 수 없어서, 실시간 항적을 감시하다 달 앞을 지나기 몇 초 전에 알림과 카운트다운을 보냅니다. 순간을 놓치지 않게 연사를 준비할 수 있습니다.</p></div>
       <div class="mode"><h3>은하수</h3>
         <p>은하수 코어가 보이는 시간과 촬영지의 광해(추정 Bortle 등급).</p></div>
       <div class="mode"><h3>지구 어디서나</h3>
@@ -460,7 +473,7 @@
     
     <div class="howto" id="howto-iss">
       <h3><span class="k">C</span>ISS — 달 원반 통과</h3>
-      <p class="h-lead">전체 이벤트는 약 0.5초. NASA 궤도 자료로 통과 시각을 예보합니다.</p>
+      <p class="h-lead">전체 이벤트는 약 0.5초. NASA 궤도 자료로 통과 시각을 미리 계산해 둡니다.</p>
       
       <ol class="flow">
   <li><b>우주정거장이 달 앞을 지나는 시간을 예측하고 촬영할 수 있습니다.</b></li>
