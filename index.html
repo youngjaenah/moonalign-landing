@@ -69,7 +69,7 @@
 
   /* ── hero ── */
   .hero { padding: 96px 0 80px; }
-  .hero-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 64px; align-items: center; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center; }
   @media (max-width: 800px) {
     .hero { padding: 64px 0 56px; }
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -115,14 +115,14 @@
   .btn-ghost:hover { border-color: var(--ink-faint); background: var(--bg-soft); }
   .cta-meta { font-size: 0.83rem; color: var(--ink-faint); margin-top: 14px; }
 
-  /* hero visual — the app's alignment geometry, drawn with its own map symbols */
+  /* hero visual — 앱 실제 화면(Mac 시뮬레이션) */
   .visual {
     border: 1px solid var(--line);
     border-radius: 16px;
     background: linear-gradient(180deg, #fbfbfa, #f2f2ef);
     overflow: hidden;
   }
-  .visual svg { display: block; width: 100%; height: auto; }
+  .visual svg, .visual img { display: block; width: 100%; height: auto; }
   .visual figcaption {
     font-size: 0.72rem; color: var(--ink-faint); padding: 10px 14px;
     border-top: 1px solid var(--line); font-variant-numeric: tabular-nums;
@@ -324,27 +324,9 @@
       </div>
       <p class="cta-meta">$9.99 once · overseas 3D by subscription · English, 한국어, 日本語</p>
     </div>
-    <figure class="visual" aria-label="A sightline from the shooting spot past the target to the rising moon">
-      <svg viewBox="0 0 420 320" role="img" aria-label="A sightline from the shooting spot past the target to the rising moon">
-        <rect width="420" height="320" fill="#fbfbfa"/>
-        <g stroke="#ecece8" stroke-width="1">
-          <path d="M0 80H420M0 160H420M0 240H420M84 0V320M168 0V320M252 0V320M336 0V320"/>
-        </g>
-        <path d="M60 268 Q 200 150 332 84" fill="none" stroke="#b8860b" stroke-width="22" opacity=".18" stroke-linecap="round"/>
-        <path d="M60 268 Q 150 260 240 300" fill="none" stroke="#2d5bd7" stroke-width="22" opacity=".14" stroke-linecap="round"/>
-        <path d="M60 268 L 332 84" stroke="#b8860b" stroke-width="1.6" stroke-dasharray="6 6"/>
-        <g font-family="Inter, sans-serif" font-size="11">
-          <circle cx="60" cy="268" r="7" fill="#2d5bd7"/>
-          <circle cx="60" cy="268" r="12" fill="none" stroke="#2d5bd7" opacity=".45"/>
-          <text x="78" y="288" fill="#8b9099">shooting spot</text>
-          <rect x="196" y="150" width="10" height="46" rx="2" fill="#585d66"/>
-          <text x="180" y="216" fill="#8b9099">target 236 m</text>
-          <circle cx="332" cy="84" r="17" fill="#e8c258"/>
-          <circle cx="326" cy="79" r="4" fill="#fbfbfa" opacity=".5"/>
-          <text x="290" y="56" fill="#b8860b" font-weight="600">moonrise 19:31</text>
-        </g>
-      </svg>
-      <figcaption>az 118.4° · alt 6.2° · 2026-08-29 19:44 (UTC+9)</figcaption>
+    <figure class="visual">
+      <img src="/img/hero-sim-en.jpg" width="2200" height="1520" alt="MoonAlign simulation on the Mac — the Moon framed behind the Eiffel Tower" loading="eager">
+      <figcaption>Mac · Simulation — Eiffel Tower, Paris, 200mm, moonrise 2026-10-02 23:03</figcaption>
     </figure>
   </div>
 </section>
