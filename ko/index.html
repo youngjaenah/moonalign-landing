@@ -310,7 +310,7 @@
         <a class="btn btn-primary" href="#appstore-link">App Store에서 받기</a>
         <a class="btn btn-ghost" href="#workflow">어떻게 동작하나요</a>
       </div>
-      <p class="cta-meta">$9.99 1회 구매 · 해외 실사 3D는 구독 · English, 한국어, 日本語</p>
+      <p class="cta-meta">$9.99 1회 구매 · 해외 실사 3D는 내 Google 키(무료) 또는 구독 · English, 한국어, 日本語</p>
     </div>
     <figure class="visual">
       <img src="/img/hero-sim-ko.jpg" width="2200" height="1520" alt="MoonAlign Mac 앱의 시뮬레이션 화면 — 에펠탑 뒤로 달이 걸린 장면" loading="eager">
@@ -496,8 +496,8 @@
 <section class="section" id="google-key">
   <div class="wrap">
     <span class="tag">Google 3D 키</span>
-    <h2>해외 실사 3D — 구독으로, 또는 내 Google 키로.</h2>
-    <p class="lead sect-lead">한국의 촬영지는 V-World 3D가 키 없이 전부 커버합니다. 한국 밖에서는 구독이 설정 없이 실사 3D 건물을 보여 줍니다. 구독이 싫다면 내 Google 키를 넣어도 됩니다(선택) — 구독보다 우선하며 Google의 월 무료 한도 안에서는 대부분 무료입니다. 내 키가 있으면 계획 지도의 “Google 지도” 소스도 열립니다. 2D 지도 타일은 타일 단위로 과금돼 구독에는 포함되지 않습니다. 키를 받는 방법은 다음과 같습니다.</p>
+    <h2>해외 실사 3D — 내 Google 키로 무료로, 또는 구독으로.</h2>
+    <p class="lead sect-lead">한국의 촬영지는 V-World 3D가 키 없이 모두 보여 줍니다. 한국 밖의 실사 3D 건물은 Google 지도 API로 불러오는데, Google은 이 API를 쓸 때마다 사용료를 받습니다. <strong>해외 실사 3D 구독은 그 사용료를 대신 내기 위한 것이지, 수익을 더 내려는 상품이 아닙니다.</strong> 그래서 <strong>내 Google API 키를 넣으면 구독 없이 똑같이 쓸 수 있습니다.</strong> 내 키가 구독보다 우선하고, Google의 월 무료 한도 안에서는 대부분 비용이 들지 않습니다. 내 키가 있으면 계획 지도의 “Google 지도”도 열립니다(2D 지도 타일은 타일마다 과금돼 구독에는 들어 있지 않습니다). 키를 받는 방법은 다음과 같습니다.</p>
     <ol class="flow">
       <li><b>Google Cloud 콘솔에 로그인합니다.</b>
         <span class="d"><a href="https://console.cloud.google.com" rel="noopener">console.cloud.google.com</a> — 일반 Google 계정이면 됩니다.</span></li>
@@ -522,8 +522,8 @@
 <section class="section" id="pricing">
   <div class="wrap">
     <span class="tag">가격</span>
-    <h2>앱은 $9.99 한 번. 구독은 해외 실사 3D만.</h2>
-    <p class="lead sect-lead">앱 구매($9.99)에 계획·3D 시뮬레이션·ISS·비행기·은하수·AR·사진 확인이 전부 들어 있고 iPhone·iPad·Mac에서 함께 씁니다. 한국 밖 촬영지의 실사 3D 건물만 구독($1.99/월 · $11.99/년)이며, 여행하는 달만 구독하고 끊을 수 있습니다. 내 Google 키가 있으면 구독이 필요 없습니다.</p>
+    <h2>앱은 $9.99 한 번. 해외 실사 3D는 내 Google 키(무료) 또는 구독.</h2>
+    <p class="lead sect-lead">앱 구매($9.99)에 계획·3D 시뮬레이션·ISS·비행기·은하수·AR·사진 확인이 전부 들어 있고 iPhone·iPad·Mac에서 함께 씁니다. 한국 밖 촬영지의 실사 3D 건물만 따로인데, 이건 Google 지도 API 사용료 때문입니다. <strong>내 Google API 키를 넣으면 무료로 쓸 수 있고</strong>, 키를 만들기 번거롭다면 구독($1.99/월 · $11.99/년)으로 앱이 사용료를 대신 냅니다. 여행하는 달만 구독하고 끊어도 됩니다.</p>
     <div class="table-wrap"><table>
         <tr><th>앱 — $9.99 1회 구매</th><th>해외 실사 3D 구독 — $1.99/월 · $11.99/년</th></tr>
         <tr><td>달·해 정렬 계획 <span class="m">— 구조물, 사람, 피사체 없음</span></td><td>시뮬레이션의 한국 밖 실사 3D 건물, 키 없이</td></tr>
@@ -547,6 +547,7 @@
     <details><summary>비행기 라이브 데이터는 어디서 오나요?</summary><p>기본은 adsb.lol 커뮤니티 데이터(ODbL 1.0)이고, 30초마다 갱신하며 2시간 뒤 자동으로 멈춥니다. 직접 ADS-B 수신기(readsb/dump1090)를 운영한다면 LAN 주소를 넣어 1초 갱신, 시간 제한 없이 쓸 수 있습니다.</p></details>
     <details><summary>한국 밖에서도 되나요?</summary><p>됩니다. 정렬 계산과 지형은 전 세계(Copernicus 지형 자료)를 씁니다. 3D 시뮬레이션은 한국에서 V-World를, 그 밖에서는 구독이나 내 Google 키가 있으면 실사 3D 건물을 보여 줍니다. 둘 다 없어도 달 경로와 지형은 보입니다.</p></details>
     <details><summary>어떤 기기·언어를 지원하나요?</summary><p>iPhone·iPad·Mac(macOS 14 이상)을 한 번 구매로 모두 씁니다. 프로젝트는 iCloud로 동기화됩니다. AR 확인은 카메라가 필요해 iPhone·iPad에서만 됩니다. 언어는 영어·한국어·일본어이고, 시스템 설정을 따르거나 앱에서 바꿀 수 있습니다.</p></details>
+    <details><summary>해외 실사 3D는 왜 구독인가요?</summary><p>한국 밖의 실사 3D 건물은 Google 지도 API로 불러오고, Google은 쓸 때마다 사용료를 받습니다. 구독은 그 사용료를 앱이 대신 내기 위한 것이라 수익을 더 내려는 상품이 아닙니다. 내 Google API 키를 설정에 넣으면 구독 없이 똑같이 쓸 수 있고, Google의 월 무료 한도 안에서는 대부분 비용이 들지 않습니다. 키 만드는 법은 위의 ‘Google 3D 키’ 절에 있습니다.</p></details>
   </div>
 </section>
 
