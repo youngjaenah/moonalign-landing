@@ -95,6 +95,11 @@
     header { background: rgba(17,19,23,0.88); }
     article .note { background: #2a2414; }
   }
+
+  /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+     일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
+  html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
+  html:lang(ja) body { word-break: auto-phrase; }
 </style>
 </head>
 <body>

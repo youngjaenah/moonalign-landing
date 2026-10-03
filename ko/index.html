@@ -259,6 +259,11 @@
   .srcs { font-size: 0.78rem; color: var(--ink-faint); line-height: 1.9; margin-bottom: 20px; }
   .copy { color: var(--ink-faint); font-size: 0.82rem; }
   .copy a { color: var(--ink-dim); }
+
+  /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+     일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
+  html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
+  html:lang(ja) body { word-break: auto-phrase; }
 </style>
 <style>
   /* spec 009 — 언어 스위처·영상·언어 안내 바 */
