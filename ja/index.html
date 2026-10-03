@@ -78,7 +78,7 @@
     font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--accent); margin-bottom: 20px;
   }
-  .nocaps { text-transform: none; }
+  .nocaps, .tag.nocaps { text-transform: none; }
   .hero h1 {
     font-weight: 700;
     font-size: clamp(2rem, 4.6vw, 3.1rem);
@@ -158,7 +158,7 @@
     font-variant-numeric: tabular-nums;
   }
   .stage h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.01em; }
-  .stage .where { font-size: 0.76rem; color: var(--ink-faint); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .stage .where { font-size: 0.76rem; color: var(--ink-faint); letter-spacing: 0.02em; margin-bottom: 8px; }
   .stage p { font-size: 0.92rem; color: var(--ink-dim); line-height: 1.65; }
 
   /* verify blocks (Photo Check / AR) — product-style two-column rows */
@@ -226,7 +226,7 @@
   }
 
   /* more tools */
-  .tools { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px 32px; margin-top: 24px; }
+  .tools { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 14px 32px; margin-top: 24px; }
   .tools li { font-size: 0.95rem; color: var(--ink-dim); line-height: 1.6; }
   .tools b { color: var(--ink); }
   .sect-lead a { color: var(--accent); }
@@ -263,6 +263,8 @@
   /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
      일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
   html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
+  html:lang(ko) p, html:lang(ko) li { text-wrap: pretty; }
+  html:lang(ko) .hero h1 { max-width: 15em; }
   html:lang(ja) body { word-break: auto-phrase; }
 </style>
 <style>
@@ -341,7 +343,7 @@
 
 <section class="section" id="devices">
   <div class="wrap">
-    <span class="tag">Mac・iPhone・iPad</span>
+    <span class="tag nocaps">Mac・iPhone・iPad</span>
     <h2>Macで計画し、iPhoneで現場へ。</h2>
     <p class="lead sect-lead">同じApple Accountで一度買えば、Mac・iPhone・iPadのすべてで使えます。AndroidはGoogle Playで別に購入し、プロジェクトはAndroid端末どうしで同期されます。</p>
     <ul class="tools">
@@ -501,7 +503,7 @@
 
 <section class="section" id="google-key">
   <div class="wrap">
-    <span class="tag">Google 3Dキー</span>
+    <span class="tag nocaps">Google 3Dキー</span>
     <h2>海外のフォトリアル3D — 自分のGoogleキーで無料で、またはサブスクリプションで。</h2>
     <p class="lead sect-lead">韓国の撮影地はV-World 3Dがキーなしですべて表示します。韓国以外のフォトリアル3D建物はGoogleマップのAPIから読み込み、GoogleはこのAPIを使うたびに利用料を請求します。<strong>海外3Dサブスクリプションはその利用料を代わりに支払うためのもので、利益を増やすための商品ではありません。</strong> そのため、<strong>自分のGoogle APIキーを入れればサブスクリプションなしで同じように使えます。</strong> 自分のキーはサブスクリプションより優先され、Googleの月間無料枠内ならほとんど費用はかかりません。自分のキーがあれば計画地図の「Googleマップ」も使えます(2D地図タイルはタイルごとの課金のため、サブスクリプションには含まれません)。キーの取得方法は次のとおりです。</p>
     <ol class="flow">
