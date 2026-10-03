@@ -1,0 +1,390 @@
+<!-- 생성물 — 직접 고치지 말 것. 원본: guide-template.html + guide-src/<lang>.html + strings/<lang>.json의 guide.* -->
+<!DOCTYPE html>
+<!-- 원본(손으로 고치는 곳) — 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
+     본문은 guide-src/<lang>.html, 목차는 본문의 <h2 id>에서 자동. -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>사용 설명서 — MoonAlign</title>
+  <meta name="description" content="MoonAlign 사용 설명서 — 타겟과 촬영지 지정, 모드별 흐름(구조물·사람·ISS·비행기·은하수), 시뮬레이션·사진 확인·AR 확인, 천문 달력, 공유, 문제 해결.">
+  <link rel="canonical" href="https://moonalign.yjlab.io/ko/guide/">
+  <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/guide/">
+  <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/guide/">
+  <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/guide/">
+  <meta property="og:title" content="사용 설명서 — MoonAlign">
+  <meta property="og:description" content="MoonAlign 사용 설명서 — 타겟과 촬영지 지정, 모드별 흐름(구조물·사람·ISS·비행기·은하수), 시뮬레이션·사진 확인·AR 확인, 천문 달력, 공유, 문제 해결.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:type" content="article">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-soft: #f7f7f5; --ink: #17191d; --ink-dim: #585d66; --ink-faint: #8b9099;
+    --accent: #2d5bd7; --line: #e7e7e4; --target: #0aa5b8; --spot: #e8890c;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(255,255,255,0.88); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 0.98rem; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .brand .mark { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+  .brand .sub { color: var(--ink-faint); font-weight: 500; }
+  .nav-right { display: flex; align-items: center; gap: 20px; font-size: 0.86rem; }
+  .nav-right a { color: var(--ink-dim); text-decoration: none; }
+  .lang-switch { display: flex; gap: 12px; }
+  .lang-switch .lang-on { color: var(--ink); font-weight: 600; }
+
+  .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding-top: 48px; padding-bottom: 80px; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; } }
+  @media (max-width: 600px) { .wrap { padding: 0 16px; } .nav-right .back { display: none; } }
+
+  .toc { position: sticky; top: 88px; align-self: start; max-height: calc(100vh - 110px); overflow: auto; font-size: 0.88rem; }
+  .toc summary { list-style: none; font-weight: 600; color: var(--ink); margin-bottom: 10px; cursor: default; }
+  .toc summary::-webkit-details-marker { display: none; }
+  .toc ol { list-style: none; border-left: 1px solid var(--line); }
+  .toc li a { display: block; padding: 5px 0 5px 14px; color: var(--ink-dim); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; }
+  .toc li a:hover, .toc li a.on { color: var(--ink); border-left-color: var(--accent); }
+  @media (max-width: 860px) {
+    .toc { position: static; max-height: none; background: var(--bg-soft); border-radius: 12px; padding: 14px 16px; }
+    .toc summary { cursor: pointer; margin-bottom: 0; }
+    .toc[open] summary { margin-bottom: 10px; }
+  }
+
+  article { max-width: 72ch; }
+  article h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px; }
+  article .lead { color: var(--ink-dim); font-size: 1.05rem; margin-bottom: 36px; }
+  article section { padding-top: 12px; margin-bottom: 44px; border-top: 1px solid var(--line); }
+  article h2 { font-size: 1.45rem; letter-spacing: -0.01em; margin: 24px 0 12px; }
+  article h3 { font-size: 1.08rem; margin: 26px 0 8px; }
+  article p { margin: 0 0 12px; }
+  article ul, article ol { margin: 0 0 14px 1.3em; }
+  article li { margin: 4px 0; }
+  article .ui { font-weight: 600; }
+  article .tip { background: var(--bg-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article .note { background: #fff8e6; border-left: 3px solid #d9a400; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article .target { color: var(--target); font-weight: 600; }
+  article .spot { color: var(--spot); font-weight: 600; }
+  article table { border-collapse: collapse; margin: 8px 0 16px; font-size: 0.94rem; width: 100%; overflow-wrap: anywhere; }
+  article th, article td { text-align: left; border-bottom: 1px solid var(--line); padding: 7px 10px 7px 0; vertical-align: top; }
+  article th { color: var(--ink-dim); font-weight: 600; }
+  article kbd { font: 0.85em ui-monospace, Menlo, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+  article details { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 10px 0; }
+  article details summary { font-weight: 600; cursor: pointer; }
+  article details p { margin-top: 8px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 40px; color: var(--ink-faint); font-size: 0.85rem; }
+  footer a { color: var(--ink-dim); }
+
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111317; --bg-soft: #1b1e24; --ink: #eceef2; --ink-dim: #a7adb7; --ink-faint: #7c828c; --accent: #7aa2ff; --line: #2b2f37; --target: #39c6d6; --spot: #f2a33a; }
+    header { background: rgba(17,19,23,0.88); }
+    article .note { background: #2a2414; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/ko/"><span class="mark"></span>MoonAlign <span class="sub">/ 사용 설명서</span></a>
+    <div class="nav-right">
+      <a class="back" href="/ko/">홈으로</a>
+      <span class="lang-switch"><a href="/guide/" hreflang="en" lang="en">English</a> <span class="lang-on">한국어</span> <a href="/ja/guide/" hreflang="ja" lang="ja">日本語</a></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <details class="toc" open>
+    <summary>목차</summary>
+    <ol>
+      <li><a href="#start">시작하기</a></li>
+      <li><a href="#plan">계획 화면 둘러보기</a></li>
+      <li><a href="#structure">구조물 — 타워 뒤로 달 걸기</a></li>
+      <li><a href="#person">사람 — 달 앞의 실루엣</a></li>
+      <li><a href="#free">없음과 은하수</a></li>
+      <li><a href="#iss">ISS — 달·태양면 통과</a></li>
+      <li><a href="#plane">비행기 — 라이브 감시</a></li>
+      <li><a href="#sim">시뮬레이션 — 3D로 미리 보기</a></li>
+      <li><a href="#photo">사진 확인 — 답사 사진 위에 경로 그리기</a></li>
+      <li><a href="#ar">AR 확인 — 현장에서 조준</a></li>
+      <li><a href="#calendar">천문 달력·위젯·캘린더</a></li>
+      <li><a href="#projects">프로젝트 관리와 공유</a></li>
+      <li><a href="#tools">표와 도구</a></li>
+      <li><a href="#settings">설정</a></li>
+      <li><a href="#trouble">문제 해결</a></li>
+    </ol>
+  </details>
+  <article>
+    <h1>사용 설명서</h1>
+    <p class="lead">계획부터 현장 조준까지, 화면마다 무엇을 하는지 정리했습니다. 모드별로 짧게 따라 하려면 홈의 사용법 영상을 함께 보세요.</p>
+<!-- 사용 설명서 본문(ko 원본). 절 id(<h2 id>·<h3 id>)는 en·ja와 같은 순서로 같아야 한다(build_landing.py --check).
+     화면 이름은 앱의 실제 라벨 그대로 <span class="ui">로. 용어는 CLAUDE.md·specs/006 용어집을 따른다.
+     그림 자리는 'shot: 이름' 주석(다음 단계에서 스크린샷으로 채움). -->
+
+<section>
+<h2 id="start">시작하기</h2>
+<p>MoonAlign은 한 번 사면 iPhone·iPad·Mac에서 함께 쓰는 앱입니다. 프로젝트(촬영 계획)는 iCloud Drive로 기기 사이에 자동으로 동기화됩니다.</p>
+
+<h3 id="start-home">시작 메뉴</h3>
+<p>앱을 열면 시작 메뉴가 먼저 나옵니다. 위쪽 <span class="ui">오늘 하늘</span> 카드에는 오늘의 일출·일몰, 월출·월몰, 하루 띠(낮·박명·밤과 달이 떠 있는 시간), 다음 정렬 계획, 가장 가까운 천문 이벤트가 보입니다. 기준 위치는 기기 위치이고, 없으면 마지막 프로젝트의 촬영지를 씁니다.</p>
+<p>아래 타일은 다음과 같습니다.</p>
+<table>
+<tr><th>타일</th><th>하는 일</th></tr>
+<tr><td><span class="ui">이어서 하기</span></td><td>작업하던 프로젝트로 돌아갑니다. 이어갈 프로젝트가 없으면 보이지 않습니다.</td></tr>
+<tr><td><span class="ui">새 프로젝트</span></td><td>이름을 정하고 빈 계획을 시작합니다. 이름을 비워 두면 타겟과 날짜로 자동으로 지어집니다.</td></tr>
+<tr><td><span class="ui">프로젝트</span></td><td>저장된 프로젝트 목록(<a href="#projects">프로젝트 관리</a>).</td></tr>
+<tr><td><span class="ui">랜드마크</span></td><td>높이를 조사해 둔 랜드마크에서 바로 시작합니다(<a href="#tools">표와 도구</a>).</td></tr>
+<tr><td><span class="ui">천문 달력</span></td><td>보름달·식·유성우·행성 이벤트(<a href="#calendar">천문 달력</a>).</td></tr>
+<tr><td><span class="ui">달 노출 표</span> · <span class="ui">과초점 표</span></td><td>현장에서 보는 참고표.</td></tr>
+<tr><td><span class="ui">설정</span></td><td>타임존·언어·기본 높이·Google 키·구독(<a href="#settings">설정</a>).</td></tr>
+</table>
+<div class="tip">처음 설치하면 <span class="ui">[데모] N서울타워 월출</span>과 <span class="ui">[데모] 롯데월드타워 일몰</span> 두 예시 프로젝트가 들어 있습니다. 완성된 계획이 어떻게 생겼는지 열어 보세요. 지워도 다시 생기지 않습니다.</div>
+</section>
+
+<section>
+<h2 id="plan">계획 화면 둘러보기</h2>
+<!-- shot: plan-overview -->
+<p>위쪽 가운데 탭으로 네 화면을 오갑니다: <span class="ui">계획</span> → <span class="ui">시뮬레이션</span> → <span class="ui">사진 확인</span> → <span class="ui">AR 확인</span>(iPhone에서는 줄여서 <span class="ui">계획·시뮬·사진·AR</span>). 왼쪽 위 집 아이콘은 <span class="ui">시작 메뉴</span>, 오른쪽 기어는 설정입니다. Mac에는 AR이 없습니다.</p>
+<p>iPhone 세로에서는 지도가 화면 전체이고 아래 서랍을 끌어 올려 패널을 봅니다. iPhone 가로와 iPad 가로는 지도와 패널이 나란히, Mac은 크기를 바꿀 수 있는 사이드바입니다.</p>
+
+<h3 id="plan-subject">대상과 피사체</h3>
+<p>패널 위쪽에서 두 가지를 고르면 나머지 흐름이 그에 맞춰집니다.</p>
+<ul>
+<li><span class="ui">대상</span> — 하늘의 무엇을 찍을지: <span class="ui">달</span> · <span class="ui">태양</span> · <span class="ui">은하수</span>.</li>
+<li><span class="ui">피사체</span> — 그 앞에 무엇을 둘지: <span class="ui">구조물</span>(타워·다리·스카이라인) · <span class="ui">사람</span>(실루엣) · <span class="ui">없음</span>(천체만) · <span class="ui">ISS</span> · <span class="ui">비행기</span>.</li>
+</ul>
+
+<h3 id="plan-assign">타겟과 촬영지 지정하기</h3>
+<p><span class="target">타겟</span>은 달 앞에 걸 대상(청록), <span class="spot">촬영지</span>는 내가 설 자리(주황)입니다. 지정하는 방법은 여러 가지이고 결과는 같습니다.</p>
+<ul>
+<li><strong>iPhone</strong>: 지도 아래 칩 줄에서 <span class="ui">타겟</span> 또는 <span class="ui">촬영지</span> 칩을 누르면 십자선이 나타납니다. 지도를 움직여 십자선을 원하는 자리에 두고 <span class="ui">여기를 타겟으로</span> / <span class="ui">여기를 촬영지로</span>를 누릅니다.</li>
+<li><strong>iPad·Mac</strong>: 패널의 <span class="ui">타겟 지정</span> · <span class="ui">촬영지 지정</span> 버튼, 또는 지도를 길게 누르기(Mac은 오른쪽 클릭) 메뉴.</li>
+<li>검색: 지도 왼쪽 위 돋보기에서 <span class="ui">장소 검색 (예: 남산타워)</span>.</li>
+<li>촬영지는 <span class="ui">현재 위치</span>나 <span class="ui">사진에서</span>(위치 정보가 든 사진)로도 지정할 수 있습니다.</li>
+<li>iPhone·iPad에서는 핀을 끌어 옮길 수 있습니다. 잘못 옮겼으면 지도 왼쪽 위 <span class="ui">위치 되돌리기</span>로 되돌립니다(위치만 되돌리고 날짜·시각은 그대로).</li>
+</ul>
+
+<h3 id="plan-heights">높이와 지면고도</h3>
+<p>정렬은 각도로 결정되므로 높이가 중요합니다. 타겟 카드에는 <span class="ui">지면고도</span>와 <span class="ui">구조물 높이</span>(사람 모드는 <span class="ui">사람 키</span>), 촬영지에는 <span class="ui">지면고도</span>와 <span class="ui">촬영 높이</span>가 있습니다.</p>
+<ul>
+<li>값 옆 배지가 출처를 알려 줍니다: <span class="ui">자동</span>(지형 자료에서 조회) · <span class="ui">수동</span>(직접 입력) · <span class="ui">시뮬 지형</span>(3D 시뮬레이션이 잰 표면으로 보정) · <span class="ui">설정 기본값</span>.</li>
+<li>랜드마크 목록에 있는 구조물은 높이가 자동으로 채워집니다. 못 찾으면 <span class="ui">구조물 높이를 찾지 못했어요</span> 알림이 뜹니다 — 직접 넣거나 시뮬레이션의 <span class="ui">높이 재기</span>로 재세요.</li>
+<li>촬영 높이는 프리셋 <span class="ui">엎드려 0.3</span> · <span class="ui">삼각대 1.2</span> · <span class="ui">서서 1.5</span>에서 고를 수 있습니다.</li>
+<li>옥상·다리 위에서 찍는다면 지면고도는 <em>서 있는 바닥</em>의 높이입니다. 시뮬레이션을 한 번 열면 3D 모델 표면으로 자동 보정됩니다.</li>
+</ul>
+
+<h3 id="plan-date">날짜·시각·시간대</h3>
+<p>패널 맨 위 <span class="ui">날짜</span>에서 달력을 열거나 <kbd>&lt;</kbd> <kbd>&gt;</kbd>로 하루씩 옮깁니다. 달력에는 날짜마다 달 모양이 보입니다. 시각은 촬영지 현지 시간으로 표시되며, 해외 지점을 지정하면 <span class="ui">현지 시간으로 바꿀까요?</span> 알림이 뜹니다. 시간대는 설정의 <span class="ui">타임존</span>에서도 바꿀 수 있습니다.</p>
+
+<h3 id="plan-sky">해와 달 카드</h3>
+<p>타겟이나 촬영지를 지정하면 <span class="ui">해와 달</span> 카드가 나옵니다. 일출·일몰, 월출·월몰, 월령·밝기와 함께 <strong>하루 띠</strong>가 그려집니다. 띠의 배경은 하늘 밝기(낮 하늘색 → 박명 주황·남색 → 밤 검정), 노란 막대는 달이 떠 있는 시간입니다. 여명·노을 줄은 날씨 예보로 본 추정입니다.</p>
+
+<h3 id="plan-map">지도 도구</h3>
+<ul>
+<li>레이어 버튼: <span class="ui">Apple 지도</span> · <span class="ui">Apple 위성</span> · <span class="ui">V-World</span> · <span class="ui">V-World 위성</span>(한국 상세 지도), 내 Google 키가 있으면 <span class="ui">Google 지도</span>.</li>
+<li><span class="ui">범례</span>: 지도 위 색과 선의 뜻.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="structure">구조물 — 타워 뒤로 달 걸기</h2>
+<!-- shot: structure-band -->
+<p>MoonAlign의 기본 흐름입니다. 다른 모드도 같은 문법을 따릅니다.</p>
+<ol>
+<li><span class="ui">대상</span> <span class="ui">달</span>, <span class="ui">피사체</span> <span class="ui">구조물</span>을 고릅니다.</li>
+<li>타겟(예: 남산타워)을 지정합니다. 높이가 채워지면 지도에 <strong>띠</strong>가 그려집니다.</li>
+<li>띠 위에 촬영지를 지정합니다. 노란 띠는 <em>달이 뜰 때</em>, 파란 띠는 <em>질 때</em> 타겟에 걸리는 자리입니다.</li>
+<li>촬영지 카드에서 결과를 봅니다: <span class="ui">달 정렬 ✓</span>와 <span class="ui">걸림</span> 시각, 참고 창, 타겟과의 거리. 정렬이 없으면 <span class="ui">정렬 없음</span>.</li>
+<li>그날 맞지 않으면 <span class="ui">90일 탐색</span>을 누릅니다. <span class="ui">정렬 가능 날짜</span> 목록에서 날짜·시각·월령·가시성(예: <span class="ui">밤·잘 보임</span>, <span class="ui">지형에 가림</span>)을 보고 <span class="ui">선택</span>으로 그날로 옮깁니다.</li>
+<li><a href="#sim">시뮬레이션</a>으로 화면을 미리 봅니다.</li>
+</ol>
+<div class="tip">띠는 타겟에서 멀어질수록 달이 커 보이지만(망원), 지형에 가리기 쉽습니다. 지도 위 갈색 표시는 <em>타겟을 가리는 지형</em>입니다. 건물에 의한 가림은 지도로는 판정하지 않으니 시뮬레이션에서 확인하세요.</div>
+<p>마음에 드는 계획은 <span class="ui">캘린더에 추가</span>로 기기 캘린더에 넣거나, 공유 아이콘으로 <a href="#projects-share">링크로 공유</a>할 수 있습니다.</p>
+<h3 id="structure-landmark">내 랜드마크</h3>
+<p>목록에 없는 대상(동네 첨탑, 송전탑 등)의 높이를 한 번 재 두었다면, 구조물 모드 타겟 카드의 <span class="ui">내 랜드마크로 저장</span>으로 이름·높이를 저장하세요. 다음부터는 지도에서 그 자리를 찍기만 해도 높이가 자동으로 채워집니다. 200 m 안에 이미 저장한 항목이 있으면 버튼이 <span class="ui">내 랜드마크 수정</span>으로 바뀝니다.</p>
+</section>
+
+<section>
+<h2 id="person">사람 — 달 앞의 실루엣</h2>
+<p>멀리 떨어져 망원으로 당기면 사람은 그대로이고 달만 커집니다. 사람 모드는 <span class="ui">사람 키</span>(기본 1.7 m)를 높이로 써서 띠를 그립니다.</p>
+<ol>
+<li><span class="ui">피사체</span> <span class="ui">사람</span>을 고르고, 사람이 설 자리(능선·언덕 위)를 타겟으로 지정합니다.</li>
+<li>자리는 여러 번 옮겨 보는 게 보통입니다. 괜찮은 자리는 <span class="ui">사람 자리 후보</span>에 <span class="ui">저장</span>해 A·B·C 칩으로 오가며 띠를 비교하세요(칩을 길게 누르면 지우기).</li>
+<li>자리가 정해지면 촬영지를 띠 위에 지정합니다.</li>
+</ol>
+<div class="note">사람 모드는 지형 몇 m 차이로 결과가 뒤집힐 만큼 민감합니다. 계획만 믿지 말고 사전답사에서 <a href="#photo">사진 확인</a>과 <a href="#ar">AR 확인</a>으로 자리를 다시 잡으세요.</div>
+</section>
+
+<section>
+<h2 id="free">없음과 은하수</h2>
+<p><span class="ui">피사체</span> <span class="ui">없음</span>은 앞에 세울 것 없이 천체 자체를 찍을 때 씁니다. 촬영지만 지정하면 지도에 뜨는 방향(노란 선)과 지는 방향(파란 선)이 그려집니다.</p>
+<p><span class="ui">대상</span> <span class="ui">은하수</span>를 고르면 촬영지 카드에 <span class="ui">광해</span>(Bortle 등급과 <span class="ui">mag/arcsec²</span>, 위성 야간광에서 역산한 추정)와 <span class="ui">은하수 볼 수 있는 시간</span>(가장 좋은 때)이 나옵니다. 달이 떠 있으면 그 시간은 줄어듭니다.</p>
+</section>
+
+<section>
+<h2 id="iss">ISS — 달·태양면 통과</h2>
+<p>국제우주정거장이 달 원반을 지나는 시간은 약 0.5초입니다. MoonAlign은 NASA 궤도 자료로 초 단위까지 예보합니다.</p>
+<ol>
+<li><span class="ui">피사체</span> <span class="ui">ISS</span>, <span class="ui">대상</span> <span class="ui">달</span>(또는 <span class="ui">태양</span>)을 고릅니다.</li>
+<li>어디로 가야 할지 모르면 <span class="ui">통과 예측 지역</span>의 <span class="ui">통과 위치 찾기</span>를 누르세요. 지금 지도 범위에서 통과가 보이는 <strong>띠</strong>가 그려집니다. 행을 누르면 지도가 그 띠로 이동합니다. 낮이나 지평선 근처 띠는 접힌 그룹에 모여 있습니다.</li>
+<li>띠 위에 촬영지를 지정하고 <span class="ui">ISS 달 통과</span>의 <span class="ui">14일 탐색</span>을 누릅니다.</li>
+<li>결과 행에서 등급(<span class="ui">통과 예상</span> · <span class="ui">통과 가능</span> · <span class="ui">근접</span>), 각거리, 통과 시간을 보고 <span class="ui">선택</span>으로 확정합니다. 확정하면 자동으로 저장되고 시뮬레이션에서 0.1초 단위로 볼 수 있습니다.</li>
+</ol>
+<p><span class="ui">밤하늘 지나감</span>(접혀 있음)은 달 앞이 아니라 밤하늘을 가로지르는 ISS입니다. 밝기, 최고 고도, 방향, 보이는 시간이 나옵니다.</p>
+<div class="note">모든 예보는 궤도 자료 기준의 예측입니다. ISS는 궤도를 수시로 조정하므로 <strong>촬영 전날 꼭 다시 탐색</strong>하세요. 상태 줄에 쓰인 자료(NASA OEM 또는 TLE)와 유효 기간을 확인할 수 있습니다.</div>
+</section>
+
+<section>
+<h2 id="plane">비행기 — 라이브 감시</h2>
+<p>달 앞을 지나는 비행기는 미리 예보할 수 없습니다. 그래서 MoonAlign은 촬영지 주변의 실시간 항적을 감시하다가 통과 몇 초 전에 알려 줍니다.</p>
+<ol>
+<li><span class="ui">피사체</span> <span class="ui">비행기</span>를 고르고 촬영지를 지정합니다.</li>
+<li><span class="ui">최대 거리</span>(km)를 정하고 <span class="ui">라이브 감시 시작</span>을 누릅니다. 기본 자료는 adsb.lol 공개 항적(30초마다 갱신, 2시간 뒤 자동 중지)입니다.</li>
+<li>후보 행에 남은 초·각거리·고도·거리가 나오고, 통과가 임박하면 카운트다운과 알림(<span class="ui">연사 준비</span>)이 옵니다.</li>
+</ol>
+<ul>
+<li>직접 운영하는 ADS-B 수신기(readsb·dump1090)가 있으면 <span class="ui">내 수신기</span>를 켜고 aircraft.json 주소를 넣으세요. 더 빠르고 정확합니다.</li>
+<li>감시 중에는 촬영지와 대상이 잠깁니다. 바꾸려면 <span class="ui">감시 중지</span>를 먼저 누르세요.</li>
+<li><span class="ui">통과 기회 기록</span>에 지난 후보가 남습니다.</li>
+<li><span class="ui">카메라 자동 촬영 (Sony·Canon)</span>: USB로 카메라를 연결하면 통과 앞뒤로 자동 연사합니다. <span class="ui">1초 시험 촬영</span>으로 먼저 확인하세요.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="sim">시뮬레이션 — 3D로 미리 보기</h2>
+<!-- shot: sim -->
+<p>계획을 지형·건물·실제 렌즈 화각으로 미리 봅니다. 한국은 V-World 3D(국토교통부), 해외는 Google 실사 3D를 씁니다.</p>
+<ul>
+<li><span class="ui">시각</span> 슬라이더: 정렬 시각 앞뒤로 움직이며 달이 타겟 뒤로 들어가는 모습을 봅니다. 범위는 (i)에 있습니다.</li>
+<li><span class="ui">초점거리</span>: 14~1200mm와 센서(<span class="ui">풀프레임</span> · <span class="ui">APS-C 소니·니콘</span> · <span class="ui">APS-C 캐논</span> · <span class="ui">마이크로포서드</span>). 크롭 센서면 환산 초점거리가 함께 나옵니다.</li>
+<li><span class="ui">조리개</span>: 고르면 초점 안내가 붙습니다 — 달에 초점을 맞춰도 타겟까지 선명한지, 아니면 어디에 맞추거나 두 장을 합성해야 하는지.</li>
+<li><span class="ui">높이 재기</span>: 3D 모델에서 구조물 높이를 재고 <span class="ui">이 높이 쓰기</span>로 계획에 넣습니다.</li>
+<li>화면 위 칩: <span class="ui">카메라 위치 보기</span>(3인칭으로 내 자리 확인) · <span class="ui">가로 사진</span>/<span class="ui">세로 사진</span> · <span class="ui">실루엣 보이기</span> · <span class="ui">이미지로 저장</span>. 화면을 끌면 시선을 옮길 수 있습니다.</li>
+</ul>
+<h3 id="sim-overseas">해외 실사 3D</h3>
+<p>한국 밖 촬영지에서 실사 3D 건물을 보려면 두 가지 방법이 있습니다.</p>
+<ul>
+<li><span class="ui">해외 실사 3D 구독</span>(월·연) — 설정 없이 바로 보입니다.</li>
+<li>내 Google API 키(무료, 선택) — 설정의 <span class="ui">Google API 키</span>에 넣으면 구독보다 우선합니다. 만드는 법은 <a href="/ko/#google-key">랜딩의 Google 3D 키 절</a>에 있습니다.</li>
+</ul>
+<p>둘 다 없으면 지형만 보이고 씬 안에 안내 카드가 한 번 뜹니다. 건물 표시는 하루 사용 한도가 있어, 넘으면 다음 날 다시 보입니다.</p>
+</section>
+
+<section>
+<h2 id="photo">사진 확인 — 답사 사진 위에 경로 그리기</h2>
+<!-- shot: photo -->
+<p>사전답사 때 촬영지에서 사진 한 장을 찍어 두면, 계획한 날의 천체 경로를 그 사진 위에 그려 줍니다. 지도에 없는 나무·크레인·울타리를 확인하는 데 씁니다.</p>
+<ol>
+<li><span class="ui">사진 확인</span> 탭에서 <span class="ui">사진 선택</span>으로 사진을 불러옵니다. 촬영 시각·초점거리·GPS(EXIF)가 있는 원본 사진이 좋습니다.</li>
+<li><span class="ui">기준</span>(달·태양·은하수·타겟)과 <span class="ui">위치</span>(이 사진의 위치/촬영지의 위치/현재 위치)를 고릅니다.</li>
+<li>빨간 고리(천체)와 주황 표식(타겟 꼭대기·사람 머리)이 사진 속 실제 위치와 맞도록 끌어 맞춥니다. 확대한 뒤 꾹 눌러 끌면 정밀하게 옮길 수 있습니다.</li>
+<li><span class="ui">시각</span> 슬라이더로 계획 시간대의 경로를 훑어봅니다.</li>
+</ol>
+<ul>
+<li>카메라 시계가 몇 초 틀렸다면 <span class="ui">시계 보정</span>에 초를 넣으세요.</li>
+<li><span class="ui">환산 초점</span>은 35mm 환산값입니다. EXIF와 다르면 원래 값이 함께 표시됩니다.</li>
+<li>ISS·비행기 프로젝트에는 사진 확인이 없습니다.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="ar">AR 확인 — 현장에서 조준</h2>
+<!-- shot: ar -->
+<p>촬영 당일 현장에서 iPhone·iPad를 들면 계획한 천체 경로가 실제 하늘 위에 겹쳐 보입니다. 달이 뜨기 전에 구도를 잡을 수 있습니다(실기기 전용, Mac 제외).</p>
+<ul>
+<li><span class="ui">시각</span>: 천체가 떠 있는 동안 전체를 훑습니다.</li>
+<li><span class="ui">맞추기</span>: 나침반 오차를 바로잡습니다. 하늘에 천체가 보이면 십자선에 두고 <span class="ui">달에 맞추기</span>, 보이지 않으면 타겟 꼭대기를 십자선에 두고 <span class="ui">타겟에 맞추기</span>(사람 모드는 <span class="ui">사람에 맞추기</span>).</li>
+<li><span class="ui">방위 미세 조절</span>로 더 다듬고, 처음으로 돌리려면 초기화 버튼을 누릅니다.</li>
+<li>줌 칩으로 <span class="ui">환산 초점</span>과 계획 렌즈 화각을 맞춰 봅니다.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="calendar">천문 달력·위젯·캘린더</h2>
+<p><span class="ui">천문 달력</span>에는 보름달(슈퍼문·마이크로문), 삭, 월식·일식, 유성우, 행성 충·합, 달과 행성·밝은 별의 근접·엄폐, 금성 최대 밝기, 춘분·하지·추분·동지가 표시됩니다. 근접·합은 <em>기준 위치에서 실제로 보이는 시각</em>으로 알려 줍니다. 날짜를 누르면 그날의 해와 달 카드, 저장한 계획, 이벤트가 나옵니다. 유성우에는 달빛 방해 정도가 붙습니다.</p>
+<p>이벤트와 계획 행의 <span class="ui">캘린더에 추가</span>를 누르면 기기 캘린더에 일정(전날 저녁과 1시간 전 알림)이 들어갑니다. iPhone·iPad는 일정 편집 화면이 뜨고, Mac은 바로 저장됩니다. 앱은 캘린더를 읽지 않습니다.</p>
+<p>홈 화면·알림 센터 위젯: <span class="ui">오늘 하늘</span> · <span class="ui">오늘의 달</span> · <span class="ui">오늘의 태양</span> · <span class="ui">다음 촬영 기회</span>, 그리고 잠금 화면 위젯. 위젯은 앱이 마지막으로 계산한 값을 보여 주므로, 오래 앱을 열지 않으면 한 번 열어 주세요.</p>
+</section>
+
+<section>
+<h2 id="projects">프로젝트 관리와 공유</h2>
+<p>계획은 촬영지를 지정하는 순간 프로젝트로 자동 저장됩니다. <span class="ui">프로젝트</span> 목록은 최근 수정순이며, 행을 길게 누르면(Mac은 오른쪽 클릭) <span class="ui">열기</span> · <span class="ui">이름 바꾸기…</span> · <span class="ui">링크로 공유…</span> · <span class="ui">파일로 내보내기…</span> · <span class="ui">삭제…</span>가 나옵니다. 여러 개를 지우려면 <span class="ui">선택</span>.</p>
+<p>프로젝트는 iCloud Drive로 같은 Apple 계정의 기기들 사이에 동기화됩니다. iCloud를 쓰지 않으면 그 기기에만 저장됩니다.</p>
+<h3 id="projects-share">링크로 공유</h3>
+<p>친구와 계획을 나누려면 <span class="ui">링크로 공유…</span>를 누르고 메신저로 보내면 됩니다. 받은 사람이 링크를 누르면 <span class="ui">공유받은 계획</span> 화면에서 <span class="ui">가져오기</span>로 새 프로젝트를 만듭니다. 앱이 없는 사람에게는 같은 링크가 계획 요약과 지도를 보여 주는 웹 페이지로 열립니다.</p>
+<ul>
+<li>링크에는 촬영지 위치와 프로젝트 이름이 들어갑니다. 보낸 링크는 거둘 수 없으니, 처음 공유할 때 한 번 확인합니다.</li>
+<li>계획 내용은 링크 안에만 있고 서버에 저장되지 않습니다.</li>
+<li>지면고도 같은 자동 값은 받는 기기에서 다시 조회합니다. 사람이 직접 넣은 높이는 그대로 갑니다.</li>
+<li>메신저가 링크를 잘라 버린다면 <span class="ui">파일로 내보내기…</span>로 <code>.moonplan</code> 파일을 보내세요. 받은 파일을 열면 같은 화면이 뜹니다.</li>
+</ul>
+<p>Mac 메뉴 막대의 <span class="ui">프로젝트 JSON 내보내기…</span>·<span class="ui">프로젝트 JSON 가져오기…</span>는 전체 계획을 백업할 때 씁니다.</p>
+</section>
+
+<section>
+<h2 id="tools">표와 도구</h2>
+<h3 id="tools-landmarks">랜드마크</h3>
+<p><span class="ui">랜드마크</span> 타일에는 높이를 조사해 둔 국내외 랜드마크가 지역별로 있고, 위에 <span class="ui">내 랜드마크</span>가 있습니다. 하나를 누르면 그곳을 타겟으로 한 새 프로젝트가 열리고 곧바로 촬영지 지정으로 넘어갑니다. 내 랜드마크는 여기서 이름·높이를 고치거나 지울 수 있습니다(새 등록은 계획 화면에서).</p>
+<h3 id="tools-exposure">달 노출 표</h3>
+<p>보름달 F/11 규칙에 달 모양과 고도에 따른 밝기 변화를 더한 <strong>노출 시작값</strong> 표입니다. <span class="ui">조리개</span>와 <span class="ui">셔터</span>를 고르면 <span class="ui">달 모양별 ISO 시작값</span>이 나옵니다. 달이 낮으면 아래 <span class="ui">달이 낮을 때 더할 노출</span>에서 대기 상태에 가까운 칸을 눌러 더하세요. 한 장 찍고 확대해 달 무늬가 남았는지 확인한 뒤 조정합니다.</p>
+<h3 id="tools-hyperfocal">과초점 표</h3>
+<p>초점거리·조리개별로 <em>달·별에 초점을 맞춰도 선명한 타겟 거리</em>를 보여 줍니다. 타겟이 이보다 멀면 한 장으로 둘 다 선명합니다. 칸을 누르면 그 줄·열이 강조되고 기억됩니다.</p>
+</section>
+
+<section>
+<h2 id="settings">설정</h2>
+<table>
+<tr><th>항목</th><th>설명</th></tr>
+<tr><td><span class="ui">타임존</span></td><td>계획 시각을 표시할 시간대.</td></tr>
+<tr><td><span class="ui">언어</span></td><td>시스템 기본 · 한국어 · English · 日本語. 앱을 다시 실행하면 적용됩니다.</td></tr>
+<tr><td><span class="ui">기본 높이</span></td><td>새 계획의 <span class="ui">촬영 높이</span>와 <span class="ui">사람 키</span>.</td></tr>
+<tr><td><span class="ui">Google API 키</span></td><td>해외 실사 3D·Google 지도용 내 키(선택). 기기끼리 iCloud 키체인으로만 공유됩니다.</td></tr>
+<tr><td><span class="ui">해외 실사 3D 구독</span></td><td>구독·<span class="ui">구독 관리</span>·<span class="ui">구매 복원</span>.</td></tr>
+<tr><td><span class="ui">데이터 출처</span></td><td>지도·지형·궤도·항적·날씨 자료의 출처.</td></tr>
+</table>
+</section>
+
+<section>
+<h2 id="trouble">문제 해결</h2>
+<details><summary>정렬이 하루 어긋나 보여요</summary><p>새벽에 지는 달은 계획 날짜(밤이 시작된 날)와 촬영 시각의 날짜가 다를 수 있습니다. 촬영지 카드의 <span class="ui">걸림</span> 시각을 기준으로 보세요. 해외 촬영지는 시간대가 현지 시간인지도 확인하세요.</p></details>
+<details><summary>구조물 높이가 비어 있거나 이상해요</summary><p>랜드마크 표에 없는 건물은 높이를 못 찾을 수 있습니다. 직접 입력하거나, 시뮬레이션의 <span class="ui">높이 재기</span>로 3D 모델에서 재세요. 자주 쓰는 대상이면 <span class="ui">내 랜드마크로 저장</span>해 두세요.</p></details>
+<details><summary>시뮬레이션에 해외 건물이 안 보여요</summary><p>한국 밖은 <span class="ui">해외 실사 3D 구독</span> 또는 내 Google 키가 있어야 건물이 보입니다. 둘 다 있다면 하루 사용 한도에 닿았을 수 있습니다 — 다음 날 다시 보입니다.</p></details>
+<details><summary>ISS 통과 시각이 어제와 달라졌어요</summary><p>정상입니다. ISS 궤도는 수시로 조정되고, 새 궤도 자료가 나오면 예보가 바뀝니다. 촬영 전날 다시 탐색하세요.</p></details>
+<details><summary>공유받은 링크를 눌렀는데 웹 페이지가 열려요</summary><p>앱이 설치되어 있다면 페이지의 <span class="ui">MoonAlign 앱에서 열기</span>를 누르세요. 브라우저 주소창에 직접 붙여 넣은 링크는 앱으로 열리지 않고, 메신저 등에서 <em>눌렀을 때</em> 앱으로 열립니다.</p></details>
+<details><summary>다른 기기에 프로젝트가 안 보여요</summary><p>두 기기 모두 같은 Apple 계정의 iCloud Drive가 켜져 있어야 합니다. 처음 내려받는 동안에는 목록에 <em>내려받는 중</em> 안내가 보입니다.</p></details>
+<p>그 밖의 문의는 <a href="mailto:support@yjlab.io">support@yjlab.io</a>로 보내 주세요.</p>
+</section>
+
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 <a href="https://www.yjlab.io">YJLAB</a> · 문의 <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+  </div>
+</footer>
+<script>
+  // 폰 폭에선 목차를 접어 둔다. 지금 보는 절을 목차에 표시.
+  (function () {
+    var toc = document.querySelector('.toc');
+    if (window.matchMedia('(max-width: 860px)').matches) toc.removeAttribute('open');
+    var links = Array.prototype.slice.call(toc.querySelectorAll('a'));
+    var secs = links.map(function (a) { return document.getElementById(a.hash.slice(1)); });
+    function mark() {
+      var y = window.scrollY + 100, cur = 0;
+      secs.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
+      links.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+    }
+    window.addEventListener('scroll', mark, { passive: true }); mark();
+  })();
+</script>
+</body>
+</html>

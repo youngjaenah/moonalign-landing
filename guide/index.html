@@ -1,0 +1,389 @@
+<!-- 생성물 — 직접 고치지 말 것. 원본: guide-template.html + guide-src/<lang>.html + strings/<lang>.json의 guide.* -->
+<!DOCTYPE html>
+<!-- 원본(손으로 고치는 곳) — 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
+     본문은 guide-src/<lang>.html, 목차는 본문의 <h2 id>에서 자동. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User guide — MoonAlign</title>
+  <meta name="description" content="The MoonAlign user guide — setting the target and shooting spot, each mode (structure, person, ISS, plane, Milky Way), simulation, Photo Check, AR Check, the sky calendar, sharing, and troubleshooting.">
+  <link rel="canonical" href="https://moonalign.yjlab.io/guide/">
+  <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/guide/">
+  <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/guide/">
+  <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/guide/">
+  <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/guide/">
+  <meta property="og:title" content="User guide — MoonAlign">
+  <meta property="og:description" content="The MoonAlign user guide — setting the target and shooting spot, each mode (structure, person, ISS, plane, Milky Way), simulation, Photo Check, AR Check, the sky calendar, sharing, and troubleshooting.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-soft: #f7f7f5; --ink: #17191d; --ink-dim: #585d66; --ink-faint: #8b9099;
+    --accent: #2d5bd7; --line: #e7e7e4; --target: #0aa5b8; --spot: #e8890c;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(255,255,255,0.88); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 0.98rem; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .brand .mark { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+  .brand .sub { color: var(--ink-faint); font-weight: 500; }
+  .nav-right { display: flex; align-items: center; gap: 20px; font-size: 0.86rem; }
+  .nav-right a { color: var(--ink-dim); text-decoration: none; }
+  .lang-switch { display: flex; gap: 12px; }
+  .lang-switch .lang-on { color: var(--ink); font-weight: 600; }
+
+  .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding-top: 48px; padding-bottom: 80px; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; } }
+  @media (max-width: 600px) { .wrap { padding: 0 16px; } .nav-right .back { display: none; } }
+
+  .toc { position: sticky; top: 88px; align-self: start; max-height: calc(100vh - 110px); overflow: auto; font-size: 0.88rem; }
+  .toc summary { list-style: none; font-weight: 600; color: var(--ink); margin-bottom: 10px; cursor: default; }
+  .toc summary::-webkit-details-marker { display: none; }
+  .toc ol { list-style: none; border-left: 1px solid var(--line); }
+  .toc li a { display: block; padding: 5px 0 5px 14px; color: var(--ink-dim); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; }
+  .toc li a:hover, .toc li a.on { color: var(--ink); border-left-color: var(--accent); }
+  @media (max-width: 860px) {
+    .toc { position: static; max-height: none; background: var(--bg-soft); border-radius: 12px; padding: 14px 16px; }
+    .toc summary { cursor: pointer; margin-bottom: 0; }
+    .toc[open] summary { margin-bottom: 10px; }
+  }
+
+  article { max-width: 72ch; }
+  article h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px; }
+  article .lead { color: var(--ink-dim); font-size: 1.05rem; margin-bottom: 36px; }
+  article section { padding-top: 12px; margin-bottom: 44px; border-top: 1px solid var(--line); }
+  article h2 { font-size: 1.45rem; letter-spacing: -0.01em; margin: 24px 0 12px; }
+  article h3 { font-size: 1.08rem; margin: 26px 0 8px; }
+  article p { margin: 0 0 12px; }
+  article ul, article ol { margin: 0 0 14px 1.3em; }
+  article li { margin: 4px 0; }
+  article .ui { font-weight: 600; }
+  article .tip { background: var(--bg-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article .note { background: #fff8e6; border-left: 3px solid #d9a400; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article .target { color: var(--target); font-weight: 600; }
+  article .spot { color: var(--spot); font-weight: 600; }
+  article table { border-collapse: collapse; margin: 8px 0 16px; font-size: 0.94rem; width: 100%; overflow-wrap: anywhere; }
+  article th, article td { text-align: left; border-bottom: 1px solid var(--line); padding: 7px 10px 7px 0; vertical-align: top; }
+  article th { color: var(--ink-dim); font-weight: 600; }
+  article kbd { font: 0.85em ui-monospace, Menlo, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+  article details { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 10px 0; }
+  article details summary { font-weight: 600; cursor: pointer; }
+  article details p { margin-top: 8px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 40px; color: var(--ink-faint); font-size: 0.85rem; }
+  footer a { color: var(--ink-dim); }
+
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111317; --bg-soft: #1b1e24; --ink: #eceef2; --ink-dim: #a7adb7; --ink-faint: #7c828c; --accent: #7aa2ff; --line: #2b2f37; --target: #39c6d6; --spot: #f2a33a; }
+    header { background: rgba(17,19,23,0.88); }
+    article .note { background: #2a2414; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/"><span class="mark"></span>MoonAlign <span class="sub">/ Guide</span></a>
+    <div class="nav-right">
+      <a class="back" href="/">Home page</a>
+      <span class="lang-switch"><span class="lang-on">English</span> <a href="/ko/guide/" hreflang="ko" lang="ko">한국어</a> <a href="/ja/guide/" hreflang="ja" lang="ja">日本語</a></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <details class="toc" open>
+    <summary>Contents</summary>
+    <ol>
+      <li><a href="#start">Getting started</a></li>
+      <li><a href="#plan">The planning screen</a></li>
+      <li><a href="#structure">Structure — the Moon behind a tower</a></li>
+      <li><a href="#person">Person — a silhouette in front of the Moon</a></li>
+      <li><a href="#free">None and the Milky Way</a></li>
+      <li><a href="#iss">ISS — lunar and solar transits</a></li>
+      <li><a href="#plane">Plane — live watch</a></li>
+      <li><a href="#sim">Simulation — preview in 3D</a></li>
+      <li><a href="#photo">Photo Check — the path on your scouting photo</a></li>
+      <li><a href="#ar">AR Check — aim on site</a></li>
+      <li><a href="#calendar">Sky calendar, widgets, and Calendar</a></li>
+      <li><a href="#projects">Managing and sharing projects</a></li>
+      <li><a href="#tools">Tables and tools</a></li>
+      <li><a href="#settings">Settings</a></li>
+      <li><a href="#trouble">Troubleshooting</a></li>
+    </ol>
+  </details>
+  <article>
+    <h1>User guide</h1>
+    <p class="lead">From planning to aiming on site — what each screen does. For short walkthroughs of each mode, see the tutorial videos on the home page.</p>
+<!-- User guide body (en). Translation of guide/ko.html — keep the same section ids in the same order (build_landing.py --check).
+     UI names are the app's actual English labels (Localizable.xcstrings). -->
+
+<section>
+<h2 id="start">Getting started</h2>
+<p>MoonAlign is a one-time purchase that works across iPhone, iPad, and Mac. Projects (shooting plans) sync between your devices automatically through iCloud Drive.</p>
+
+<h3 id="start-home">Home</h3>
+<p>The app opens on Home. The <span class="ui">Today's sky</span> card at the top shows today's sunrise and sunset, moonrise and moonset, the day strip (day, twilight, night, and when the Moon is up), your next planned alignment, and the nearest sky event. It uses your device's location, or the shooting spot of your last project if location isn't available.</p>
+<p>The tiles below:</p>
+<table>
+<tr><th>Tile</th><th>What it does</th></tr>
+<tr><td><span class="ui">Continue</span></td><td>Back to the project you were working on. Hidden when there's nothing to continue.</td></tr>
+<tr><td><span class="ui">New project</span></td><td>Name a project and start an empty plan. Leave the name blank and it's named from the target and date.</td></tr>
+<tr><td><span class="ui">Projects</span></td><td>Your saved projects (<a href="#projects">Managing projects</a>).</td></tr>
+<tr><td><span class="ui">Landmarks</span></td><td>Start from a landmark whose height has already been researched (<a href="#tools">Tables and tools</a>).</td></tr>
+<tr><td><span class="ui">Sky calendar</span></td><td>Full moons, eclipses, meteor showers, planet events (<a href="#calendar">Sky calendar</a>).</td></tr>
+<tr><td><span class="ui">Moon Exposure Table</span> · <span class="ui">Hyperfocal Table</span></td><td>Reference tables for the field.</td></tr>
+<tr><td><span class="ui">Settings</span></td><td>Time zone, language, default heights, Google key, subscription (<a href="#settings">Settings</a>).</td></tr>
+</table>
+<div class="tip">A fresh install includes two example projects, <span class="ui">[DEMO] N Seoul Tower Moonrise</span> and <span class="ui">[DEMO] Lotte World Tower Sunset</span>. Open them to see what a finished plan looks like. Once deleted, they don't come back.</div>
+</section>
+
+<section>
+<h2 id="plan">The planning screen</h2>
+<!-- shot: plan-overview -->
+<p>The tabs at the top center switch between four screens: <span class="ui">Plan</span> → <span class="ui">Simulation</span> → <span class="ui">Photo Check</span> → <span class="ui">AR Check</span> (shortened to <span class="ui">Plan · Sim · Photo · AR</span> on iPhone). The house icon at the top left is <span class="ui">Home</span>; the gear at the right opens settings. The Mac has no AR.</p>
+<p>On iPhone in portrait the map fills the screen and you drag the drawer up to see the panel. iPhone landscape and iPad landscape show the map and panel side by side; on the Mac it's a resizable sidebar.</p>
+
+<h3 id="plan-subject">Body and subject</h3>
+<p>Two choices at the top of the panel shape the rest of the flow.</p>
+<ul>
+<li><span class="ui">Body</span> — what to shoot in the sky: <span class="ui">Moon</span> · <span class="ui">Sun</span> · <span class="ui">Milky Way</span>.</li>
+<li><span class="ui">Subject</span> — what to put in front of it: <span class="ui">Structure</span> (towers, bridges, skylines) · <span class="ui">Person</span> (a silhouette) · <span class="ui">None</span> (the body alone) · <span class="ui">ISS</span> · <span class="ui">Plane</span>.</li>
+</ul>
+
+<h3 id="plan-assign">Setting the target and shooting spot</h3>
+<p>The <span class="target">target</span> is what you line up with the Moon (cyan); the <span class="spot">shooting spot</span> is where you stand (orange). There are several ways to set them, all with the same result.</p>
+<ul>
+<li><strong>iPhone</strong>: tap the <span class="ui">Target</span> or <span class="ui">Shooting spot</span> chip below the map and a crosshair appears. Move the map to put the crosshair on the spot, then tap <span class="ui">Target here</span> / <span class="ui">Shooting spot here</span>.</li>
+<li><strong>iPad · Mac</strong>: the <span class="ui">Set target</span> · <span class="ui">Set shooting spot</span> buttons in the panel, or long-press the map (right-click on the Mac).</li>
+<li>Search: the magnifier at the top left of the map, <span class="ui">Search places (e.g. Namsan Tower)</span>.</li>
+<li>The shooting spot can also come from <span class="ui">My location</span> or <span class="ui">From photo</span> (a photo with location data).</li>
+<li>On iPhone and iPad you can drag the pins. Moved one by mistake? <span class="ui">Undo move</span> at the top left of the map puts it back (positions only — date and time stay as they are).</li>
+</ul>
+
+<h3 id="plan-heights">Heights and ground elevation</h3>
+<p>Alignment is a matter of angles, so heights matter. The target card has <span class="ui">Ground elevation</span> and <span class="ui">Structure height</span> (<span class="ui">Person height</span> in person mode); the shooting spot has <span class="ui">Ground elevation</span> and <span class="ui">Camera height</span>.</p>
+<ul>
+<li>The badge next to each value tells you where it came from: <span class="ui">Auto</span> (looked up from terrain data) · <span class="ui">Manual</span> (you typed it) · <span class="ui">Sim terrain</span> (corrected to the surface measured by the 3D simulation) · <span class="ui">Settings default</span>.</li>
+<li>Structures in the landmark list fill in their height automatically. If none is found you'll see <span class="ui">Couldn't find the structure height</span> — type it in, or measure it with <span class="ui">Measure height</span> in the simulation.</li>
+<li>Camera height has presets: <span class="ui">Prone 0.3</span> · <span class="ui">Tripod 1.2</span> · <span class="ui">Standing 1.5</span>.</li>
+<li>Shooting from a rooftop or bridge? Ground elevation is the floor <em>you stand on</em>. Opening the simulation once corrects it to the 3D model's surface automatically.</li>
+</ul>
+
+<h3 id="plan-date">Date, time, and time zone</h3>
+<p>Use <span class="ui">Date</span> at the top of the panel to open the calendar, or <kbd>&lt;</kbd> <kbd>&gt;</kbd> to step a day at a time. The calendar shows the Moon's phase on each date. Times are shown in the shooting spot's local time; set a spot abroad and you'll be asked <span class="ui">Switch to local time?</span>. You can also change it under <span class="ui">Time zone</span> in settings.</p>
+
+<h3 id="plan-sky">The Sun &amp; Moon card</h3>
+<p>Once a target or shooting spot is set, the <span class="ui">Sun &amp; Moon</span> card appears: sunrise and sunset, moonrise and moonset, moon age and illumination, plus the <strong>day strip</strong>. The strip's background is how bright the sky is (light blue day → orange and navy twilight → black night); the yellow bar is when the Moon is up. The dawn and afterglow line is an estimate from the weather forecast.</p>
+
+<h3 id="plan-map">Map tools</h3>
+<ul>
+<li>Layers button: <span class="ui">Apple Maps</span> · <span class="ui">Apple Satellite</span> · <span class="ui">V-World</span> · <span class="ui">V-World Satellite</span> (detailed maps of Korea), and <span class="ui">Google Maps</span> if you've added your own Google key.</li>
+<li><span class="ui">Legend</span>: what each color and line on the map means.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="structure">Structure — the Moon behind a tower</h2>
+<!-- shot: structure-band -->
+<p>This is MoonAlign's core flow; the other modes follow the same grammar.</p>
+<ol>
+<li>Choose <span class="ui">Body</span> <span class="ui">Moon</span> and <span class="ui">Subject</span> <span class="ui">Structure</span>.</li>
+<li>Set the target (say, Namsan Tower). Once its height is filled in, a <strong>band</strong> appears on the map.</li>
+<li>Set the shooting spot on the band. The yellow band is where the target lines up <em>as the Moon rises</em>, the blue band <em>as it sets</em>.</li>
+<li>Read the result on the shooting spot card: <span class="ui">Moon aligned ✓</span> with the <span class="ui">Aligns at</span> time, the reference window, and the distance to the target. No alignment shows <span class="ui">No alignment</span>.</li>
+<li>If it doesn't work that day, tap <span class="ui">Search 90 days</span>. In <span class="ui">Dates with alignment</span>, check the date and time, moon age, and visibility (for example <span class="ui">night · easily visible</span> or <span class="ui">Hidden by terrain</span>), then tap <span class="ui">Select</span> to jump to that day.</li>
+<li>Preview the shot in the <a href="#sim">simulation</a>.</li>
+</ol>
+<div class="tip">The farther along the band from the target, the larger the Moon looks against it (telephoto) — but the more likely terrain gets in the way. Brown marks on the map are <em>terrain blocking the target</em>. Buildings blocking the view aren't judged on the map; check those in the simulation.</div>
+<p>When you like a plan, <span class="ui">Add to Calendar</span> puts it in your device's calendar, and the share icon lets you <a href="#projects-share">share it as a link</a>.</p>
+<h3 id="structure-landmark">My landmarks</h3>
+<p>Measured the height of something that isn't in the list — a local spire, a pylon? Save its name and height with <span class="ui">Save as my landmark</span> on the target card in structure mode. Next time, tapping that spot on the map fills in the height automatically. If you already saved one within 200 m, the button becomes <span class="ui">Edit my landmark</span>.</p>
+</section>
+
+<section>
+<h2 id="person">Person — a silhouette in front of the Moon</h2>
+<p>Stand far back and zoom in: the person stays the same size while the Moon grows. Person mode draws the band using <span class="ui">Person height</span> (1.7 m by default).</p>
+<ol>
+<li>Choose <span class="ui">Subject</span> <span class="ui">Person</span> and set the spot where the person will stand (a ridge, a hilltop) as the target.</li>
+<li>You'll usually try several spots. <span class="ui">Save</span> good ones to <span class="ui">Person spot candidates</span> and switch between the A · B · C chips to compare bands (long-press a chip to delete it).</li>
+<li>Once the spot is settled, set your shooting spot on the band.</li>
+</ol>
+<div class="note">Person mode is sensitive enough that a few meters of terrain can flip the result. Don't rely on the plan alone — re-check the spot during scouting with <a href="#photo">Photo Check</a> and <a href="#ar">AR Check</a>.</div>
+</section>
+
+<section>
+<h2 id="free">None and the Milky Way</h2>
+<p><span class="ui">Subject</span> <span class="ui">None</span> is for shooting the body itself with nothing in front. Set just a shooting spot and the map shows where it rises (yellow line) and sets (blue line).</p>
+<p>With <span class="ui">Body</span> <span class="ui">Milky Way</span>, the shooting spot card shows <span class="ui">Light pollution</span> (Bortle class and mag/arcsec², estimated from satellite night lights) and <span class="ui">When the Milky Way is visible</span> (the best time). A Moon in the sky shortens that window.</p>
+</section>
+
+<section>
+<h2 id="iss">ISS — lunar and solar transits</h2>
+<p>The International Space Station crosses the Moon's disk in about half a second. MoonAlign forecasts it to the second from NASA orbit data.</p>
+<ol>
+<li>Choose <span class="ui">Subject</span> <span class="ui">ISS</span> and <span class="ui">Body</span> <span class="ui">Moon</span> (or <span class="ui">Sun</span>).</li>
+<li>Not sure where to go? Tap <span class="ui">Find transit spots</span> under <span class="ui">Predicted transit areas</span>. It draws the <strong>bands</strong> where a transit is visible within the current map view. Tap a row to move the map to that band. Daytime and near-horizon bands are collected in a folded group.</li>
+<li>Set the shooting spot on a band and tap <span class="ui">Search 14 days</span> under <span class="ui">ISS lunar transit</span>.</li>
+<li>Check each result's grade (<span class="ui">Transit expected</span> · <span class="ui">Possible</span> · <span class="ui">Close pass</span>), separation, and duration, then tap <span class="ui">Select</span> to confirm. Confirming saves automatically, and the simulation lets you step through it in 0.1-second increments.</li>
+</ol>
+<p><span class="ui">ISS passes</span> (folded) lists the ISS crossing the night sky rather than the Moon: brightness, peak altitude, direction, and how long it's visible.</p>
+<div class="note">Every forecast is a prediction from orbit data. The ISS adjusts its orbit from time to time, so <strong>search again the day before you shoot</strong>. The status line shows which data was used (NASA OEM or TLE) and how long it's valid.</div>
+</section>
+
+<section>
+<h2 id="plane">Plane — live watch</h2>
+<p>A plane crossing the Moon can't be forecast in advance. Instead, MoonAlign watches live air traffic around your shooting spot and warns you seconds before a crossing.</p>
+<ol>
+<li>Choose <span class="ui">Subject</span> <span class="ui">Plane</span> and set your shooting spot.</li>
+<li>Set <span class="ui">Max distance</span> (km) and tap <span class="ui">Start live watch</span>. The default source is adsb.lol public traffic (updated every 30 seconds, stops automatically after 2 hours).</li>
+<li>Candidate rows show seconds remaining, separation, altitude, and distance. When a crossing is close you get a countdown and an alert to <em>get ready for burst</em>.</li>
+</ol>
+<ul>
+<li>Run your own ADS-B receiver (readsb, dump1090)? Turn on <span class="ui">My receiver</span> and enter its aircraft.json address — it's faster and more accurate.</li>
+<li>While watching, the shooting spot and body are locked. Tap <span class="ui">Stop watching</span> first to change them.</li>
+<li><span class="ui">Transit history</span> keeps past candidates.</li>
+<li><span class="ui">Camera auto capture (Sony · Canon)</span>: connect your camera over USB and it bursts automatically around the crossing. Try <span class="ui">Test shutter for 1 second</span> first.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="sim">Simulation — preview in 3D</h2>
+<!-- shot: sim -->
+<p>Preview the plan with real terrain, buildings, and your lens's field of view. In Korea it uses V-World 3D (Ministry of Land, Infrastructure and Transport); abroad it uses Google Photorealistic 3D.</p>
+<ul>
+<li><span class="ui">Time</span> slider: move around the alignment time and watch the Moon slide behind the target. The range is in the (i).</li>
+<li><span class="ui">Focal length</span>: 14–1200mm, plus the sensor (<span class="ui">Full frame</span> · <span class="ui">APS-C Sony/Nikon</span> · <span class="ui">APS-C Canon</span> · <span class="ui">Micro Four Thirds</span>). Crop sensors also show the 35mm-equivalent focal length.</li>
+<li><span class="ui">Aperture</span>: picking one adds focus advice — whether focusing on the Moon keeps the target sharp too, or where to focus, or whether to blend two frames.</li>
+<li><span class="ui">Measure height</span>: measure a structure on the 3D model and put it into the plan with <span class="ui">Use this height</span>.</li>
+<li>Chips over the scene: <span class="ui">View camera position</span> (see your spot from outside) · <span class="ui">Landscape</span>/<span class="ui">Portrait</span> · <span class="ui">Show silhouette</span> · <span class="ui">Save image</span>. Drag the scene to look around.</li>
+</ul>
+<h3 id="sim-overseas">Photorealistic 3D abroad</h3>
+<p>There are two ways to see photorealistic 3D buildings for shooting spots outside Korea.</p>
+<ul>
+<li><span class="ui">Overseas 3D subscription</span> (monthly or yearly) — works with no setup.</li>
+<li>Your own Google API key (free, optional) — add it under <span class="ui">Google API key</span> in settings; it takes priority over the subscription. How to create one is in <a href="/#google-key">the Google 3D key section of the home page</a>.</li>
+</ul>
+<p>With neither, you'll see terrain only and a one-time card in the scene. Building display has a daily usage limit; if you hit it, buildings come back the next day.</p>
+</section>
+
+<section>
+<h2 id="photo">Photo Check — the path on your scouting photo</h2>
+<!-- shot: photo -->
+<p>Take one photo from the shooting spot while scouting, and MoonAlign draws the planned day's path of the Moon (or Sun) on top of it. Use it to catch trees, cranes, and fences that aren't on any map.</p>
+<ol>
+<li>In the <span class="ui">Photo Check</span> tab, load a photo with <span class="ui">Choose photo</span>. An original photo with capture time, focal length, and GPS (EXIF) works best.</li>
+<li>Choose the <span class="ui">Reference</span> (Moon, Sun, Milky Way, or target) and the <span class="ui">Location</span> (this photo's location / the shooting spot / my location).</li>
+<li>Drag the red ring (the body) and the orange marker (top of the target, or the person's head) onto their real positions in the photo. Zoom in and press and hold to drag precisely.</li>
+<li>Scrub the <span class="ui">Time</span> slider to see the path across the planned time.</li>
+</ol>
+<ul>
+<li>Camera clock off by a few seconds? Enter it in <span class="ui">Clock offset</span>.</li>
+<li><span class="ui">35mm equiv.</span> is the 35mm-equivalent focal length; if it differs from the EXIF value, the original is shown too.</li>
+<li>ISS and plane projects don't have Photo Check.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="ar">AR Check — aim on site</h2>
+<!-- shot: ar -->
+<p>On the day, hold up your iPhone or iPad on site and the planned path appears over the real sky, so you can frame the shot before the Moon rises (real devices only, not on the Mac).</p>
+<ul>
+<li><span class="ui">Time</span>: scrub through the whole time the body is up.</li>
+<li><span class="ui">Align</span>: corrects compass error. If the body is visible, put it in the crosshair and tap <span class="ui">Align to Moon</span>; if not, put the top of the target in the crosshair and tap <span class="ui">Align to target</span> (<span class="ui">Align to person</span> in person mode).</li>
+<li>Refine further with <span class="ui">Fine-tune</span>; the reset button returns to the start.</li>
+<li>Use the zoom chips to match the <span class="ui">35mm equiv.</span> view to your planned lens.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="calendar">Sky calendar, widgets, and Calendar</h2>
+<p>The <span class="ui">Sky calendar</span> shows full moons (supermoons and micromoons), new moons, lunar and solar eclipses, meteor showers, planet oppositions and conjunctions, close approaches and occultations of the Moon with planets and bright stars, Venus at greatest brilliancy, and the equinoxes and solstices. Close approaches and conjunctions are reported at the time <em>they're actually visible from your reference location</em>. Tap a date to see that day's Sun &amp; Moon card, your saved plans, and its events. Meteor showers note how much moonlight will interfere.</p>
+<p><span class="ui">Add to Calendar</span> on an event or plan row adds it to your device's calendar (with reminders the evening before and an hour before). iPhone and iPad show the event editor; the Mac saves it directly. The app never reads your calendar.</p>
+<p>Home screen and Notification Center widgets: <span class="ui">Today's sky</span> · <span class="ui">Today's Moon</span> · <span class="ui">Today's Sun</span> · <span class="ui">Next shooting chance</span>, plus Lock Screen widgets. Widgets show what the app last calculated, so open the app once in a while.</p>
+</section>
+
+<section>
+<h2 id="projects">Managing and sharing projects</h2>
+<p>A plan is saved as a project automatically as soon as you set the shooting spot. <span class="ui">Projects</span> lists them by most recently edited; long-press a row (right-click on the Mac) for <span class="ui">Open</span> · <span class="ui">Rename…</span> · <span class="ui">Share as Link…</span> · <span class="ui">Export as File…</span> · <span class="ui">Delete…</span>. To delete several at once, use <span class="ui">Select</span>.</p>
+<p>Projects sync through iCloud Drive across devices on the same Apple Account. Without iCloud they stay on that device.</p>
+<h3 id="projects-share">Sharing as a link</h3>
+<p>To share a plan with a friend, tap <span class="ui">Share as Link…</span> and send it in any messenger. When they tap the link, the <span class="ui">Shared plan</span> screen opens and <span class="ui">Import</span> creates a new project. For someone without the app, the same link opens a web page with the plan's summary and a map.</p>
+<ul>
+<li>The link contains the shooting spot's location and the project name. A link can't be taken back once sent, so you're asked to confirm the first time.</li>
+<li>The plan lives only inside the link; nothing is stored on a server.</li>
+<li>Automatic values such as ground elevation are looked up again on the receiving device. Heights you typed in yourself travel as they are.</li>
+<li>If a messenger cuts the link off, use <span class="ui">Export as File…</span> to send a <code>.moonplan</code> file instead. Opening it brings up the same screen.</li>
+</ul>
+<p><span class="ui">Export project JSON…</span> and <span class="ui">Import project JSON…</span> in the Mac menu bar are for full backups.</p>
+</section>
+
+<section>
+<h2 id="tools">Tables and tools</h2>
+<h3 id="tools-landmarks">Landmarks</h3>
+<p>The <span class="ui">Landmarks</span> tile lists landmarks around the world whose heights have been researched, grouped by region, with <span class="ui">My landmarks</span> on top. Tap one to open a new project with it as the target, ready for you to set the shooting spot. You can rename, change the height of, or delete your own landmarks here (adding new ones happens on the planning screen).</p>
+<h3 id="tools-exposure">Moon Exposure Table</h3>
+<p>A table of <strong>starting exposures</strong>: the full-moon f/11 rule adjusted for the Moon's phase and altitude. Pick <span class="ui">Aperture</span> and <span class="ui">Shutter</span> to read the <span class="ui">Starting ISO by phase</span>. For a low Moon, tap the cell in <span class="ui">Extra exposure for a low Moon</span> that best matches the air conditions to add it. Take a frame, zoom in to check the lunar detail survives, then adjust.</p>
+<h3 id="tools-hyperfocal">Hyperfocal Table</h3>
+<p>For each focal length and aperture, the <em>target distance at which focusing on the Moon or stars still keeps the target sharp</em>. If your target is farther than that, one frame gets both sharp. Tap a cell to highlight its row and column; it's remembered.</p>
+</section>
+
+<section>
+<h2 id="settings">Settings</h2>
+<table>
+<tr><th>Item</th><th>What it does</th></tr>
+<tr><td><span class="ui">Time zone</span></td><td>The time zone plan times are shown in.</td></tr>
+<tr><td><span class="ui">Language</span></td><td>System default · 한국어 · English · 日本語. Takes effect after restarting the app.</td></tr>
+<tr><td><span class="ui">Default heights</span></td><td><span class="ui">Camera height</span> and <span class="ui">Person height</span> for new plans.</td></tr>
+<tr><td><span class="ui">Google API key</span></td><td>Your own key for photorealistic 3D abroad and Google Maps (optional). Shared only between your devices through iCloud Keychain.</td></tr>
+<tr><td><span class="ui">Overseas 3D subscription</span></td><td>Subscribe · <span class="ui">Manage subscription</span> · <span class="ui">Restore purchases</span>.</td></tr>
+<tr><td><span class="ui">Data sources</span></td><td>Where the map, terrain, orbit, air traffic, and weather data come from.</td></tr>
+</table>
+</section>
+
+<section>
+<h2 id="trouble">Troubleshooting</h2>
+<details><summary>The alignment seems to be a day off</summary><p>A Moon that sets before dawn can align on a different calendar date than the plan's date (the night it began). Go by the <span class="ui">Aligns at</span> time on the shooting spot card. For spots abroad, also check that the time zone is local time.</p></details>
+<details><summary>The structure height is empty or wrong</summary><p>Buildings that aren't in the landmark table may not have a height. Type it in, or measure it on the 3D model with <span class="ui">Measure height</span> in the simulation. For something you shoot often, use <span class="ui">Save as my landmark</span>.</p></details>
+<details><summary>No buildings abroad in the simulation</summary><p>Outside Korea, buildings need the <span class="ui">Overseas 3D subscription</span> or your own Google key. If you have one, you may have reached the daily usage limit — buildings come back the next day.</p></details>
+<details><summary>The ISS transit time changed since yesterday</summary><p>That's expected. The ISS orbit is adjusted from time to time and forecasts change with new orbit data. Search again the day before you shoot.</p></details>
+<details><summary>Tapping a shared link opens a web page</summary><p>If the app is installed, tap <span class="ui">Open in MoonAlign</span> on the page. A link pasted into the browser's address bar doesn't open the app; it opens the app when you <em>tap</em> it in a messenger or similar.</p></details>
+<details><summary>Projects don't show up on my other device</summary><p>Both devices need iCloud Drive turned on with the same Apple Account. While projects first download, the list says they're downloading.</p></details>
+<p>For anything else, write to <a href="mailto:support@yjlab.io">support@yjlab.io</a>.</p>
+</section>
+
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 <a href="https://www.yjlab.io">YJLAB</a> · Contact <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+  </div>
+</footer>
+<script>
+  // 폰 폭에선 목차를 접어 둔다. 지금 보는 절을 목차에 표시.
+  (function () {
+    var toc = document.querySelector('.toc');
+    if (window.matchMedia('(max-width: 860px)').matches) toc.removeAttribute('open');
+    var links = Array.prototype.slice.call(toc.querySelectorAll('a'));
+    var secs = links.map(function (a) { return document.getElementById(a.hash.slice(1)); });
+    function mark() {
+      var y = window.scrollY + 100, cur = 0;
+      secs.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
+      links.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+    }
+    window.addEventListener('scroll', mark, { passive: true }); mark();
+  })();
+</script>
+</body>
+</html>
