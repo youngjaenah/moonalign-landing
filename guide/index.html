@@ -80,6 +80,13 @@
   article details summary { font-weight: 600; cursor: pointer; }
   article details p { margin-top: 8px; }
 
+  article figure.shot { margin: 18px 0 22px; }
+  article figure.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
+  article figure.shot.phone img { max-width: 300px; border-radius: 28px; }
+  article figure.shot.pair { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  article figure.shot.pair img { width: auto; max-width: 100%; }
+  article figure.shot figcaption { width: 100%; font-size: 0.85rem; color: var(--ink-faint); margin-top: 8px; }
+
   footer { border-top: 1px solid var(--line); padding: 32px 0 40px; color: var(--ink-faint); font-size: 0.85rem; }
   footer a { color: var(--ink-dim); }
 
@@ -150,7 +157,7 @@
 
 <section>
 <h2 id="plan">The planning screen</h2>
-<!-- shot: plan-overview -->
+<figure class="shot phone"><img src="/img/guide/plan-iphone-en.jpg" alt="The planning screen on iPhone" loading="lazy"><figcaption>The planning screen on iPhone — the chip row below the map (Target, Shooting spot, camera height) and, in the drawer you pull up, Date, Body, Subject, and the Sun & Moon card.</figcaption></figure>
 <p>The tabs at the top center switch between four screens: <span class="ui">Plan</span> → <span class="ui">Simulation</span> → <span class="ui">Photo Check</span> → <span class="ui">AR Check</span> (shortened to <span class="ui">Plan · Sim · Photo · AR</span> on iPhone). The house icon at the top left is <span class="ui">Home</span>; the gear at the right opens settings. The Mac has no AR.</p>
 <p>On iPhone in portrait the map fills the screen and you drag the drawer up to see the panel. iPhone landscape and iPad landscape show the map and panel side by side; on the Mac it's a resizable sidebar.</p>
 
@@ -195,7 +202,7 @@
 
 <section>
 <h2 id="structure">Structure — the Moon behind a tower</h2>
-<!-- shot: structure-band -->
+<figure class="shot"><img src="/img/guide/band-mac-en.jpg" alt="The planning screen on the Mac" loading="lazy"><figcaption>The planning screen on the Mac — the yellow band (moonrise) and blue band (moonset), and the Moon’s direction from the shooting spot (red). The shooting spot card on the left shows the result. Example: the Eiffel Tower, moonrise on 2026-10-02. “Search 7 days” in the picture is the demo screen; the app searches 90 days.</figcaption></figure>
 <p>This is MoonAlign's core flow; the other modes follow the same grammar.</p>
 <ol>
 <li>Choose <span class="ui">Body</span> <span class="ui">Moon</span> and <span class="ui">Subject</span> <span class="ui">Structure</span>.</li>
@@ -259,7 +266,7 @@
 
 <section>
 <h2 id="sim">Simulation — preview in 3D</h2>
-<!-- shot: sim -->
+<figure class="shot"><img src="/img/guide/sim-mac-en.jpg" alt="Simulation on the Mac" loading="lazy"><figcaption>Simulation on the Mac — the Moon framed between the legs of the Eiffel Tower (200mm, full frame). Change the time, focal length, and aperture below.</figcaption></figure>
 <p>Preview the plan with real terrain, buildings, and your lens's field of view. In Korea it uses V-World 3D (Ministry of Land, Infrastructure and Transport); abroad it uses Google Photorealistic 3D.</p>
 <ul>
 <li><span class="ui">Time</span> slider: move around the alignment time and watch the Moon slide behind the target. The range is in the (i).</li>

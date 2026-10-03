@@ -80,6 +80,13 @@
   article details summary { font-weight: 600; cursor: pointer; }
   article details p { margin-top: 8px; }
 
+  article figure.shot { margin: 18px 0 22px; }
+  article figure.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
+  article figure.shot.phone img { max-width: 300px; border-radius: 28px; }
+  article figure.shot.pair { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  article figure.shot.pair img { width: auto; max-width: 100%; }
+  article figure.shot figcaption { width: 100%; font-size: 0.85rem; color: var(--ink-faint); margin-top: 8px; }
+
   footer { border-top: 1px solid var(--line); padding: 32px 0 40px; color: var(--ink-faint); font-size: 0.85rem; }
   footer a { color: var(--ink-dim); }
 
@@ -150,7 +157,7 @@
 
 <section>
 <h2 id="plan">計画画面のしくみ</h2>
-<!-- shot: plan-overview -->
+<figure class="shot phone"><img src="/img/guide/plan-iphone-ja.jpg" alt="iPhoneの計画画面" loading="lazy"><figcaption>iPhoneの計画画面 — 地図の下のチップ列(ターゲット・撮影地・カメラの高さ)と、引き上げる引き出しの日付・対象・被写体・太陽と月のカード。</figcaption></figure>
 <p>上中央のタブで4つの画面を行き来します:<span class="ui">計画</span> → <span class="ui">シミュレーション</span> → <span class="ui">写真チェック</span> → <span class="ui">ARチェック</span>(iPhoneでは短く<span class="ui">計画・シミュ・写真・AR</span>)。左上の家のアイコンは<span class="ui">ホーム</span>、右の歯車は設定です。MacにはARがありません。</p>
 <p>iPhoneの縦向きでは地図が画面全体に表示され、下の引き出しを引き上げてパネルを見ます。iPhoneの横向きとiPadの横向きは地図とパネルが横並び、Macはサイズを変えられるサイドバーです。</p>
 
@@ -195,7 +202,7 @@
 
 <section>
 <h2 id="structure">構造物 — タワーの後ろに月を重ねる</h2>
-<!-- shot: structure-band -->
+<figure class="shot"><img src="/img/guide/band-mac-ja.jpg" alt="Macの計画画面" loading="lazy"><figcaption>Macの計画画面 — 黄色い帯(月の出)と青い帯(月の入り)、撮影地から見た月の方向(赤)。左の撮影地カードに結果が出ます。例:パリ・エッフェル塔、2026-10-02の月の出。図の「7日間検索」はデモ画面の表示で、実際のアプリは90日です。</figcaption></figure>
 <p>MoonAlignの基本の流れです。ほかのモードも同じ文法に従います。</p>
 <ol>
 <li><span class="ui">対象</span>で<span class="ui">月</span>、<span class="ui">被写体</span>で<span class="ui">構造物</span>を選びます。</li>
@@ -259,7 +266,7 @@
 
 <section>
 <h2 id="sim">シミュレーション — 3Dで事前確認</h2>
-<!-- shot: sim -->
+<figure class="shot"><img src="/img/guide/sim-mac-ja.jpg" alt="Macのシミュレーション" loading="lazy"><figcaption>Macのシミュレーション — エッフェル塔の脚の間に重なる月(200mm、フルサイズ)。下で時刻・焦点距離・絞りを変えます。</figcaption></figure>
 <p>地形・建物・実際のレンズの画角でプランを事前に確認します。韓国ではV-World 3D(国土交通部)、海外ではGoogleフォトリアリスティック3Dを使います。</p>
 <ul>
 <li><span class="ui">時刻</span>スライダー:重なる時刻の前後を動かし、月がターゲットの後ろに入っていく様子を見ます。範囲は(i)にあります。</li>
