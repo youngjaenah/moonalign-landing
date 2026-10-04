@@ -39,12 +39,17 @@
   .brand .sub { color: var(--ink-faint); font-weight: 500; }
   .nav-right { display: flex; align-items: center; gap: 20px; font-size: 0.86rem; }
   .nav-right a { color: var(--ink-dim); text-decoration: none; }
-  .lang-switch { display: flex; gap: 12px; }
+  .lang-switch { display: flex; gap: 12px; white-space: nowrap; }
   .lang-switch .lang-on { color: var(--ink); font-weight: 600; }
 
   .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding-top: 48px; padding-bottom: 80px; }
   @media (max-width: 860px) { .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; } }
   @media (max-width: 600px) { .wrap { padding: 0 16px; } .nav-right .back { display: none; } }
+
+  @media (max-width: 600px) {
+    .nav { height: auto; min-height: 64px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; gap: 8px 16px; }
+    .nav-right { flex-shrink: 0; margin-left: auto; }
+  }
 
   .toc { position: sticky; top: 88px; align-self: start; max-height: calc(100vh - 110px); overflow: auto; font-size: 0.88rem; }
   .toc summary { list-style: none; font-weight: 600; color: var(--ink); margin-bottom: 10px; cursor: default; }
@@ -99,6 +104,8 @@
   /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
      일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
   html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
+  html:lang(ko) article p, html:lang(ko) article li { text-wrap: pretty; }
+  html:lang(ko) article h2, html:lang(ko) article h3 { text-wrap: balance; }
   html:lang(ja) body { word-break: auto-phrase; }
 </style>
 </head>

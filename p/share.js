@@ -148,11 +148,15 @@
     return 'moonalign://p?d=' + d;
   }
 
-  function mapLinks(p) {
+  /**
+   * 지도 앱 링크. Apple은 좌표를 검색어(q)로 넘기면 근처에 주소가 없는 곳(공원·강가 등)에서 "위치를 찾을 수 없음"이 나와
+   * (2026-10-04 Windows Chrome, T038) 좌표에 바로 핀을 꽂는 place?coordinate= 형식에 이름표(name)를 붙인다.
+   */
+  function mapLinks(p, name) {
     var ll = p.la + ',' + p.lo;
     return {
       google: 'https://www.google.com/maps/search/?api=1&query=' + ll,
-      apple: 'https://maps.apple.com/?ll=' + ll + '&q=' + encodeURIComponent(ll),
+      apple: 'https://maps.apple.com/place?coordinate=' + ll + (name ? '&name=' + encodeURIComponent(name) : ''),
     };
   }
 
@@ -253,7 +257,22 @@
     }
     setText('plan-spot', p.s.la.toFixed(5) + ', ' + p.s.lo.toFixed(5));
     el('open-app').href = appLink(location.hash, order);
-    var links = mapLinks(p.s);
+    // Windows·Linux 등엔 MoonAlign 앱이 없다 — 눌러도 아무 일이 없어(2026-10-04 Windows Chrome) 버튼과 안내를 숨긴다.
+    if (order === 'other') { el('open-app').hidden = true; document.querySelectorAll('[data-s="open.app.note"]').forEach(function (e) { e.hidden = true; }); }
+    // 앱이 없으면 스킴 링크는 조용히 실패한다(사파리 경고 또는 메신저 인앱 브라우저에선 무반응 — 2026-10-04 실기기 T038).
+    // 누른 뒤 페이지가 계속 보이면 앱이 안 열린 것으로 보고 설치 안내 + 스토어 버튼으로. 앱이 열리면 페이지가 가려져 타이머를 끈다.
+    el('open-app').addEventListener('click', function () {
+      var timer = setTimeout(function () {
+        if (document.visibilityState !== 'visible') return;
+        show('open-app-missing', true);
+        var st = el('stores');
+        if (st && st.scrollIntoView) st.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 1600);
+      function cancel() { clearTimeout(timer); }
+      document.addEventListener('visibilitychange', function () { if (document.visibilityState !== 'visible') cancel(); }, { once: true });
+      window.addEventListener('pagehide', cancel, { once: true });
+    });
+    var links = mapLinks(p.s, S['spot']);
     el('open-google').href = links.google;
     el('open-apple').href = links.apple;
     show('state-ok', true);

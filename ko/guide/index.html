@@ -39,12 +39,17 @@
   .brand .sub { color: var(--ink-faint); font-weight: 500; }
   .nav-right { display: flex; align-items: center; gap: 20px; font-size: 0.86rem; }
   .nav-right a { color: var(--ink-dim); text-decoration: none; }
-  .lang-switch { display: flex; gap: 12px; }
+  .lang-switch { display: flex; gap: 12px; white-space: nowrap; }
   .lang-switch .lang-on { color: var(--ink); font-weight: 600; }
 
   .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding-top: 48px; padding-bottom: 80px; }
   @media (max-width: 860px) { .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; } }
   @media (max-width: 600px) { .wrap { padding: 0 16px; } .nav-right .back { display: none; } }
+
+  @media (max-width: 600px) {
+    .nav { height: auto; min-height: 64px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; gap: 8px 16px; }
+    .nav-right { flex-shrink: 0; margin-left: auto; }
+  }
 
   .toc { position: sticky; top: 88px; align-self: start; max-height: calc(100vh - 110px); overflow: auto; font-size: 0.88rem; }
   .toc summary { list-style: none; font-weight: 600; color: var(--ink); margin-bottom: 10px; cursor: default; }
@@ -99,6 +104,8 @@
   /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
      일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
   html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
+  html:lang(ko) article p, html:lang(ko) article li { text-wrap: pretty; }
+  html:lang(ko) article h2, html:lang(ko) article h3 { text-wrap: balance; }
   html:lang(ja) body { word-break: auto-phrase; }
 </style>
 </head>
@@ -119,14 +126,14 @@
     <ol>
       <li><a href="#start">시작하기</a></li>
       <li><a href="#plan">계획 화면 둘러보기</a></li>
-      <li><a href="#structure">구조물 — 타워 뒤로 달 걸기</a></li>
+      <li><a href="#structure">구조물 — 타워와 달이 겹치는 구도</a></li>
       <li><a href="#person">사람 — 달 앞의 실루엣</a></li>
-      <li><a href="#free">없음과 은하수</a></li>
+      <li><a href="#free">피사체 없이 촬영하기·은하수</a></li>
       <li><a href="#iss">ISS — 달·태양면 통과</a></li>
       <li><a href="#plane">비행기 — 라이브 감시</a></li>
       <li><a href="#sim">시뮬레이션 — 3D로 미리 보기</a></li>
       <li><a href="#photo">사진 확인 — 답사 사진 위에 경로 그리기</a></li>
-      <li><a href="#ar">AR 확인 — 현장에서 조준</a></li>
+      <li><a href="#ar">AR 확인 — 현장에서 촬영 방향 확인</a></li>
       <li><a href="#calendar">천문 달력·위젯·캘린더</a></li>
       <li><a href="#projects">프로젝트 관리와 공유</a></li>
       <li><a href="#tools">표와 도구</a></li>
@@ -143,164 +150,167 @@
 
 <section>
 <h2 id="start">시작하기</h2>
-<p>MoonAlign은 한 번 구매하면 iPhone·iPad·Mac에서 함께 사용하는 앱입니다. 프로젝트(촬영 계획)는 iCloud Drive로 기기 사이에 자동으로 동기화됩니다.</p>
+<p>이 설명서는 iPhone·iPad·Mac용 MoonAlign을 기준으로 안내합니다. 같은 Apple 계정으로 한 번 구매하면 세 기기에서 사용할 수 있습니다. 촬영 계획은 프로젝트로 저장되며, iCloud Drive를 통해 기기 간에 동기화됩니다.</p>
 
 <h3 id="start-home">시작 메뉴</h3>
-<p>앱을 열면 시작 메뉴가 먼저 나옵니다. 위쪽 <span class="ui">오늘 하늘</span> 카드에는 오늘의 일출·일몰, 월출·월몰, 하루 띠(낮·박명·밤과 달이 떠 있는 시간), 다음 정렬 계획, 가장 가까운 천문 이벤트가 보입니다. 기준 위치는 기기 위치이고, 없으면 마지막 프로젝트의 촬영지를 기준으로 합니다.</p>
-<p>아래 타일은 다음과 같습니다.</p>
+<p>앱을 실행하면 시작 메뉴가 표시됩니다. 위쪽 <span class="ui">오늘 하늘</span> 카드에서 오늘의 일출·일몰, 월출·월몰, 하루 띠(낮·박명·밤과 달이 떠 있는 시간), 다음 정렬 계획, 다가오는 천문 현상을 확인할 수 있습니다.</p>
+<p>기기의 현재 위치를 기준으로 표시하며, 위치를 확인할 수 없으면 마지막 프로젝트의 촬영지를 사용합니다.</p>
+<p>시작 메뉴의 각 항목에서 다음 기능을 이용할 수 있습니다.</p>
 <table>
-<tr><th>타일</th><th>하는 일</th></tr>
+<tr><th>항목</th><th>기능</th></tr>
 <tr><td><span class="ui">이어서 하기</span></td><td>작업하던 프로젝트로 돌아갑니다. 이어갈 프로젝트가 없으면 보이지 않습니다.</td></tr>
-<tr><td><span class="ui">새 프로젝트</span></td><td>이름을 정하고 빈 계획을 시작합니다. 이름을 비워 두면 타겟과 날짜로 자동으로 지어집니다.</td></tr>
-<tr><td><span class="ui">프로젝트</span></td><td>저장된 프로젝트 목록(<a href="#projects">프로젝트 관리</a>).</td></tr>
-<tr><td><span class="ui">랜드마크</span></td><td>높이를 조사해 둔 랜드마크에서 바로 시작합니다(<a href="#tools">표와 도구</a>).</td></tr>
-<tr><td><span class="ui">천문 달력</span></td><td>보름달·식·유성우·행성 이벤트(<a href="#calendar">천문 달력</a>).</td></tr>
-<tr><td><span class="ui">달 노출 표</span> · <span class="ui">과초점 표</span></td><td>현장에서 보는 참고표.</td></tr>
-<tr><td><span class="ui">설정</span></td><td>타임존·언어·기본 높이·Google 키·구독(<a href="#settings">설정</a>).</td></tr>
+<tr><td><span class="ui">새 프로젝트</span></td><td>이름을 입력하고 새 촬영 계획을 만듭니다. 이름을 입력하지 않으면 타겟과 날짜를 기준으로 자동 지정됩니다.</td></tr>
+<tr><td><span class="ui">프로젝트</span></td><td>저장된 촬영 계획을 확인합니다. 자세한 내용은 <a href="#projects">프로젝트 관리</a>를 참고하세요.</td></tr>
+<tr><td><span class="ui">랜드마크</span></td><td>높이 정보가 등록된 랜드마크로 촬영 계획을 시작합니다(<a href="#tools">표와 도구</a>).</td></tr>
+<tr><td><span class="ui">천문 달력</span></td><td>보름달, 일식·월식, 유성우 등 주요 천문 현상을 확인합니다(<a href="#calendar">천문 달력</a>).</td></tr>
+<tr><td><span class="ui">달 노출 표</span> · <span class="ui">과초점 표</span></td><td>촬영에 필요한 노출 설정과 초점에 따른 선명한 거리 범위를 확인합니다.</td></tr>
+<tr><td><span class="ui">설정</span></td><td>시간대, 언어, 기본 높이, Google API 키와 구독을 관리합니다(<a href="#settings">설정</a>).</td></tr>
 </table>
-<div class="tip">처음 설치하면 <span class="ui">[데모] N서울타워 월출</span>과 <span class="ui">[데모] 롯데월드타워 일몰</span> 두 예시 프로젝트가 들어 있습니다. 완성된 계획이 어떻게 생겼는지 열어 보세요. 지워도 다시 생기지 않습니다.</div>
+<div class="tip">처음 설치하면 <span class="ui">[데모] N서울타워 월출</span>과 <span class="ui">[데모] 롯데월드타워 일몰</span> 두 예시 프로젝트가 제공됩니다. 프로젝트를 열어 촬영 계획의 구성을 살펴보세요. 삭제한 예시 프로젝트는 자동으로 복원되지 않습니다.</div>
 </section>
 
 <section>
 <h2 id="plan">계획 화면 둘러보기</h2>
-<figure class="shot phone"><img src="/img/guide/plan-iphone-ko.jpg" alt="iPhone 계획 화면" loading="lazy"><figcaption>iPhone 계획 화면 — 지도 아래 칩 줄(타겟·촬영지·촬영 높이)과, 끌어 올리는 서랍의 날짜·대상·피사체·해와 달 카드.</figcaption></figure>
-<p>위쪽 가운데 탭으로 네 화면을 오갑니다: <span class="ui">계획</span> → <span class="ui">시뮬레이션</span> → <span class="ui">사진 확인</span> → <span class="ui">AR 확인</span>(iPhone에서는 줄여서 <span class="ui">계획·시뮬·사진·AR</span>). 왼쪽 위 집 아이콘은 <span class="ui">시작 메뉴</span>, 오른쪽 기어는 설정입니다. Mac에는 AR이 없습니다.</p>
-<p>iPhone 세로에서는 지도가 화면 전체이고 아래 서랍을 끌어 올려 패널을 봅니다. iPhone 가로와 iPad 가로는 지도와 패널이 나란히, Mac은 크기를 바꿀 수 있는 사이드바입니다.</p>
+<figure class="shot phone"><img src="/img/guide/plan-iphone-ko.jpg" alt="iPhone 계획 화면" loading="lazy"><figcaption>iPhone 계획 화면 — 지도 아래에서 타겟·촬영지·촬영 높이를 지정합니다. 하단 패널을 위로 끌어 올리면 날짜·대상·피사체와 해와 달 카드를 확인할 수 있습니다.</figcaption></figure>
+<p>화면 상단의 탭으로 다음 네 화면을 전환합니다: <span class="ui">계획</span> → <span class="ui">시뮬레이션</span> → <span class="ui">사진 확인</span> → <span class="ui">AR 확인</span>(iPhone에서는 줄여서 <span class="ui">계획·시뮬·사진·AR</span>). 왼쪽 위의 집 아이콘을 누르면 <span class="ui">시작 메뉴</span>로 이동하고, 오른쪽 위의 톱니바퀴 아이콘을 누르면 설정이 열립니다. Mac에서는 AR 확인을 지원하지 않습니다.</p>
+<p>iPhone을 세로로 사용하면 지도가 화면 전체에 표시됩니다. 하단 패널을 위로 끌어 올려 설정 항목을 확인하세요. iPhone·iPad의 가로 화면에서는 지도와 패널이 나란히 표시됩니다. Mac에서는 사이드바의 너비를 조절할 수 있습니다.</p>
 
 <h3 id="plan-subject">대상과 피사체</h3>
-<p>패널 위쪽에서 두 가지를 고르면 나머지 흐름이 그에 맞춰집니다.</p>
+<p>패널 상단에서 대상과 피사체를 선택하면 해당 촬영에 필요한 설정이 표시됩니다.</p>
 <ul>
-<li><span class="ui">대상</span> — 하늘의 무엇을 찍을지: <span class="ui">달</span> · <span class="ui">태양</span> · <span class="ui">은하수</span>.</li>
-<li><span class="ui">피사체</span> — 그 앞에 무엇을 둘지: <span class="ui">구조물</span>(타워·다리·스카이라인) · <span class="ui">사람</span>(실루엣) · <span class="ui">없음</span>(천체만) · <span class="ui">ISS</span> · <span class="ui">비행기</span>.</li>
+<li><span class="ui">대상</span> — 촬영할 천체를 선택합니다: <span class="ui">달</span> · <span class="ui">태양</span> · <span class="ui">은하수</span>.</li>
+<li><span class="ui">피사체</span> — 천체와 함께 담을 피사체를 선택합니다: <span class="ui">구조물</span>(타워·다리·스카이라인) · <span class="ui">사람</span>(실루엣) · <span class="ui">없음</span>(천체만) · <span class="ui">ISS</span> · <span class="ui">비행기</span>.</li>
 </ul>
 
 <h3 id="plan-assign">타겟과 촬영지 지정하기</h3>
-<p><span class="target">타겟</span>은 달 앞에 걸 대상(청록), <span class="spot">촬영지</span>는 내가 설 자리(주황)입니다. 지정하는 방법은 여러 가지이고 결과는 같습니다.</p>
+<p><span class="target">타겟</span>은 구조물이나 사람이 있는 위치이며 청록색으로 표시됩니다. <span class="spot">촬영지</span>는 카메라를 설치할 위치이며 주황색으로 표시됩니다. 기기에 맞는 방법으로 두 위치를 지정하세요.</p>
 <ul>
-<li><strong>iPhone</strong>: 지도 아래 칩 줄에서 <span class="ui">타겟</span> 또는 <span class="ui">촬영지</span> 칩을 누르면 십자선이 나타납니다. 지도를 움직여 십자선을 원하는 자리에 두고 <span class="ui">여기를 타겟으로</span> / <span class="ui">여기를 촬영지로</span>를 누릅니다.</li>
-<li><strong>iPad·Mac</strong>: 패널의 <span class="ui">타겟 지정</span> · <span class="ui">촬영지 지정</span> 버튼, 또는 지도를 길게 누르기(Mac은 오른쪽 클릭) 메뉴.</li>
-<li>검색: 지도 왼쪽 위 돋보기에서 <span class="ui">장소 검색 (예: 남산타워)</span>.</li>
-<li>촬영지는 <span class="ui">현재 위치</span>나 <span class="ui">사진에서</span>(위치 정보가 든 사진)로도 지정할 수 있습니다.</li>
-<li>iPhone·iPad에서는 핀을 끌어 옮길 수 있습니다. 잘못 옮겼으면 지도 왼쪽 위 <span class="ui">위치 되돌리기</span>로 되돌립니다(위치만 되돌리고 날짜·시각은 그대로).</li>
+<li><strong>iPhone</strong>: 지도 아래의 <span class="ui">타겟</span> 또는 <span class="ui">촬영지</span> 버튼을 누르면 십자선이 나타납니다. 지도를 움직여 십자선을 원하는 자리에 두고 <span class="ui">여기를 타겟으로</span> / <span class="ui">여기를 촬영지로</span>를 누릅니다.</li>
+<li><strong>iPad·Mac</strong>: 패널의 <span class="ui">타겟 지정</span> 또는 <span class="ui">촬영지 지정</span> 버튼을 누릅니다. 지도를 길게 누르거나 Mac에서 오른쪽 클릭해 나타나는 메뉴로도 지정할 수 있습니다.</li>
+<li>장소 이름으로 찾으려면 지도 왼쪽 위의 돋보기를 누르고 <span class="ui">장소 검색 (예: 남산타워)</span>에 이름을 입력합니다.</li>
+<li>촬영지는 <span class="ui">현재 위치</span>나 <span class="ui">사진에서</span>(위치 정보가 포함된 사진)로도 지정할 수 있습니다.</li>
+<li>iPhone·iPad에서는 핀을 끌어 옮길 수 있습니다. 이전 위치로 돌아가려면 지도 왼쪽 위 <span class="ui">위치 되돌리기</span>를 누릅니다. 위치만 되돌아가며 날짜와 시각은 유지됩니다.</li>
 </ul>
 
 <h3 id="plan-heights">높이와 지면고도</h3>
-<p>정렬은 각도로 결정되므로 높이가 중요합니다. 타겟 카드에는 <span class="ui">지면고도</span>와 <span class="ui">구조물 높이</span>(사람 모드는 <span class="ui">사람 키</span>), 촬영지에는 <span class="ui">지면고도</span>와 <span class="ui">촬영 높이</span>가 있습니다.</p>
+<p>천체와 피사체가 겹치는 위치를 계산하려면 높이 정보가 정확해야 합니다. 타겟 카드에는 <span class="ui">지면고도</span>와 <span class="ui">구조물 높이</span>(사람 모드는 <span class="ui">사람 키</span>), 촬영지에는 <span class="ui">지면고도</span>와 <span class="ui">촬영 높이</span>가 있습니다.</p>
 <ul>
-<li>값 옆 배지가 출처를 알려 줍니다: <span class="ui">자동</span>(지형 자료에서 조회) · <span class="ui">수동</span>(직접 입력) · <span class="ui">시뮬 지형</span>(3D 시뮬레이션이 잰 표면으로 보정) · <span class="ui">설정 기본값</span>.</li>
-<li>랜드마크 목록에 있는 구조물은 높이가 자동으로 채워집니다. 못 찾으면 <span class="ui">구조물 높이를 찾지 못했어요</span> 알림이 뜹니다 — 직접 넣거나 시뮬레이션의 <span class="ui">높이 재기</span>로 재세요.</li>
-<li>촬영 높이는 프리셋 <span class="ui">엎드려 0.3</span> · <span class="ui">삼각대 1.2</span> · <span class="ui">서서 1.5</span>에서 고를 수 있습니다.</li>
-<li>옥상·다리 위에서 찍는다면 지면고도는 <em>서 있는 바닥</em>의 높이입니다. 시뮬레이션을 한 번 열면 3D 모델 표면으로 자동 보정됩니다.</li>
+<li>각 값 옆의 표시는 높이 정보의 출처를 나타냅니다: <span class="ui">자동</span>(지형 자료에서 조회) · <span class="ui">수동</span>(직접 입력) · <span class="ui">시뮬 지형</span>(3D 모델의 표면 높이로 보정) · <span class="ui">설정 기본값</span>.</li>
+<li>랜드마크 목록에 있는 구조물은 높이가 자동으로 입력됩니다. 높이 정보가 없으면 <span class="ui">구조물 높이를 찾지 못했어요</span> 알림이 표시됩니다. 높이를 직접 입력하거나 시뮬레이션의 <span class="ui">높이 재기</span>로 측정하세요.</li>
+<li>촬영 높이는 미리 설정된 값인 <span class="ui">엎드려 0.3</span> · <span class="ui">삼각대 1.2</span> · <span class="ui">서서 1.5</span>에서 고를 수 있습니다.</li>
+<li>옥상·다리 위에서 찍는다면 지면고도는 <em>촬영자가 서 있는 바닥</em>의 높이입니다. 시뮬레이션을 한 번 열면 3D 모델 표면으로 자동 보정됩니다.</li>
 </ul>
 
 <h3 id="plan-date">날짜·시각·시간대</h3>
-<p>패널 맨 위 <span class="ui">날짜</span>에서 달력을 열거나 <kbd>&lt;</kbd> <kbd>&gt;</kbd>로 하루씩 옮깁니다. 달력에는 날짜마다 달 모양이 보입니다. 시각은 촬영지 현지 시간으로 표시되며, 해외 지점을 지정하면 <span class="ui">현지 시간으로 바꿀까요?</span> 알림이 뜹니다. 시간대는 설정의 <span class="ui">타임존</span>에서도 바꿀 수 있습니다.</p>
+<p>패널 맨 위 <span class="ui">날짜</span>에서 달력을 열거나 <kbd>&lt;</kbd> <kbd>&gt;</kbd>로 날짜를 하루씩 변경합니다. 달력에는 날짜마다 달 모양이 보입니다. 시각은 촬영지 현지 시간으로 표시되며, 해외 지점을 지정하면 <span class="ui">현지 시간으로 바꿀까요?</span> 알림이 뜹니다. 시간대는 설정의 <span class="ui">타임존</span>에서도 바꿀 수 있습니다.</p>
 
 <h3 id="plan-sky">해와 달 카드</h3>
-<p>타겟이나 촬영지를 지정하면 <span class="ui">해와 달</span> 카드가 나옵니다. 일출·일몰, 월출·월몰, 월령·밝기와 함께 <strong>하루 띠</strong>가 그려집니다. 띠의 배경은 하늘 밝기(낮 하늘색 → 박명 주황·남색 → 밤 검정), 노란 막대는 달이 떠 있는 시간입니다. 여명·노을 줄은 날씨 예보로 본 추정입니다.</p>
+<p>타겟이나 촬영지를 지정하면 <span class="ui">해와 달</span> 카드가 표시됩니다. 일출·일몰, 월출·월몰, 월령·밝기와 함께 <strong>하루 띠</strong>가 그려집니다. 띠의 배경은 하늘 밝기(낮 하늘색 → 박명 주황·남색 → 밤 검정), 노란 막대는 달이 떠 있는 시간입니다. 여명·노을 지수는 날씨 예보를 바탕으로 한 추정값입니다.</p>
 
 <h3 id="plan-map">지도 도구</h3>
 <ul>
-<li>레이어 버튼: <span class="ui">Apple 지도</span> · <span class="ui">Apple 위성</span> · <span class="ui">V-World</span> · <span class="ui">V-World 위성</span>(한국 상세 지도), 내 Google 키가 있으면 <span class="ui">Google 지도</span>.</li>
-<li><span class="ui">범례</span>: 지도 위 색과 선의 뜻.</li>
+<li>레이어 버튼에서 지도 종류를 선택합니다: <span class="ui">Apple 지도</span> · <span class="ui">Apple 위성</span> · <span class="ui">V-World</span> · <span class="ui">V-World 위성</span>(한국 상세 지도), 개인 Google API 키를 등록하면 <span class="ui">Google 지도</span>도 선택할 수 있습니다.</li>
+<li><span class="ui">범례</span>: 지도에 표시된 색상과 선의 의미를 확인합니다.</li>
 </ul>
 </section>
 
 <section>
-<h2 id="structure">구조물 — 타워 뒤로 달 걸기</h2>
-<figure class="shot"><img src="/img/guide/band-mac-ko.jpg" alt="Mac 계획 화면" loading="lazy"><figcaption>Mac 계획 화면 — 노란 띠(달이 뜰 때)와 파란 띠(질 때), 촬영지에서 본 달 방향(빨강). 왼쪽 촬영지 카드에 정렬 결과가 나옵니다. 예: 파리 에펠탑, 2026-10-02 월출. 그림의 ‘7일 탐색’은 데모 화면 표시이고, 실제 앱은 90일입니다.</figcaption></figure>
-<p>MoonAlign의 기본 흐름입니다. 다른 모드도 같은 문법을 따릅니다.</p>
+<h2 id="structure">구조물 — 타워와 달이 겹치는 구도</h2>
+<figure class="shot"><img src="/img/guide/band-mac-ko.jpg" alt="Mac 계획 화면" loading="lazy"><figcaption>Mac 계획 화면 — 노란 띠(달이 뜰 때)와 파란 띠(질 때), 촬영지에서 본 달 방향(빨강). 왼쪽 촬영지 카드에 정렬 결과가 나옵니다. 예: 파리 에펠탑, 2026-10-02 월출. 스크린샷에는 데모용 ‘7일 탐색’이 표시되어 있으나, 실제 앱에서는 ‘90일 탐색’을 사용합니다.</figcaption></figure>
+<p>구조물 촬영의 기본 절차입니다. 촬영 대상을 지정하고, 촬영 위치와 시각을 찾은 뒤 시뮬레이션으로 구도를 확인합니다.</p>
 <ol>
 <li><span class="ui">대상</span> <span class="ui">달</span>, <span class="ui">피사체</span> <span class="ui">구조물</span>을 고릅니다.</li>
-<li>타겟(예: 남산타워)을 지정합니다. 높이가 채워지면 지도에 <strong>띠</strong>가 그려집니다.</li>
-<li>띠 위에 촬영지를 지정합니다. 노란 띠는 <em>달이 뜰 때</em>, 파란 띠는 <em>질 때</em> 타겟에 걸리는 자리입니다.</li>
-<li>촬영지 카드에서 결과를 봅니다: <span class="ui">달 정렬 ✓</span>와 <span class="ui">걸림</span> 시각, 참고 창, 타겟과의 거리. 정렬이 없으면 <span class="ui">정렬 없음</span>.</li>
-<li>그날 맞지 않으면 <span class="ui">90일 탐색</span>을 누릅니다. <span class="ui">정렬 가능 날짜</span> 목록에서 날짜·시각·월령·가시성(예: <span class="ui">밤·잘 보임</span>, <span class="ui">지형에 가림</span>)을 보고 <span class="ui">선택</span>으로 그날로 옮깁니다.</li>
-<li><a href="#sim">시뮬레이션</a>으로 화면을 미리 봅니다.</li>
+<li>타겟(예: 남산타워)을 지정합니다. 높이가 입력되면 지도에 <strong>띠</strong>가 그려집니다.</li>
+<li>띠 위에 촬영지를 지정합니다. 노란 띠는 <em>달이 뜰 때</em>, 파란 띠는 <em>질 때</em> 달과 타겟이 겹치는 촬영 위치입니다.</li>
+<li>촬영지 카드에서 <span class="ui">달 정렬 ✓</span> 표시와 <span class="ui">걸림</span> 시각, 참고 창(정렬 전후의 시간 범위), 타겟까지의 거리를 확인합니다. 해당 날짜에 정렬되지 않으면 <span class="ui">정렬 없음</span>이 표시됩니다.</li>
+<li>다른 날짜를 찾으려면 <span class="ui">90일 탐색</span>을 누릅니다. <span class="ui">정렬 가능 날짜</span> 목록에서 날짜·시각·월령·가시성(예: <span class="ui">밤·잘 보임</span>, <span class="ui">지형에 가림</span>)을 보고 <span class="ui">선택</span>을 눌러 계획 날짜를 변경합니다.</li>
+<li><a href="#sim">시뮬레이션</a>으로 촬영 구도를 미리 확인합니다.</li>
 </ol>
-<div class="tip">띠는 타겟에서 멀어질수록 달이 커 보이지만(망원), 지형에 가리기 쉽습니다. 지도 위 갈색 표시는 <em>타겟을 가리는 지형</em>입니다. 건물에 의한 가림은 지도로는 판정하지 않으니 시뮬레이션에서 확인하세요.</div>
-<p>마음에 드는 계획은 <span class="ui">캘린더에 추가</span>로 기기 캘린더에 넣거나, 공유 아이콘으로 <a href="#projects-share">링크로 공유</a>할 수 있습니다.</p>
+<div class="tip">타겟에서 멀리 떨어져 망원렌즈로 타겟을 같은 크기로 담으면, 달이 상대적으로 크게 보입니다. 다만 촬영 위치에 따라 지형이 시야를 가릴 수 있습니다. 지도 위 갈색 표시는 <em>타겟을 가리는 지형</em>입니다. 건물에 의한 가림은 지도에서 판정하지 않으므로 시뮬레이션에서 확인하세요.</div>
+<p>마음에 드는 계획은 <span class="ui">캘린더에 추가</span>로 기기 캘린더에 저장하거나, 공유 아이콘으로 <a href="#projects-share">링크로 공유</a>할 수 있습니다.</p>
 <h3 id="structure-landmark">내 랜드마크</h3>
-<p>목록에 없는 대상(동네 첨탑, 송전탑 등)의 높이를 한 번 재 두었다면, 구조물 모드 타겟 카드의 <span class="ui">내 랜드마크로 저장</span>으로 이름·높이를 저장하세요. 다음부터는 지도에서 그 자리를 찍기만 해도 높이가 자동으로 채워집니다. 200 m 안에 이미 저장한 항목이 있으면 버튼이 <span class="ui">내 랜드마크 수정</span>으로 바뀝니다.</p>
+<p>목록에 없는 대상(동네 첨탑, 송전탑 등)의 높이를 측정했다면, 구조물 모드 타겟 카드의 <span class="ui">내 랜드마크로 저장</span>으로 이름·높이를 저장하세요. 다음부터는 지도에서 해당 위치를 지정하면 높이가 자동으로 채워집니다. 200 m 안에 이미 저장한 항목이 있으면 버튼이 <span class="ui">내 랜드마크 수정</span>으로 바뀝니다.</p>
 </section>
 
 <section>
 <h2 id="person">사람 — 달 앞의 실루엣</h2>
-<p>멀리 떨어져 망원으로 당기면 사람은 그대로이고 달만 커집니다. 사람 모드는 <span class="ui">사람 키</span>(기본 1.7 m)를 높이로 써서 띠를 그립니다.</p>
+<p>사람에게서 멀리 떨어져 망원렌즈로 사람을 같은 크기로 담으면, 달이 상대적으로 크게 보입니다. 사람 모드는 <span class="ui">사람 키</span>(기본 1.7 m)를 기준으로 촬영 가능한 위치를 띠로 표시합니다.</p>
 <ol>
 <li><span class="ui">피사체</span> <span class="ui">사람</span>을 고르고, 사람이 설 자리(능선·언덕 위)를 타겟으로 지정합니다.</li>
-<li>자리는 여러 번 옮겨 보는 게 보통입니다. 괜찮은 자리는 <span class="ui">사람 자리 후보</span>에 <span class="ui">저장</span>해 A·B·C 칩으로 오가며 띠를 비교하세요(칩을 길게 누르면 지우기).</li>
+<li>여러 위치를 비교하려면 후보 위치를 <span class="ui">사람 자리 후보</span>에 <span class="ui">저장</span>합니다. A·B·C 버튼으로 후보를 전환하며 정렬 띠를 비교할 수 있습니다. 후보를 삭제하려면 해당 버튼을 길게 누르세요.</li>
 <li>자리가 정해지면 촬영지를 띠 위에 지정합니다.</li>
 </ol>
-<div class="note">사람 모드는 지형 몇 m 차이로 결과가 뒤집힐 만큼 민감합니다. 계획만 믿지 말고 사전답사에서 <a href="#photo">사진 확인</a>과 <a href="#ar">AR 확인</a>으로 자리를 다시 잡으세요.</div>
+<div class="note">사람 모드는 지형의 높이나 위치가 몇 m만 달라도 정렬 결과가 달라질 수 있습니다. 사전 답사에서 <a href="#photo">사진 확인</a>과 <a href="#ar">AR 확인</a>으로 실제 시야와 촬영 위치를 확인하세요.</div>
 </section>
 
 <section>
-<h2 id="free">없음과 은하수</h2>
-<p><span class="ui">피사체</span> <span class="ui">없음</span>은 앞에 세울 것 없이 천체 자체를 찍을 때 사용합니다. 촬영지만 지정하면 지도에 뜨는 방향(노란 선)과 지는 방향(파란 선)이 그려집니다.</p>
-<p><span class="ui">대상</span> <span class="ui">은하수</span>를 고르면 촬영지 카드에 <span class="ui">광해</span>(Bortle 등급과 <span class="ui">mag/arcsec²</span>, 위성 야간광에서 역산한 추정)와 <span class="ui">은하수 볼 수 있는 시간</span>(가장 좋은 때)이 나옵니다. 달이 떠 있으면 그 시간은 줄어듭니다.</p>
+<h2 id="free">피사체 없이 촬영하기·은하수</h2>
+<p><span class="ui">피사체</span> <span class="ui">없음</span>은 구조물이나 사람 없이 천체 자체를 촬영할 때 선택합니다. 촬영지만 지정하면 지도에 뜨는 방향(노란 선)과 지는 방향(파란 선)이 그려집니다.</p>
+<p><span class="ui">대상</span> <span class="ui">은하수</span>를 고르면 촬영지 카드에 <span class="ui">광해</span>(Bortle 등급과 <span class="ui">mag/arcsec²</span>, 위성 야간광 자료를 바탕으로 한 추정값)와 <span class="ui">은하수 볼 수 있는 시간</span>이 표시됩니다. 달이 떠 있는 시간에는 달빛의 영향으로 관측에 적합한 시간이 줄어들 수 있습니다.</p>
 </section>
 
 <section>
 <h2 id="iss">ISS — 달·태양면 통과</h2>
-<p>국제우주정거장이 달 원반을 지나는 시간은 약 0.5초입니다. MoonAlign은 NASA 궤도 자료로 초 단위까지 예보합니다.</p>
+<p>국제우주정거장(ISS)이 달이나 태양 앞을 통과하는 위치와 시각을 예측합니다. 통과 시간은 관측 조건에 따라 달라지므로, 선택한 예측 결과에서 확인하세요.</p>
 <ol>
 <li><span class="ui">피사체</span> <span class="ui">ISS</span>, <span class="ui">대상</span> <span class="ui">달</span>(또는 <span class="ui">태양</span>)을 고릅니다.</li>
-<li>어디로 가야 할지 모르면 <span class="ui">통과 예측 지역</span>의 <span class="ui">통과 위치 찾기</span>를 누르세요. 지금 지도 범위에서 통과가 보이는 <strong>띠</strong>가 그려집니다. 행을 누르면 지도가 그 띠로 이동합니다. 낮이나 지평선 근처 띠는 접힌 그룹에 모여 있습니다.</li>
+<li>촬영할 지역을 찾으려면 <span class="ui">통과 예측 지역</span>의 <span class="ui">통과 위치 찾기</span>를 누르세요. 현재 지도 범위에서 통과가 보이는 <strong>띠</strong>가 그려집니다. 행을 누르면 지도가 그 띠로 이동합니다. 낮에 발생하거나 천체가 지평선에 가까운 통과 예측은 별도의 접힌 그룹에서 확인할 수 있습니다.</li>
 <li>띠 위에 촬영지를 지정하고 <span class="ui">ISS 달 통과</span>의 <span class="ui">14일 탐색</span>을 누릅니다.</li>
-<li>결과 행에서 등급(<span class="ui">통과 예상</span> · <span class="ui">통과 가능</span> · <span class="ui">근접</span>), 각거리, 통과 시간을 보고 <span class="ui">선택</span>으로 확정합니다. 확정하면 자동으로 저장되고 시뮬레이션에서 0.1초 단위로 볼 수 있습니다.</li>
+<li>결과 행에서 등급(<span class="ui">통과 예상</span> · <span class="ui">통과 가능</span> · <span class="ui">근접</span>), 천체와 ISS 사이의 각거리, 통과 시간을 확인하고 <span class="ui">선택</span>으로 확정합니다. 선택한 결과는 프로젝트로 자동 저장되며 시뮬레이션에서 0.1초 단위로 볼 수 있습니다.</li>
 </ol>
-<p><span class="ui">밤하늘 지나감</span>(접혀 있음)은 달 앞이 아니라 밤하늘을 가로지르는 ISS입니다. 밝기, 최고 고도, 방향, 보이는 시간이 나옵니다.</p>
-<div class="note">모든 예보는 궤도 자료 기준의 예측입니다. ISS는 궤도를 수시로 조정하므로 <strong>촬영 전날 꼭 다시 탐색</strong>하세요. 상태 줄에 쓰인 자료(NASA OEM 또는 TLE)와 유효 기간을 확인할 수 있습니다.</div>
+<p><span class="ui">밤하늘 지나감</span> 항목을 펼치면 밤하늘을 가로지르는 ISS의 관측 기회를 확인할 수 있습니다. 밝기, 최고 고도, 방향, 보이는 시간이 나옵니다.</p>
+<div class="note">모든 예보는 궤도 자료 기준의 예측입니다. ISS는 궤도를 수시로 조정하므로 <strong>촬영 전날 꼭 다시 탐색</strong>하세요. 상태 표시줄에서 사용한 자료(NASA OEM 또는 TLE)와 유효 기간을 확인할 수 있습니다.</div>
 </section>
 
 <section>
 <h2 id="plane">비행기 — 라이브 감시</h2>
-<p>달 앞을 지나는 비행기는 미리 예보할 수 없습니다. 그래서 MoonAlign은 촬영지 주변의 실시간 항적을 감시하다가 통과 몇 초 전에 알려 줍니다.</p>
+<p>MoonAlign은 촬영지 주변의 실시간 비행 경로를 바탕으로 달 앞을 통과할 가능성을 계산하고 알림을 제공합니다. 장기간의 촬영 일정을 미리 예측하는 방식과는 다릅니다.</p>
 <ol>
 <li><span class="ui">피사체</span> <span class="ui">비행기</span>를 고르고 촬영지를 지정합니다.</li>
 <li><span class="ui">최대 거리</span>(km)를 정하고 <span class="ui">라이브 감시 시작</span>을 누릅니다. 기본 자료는 adsb.lol 공개 항적(30초마다 갱신, 2시간 뒤 자동 중지)입니다.</li>
-<li>후보 행에 남은 초·각거리·고도·거리가 나오고, 통과가 임박하면 카운트다운과 알림(<span class="ui">연사 준비</span>)이 옵니다.</li>
+<li>후보 목록에는 예상 통과까지 남은 시간, 달과의 각거리, 비행 고도와 거리가 표시됩니다. 통과가 임박하면 카운트다운과 알림(<span class="ui">연사 준비</span>)이 표시됩니다.</li>
 </ol>
 <ul>
-<li>직접 운영하는 ADS-B 수신기(readsb·dump1090)가 있으면 <span class="ui">내 수신기</span>를 켜고 aircraft.json 주소를 넣으세요. 더 빠르고 정확합니다.</li>
-<li>감시 중에는 촬영지와 대상이 잠깁니다. 바꾸려면 <span class="ui">감시 중지</span>를 먼저 누르세요.</li>
-<li><span class="ui">통과 기회 기록</span>에 지난 후보가 남습니다.</li>
-<li><span class="ui">카메라 자동 촬영 (Sony·Canon)</span>: USB로 카메라를 연결하면 통과 앞뒤로 자동 연사합니다. <span class="ui">1초 시험 촬영</span>으로 먼저 확인하세요.</li>
+<li>직접 운영하는 ADS-B 수신기(readsb·dump1090)가 있으면 <span class="ui">내 수신기</span>를 켜고 <code>aircraft.json</code> 주소를 입력하세요. 연결한 수신기의 데이터를 1초 간격으로 갱신합니다.</li>
+<li>감시 중에는 촬영지와 대상을 변경할 수 없습니다. 바꾸려면 <span class="ui">감시 중지</span>를 먼저 누르세요.</li>
+<li><span class="ui">통과 기회 기록</span>에서 이전 통과 후보를 확인할 수 있습니다.</li>
+<li><span class="ui">카메라 자동 촬영 (Sony·Canon)</span>: 지원 카메라를 USB로 연결하면 예상 통과 시점 전후로 연속 촬영합니다. <span class="ui">1초 시험 촬영</span>으로 먼저 확인하세요.</li>
 </ul>
 </section>
 
 <section>
 <h2 id="sim">시뮬레이션 — 3D로 미리 보기</h2>
 <figure class="shot"><img src="/img/guide/sim-mac-ko.jpg" alt="Mac 시뮬레이션" loading="lazy"><figcaption>Mac 시뮬레이션 — 에펠탑 다리 사이로 걸린 달(200mm, 풀프레임). 아래에서 시각·초점거리·조리개를 바꿉니다.</figcaption></figure>
-<p>계획을 지형·건물·실제 렌즈 화각으로 미리 봅니다. 한국은 V-World 3D(국토교통부), 해외는 Google 실사 3D를 사용합니다.</p>
+<p>지형과 건물, 렌즈 화각을 반영한 3D 화면에서 촬영 구도를 미리 확인합니다. 한국은 V-World 3D(국토교통부), 해외는 Google 실사 3D를 사용합니다.</p>
 <ul>
-<li><span class="ui">시각</span> 슬라이더: 정렬 시각 앞뒤로 움직이며 달이 타겟 뒤로 들어가는 모습을 봅니다. 범위는 (i)에 있습니다.</li>
-<li><span class="ui">초점거리</span>: 14~1200mm와 센서(<span class="ui">풀프레임</span> · <span class="ui">APS-C 소니·니콘</span> · <span class="ui">APS-C 캐논</span> · <span class="ui">마이크로포서드</span>). 크롭 센서면 환산 초점거리가 함께 나옵니다.</li>
-<li><span class="ui">조리개</span>: 고르면 초점 안내가 붙습니다 — 달에 초점을 맞춰도 타겟까지 선명한지, 아니면 어디에 맞추거나 두 장을 합성해야 하는지.</li>
-<li><span class="ui">높이 재기</span>: 3D 모델에서 구조물 높이를 재고 <span class="ui">이 높이 쓰기</span>로 계획에 넣습니다.</li>
-<li>화면 위 칩: <span class="ui">카메라 위치 보기</span>(3인칭으로 내 자리 확인) · <span class="ui">가로 사진</span>/<span class="ui">세로 사진</span> · <span class="ui">실루엣 보이기</span> · <span class="ui">이미지로 저장</span>. 화면을 끌면 시선을 옮길 수 있습니다.</li>
+<li><span class="ui">시각</span> 슬라이더: 정렬 시각 전후로 조절하며 달과 타겟이 겹치는 구도를 확인합니다. 조절할 수 있는 시간 범위는 정보 버튼 ⓘ에서 확인할 수 있습니다.</li>
+<li><span class="ui">초점거리</span>: 14~1200mm 범위의 초점거리와 센서 종류(<span class="ui">풀프레임</span> · <span class="ui">APS-C 소니·니콘</span> · <span class="ui">APS-C 캐논</span> · <span class="ui">마이크로포서드</span>)를 선택합니다. 크롭 센서를 선택하면 환산 초점거리도 표시됩니다.</li>
+<li><span class="ui">조리개</span>: 조리개 값을 선택하면 초점 안내가 표시됩니다. 달과 타겟을 함께 선명하게 담을 수 있는지, 어디에 초점을 맞춰야 하는지 확인할 수 있습니다.</li>
+<li><span class="ui">높이 재기</span>: 3D 모델에서 구조물 높이를 재고 <span class="ui">이 높이 쓰기</span>를 눌러 계획에 반영합니다.</li>
+<li>화면 상단의 버튼: <span class="ui">카메라 위치 보기</span>(외부 시점에서 촬영 위치 확인) · <span class="ui">가로 사진</span>/<span class="ui">세로 사진</span> · <span class="ui">실루엣 보이기</span> · <span class="ui">이미지로 저장</span>. 화면을 드래그하면 바라보는 방향을 조절할 수 있습니다.</li>
 </ul>
 <h3 id="sim-overseas">해외 실사 3D</h3>
-<p>해외 실사 3D 건물은 Google 지도 API로 불러오며, Google은 사용할 때마다 사용료를 받습니다. <span class="ui">해외 실사 3D 구독</span>은 이 사용료를 앱이 대신 내기 위한 것이며, 수익을 더 내기 위한 상품이 아닙니다. 그래서 <strong>개인 Google API 키를 등록하면 구독 없이 동일하게 이용할 수 있습니다.</strong> 둘 다 없으면 지형만 표시됩니다.</p>
-<p>개인 키는 설정의 <span class="ui">Google API 키</span>에 등록하며, 구독보다 우선하여 사용합니다. 키는 iCloud 키체인에 저장되어 내 Apple 기기 사이에서만 동기화되고, Google에만 전송됩니다. 일반적인 촬영 계획 용도는 대부분 Google의 월 무료 한도 안에 있으며, 한도를 초과하면 Google 요금 정책에 따라 비용이 발생할 수 있습니다. 계획 화면의 Google 지도도 개인 키가 필요하며 구독에는 포함되지 않습니다.</p>
+<p>해외 실사 3D 건물은 Google 지도 API로 불러오며, 사용량에 따라 Google 이용 요금이 발생합니다. <span class="ui">해외 실사 3D 구독</span>은 해당 이용 비용을 충당하기 위한 것으로, 추가 수익을 목적으로 하지 않습니다.</p>
+<p><strong>개인 Google API 키를 등록하면 구독 없이 동일한 실사 3D 기능을 이용할 수 있습니다.</strong> 구독과 개인 키가 모두 없으면 지형만 표시됩니다.</p>
+<p>개인 키는 설정의 <span class="ui">Google API 키</span>에 등록하며, 구독보다 우선하여 사용합니다. 키는 iCloud 키체인에 저장되어 내 Apple 기기 사이에서만 동기화되고, Google에만 전송됩니다. 개인 키 사용량에는 Google의 요금 정책이 적용됩니다. 무료 한도를 초과하면 비용이 발생할 수 있으므로 사용량과 요금을 확인하세요.</p>
+<p>계획 화면의 Google 지도도 개인 키가 필요하며 구독에는 포함되지 않습니다.</p>
 <p>건물 표시에는 하루 사용 한도가 있습니다. 한도에 도달하면 다음 날 다시 이용할 수 있습니다.</p>
 <p><strong>Google API 키 발급 및 설정</strong></p>
 <ol>
       <li><b>Google Cloud 콘솔에 로그인합니다.</b>
         <span><a href="https://console.cloud.google.com" rel="noopener">console.cloud.google.com</a> — 일반 Google 계정이면 됩니다.</span></li>
       <li><b>프로젝트를 만듭니다.</b>
-        <span>상단 프로젝트 선택 → “새 프로젝트”. 원하는 이름을 입력합니다(예: <code>moonalign-3d</code>).</span></li>
+        <span>상단의 프로젝트 선택 메뉴에서 “새 프로젝트”를 선택하고 이름을 입력합니다(예: <code>moonalign-3d</code>).</span></li>
       <li><b>결제 계정을 연결합니다.</b>
         <span>지도 API는 카드 등록이 필요합니다. 무료 한도를 초과하면 비용이 발생할 수 있습니다. 사용 전에 Google의 최신 요금 정책을 확인하세요.</span></li>
       <li><b>Map Tiles API를 사용 설정합니다.</b>
         <span>“API 및 서비스 → 라이브러리”에서 <code>Map Tiles API</code>를 검색해 사용 설정합니다. 실사 3D 타일이 이 API에 포함됩니다.</span></li>
       <li><b>API 키를 만듭니다.</b>
-        <span>“API 및 서비스 → 사용자 인증 정보 → + 사용자 인증 정보 만들기 → API 키”. 키 문자열을 복사합니다.</span></li>
+        <span>“API 및 서비스 → 사용자 인증 정보 → + 사용자 인증 정보 만들기 → API 키”에서 키를 생성하고 복사합니다.</span></li>
       <li><b>키를 제한합니다(권장).</b>
         <span>키 편집 → “API 제한사항” → <code>Map Tiles API</code>만 허용합니다. 이 설정은 키를 사용할 수 있는 API를 제한합니다. “애플리케이션 제한사항”은 “없음”으로 설정합니다. iOS 앱 제한을 건 키는 MoonAlign에서 동작하지 않습니다.</span></li>
       <li><b>MoonAlign에 붙여넣습니다.</b>
-        <span>계획 화면 → 설정 → “Google API 키”. 다음에 시뮬레이션을 불러올 때 적용됩니다.</span></li>
+        <span>계획 화면의 설정에서 “Google API 키”에 복사한 키를 붙여넣습니다. 다음에 시뮬레이션을 불러올 때 적용됩니다.</span></li>
     </ol>
 <p>Google Cloud 콘솔의 ‘결제 → 예산 및 알림’에서 비용 알림을 설정할 수 있습니다. 예산 알림은 사용량이나 과금을 자동으로 차단하지 않으므로, 사용량과 요금을 함께 확인하세요.</p>
 </section>
@@ -308,50 +318,51 @@
 <section>
 <h2 id="photo">사진 확인 — 답사 사진 위에 경로 그리기</h2>
 <!-- shot: photo -->
-<p>사전답사 때 촬영지에서 사진 한 장을 찍어 두면, 계획한 날의 천체 경로를 그 사진 위에 그려 줍니다. 지도에 없는 나무·크레인·울타리를 확인하는 데 사용합니다.</p>
+<p>사전 답사에서 촬영한 사진 위에 계획한 시각의 천체 위치와 경로를 표시합니다. 지도에 없는 나무·크레인·울타리를 확인하는 데 사용합니다.</p>
 <ol>
-<li><span class="ui">사진 확인</span> 탭에서 <span class="ui">사진 선택</span>으로 사진을 불러옵니다. 촬영 시각·초점거리·GPS(EXIF)가 있는 원본 사진이 좋습니다.</li>
+<li><span class="ui">사진 확인</span> 탭에서 <span class="ui">사진 선택</span>으로 사진을 불러옵니다. 촬영 시각·초점거리·위치 정보가 EXIF에 포함된 원본 사진을 사용하면 설정에 도움이 됩니다.</li>
 <li><span class="ui">기준</span>(달·태양·은하수·타겟)과 <span class="ui">위치</span>(이 사진의 위치/촬영지의 위치/현재 위치)를 고릅니다.</li>
-<li>빨간 고리(천체)와 주황 표식(타겟 꼭대기·사람 머리)이 사진 속 실제 위치와 맞도록 끌어 맞춥니다. 확대한 뒤 꾹 눌러 끌면 정밀하게 옮길 수 있습니다.</li>
-<li><span class="ui">시각</span> 슬라이더로 계획 시간대의 경로를 훑어봅니다.</li>
+<li>빨간 고리(천체)와 주황 표식(타겟 꼭대기·사람 머리)이 사진 속 실제 위치와 맞도록 끌어 맞춥니다. 사진을 확대한 뒤 표식을 길게 누르고 드래그하면 위치를 세밀하게 조절할 수 있습니다.</li>
+<li><span class="ui">시각</span> 슬라이더로 계획한 시간대의 천체 경로를 확인합니다.</li>
 </ol>
 <ul>
-<li>카메라 시계가 몇 초 틀렸다면 <span class="ui">시계 보정</span>에 초를 넣으세요.</li>
+<li>카메라 시계와 실제 시각에 차이가 있다면 <span class="ui">시계 보정</span>에 오차를 초 단위로 입력합니다.</li>
 <li><span class="ui">환산 초점</span>은 35mm 환산값입니다. EXIF와 다르면 원래 값이 함께 표시됩니다.</li>
-<li>ISS·비행기 프로젝트에는 사진 확인이 없습니다.</li>
+<li>ISS·비행기 프로젝트에서는 사진 확인을 지원하지 않습니다.</li>
 </ul>
 </section>
 
 <section>
-<h2 id="ar">AR 확인 — 현장에서 조준</h2>
+<h2 id="ar">AR 확인 — 현장에서 촬영 방향 확인</h2>
 <!-- shot: ar -->
-<p>촬영 당일 현장에서 iPhone·iPad를 들면 계획한 천체 경로가 실제 하늘 위에 겹쳐 보입니다. 달이 뜨기 전에 구도를 잡을 수 있습니다(실기기 전용, Mac 제외).</p>
+<p>촬영 당일 현장에서 iPhone·iPad를 들면 계획한 천체 경로가 카메라 화면의 하늘 위에 겹쳐 표시됩니다. 달이 뜨기 전에 구도를 잡을 수 있습니다. Mac에서는 AR 확인을 지원하지 않습니다.</p>
 <ul>
-<li><span class="ui">시각</span>: 천체가 떠 있는 동안 전체를 훑습니다.</li>
-<li><span class="ui">맞추기</span>: 나침반 오차를 바로잡습니다. 하늘에 천체가 보이면 십자선에 두고 <span class="ui">달에 맞추기</span>, 보이지 않으면 타겟 꼭대기를 십자선에 두고 <span class="ui">타겟에 맞추기</span>(사람 모드는 <span class="ui">사람에 맞추기</span>).</li>
-<li><span class="ui">방위 미세 조절</span>로 더 다듬고, 처음으로 돌리려면 초기화 버튼을 누릅니다.</li>
-<li>줌 칩으로 <span class="ui">환산 초점</span>과 계획 렌즈 화각을 맞춰 봅니다.</li>
+<li><span class="ui">시각</span>: 시각을 조절하며 천체가 떠 있는 시간대의 전체 경로를 확인합니다.</li>
+<li><span class="ui">맞추기</span>: 나침반 오차를 바로잡습니다. 하늘에 달이 보이면 십자선에 맞춘 뒤 <span class="ui">달에 맞추기</span>를 누릅니다. 달이 보이지 않으면 타겟 꼭대기를 십자선에 맞춘 뒤 <span class="ui">타겟에 맞추기</span>를 누릅니다. 사람 모드에서는 <span class="ui">사람에 맞추기</span>를 사용합니다.</li>
+<li><span class="ui">방위 미세 조절</span>로 방향을 세밀하게 조절합니다. 보정을 취소하려면 초기화 버튼을 누릅니다.</li>
+<li>줌 버튼으로 <span class="ui">환산 초점</span>과 계획 렌즈 화각을 맞춰 봅니다.</li>
 </ul>
 </section>
 
 <section>
 <h2 id="calendar">천문 달력·위젯·캘린더</h2>
-<p><span class="ui">천문 달력</span>에는 보름달(슈퍼문·마이크로문), 삭, 월식·일식, 유성우, 행성 충·합, 달과 행성·밝은 별의 근접·엄폐, 금성 최대 밝기, 춘분·하지·추분·동지가 표시됩니다. 근접·합은 <em>기준 위치에서 실제로 보이는 시각</em>으로 알려 줍니다. 날짜를 누르면 그날의 해와 달 카드, 저장한 계획, 이벤트가 나옵니다. 유성우에는 달빛 방해 정도가 붙습니다.</p>
-<p>이벤트와 계획 행의 <span class="ui">캘린더에 추가</span>를 누르면 기기 캘린더에 일정(전날 저녁과 1시간 전 알림)이 들어갑니다. iPhone·iPad는 일정 편집 화면이 뜨고, Mac은 바로 저장됩니다. 앱은 캘린더를 읽지 않습니다.</p>
-<p>홈 화면·알림 센터 위젯: <span class="ui">오늘 하늘</span> · <span class="ui">오늘의 달</span> · <span class="ui">오늘의 태양</span> · <span class="ui">다음 촬영 기회</span>, 그리고 잠금 화면 위젯. 위젯은 앱이 마지막으로 계산한 값을 보여 주므로, 오래 앱을 열지 않으면 한 번 열어 주세요.</p>
+<p><span class="ui">천문 달력</span>에는 보름달(슈퍼문·마이크로문), 삭, 월식·일식, 유성우, 행성 충·합, 달과 행성·밝은 별의 근접·엄폐, 금성 최대 밝기, 춘분·하지·추분·동지가 표시됩니다.</p>
+<p>근접·합의 시각은 <em>기준 위치에서 관측할 수 있는 시각</em>으로 안내합니다. 날짜를 누르면 그날의 해와 달 카드, 저장한 계획, 천문 현상이 표시됩니다. 유성우에는 달빛이 관측에 미치는 영향도 함께 표시됩니다.</p>
+<p>천문 현상 또는 촬영 계획에서 <span class="ui">캘린더에 추가</span>를 누르면 기기 캘린더에 일정이 저장되며, 전날 저녁과 1시간 전 알림이 설정됩니다. iPhone·iPad는 일정 편집 화면이 뜨고, Mac은 바로 저장됩니다. 앱은 캘린더를 읽지 않습니다.</p>
+<p>홈 화면과 알림 센터에서 다음 위젯을 사용할 수 있습니다: <span class="ui">오늘 하늘</span> · <span class="ui">오늘의 달</span> · <span class="ui">오늘의 태양</span> · <span class="ui">다음 촬영 기회</span>. 잠금 화면 위젯도 지원합니다. 위젯에는 앱이 마지막으로 계산한 값이 표시되므로, 정보가 오래되었다면 앱을 실행해 갱신하세요.</p>
 </section>
 
 <section>
 <h2 id="projects">프로젝트 관리와 공유</h2>
-<p>계획은 촬영지를 지정하는 순간 프로젝트로 자동 저장됩니다. <span class="ui">프로젝트</span> 목록은 최근 수정순이며, 행을 길게 누르면(Mac은 오른쪽 클릭) <span class="ui">열기</span> · <span class="ui">이름 바꾸기…</span> · <span class="ui">링크로 공유…</span> · <span class="ui">파일로 내보내기…</span> · <span class="ui">삭제…</span>가 나옵니다. 여러 개를 지우려면 <span class="ui">선택</span>.</p>
+<p>계획은 촬영지를 지정하는 순간 프로젝트로 자동 저장됩니다. <span class="ui">프로젝트</span> 목록은 최근 수정순이며, 행을 길게 누르면(Mac은 오른쪽 클릭) <span class="ui">열기</span> · <span class="ui">이름 바꾸기…</span> · <span class="ui">링크로 공유…</span> · <span class="ui">파일로 내보내기…</span> · <span class="ui">삭제…</span>가 나옵니다. 여러 프로젝트를 삭제하려면 <span class="ui">선택</span>을 누릅니다.</p>
 <p>프로젝트는 iCloud Drive로 같은 Apple 계정의 기기들 사이에 동기화됩니다. iCloud를 쓰지 않으면 그 기기에만 저장됩니다.</p>
 <h3 id="projects-share">링크로 공유</h3>
-<p>친구와 계획을 나누려면 <span class="ui">링크로 공유…</span>를 누르고 메신저로 보내면 됩니다. 받은 사람이 링크를 누르면 <span class="ui">공유받은 계획</span> 화면에서 <span class="ui">가져오기</span>로 새 프로젝트를 만듭니다. 앱이 없는 사람에게는 같은 링크가 계획 요약과 지도를 보여 주는 웹 페이지로 열립니다.</p>
+<p>촬영 계획을 공유하려면 <span class="ui">링크로 공유…</span>를 누르고 메신저 등으로 링크를 보냅니다. 받은 사람이 링크를 누르면 <span class="ui">공유받은 계획</span> 화면에서 <span class="ui">가져오기</span>로 새 프로젝트를 만듭니다. 앱이 없는 사람에게는 같은 링크가 계획 요약과 지도를 보여 주는 웹 페이지로 열립니다.</p>
 <ul>
-<li>링크에는 촬영지 위치와 프로젝트 이름이 들어갑니다. 보낸 링크는 거둘 수 없으니, 처음 공유할 때 한 번 확인합니다.</li>
+<li>링크에는 촬영지 위치와 프로젝트 이름이 들어갑니다. 이미 공유한 링크는 회수할 수 없으므로, 보내기 전에 포함된 정보를 확인하세요.</li>
 <li>계획 내용은 링크 안에만 있고 서버에 저장되지 않습니다.</li>
-<li>지면고도 같은 자동 값은 받는 기기에서 다시 조회합니다. 사람이 직접 넣은 높이는 그대로 갑니다.</li>
-<li>메신저가 링크를 잘라 버린다면 <span class="ui">파일로 내보내기…</span>로 <code>.moonplan</code> 파일을 보내세요. 받은 파일을 열면 같은 화면이 뜹니다.</li>
+<li>지면고도 같은 자동 값은 받는 기기에서 다시 조회합니다. 직접 입력한 높이는 그대로 유지됩니다.</li>
+<li>메신저에서 링크가 일부 누락된다면 <span class="ui">파일로 내보내기…</span>로 <code>.moonplan</code> 파일을 보내세요. 받은 파일을 열면 같은 화면이 뜹니다.</li>
 </ul>
 <p>Mac 메뉴 막대의 <span class="ui">프로젝트 JSON 내보내기…</span>·<span class="ui">프로젝트 JSON 가져오기…</span>는 전체 계획을 백업할 때 사용합니다.</p>
 </section>
@@ -359,34 +370,34 @@
 <section>
 <h2 id="tools">표와 도구</h2>
 <h3 id="tools-landmarks">랜드마크</h3>
-<p><span class="ui">랜드마크</span> 타일에는 높이를 조사해 둔 국내외 랜드마크가 지역별로 있고, 위에 <span class="ui">내 랜드마크</span>가 있습니다. 하나를 누르면 그곳을 타겟으로 한 새 프로젝트가 열리고 곧바로 촬영지 지정으로 넘어갑니다. 내 랜드마크는 여기서 이름·높이를 고치거나 지울 수 있습니다(새 등록은 계획 화면에서).</p>
+<p><span class="ui">랜드마크</span>에는 높이 정보가 등록된 국내외 명소가 지역별로 표시됩니다. 목록 상단에는 <span class="ui">내 랜드마크</span>가 있습니다. 하나를 누르면 그곳을 타겟으로 한 새 프로젝트가 열리고 곧바로 촬영지 지정 단계로 이동합니다. 이 목록에서 내 랜드마크의 이름과 높이를 수정하거나 삭제할 수 있습니다. 새 랜드마크는 계획 화면에서 등록합니다.</p>
 <h3 id="tools-exposure">달 노출 표</h3>
-<p>보름달 F/11 규칙에 달 모양과 고도에 따른 밝기 변화를 더한 <strong>노출 시작값</strong> 표입니다. <span class="ui">조리개</span>와 <span class="ui">셔터</span>를 고르면 <span class="ui">달 모양별 ISO 시작값</span>이 나옵니다. 달이 낮으면 아래 <span class="ui">달이 낮을 때 더할 노출</span>에서 대기 상태에 가까운 칸을 눌러 더하세요. 한 장 찍고 확대해 달 무늬가 남았는지 확인한 뒤 조정합니다.</p>
+<p>보름달 F/11 규칙에 달 모양과 고도에 따른 밝기 변화를 더한 <strong>노출 시작값</strong> 표입니다. <span class="ui">조리개</span>와 <span class="ui">셔터</span>를 고르면 <span class="ui">달 모양별 ISO 시작값</span>이 나옵니다. 달이 낮으면 아래 <span class="ui">달이 낮을 때 더할 노출</span>에서 현재 대기 상태에 해당하는 칸을 선택해 노출 보정값을 확인합니다. 시험 촬영한 사진을 확대해 달 표면의 무늬가 보이는지 확인한 뒤 노출을 조절하세요.</p>
 <h3 id="tools-hyperfocal">과초점 표</h3>
-<p>초점거리·조리개별로 <em>달·별에 초점을 맞춰도 선명한 타겟 거리</em>를 보여 줍니다. 타겟이 이보다 멀면 한 장으로 둘 다 선명합니다. 칸을 누르면 그 줄·열이 강조되고 기억됩니다.</p>
+<p>초점거리·조리개별로 <em>달·별에 초점을 맞춰도 선명한 타겟 거리</em>를 보여 줍니다. 타겟이 표시된 거리보다 멀면 달·별과 함께 선명하게 촬영할 수 있는 것으로 계산됩니다. 칸을 선택하면 해당 행과 열이 강조되며 선택 상태가 저장됩니다.</p>
 </section>
 
 <section>
 <h2 id="settings">설정</h2>
 <table>
 <tr><th>항목</th><th>설명</th></tr>
-<tr><td><span class="ui">타임존</span></td><td>계획 시각을 표시할 시간대.</td></tr>
+<tr><td><span class="ui">타임존</span></td><td>계획 시각을 표시할 시간대를 선택합니다.</td></tr>
 <tr><td><span class="ui">언어</span></td><td>시스템 기본 · 한국어 · English · 日本語. 앱을 다시 실행하면 적용됩니다.</td></tr>
-<tr><td><span class="ui">기본 높이</span></td><td>새 계획의 <span class="ui">촬영 높이</span>와 <span class="ui">사람 키</span>.</td></tr>
-<tr><td><span class="ui">Google API 키</span></td><td>해외 실사 3D·Google 지도용 내 키(선택). 기기끼리 iCloud 키체인으로만 공유됩니다.</td></tr>
-<tr><td><span class="ui">해외 실사 3D 구독</span></td><td>구독·<span class="ui">구독 관리</span>·<span class="ui">구매 복원</span>.</td></tr>
-<tr><td><span class="ui">데이터 출처</span></td><td>지도·지형·궤도·항적·날씨 자료의 출처.</td></tr>
+<tr><td><span class="ui">기본 높이</span></td><td>새 계획에 사용할 <span class="ui">촬영 높이</span>와 <span class="ui">사람 키</span>의 기본값을 설정합니다.</td></tr>
+<tr><td><span class="ui">Google API 키</span></td><td>해외 실사 3D와 Google 지도에 사용할 개인 키를 등록합니다(선택 사항). 키는 Apple 기기 간에 iCloud 키체인으로 동기화됩니다.</td></tr>
+<tr><td><span class="ui">해외 실사 3D 구독</span></td><td>구독을 신청하거나 <span class="ui">구독 관리</span>·<span class="ui">구매 복원</span>을 이용합니다.</td></tr>
+<tr><td><span class="ui">데이터 출처</span></td><td>지도·지형·궤도·항적·날씨 자료의 출처를 확인합니다.</td></tr>
 </table>
 </section>
 
 <section>
 <h2 id="trouble">문제 해결</h2>
-<details><summary>정렬이 하루 어긋나 보여요</summary><p>새벽에 지는 달은 계획 날짜(밤이 시작된 날)와 촬영 시각의 날짜가 다를 수 있습니다. 촬영지 카드의 <span class="ui">걸림</span> 시각을 기준으로 보세요. 해외 촬영지는 시간대가 현지 시간인지도 확인하세요.</p></details>
-<details><summary>구조물 높이가 비어 있거나 이상해요</summary><p>랜드마크 표에 없는 건물은 높이를 못 찾을 수 있습니다. 직접 입력하거나, 시뮬레이션의 <span class="ui">높이 재기</span>로 3D 모델에서 재세요. 자주 촬영하는 대상이면 <span class="ui">내 랜드마크로 저장</span>해 두세요.</p></details>
-<details><summary>시뮬레이션에 해외 건물이 안 보여요</summary><p>한국 밖은 <span class="ui">해외 실사 3D 구독</span> 또는 내 Google 키가 있어야 건물이 보입니다. 둘 다 있다면 하루 사용 한도에 닿았을 수 있습니다 — 다음 날 다시 보입니다.</p></details>
-<details><summary>ISS 통과 시각이 어제와 달라졌어요</summary><p>정상입니다. ISS 궤도는 수시로 조정되고, 새 궤도 자료가 나오면 예보가 바뀝니다. 촬영 전날 다시 탐색하세요.</p></details>
-<details><summary>공유받은 링크를 눌렀는데 웹 페이지가 열려요</summary><p>앱이 설치되어 있다면 페이지의 <span class="ui">MoonAlign 앱에서 열기</span>를 누르세요. 브라우저 주소창에 직접 붙여 넣은 링크는 앱으로 열리지 않고, 메신저 등에서 <em>눌렀을 때</em> 앱으로 열립니다.</p></details>
-<details><summary>다른 기기에 프로젝트가 안 보여요</summary><p>두 기기 모두 같은 Apple 계정의 iCloud Drive가 켜져 있어야 합니다. 처음 내려받는 동안에는 목록에 <em>내려받는 중</em> 안내가 보입니다.</p></details>
+<details><summary>정렬 날짜가 하루 다르게 표시됩니다</summary><p>새벽에 지는 달은 계획 날짜(밤이 시작된 날)와 촬영 시각의 날짜가 다를 수 있습니다. 촬영지 카드의 <span class="ui">걸림</span> 시각을 기준으로 보세요. 해외 촬영지는 시간대가 현지 시간인지도 확인하세요.</p></details>
+<details><summary>구조물 높이가 표시되지 않거나 실제와 다릅니다</summary><p>랜드마크 표에 없는 건물은 높이 정보가 없을 수 있습니다. 직접 입력하거나, 시뮬레이션의 <span class="ui">높이 재기</span>로 3D 모델에서 측정하세요. 자주 촬영하는 대상이면 <span class="ui">내 랜드마크로 저장</span>해 두세요.</p></details>
+<details><summary>시뮬레이션에 해외 건물이 표시되지 않습니다</summary><p>해외 건물을 표시하려면 <span class="ui">해외 실사 3D 구독</span> 또는 개인 Google API 키가 필요합니다. 구독이나 키가 설정되어 있다면 화면에 표시된 안내를 확인하세요. 하루 사용 한도에 도달했다는 안내가 표시되면 다음 날 다시 이용할 수 있습니다.</p></details>
+<details><summary>ISS 통과 예측 시각이 달라졌습니다</summary><p>ISS 궤도는 수시로 조정되므로, 새로운 궤도 자료가 반영되면 예측 시각이 달라질 수 있습니다. 촬영 전날 다시 탐색하세요.</p></details>
+<details><summary>공유 링크가 앱 대신 웹 페이지로 열립니다</summary><p>앱이 설치되어 있다면 페이지의 <span class="ui">MoonAlign 앱에서 열기</span>를 누르세요. 링크를 여는 방식이나 브라우저 설정에 따라 웹 페이지가 먼저 표시될 수 있습니다.</p></details>
+<details><summary>다른 기기에 프로젝트가 표시되지 않습니다</summary><p>두 기기 모두 같은 Apple 계정의 iCloud Drive가 켜져 있어야 합니다. 처음 내려받는 동안에는 목록에 <em>내려받는 중</em> 안내가 보입니다.</p></details>
 <p>그 밖의 문의는 <a href="mailto:support@yjlab.io">support@yjlab.io</a>로 보내 주세요.</p>
 </section>
 
