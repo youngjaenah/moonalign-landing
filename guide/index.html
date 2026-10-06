@@ -200,7 +200,7 @@
 </ul>
 
 <h3 id="plan-date">Date, time, and time zone</h3>
-<p>Use <span class="ui">Date</span> at the top of the panel to open the calendar, or <kbd>&lt;</kbd> <kbd>&gt;</kbd> to step a day at a time. The calendar shows the Moon's phase on each date. Times are shown in the shooting spot's local time; set a spot abroad and you'll be asked <span class="ui">Switch to local time?</span>. You can also change it under <span class="ui">Time zone</span> in settings.</p>
+<p>Use <span class="ui">Date</span> at the top of the panel to open the calendar, or <kbd>&lt;</kbd> <kbd>&gt;</kbd> to step a day at a time. The calendar shows the Moon's phase on each date. Times are shown in the shooting spot's local time; set a spot in another time zone and you'll be asked <span class="ui">Switch to local time?</span>. You can also change it under <span class="ui">Time zone</span> in settings.</p>
 
 <h3 id="plan-sky">The Sun &amp; Moon card</h3>
 <p>Once a target or shooting spot is set, the <span class="ui">Sun &amp; Moon</span> card appears: sunrise and sunset, moonrise and moonset, moon age and illumination, plus the <strong>day strip</strong>. The strip's background is how bright the sky is (light blue day → orange and navy twilight → black night); the yellow bar is when the Moon is up.</p>
@@ -279,7 +279,7 @@
 <section>
 <h2 id="sim">Simulation — preview in 3D</h2>
 <figure class="shot"><img src="/img/guide/sim-mac-en.jpg" alt="Simulation on the Mac" loading="lazy"><figcaption>Simulation on the Mac — the Moon framed between the legs of the Eiffel Tower (200mm, full frame). Change the time, focal length, and aperture below.</figcaption></figure>
-<p>Preview the plan with real terrain, buildings, and your lens's field of view. In Korea it uses V-World 3D (Ministry of Land, Infrastructure and Transport); abroad it uses Google Photorealistic 3D.</p>
+<p>Preview the plan with real terrain, buildings, and your lens's field of view. In Korea it uses V-World 3D (Ministry of Land, Infrastructure and Transport); outside Korea it uses Google Photorealistic 3D.</p>
 <ul>
 <li><span class="ui">Time</span> slider: move around the alignment time and watch the Moon slide behind the target. The range is in the (i).</li>
 <li><span class="ui">Focal length</span>: 14–1200mm, plus the sensor (<span class="ui">Full frame</span> · <span class="ui">APS-C Sony/Nikon</span> · <span class="ui">APS-C Canon</span> · <span class="ui">Micro Four Thirds</span>). Crop sensors also show the 35mm-equivalent focal length.</li>
@@ -287,8 +287,8 @@
 <li><span class="ui">Measure height</span>: measure a structure on the 3D model and put it into the plan with <span class="ui">Use this height</span>.</li>
 <li>Chips over the scene: <span class="ui">View camera position</span> (see your spot from outside) · <span class="ui">Landscape</span>/<span class="ui">Portrait</span> · <span class="ui">Show silhouette</span> · <span class="ui">Save image</span>. Drag the scene to look around.</li>
 </ul>
-<h3 id="sim-overseas">Photorealistic 3D abroad</h3>
-<p>Photorealistic 3D buildings abroad come from the Google Maps API, and Google charges each time it is used. The <span class="ui">Overseas 3D subscription</span> exists so the app can pay that fee for you — it isn’t there to make extra money. So <strong>register your own Google API key and you can use exactly the same thing without a subscription.</strong> With neither, only terrain is shown.</p>
+<h3 id="sim-overseas">Photorealistic 3D outside Korea</h3>
+<p>Photorealistic 3D buildings outside Korea come from the Google Maps API, and Google charges each time it is used. The <span class="ui">Photorealistic 3D subscription</span> exists so the app can pay that fee for you — it isn’t there to make extra money. So <strong>register your own Google API key and you can use exactly the same thing without a subscription.</strong> With neither, only terrain is shown.</p>
 <p>Add your own key under <span class="ui">Google API key</span> in settings; it takes priority over the subscription. The key is stored in iCloud Keychain, syncs only between your Apple devices, and is sent only to Google. Typical planning use stays mostly within Google’s monthly free allowance; beyond it, costs may apply under Google’s pricing. Google Maps on the plan screen also needs your own key and is not part of the subscription.</p>
 <p>Building display has a daily usage limit. If you reach it, you can use it again the next day.</p>
 <p><strong>Creating and setting up a Google API key</strong></p>
@@ -379,17 +379,17 @@
 <tr><td><span class="ui">Time zone</span></td><td>The time zone plan times are shown in.</td></tr>
 <tr><td><span class="ui">Language</span></td><td>System default · 한국어 · English · 日本語. Takes effect after restarting the app.</td></tr>
 <tr><td><span class="ui">Default heights</span></td><td><span class="ui">Camera height</span> and <span class="ui">Person height</span> for new plans.</td></tr>
-<tr><td><span class="ui">Google API key</span></td><td>Your own key for photorealistic 3D abroad and Google Maps (optional). Shared only between your devices through iCloud Keychain.</td></tr>
-<tr><td><span class="ui">Overseas 3D subscription</span></td><td>Subscribe · <span class="ui">Manage subscription</span> · <span class="ui">Restore purchases</span>.</td></tr>
+<tr><td><span class="ui">Google API key</span></td><td>Your own key for photorealistic 3D outside Korea and Google Maps (optional). Shared only between your devices through iCloud Keychain.</td></tr>
+<tr><td><span class="ui">Photorealistic 3D subscription</span></td><td>Subscribe · <span class="ui">Manage subscription</span> · <span class="ui">Restore purchases</span>.</td></tr>
 <tr><td><span class="ui">Data sources</span></td><td>Where the map, terrain, orbit, and air traffic data come from.</td></tr>
 </table>
 </section>
 
 <section>
 <h2 id="trouble">Troubleshooting</h2>
-<details><summary>The alignment seems to be a day off</summary><p>A Moon that sets before dawn can align on a different calendar date than the plan's date (the night it began). Go by the <span class="ui">Aligns at</span> time on the shooting spot card. For spots abroad, also check that the time zone is local time.</p></details>
+<details><summary>The alignment seems to be a day off</summary><p>A Moon that sets before dawn can align on a different calendar date than the plan's date (the night it began). Go by the <span class="ui">Aligns at</span> time on the shooting spot card. For spots in another time zone, also check that the time zone is set to local time.</p></details>
 <details><summary>The structure height is empty or wrong</summary><p>Buildings that aren't in the landmark table may not have a height. Type it in, or measure it on the 3D model with <span class="ui">Measure height</span> in the simulation. For something you shoot often, use <span class="ui">Save as my landmark</span>.</p></details>
-<details><summary>No buildings abroad in the simulation</summary><p>Outside Korea, buildings need the <span class="ui">Overseas 3D subscription</span> or your own Google key. If you have one, you may have reached the daily usage limit — buildings come back the next day.</p></details>
+<details><summary>No buildings outside Korea in the simulation</summary><p>Outside Korea, buildings need the <span class="ui">Photorealistic 3D subscription</span> or your own Google key. If you have one, you may have reached the daily usage limit — buildings come back the next day.</p></details>
 <details><summary>The ISS transit time changed since yesterday</summary><p>That's expected. The ISS orbit is adjusted from time to time and forecasts change with new orbit data. Search again the day before you shoot.</p></details>
 <details><summary>Tapping a shared link opens a web page</summary><p>If the app is installed, tap <span class="ui">Open in MoonAlign</span> on the page. A link pasted into the browser's address bar doesn't open the app; it opens the app when you <em>tap</em> it in a messenger or similar.</p></details>
 <details><summary>Projects don't show up on my other device</summary><p>Both devices need iCloud Drive turned on with the same Apple Account. While projects first download, the list says they're downloading.</p></details>

@@ -200,7 +200,7 @@
 </ul>
 
 <h3 id="plan-date">日付・時刻・タイムゾーン</h3>
-<p>パネル最上部の<span class="ui">日付</span>でカレンダーを開くか、<kbd>&lt;</kbd> <kbd>&gt;</kbd>で1日ずつ移動します。カレンダーには日付ごとに月の形が表示されます。時刻は撮影地の現地時間で表示され、海外の地点を指定すると<span class="ui">現地時間に切り替えますか？</span>と表示されます。設定の<span class="ui">タイムゾーン</span>でも変えられます。</p>
+<p>パネル最上部の<span class="ui">日付</span>でカレンダーを開くか、<kbd>&lt;</kbd> <kbd>&gt;</kbd>で1日ずつ移動します。カレンダーには日付ごとに月の形が表示されます。時刻は撮影地の現地時間で表示され、別のタイムゾーンの地点を指定すると<span class="ui">現地時間に切り替えますか？</span>と表示されます。設定の<span class="ui">タイムゾーン</span>でも変えられます。</p>
 
 <h3 id="plan-sky">太陽と月のカード</h3>
 <p>ターゲットか撮影地を指定すると<span class="ui">太陽と月</span>カードが表示されます。日の出・日の入り、月の出・月の入り、月齢・輝面比とともに<strong>1日バー</strong>が描かれます。バーの背景は空の明るさ(昼の水色 → 薄明のオレンジ・紺 → 夜の黒)、黄色い棒は月が出ている時間です。</p>
@@ -279,7 +279,7 @@
 <section>
 <h2 id="sim">シミュレーション — 3Dで事前確認</h2>
 <figure class="shot"><img src="/img/guide/sim-mac-ja.jpg" alt="Macのシミュレーション" loading="lazy"><figcaption>Macのシミュレーション — エッフェル塔の脚の間に重なる月(200mm、フルサイズ)。下で時刻・焦点距離・絞りを変えます。</figcaption></figure>
-<p>地形・建物・実際のレンズの画角でプランを事前に確認します。韓国ではV-World 3D(国土交通部)、海外ではGoogleフォトリアリスティック3Dを使います。</p>
+<p>地形・建物・実際のレンズの画角でプランを事前に確認します。韓国ではV-World 3D(国土交通部)、韓国外ではGoogleフォトリアリスティック3Dを使います。</p>
 <ul>
 <li><span class="ui">時刻</span>スライダー:重なる時刻の前後を動かし、月がターゲットの後ろに入っていく様子を見ます。範囲は(i)にあります。</li>
 <li><span class="ui">焦点距離</span>:14〜1200mmとセンサー(<span class="ui">フルサイズ</span>・<span class="ui">APS-C ソニー/ニコン</span>・<span class="ui">APS-C キヤノン</span>・<span class="ui">マイクロフォーサーズ</span>)。クロップセンサーでは35mm換算の焦点距離も表示されます。</li>
@@ -287,8 +287,8 @@
 <li><span class="ui">高さを測る</span>:3Dモデルで構造物の高さを測り、<span class="ui">この高さを使う</span>でプランに入れます。</li>
 <li>画面上のチップ:<span class="ui">カメラ位置を見る</span>(自分の位置を外から確認)・<span class="ui">横位置</span>/<span class="ui">縦位置</span>・<span class="ui">シルエット表示</span>・<span class="ui">画像を保存</span>。画面をドラッグすると視線を動かせます。</li>
 </ul>
-<h3 id="sim-overseas">海外の実写3D</h3>
-<p>海外の実写3D建物はGoogleマップAPIで読み込み、Googleは利用のたびに料金を請求します。<span class="ui">海外3Dサブスクリプション</span>はこの利用料をアプリが肩代わりするためのもので、利益を増やすための商品ではありません。そのため<strong>個人のGoogle APIキーを登録すれば、サブスクリプションなしで同じように利用できます。</strong>どちらもなければ地形だけが表示されます。</p>
+<h3 id="sim-overseas">韓国外の実写3D</h3>
+<p>韓国外の実写3D建物はGoogleマップAPIで読み込み、Googleは利用のたびに料金を請求します。<span class="ui">実写3Dサブスクリプション</span>はこの利用料をアプリが肩代わりするためのもので、利益を増やすための商品ではありません。そのため<strong>個人のGoogle APIキーを登録すれば、サブスクリプションなしで同じように利用できます。</strong>どちらもなければ地形だけが表示されます。</p>
 <p>個人のキーは設定の<span class="ui">Google APIキー</span>に登録し、サブスクリプションより優先して使われます。キーはiCloudキーチェーンに保存されて自分のApple製品の間でだけ同期され、Googleにだけ送信されます。一般的な撮影計画の用途ならほとんどがGoogleの月間無料枠に収まり、超えるとGoogleの料金体系に従って費用が発生することがあります。計画画面のGoogleマップも個人のキーが必要で、サブスクリプションには含まれません。</p>
 <p>建物の表示には1日の利用上限があります。上限に達したら翌日にまた利用できます。</p>
 <p><strong>Google APIキーの作成と設定</strong></p>
@@ -379,17 +379,17 @@
 <tr><td><span class="ui">タイムゾーン</span></td><td>プランの時刻を表示するタイムゾーン。</td></tr>
 <tr><td><span class="ui">言語</span></td><td>システムの既定・한국어・English・日本語。アプリを再起動すると反映されます。</td></tr>
 <tr><td><span class="ui">既定の高さ</span></td><td>新しいプランの<span class="ui">カメラの高さ</span>と<span class="ui">人の身長</span>。</td></tr>
-<tr><td><span class="ui">Google APIキー</span></td><td>海外のフォトリアリスティック3D・Googleマップ用の自分のキー(任意)。端末間ではiCloudキーチェーンでのみ共有されます。</td></tr>
-<tr><td><span class="ui">海外3Dサブスクリプション</span></td><td>購読・<span class="ui">サブスクリプション管理</span>・<span class="ui">購入を復元</span>。</td></tr>
+<tr><td><span class="ui">Google APIキー</span></td><td>韓国外のフォトリアリスティック3D・Googleマップ用の自分のキー(任意)。端末間ではiCloudキーチェーンでのみ共有されます。</td></tr>
+<tr><td><span class="ui">実写3Dサブスクリプション</span></td><td>購読・<span class="ui">サブスクリプション管理</span>・<span class="ui">購入を復元</span>。</td></tr>
 <tr><td><span class="ui">データの出典</span></td><td>地図・地形・軌道・航跡のデータの出典。</td></tr>
 </table>
 </section>
 
 <section>
 <h2 id="trouble">困ったときは</h2>
-<details><summary>重なりが1日ずれて見える</summary><p>夜明け前に沈む月は、プランの日付(夜が始まった日)と撮影時刻の日付が違うことがあります。撮影地カードの<span class="ui">重なる時刻</span>を基準にしてください。海外の撮影地ではタイムゾーンが現地時間になっているかも確認してください。</p></details>
+<details><summary>重なりが1日ずれて見える</summary><p>夜明け前に沈む月は、プランの日付(夜が始まった日)と撮影時刻の日付が違うことがあります。撮影地カードの<span class="ui">重なる時刻</span>を基準にしてください。別のタイムゾーンの撮影地ではタイムゾーンが現地時間になっているかも確認してください。</p></details>
 <details><summary>構造物の高さが空、またはおかしい</summary><p>ランドマーク表にない建物は高さが見つからないことがあります。直接入力するか、シミュレーションの<span class="ui">高さを測る</span>で3Dモデルから測ってください。よく使う対象なら<span class="ui">マイランドマークに保存</span>しておきましょう。</p></details>
-<details><summary>シミュレーションで海外の建物が表示されない</summary><p>韓国以外では<span class="ui">海外3Dサブスクリプション</span>か自分のGoogleキーがないと建物は表示されません。どちらかあるなら、1日の利用上限に達した可能性があります — 翌日にまた表示されます。</p></details>
+<details><summary>シミュレーションで韓国外の建物が表示されない</summary><p>韓国以外では<span class="ui">実写3Dサブスクリプション</span>か自分のGoogleキーがないと建物は表示されません。どちらかあるなら、1日の利用上限に達した可能性があります — 翌日にまた表示されます。</p></details>
 <details><summary>ISSの通過時刻が昨日と変わった</summary><p>正常です。ISSの軌道は随時調整され、新しい軌道データが出ると予報も変わります。撮影の前日にもう一度検索してください。</p></details>
 <details><summary>共有されたリンクを押すとWebページが開く</summary><p>アプリがインストールされていれば、ページの<span class="ui">MoonAlignアプリで開く</span>を押してください。ブラウザのアドレスバーに直接貼り付けたリンクはアプリで開かず、メッセンジャーなどで<em>押したとき</em>にアプリで開きます。</p></details>
 <details><summary>ほかの端末にプロジェクトが表示されない</summary><p>両方の端末で同じApple AccountのiCloud Driveがオンになっている必要があります。最初のダウンロード中は一覧に<em>ダウンロード中</em>の案内が表示されます。</p></details>
