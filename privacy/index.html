@@ -1,0 +1,269 @@
+<!-- 생성물 — 직접 고치지 말 것. 원본: guide-template.html + privacy-src/<lang>.html + strings/<lang>.json의 privacy.* -->
+<!DOCTYPE html>
+<!-- 원본(손으로 고치는 곳) — 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
+     본문은 guide-src/<lang>.html, 목차는 본문의 <h2 id>에서 자동. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — MoonAlign</title>
+  <meta name="description" content="What information the MoonAlign app uses, where it goes and how long it&#x27;s kept — no login, ads or analytics; plans and photos stay on your device.">
+  <link rel="canonical" href="https://moonalign.yjlab.io/privacy/">
+  <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/privacy/">
+  <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/privacy/">
+  <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/privacy/">
+  <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/privacy/">
+  <meta property="og:title" content="Privacy Policy — MoonAlign">
+  <meta property="og:description" content="What information the MoonAlign app uses, where it goes and how long it&#x27;s kept — no login, ads or analytics; plans and photos stay on your device.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-soft: #f7f7f5; --ink: #17191d; --ink-dim: #585d66; --ink-faint: #8b9099;
+    --accent: #2d5bd7; --line: #e7e7e4; --target: #0aa5b8; --spot: #e8890c;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(255,255,255,0.88); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 0.98rem; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .brand .mark { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+  .brand .sub { color: var(--ink-faint); font-weight: 500; }
+  .nav-right { display: flex; align-items: center; gap: 20px; font-size: 0.86rem; }
+  .nav-right a { color: var(--ink-dim); text-decoration: none; }
+  .lang-switch { display: flex; gap: 12px; white-space: nowrap; }
+  .lang-switch .lang-on { color: var(--ink); font-weight: 600; }
+
+  .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding-top: 48px; padding-bottom: 80px; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; } }
+  @media (max-width: 600px) { .wrap { padding: 0 16px; } .nav-right .back { display: none; } }
+
+  @media (max-width: 600px) {
+    .nav { height: auto; min-height: 64px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; gap: 8px 16px; }
+    .nav-right { flex-shrink: 0; margin-left: auto; }
+  }
+
+  .toc { position: sticky; top: 88px; align-self: start; max-height: calc(100vh - 110px); overflow: auto; font-size: 0.88rem; }
+  .toc summary { list-style: none; font-weight: 600; color: var(--ink); margin-bottom: 10px; cursor: default; }
+  .toc summary::-webkit-details-marker { display: none; }
+  .toc ol { list-style: none; border-left: 1px solid var(--line); }
+  .toc li a { display: block; padding: 5px 0 5px 14px; color: var(--ink-dim); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; }
+  .toc li a:hover, .toc li a.on { color: var(--ink); border-left-color: var(--accent); }
+  @media (max-width: 860px) {
+    .toc { position: static; max-height: none; background: var(--bg-soft); border-radius: 12px; padding: 14px 16px; }
+    .toc summary { cursor: pointer; margin-bottom: 0; }
+    .toc[open] summary { margin-bottom: 10px; }
+  }
+
+  article { max-width: 72ch; }
+  article h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px; }
+  article .lead { color: var(--ink-dim); font-size: 1.05rem; margin-bottom: 36px; }
+  article section { padding-top: 12px; margin-bottom: 44px; border-top: 1px solid var(--line); }
+  article h2 { font-size: 1.45rem; letter-spacing: -0.01em; margin: 24px 0 12px; }
+  article h3 { font-size: 1.08rem; margin: 26px 0 8px; }
+  article p { margin: 0 0 12px; }
+  article ul, article ol { margin: 0 0 14px 1.3em; }
+  article li { margin: 4px 0; }
+  article .ui { font-weight: 600; }
+  article .tip { background: var(--bg-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article .note { background: #fff8e6; border-left: 3px solid #d9a400; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article .target { color: var(--target); font-weight: 600; }
+  article .spot { color: var(--spot); font-weight: 600; }
+  article table { border-collapse: collapse; margin: 8px 0 16px; font-size: 0.94rem; width: 100%; overflow-wrap: anywhere; }
+  article th, article td { text-align: left; border-bottom: 1px solid var(--line); padding: 7px 10px 7px 0; vertical-align: top; }
+  article th { color: var(--ink-dim); font-weight: 600; }
+  article kbd { font: 0.85em ui-monospace, Menlo, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+  article details { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 10px 0; }
+  article details summary { font-weight: 600; cursor: pointer; }
+  article details p { margin-top: 8px; }
+
+  article figure.shot { margin: 18px 0 22px; }
+  article figure.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
+  article figure.shot.phone img { max-width: 300px; border-radius: 28px; }
+  article figure.shot.pair { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  article figure.shot.pair img { width: auto; max-width: 100%; }
+  article figure.shot figcaption { width: 100%; font-size: 0.85rem; color: var(--ink-faint); margin-top: 8px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 40px; color: var(--ink-faint); font-size: 0.85rem; }
+  footer a { color: var(--ink-dim); }
+
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111317; --bg-soft: #1b1e24; --ink: #eceef2; --ink-dim: #a7adb7; --ink-faint: #7c828c; --accent: #7aa2ff; --line: #2b2f37; --target: #39c6d6; --spot: #f2a33a; }
+    header { background: rgba(17,19,23,0.88); }
+    article .note { background: #2a2414; }
+  }
+
+  /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+     일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
+  html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
+  html:lang(ko) article p, html:lang(ko) article li { text-wrap: pretty; }
+  html:lang(ko) article h2, html:lang(ko) article h3 { text-wrap: balance; }
+  html:lang(ja) body { word-break: auto-phrase; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/"><span class="mark"></span>MoonAlign <span class="sub">/ Privacy Policy</span></a>
+    <div class="nav-right">
+      <a class="back" href="/">Home page</a>
+      <span class="lang-switch"><span class="lang-on">English</span> <a href="/ko/privacy/" hreflang="ko" lang="ko">한국어</a> <a href="/ja/privacy/" hreflang="ja" lang="ja">日本語</a></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <details class="toc" open>
+    <summary>Contents</summary>
+    <ol>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#device">Information used only on your device</a></li>
+      <li><a href="#services">Information sent to external services</a></li>
+      <li><a href="#server">Information kept on our server</a></li>
+      <li><a href="#purchases">Purchases and subscriptions</a></li>
+      <li><a href="#sync">Sync and backup</a></li>
+      <li><a href="#share">Share links</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#choices">Your choices and deletion</a></li>
+      <li><a href="#changes">Changes to this policy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </details>
+  <article>
+    <h1>Privacy Policy</h1>
+    <p class="lead">MoonAlign has no accounts and processes your shooting plans and photos on your device. Only what a feature needs is sent to the service that provides it.</p>
+<!-- Privacy policy body (en). Section ids must match ko.html in the same order (build_landing.py --check). -->
+
+<p><strong>Effective date: October 6, 2026</strong></p>
+<p>YJLAB ("we") makes and operates the MoonAlign app for iPhone, iPad, Mac and Android (the "app"). This policy explains what information the app uses, where it is sent and how long it is kept.</p>
+
+<section>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>MoonAlign has no sign-up or login. We don't ask for your name, email address or phone number.</li>
+<li>The app contains no advertising, analytics or crash-reporting tools. We don't track or sell your activity.</li>
+<li>Shooting plans, photos and the camera view are processed on your device. They are not sent to our server.</li>
+<li>For features such as maps, terrain and live aircraft positions, the app sends coordinates or search terms to the service that provides that feature. Those services use them only to answer the request.</li>
+<li>Our server keeps only the minimum needed to issue map keys, such as a random install ID.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="device">Information used only on your device</h2>
+<table>
+<tr><th>Information</th><th>How it's used</th></tr>
+<tr><td>Device location</td><td>The reference location for the Today's sky card, widgets and the Sky calendar, and your position on the map. It's used only if you grant permission, and the app does not track your location in the background. To show a city name, the coordinates are sent to the operating system's geocoding service (see <a href="#services">External services</a>).</td></tr>
+<tr><td>Photos</td><td>Photo Check. The app opens only the photo you pick, reads its shooting data (EXIF time, location, direction and focal length) and draws on it on your device. Photos are never uploaded. On Android the system photo picker is used, so the app has no access to your whole library.</td></tr>
+<tr><td>Camera and motion sensors</td><td>AR Check. The camera feed and device orientation are used only to overlay paths on screen. They are not saved or sent anywhere.</td></tr>
+<tr><td>Shooting plans and My landmarks</td><td>Saved as files on your device. If sync is on, they go to your own cloud account (see <a href="#sync">Sync and backup</a>).</td></tr>
+<tr><td>Calendar</td><td>The app adds a single event only when you tap Add to Calendar. It never reads your calendar.</td></tr>
+<tr><td>Notifications</td><td>Plane transit alerts and similar notices are local notifications scheduled on your device.</td></tr>
+<tr><td>Camera connection (Mac)</td><td>Auto burst in Plane mode sends commands only to a camera connected over USB.</td></tr>
+</table>
+</section>
+
+<section>
+<h2 id="services">Information sent to external services</h2>
+<p>When you use the features below, the app sends requests directly to the service listed. Your device's IP address is part of every request, and each service may handle its access logs under its own policy.</p>
+<table>
+<tr><th>Service</th><th>What is sent</th><th>Purpose</th></tr>
+<tr><td>Apple Maps and geocoding (iOS, Mac); Google Maps SDK and geocoding (Android)</td><td>The map area you're viewing, place search terms, location coordinates (to find a city name)</td><td>Map display, place search, reference location name</td></tr>
+<tr><td>V-World (Korea's national spatial information platform)</td><td>Map and 3D areas in Korea, coordinates of the point you choose, place search terms</td><td>Maps, 3D buildings and terrain in Korea, building heights, place search</td></tr>
+<tr><td>Google Map Tiles API</td><td>The 3D scene area you're viewing</td><td>Photorealistic 3D buildings (for subscribers or users with their own Google key)</td></tr>
+<tr><td>Copernicus DEM (hosted on Amazon Web Services)</td><td>Approximate location (a 1° × 1° grid cell)</td><td>Ground elevation outside Korea</td></tr>
+<tr><td>adsb.lol</td><td>The shooting site's coordinates</td><td>Live positions of nearby aircraft in Plane mode (only while watching)</td></tr>
+<tr><td>NASA and CelesTrak</td><td>No personal information</td><td>ISS orbit data</td></tr>
+<tr><td>Cesium (cesium.com)</td><td>No personal information</td><td>Library for the 3D simulation</td></tr>
+</table>
+<p>The app may also send requests to an aircraft receiver address you enter yourself (a device on your own network).</p>
+</section>
+
+<section>
+<h2 id="server">Information kept on our server</h2>
+<p>To hand out map keys securely, the app talks to a server we operate on Cloudflare Workers. The server checks that the request comes from a genuine copy of the app before issuing a key, and keeps only the following.</p>
+<table>
+<tr><th>Information</th><th>Retention</th></tr>
+<tr><td>Install identifier — a random ID the app creates on first launch (Android) or an Apple App Attest key ID (iOS, Mac), with its public key. It is not a hardware ID or advertising ID.</td><td>As long as the installation exists (overwritten on re-registration)</td></tr>
+<tr><td>Request counts — daily requests per install identifier and per IP address (abuse prevention)</td><td>Up to 48 hours (2 hours for IP addresses)</td></tr>
+<tr><td>Subscription check result — a hash of the Google Play purchase token with the product and expiry time (Android subscribers)</td><td>Up to 6 hours</td></tr>
+</table>
+<p>To confirm the app is genuine, the server receives a verdict from Apple (App Attest) or Google (Play Integrity). Android subscriptions are confirmed by looking up the purchase token with Google Play. For iOS and Mac subscriptions, the server only verifies the App Store transaction signature and does not keep it. Your location, shooting plans and search terms never reach this server.</p>
+</section>
+
+<section>
+<h2 id="purchases">Purchases and subscriptions</h2>
+<p>Payment for the app and the Photorealistic 3D subscription is handled by the App Store or Google Play. We never receive your payment method or billing details. You can manage subscriptions and request refunds in each store.</p>
+</section>
+
+<section>
+<h2 id="sync">Sync and backup</h2>
+<ul>
+<li><strong>iCloud (iOS, Mac)</strong>: Shooting plans and My landmarks are saved in your own iCloud Drive, and your own Google API key in iCloud Keychain, so they sync across devices on the same Apple Account.</li>
+<li><strong>Google Drive (Android, optional)</strong>: Only if you turn it on in Settings, shooting plans and My landmarks are saved to an app-only folder in your own Drive. The app can't access any other Drive files.</li>
+<li><strong>Android backup</strong>: If device backup is on, app settings and shooting plans may be included in Android's standard backup. Keys and install identifiers are excluded from backup.</li>
+</ul>
+<p>This data is stored in your own account, and we can't see it.</p>
+</section>
+
+<section>
+<h2 id="share">Share links</h2>
+<p>A link created with Share contains the shooting plan itself, including target and shooting site coordinates, the date and notes. That part comes after the # in the address, so it is never sent to the website's server. However, anyone who receives the link can see its contents, so check who you share it with.</p>
+</section>
+
+<section>
+<h2 id="children">Children</h2>
+<p>The app is not directed at children under 13, and we do not knowingly collect information from children.</p>
+</section>
+
+<section>
+<h2 id="choices">Your choices and deletion</h2>
+<ul>
+<li>You can turn off location, photo, camera and notification permissions at any time in your device settings. Only the related features stop working.</li>
+<li>Deleting the app removes its data from your device. Data synced to iCloud or Google Drive can be deleted in each service's settings (Drive: Settings → Manage apps).</li>
+<li>To have your install identifier deleted from our server, contact us at the address below. Since there are no user accounts, sending the request from Home → Help &amp; About → Email support in the app helps us find it, because the app version and device details are filled in for you.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="changes">Changes to this policy</h2>
+<p>If the information the app uses changes, we'll update this page and the effective date above.</p>
+</section>
+
+<section>
+<h2 id="contact">Contact</h2>
+<p>YJLAB · <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+</section>
+
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 <a href="https://www.yjlab.io">YJLAB</a> · Contact <a href="mailto:support@yjlab.io">support@yjlab.io</a> · <a href="/privacy/">Privacy Policy</a></p>
+  </div>
+</footer>
+<script>
+  // 폰 폭에선 목차를 접어 둔다. 지금 보는 절을 목차에 표시.
+  (function () {
+    var toc = document.querySelector('.toc');
+    if (window.matchMedia('(max-width: 860px)').matches) toc.removeAttribute('open');
+    var links = Array.prototype.slice.call(toc.querySelectorAll('a'));
+    var secs = links.map(function (a) { return document.getElementById(a.hash.slice(1)); });
+    function mark() {
+      var y = window.scrollY + 100, cur = 0;
+      secs.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
+      links.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+    }
+    window.addEventListener('scroll', mark, { passive: true }); mark();
+  })();
+</script>
+</body>
+</html>
