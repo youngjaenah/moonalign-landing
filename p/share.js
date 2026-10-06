@@ -85,6 +85,18 @@
     if ('fc' in c && c.fc !== 0 && c.fc !== 1) throw new Bad();
     if ('ap' in c && !isNum(c.ap, 0.5, 64)) throw new Bad();
     if ('ev' in p && !isNum(p.ev, -10, 30)) throw new Bad();
+    // 일식·월식 id(spec 020) — 문자열이 아니면 손상, 형식이 아니면 무시(render에서 거른다).
+    if ('ec' in p && !isStr(p.ec)) throw new Bad();
+  }
+
+  /** 식 행(spec 020) — 피사체 없음 계획의 식 id만. 종류 세분은 앱 몫(웹엔 번들 자료가 없다) — 일식/월식 + 날짜(UTC 최대식 날짜). */
+  function eclipseLabel(p, S, L) {
+    if ((p.m || 'st') !== 'fr' || !isStr(p.ec) || !/^\d{4}-\d{2}-\d{2}[SL]$/.test(p.ec)) return null;
+    var kind = S[p.ec.charAt(10) === 'S' ? 'eclipseSolar' : 'eclipseLunar'];
+    var d = new Date(p.ec.slice(0, 10) + 'T12:00:00Z');
+    var f = new Intl.DateTimeFormat(L === 'ko' ? 'ko-KR' : L === 'ja' ? 'ja-JP' : 'en-US',
+      { timeZone: 'UTC', year: 'numeric', month: 'short', day: 'numeric' });
+    return (kind || '') + ' · ' + f.format(d);
   }
 
   /**
@@ -162,7 +174,7 @@
 
   var api = {
     parseShareFragment: parseShareFragment, browserInflateRaw: browserInflateRaw,
-    distanceKm: distanceKm, mapLinks: mapLinks, appLink: appLink, VERSION: VERSION,
+    distanceKm: distanceKm, mapLinks: mapLinks, appLink: appLink, eclipseLabel: eclipseLabel, VERSION: VERSION,
   };
   if (typeof module === 'object' && module.exports) { module.exports = api; return; }
   root.MoonShare = api;
@@ -249,6 +261,8 @@
     setText('plan-name', p.n);
     setText('plan-time', timeLabel(p, L));
     setText('plan-subject', subjectLabel(p, S));
+    var ecl = eclipseLabel(p, S, L);
+    if (ecl) { setText('plan-eclipse', ecl); showClass('row-eclipse'); }
     if (p.g) {
       var nm = p.g.lm ? ((L === 'ko' ? p.g.lm : (names[p.g.lm] || {})[L]) || p.g.lm) : p.g.nm;
       if (nm) { setText('plan-target', nm); showClass('row-target'); }

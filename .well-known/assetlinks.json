@@ -5,6 +5,8 @@
       "namespace": "android_app",
       "package_name": "io.yjlab.moonalign",
       "sha256_cert_fingerprints": [
+        "B1:6F:01:25:9C:2D:B9:38:AA:BB:AB:26:2E:95:94:DE:3C:A4:19:BA:55:C1:E0:57:E0:AF:4F:80:D4:63:B4:DB",
+        "FD:C6:05:C6:DC:9D:8E:C8:B1:17:FD:30:0C:A1:3A:C0:53:44:E1:24:A9:30:0F:0A:AE:D4:3C:3E:CE:84:C5:B4",
         "97:7D:83:7D:7D:89:10:0B:2E:3C:FA:3D:EE:60:F2:7B:7D:D6:81:65:A6:9E:B6:38:B9:1C:60:C9:88:6A:4D:C5"
       ]
     }
