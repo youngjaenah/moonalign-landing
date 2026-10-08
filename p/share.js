@@ -87,6 +87,14 @@
     if ('ev' in p && !isNum(p.ev, -10, 30)) throw new Bad();
     // 일식·월식 id(spec 020) — 문자열이 아니면 손상, 형식이 아니면 무시(render에서 거른다).
     if ('ec' in p && !isStr(p.ec)) throw new Bad();
+    // 시뮬 장면(2026-10-08) — 시각과(또는) 방위·고도 한 쌍. 페이지는 쓰지 않고 형식만 앱과 같이 본다.
+    if ('sv' in p) {
+      var sv = p.sv;
+      if (!sv || typeof sv !== 'object' || Array.isArray(sv) || Object.keys(sv).length === 0) throw new Bad();
+      if ('t' in sv && !validTime(sv.t)) throw new Bad();
+      if (('h' in sv) !== ('p' in sv)) throw new Bad();
+      if ('h' in sv && !(isNum(sv.h, 0, 360) && sv.h < 360 && isNum(sv.p, -90, 90))) throw new Bad();
+    }
   }
 
   /** 식 행(spec 020) — 피사체 없음 계획의 식 id만. 종류 세분은 앱 몫(웹엔 번들 자료가 없다) — 일식/월식 + 날짜(UTC 최대식 날짜). */
