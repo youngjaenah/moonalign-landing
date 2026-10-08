@@ -164,7 +164,7 @@
 <tr><td><span class="ui">Moon Exposure Table</span> · <span class="ui">Hyperfocal Table</span></td><td>Reference tables for the field.</td></tr>
 <tr><td><span class="ui">Settings</span></td><td>Time zone, language, default heights, Google key, subscription (<a href="#settings">Settings</a>).</td></tr>
 </table>
-<div class="tip">A fresh install includes two example projects, <span class="ui">[DEMO] N Seoul Tower Moonrise</span> and <span class="ui">[DEMO] Lotte World Tower Sunset</span>. Open them to see what a finished plan looks like. Once deleted, they don't come back.</div>
+<div class="tip">A fresh install includes six example projects — <span class="ui">[DEMO] N Seoul Tower Moonrise</span> · <span class="ui">[DEMO] Lotte World Tower Sunset</span> · <span class="ui">[DEMO] Eiffel Tower Moonrise, Paris</span> · <span class="ui">[DEMO] Ushiku Daibutsu, Japan</span> · <span class="ui">[DEMO] Road to Heaven Sunset, Hokkaido</span> · <span class="ui">[DEMO] North Window Arch Moonrise</span>. Open them to see what a finished plan looks like. Ushiku Daibutsu and North Window Arch open in Simulation with a composition already set up. Once deleted, they don't come back.</div>
 </section>
 
 <section>
@@ -185,7 +185,7 @@
 <ul>
 <li><strong>iPhone</strong>: tap the <span class="ui">Target</span> or <span class="ui">Shooting spot</span> chip below the map and a crosshair appears. Move the map to put the crosshair on the spot, then tap <span class="ui">Target here</span> / <span class="ui">Shooting spot here</span>.</li>
 <li><strong>iPad · Mac</strong>: the <span class="ui">Set target</span> · <span class="ui">Set shooting spot</span> buttons in the panel, or long-press the map (right-click on the Mac).</li>
-<li>Search: the magnifier at the top left of the map, <span class="ui">Search places (e.g. Namsan Tower)</span>.</li>
+<li>Search: the magnifier at the top left of the map, <span class="ui">Search places</span>.</li>
 <li>The shooting spot can also come from <span class="ui">My location</span> or <span class="ui">From photo</span> (a photo with location data).</li>
 <li>On iPhone and iPad you can drag the pins. Moved one by mistake? <span class="ui">Undo move</span> at the top left of the map puts it back (positions only — date and time stay as they are).</li>
 </ul>
@@ -218,14 +218,14 @@
 <p>This is MoonAlign's core flow; the other modes follow the same grammar.</p>
 <ol>
 <li>Choose <span class="ui">Body</span> <span class="ui">Moon</span> and <span class="ui">Subject</span> <span class="ui">Structure</span>.</li>
-<li>Set the target (say, Namsan Tower). Once its height is filled in, a <strong>band</strong> appears on the map.</li>
+<li>Set the target (say, the Eiffel Tower). Once its height is filled in, a <strong>band</strong> appears on the map.</li>
 <li>Set the shooting spot on the band. The yellow band is where the target lines up <em>as the Moon rises</em>, the blue band <em>as it sets</em>.</li>
 <li>Read the result on the shooting spot card: <span class="ui">Moon aligned ✓</span> with the <span class="ui">Aligns at</span> time, the reference window, and the distance to the target. No alignment shows <span class="ui">No alignment</span>.</li>
 <li>If it doesn't work that day, tap <span class="ui">Search 90 days</span>. In <span class="ui">Dates with alignment</span>, check the date and time, moon age, and visibility (for example <span class="ui">night · easily visible</span> or <span class="ui">Hidden by terrain</span>), then tap <span class="ui">Select</span> to jump to that day.</li>
 <li>Preview the shot in the <a href="#sim">simulation</a>.</li>
 </ol>
 <div class="tip">The farther along the band from the target, the larger the Moon looks against it (telephoto) — but the more likely terrain gets in the way. Brown marks on the map are <em>terrain blocking the target</em>. Buildings blocking the view aren't judged on the map; check those in the simulation.</div>
-<p>When you like a plan, <span class="ui">Add to Calendar</span> puts it in your device's calendar, and the share icon lets you <a href="#projects-share">share it as a link</a>.</p>
+<p>When you like a plan, <span class="ui">Add to Calendar</span> puts it in your device's calendar, and the <span class="ui">Share</span> button lets you <a href="#projects-share">share it as a link</a>.</p>
 <h3 id="structure-landmark">My landmarks</h3>
 <p>Measured the height of something that isn't in the list — a local spire, a pylon? Save its name and height with <span class="ui">Save as my landmark</span> on the target card in structure mode. Next time, tapping that spot on the map fills in the height automatically. If you already saved one within 200 m, the button becomes <span class="ui">Edit my landmark</span>.</p>
 </section>
@@ -286,6 +286,7 @@
 <li><span class="ui">Aperture</span>: picking one adds focus advice — whether focusing on the Moon keeps the target sharp too, or where to focus, or whether to blend two frames.</li>
 <li><span class="ui">Measure height</span>: measure a structure on the 3D model and put it into the plan with <span class="ui">Use this height</span>.</li>
 <li>Chips over the scene: <span class="ui">View camera position</span> (see your spot from outside) · <span class="ui">Landscape</span>/<span class="ui">Portrait</span> · <span class="ui">Show silhouette</span> · <span class="ui">Save image</span>. Drag the scene to look around.</li>
+<li>The time you set with the slider and the view you dragged to are saved to the project when you leave Simulation, so it reopens on the same scene. The <span class="ui">View</span> button below brings the view back to facing the Moon or Sun. Moving the target or shooting spot, or changing the date, clears the saved scene.</li>
 </ul>
 <h3 id="sim-overseas">Photorealistic 3D outside Korea</h3>
 <p>Photorealistic 3D buildings outside Korea come from the Google Maps API, and Google charges each time it is used. The <span class="ui">Photorealistic 3D subscription</span> exists so the app can pay that fee for you — it isn’t there to make extra money. So <strong>register your own Google API key and you can use exactly the same thing without a subscription.</strong> With neither, only terrain is shown.</p>
@@ -357,6 +358,7 @@
 <li>The link contains the shooting spot's location and the project name. A link can't be taken back once sent, so you're asked to confirm the first time.</li>
 <li>The plan lives only inside the link; nothing is stored on a server.</li>
 <li>Automatic values such as ground elevation are looked up again on the receiving device. Heights you typed in yourself travel as they are.</li>
+<li>The time and view you set in Simulation travel too, so the receiver can open the same scene.</li>
 <li>If a messenger cuts the link off, use <span class="ui">Export as File…</span> to send a <code>.moonplan</code> file instead. Opening it brings up the same screen.</li>
 </ul>
 <p><span class="ui">Export project JSON…</span> and <span class="ui">Import project JSON…</span> in the Mac menu bar are for full backups.</p>
