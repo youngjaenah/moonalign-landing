@@ -139,9 +139,11 @@
       <li><a href="#photo">사진 확인 — 답사 사진 위에 경로 그리기</a></li>
       <li><a href="#ar">AR 확인 — 현장에서 촬영 방향 확인</a></li>
       <li><a href="#calendar">천문 달력·위젯·캘린더</a></li>
+      <li><a href="#eclipse">일식·월식</a></li>
       <li><a href="#projects">프로젝트 관리와 공유</a></li>
       <li><a href="#tools">표와 도구</a></li>
       <li><a href="#settings">설정</a></li>
+      <li><a href="#about">도움말·정보</a></li>
       <li><a href="#trouble">문제 해결</a></li>
     </ol>
   </details>
@@ -168,8 +170,10 @@
 <tr><td><span class="ui">프로젝트</span></td><td>저장된 촬영 계획을 확인합니다. 자세한 내용은 <a href="#projects">프로젝트 관리</a>를 참고하세요.</td></tr>
 <tr><td><span class="ui">랜드마크</span></td><td>높이 정보가 등록된 랜드마크로 촬영 계획을 시작합니다(<a href="#tools">표와 도구</a>).</td></tr>
 <tr><td><span class="ui">천문 달력</span></td><td>보름달, 일식·월식, 유성우 등 주요 천문 현상을 확인합니다(<a href="#calendar">천문 달력</a>).</td></tr>
+<tr><td><span class="ui">일식·월식</span></td><td>앞으로 10년 동안의 일식·월식 목록과 경로 지도를 확인하고, 식을 골라 촬영 계획을 시작합니다(<a href="#eclipse">일식·월식</a>).</td></tr>
 <tr><td><span class="ui">달 노출 표</span> · <span class="ui">과초점 표</span></td><td>촬영에 필요한 노출 설정과 초점에 따른 선명한 거리 범위를 확인합니다.</td></tr>
 <tr><td><span class="ui">설정</span></td><td>시간대, 언어, 기본 높이, Google API 키와 구독을 관리합니다(<a href="#settings">설정</a>).</td></tr>
+<tr><td><span class="ui">도움말·정보</span></td><td>사용 설명서, 문의 메일, 데이터 출처, 오픈소스 라이선스를 확인합니다(<a href="#about">도움말·정보</a>).</td></tr>
 </table>
 <div class="tip">처음 설치하면 예시 프로젝트 6개가 제공됩니다 — <span class="ui">[데모] N서울타워 월출</span> · <span class="ui">[데모] 롯데월드타워 일몰</span> · <span class="ui">[데모] 파리 에펠탑 월출</span> · <span class="ui">[데모] 일본 우시쿠 대불</span> · <span class="ui">[데모] 홋카이도 하늘로 가는 길 일몰</span> · <span class="ui">[데모] North Window Arch Moon Rise</span>. 프로젝트를 열어 촬영 계획의 구성을 살펴보세요. 우시쿠 대불과 North Window Arch는 시뮬레이션에서 미리 맞춰 둔 구도로 열립니다. 삭제한 예시 프로젝트는 자동으로 복원되지 않습니다.</div>
 </section>
@@ -189,6 +193,7 @@
 
 <h3 id="plan-assign">타겟과 촬영지 지정하기</h3>
 <p><span class="target">타겟</span>은 구조물이나 사람이 있는 위치이며 청록색으로 표시됩니다. <span class="spot">촬영지</span>는 카메라를 설치할 위치이며 주황색으로 표시됩니다. 기기에 맞는 방법으로 두 위치를 지정하세요.</p>
+<p>구조물·사람 모드에서는 타겟을 먼저 지정합니다. 촬영지는 타겟을 기준으로 계산하므로, 타겟을 지정하기 전에는 <span class="ui">촬영지</span> 칩이 흐리게 표시됩니다.</p>
 <ul>
 <li><strong>iPhone</strong>: 지도 아래의 <span class="ui">타겟</span> 또는 <span class="ui">촬영지</span> 버튼을 누르면 십자선이 나타납니다. 지도를 움직여 십자선을 원하는 자리에 두고 <span class="ui">여기를 타겟으로</span> / <span class="ui">여기를 촬영지로</span>를 누릅니다.</li>
 <li><strong>iPad·Mac</strong>: 패널의 <span class="ui">타겟 지정</span> 또는 <span class="ui">촬영지 지정</span> 버튼을 누릅니다. 지도를 길게 누르거나 Mac에서 오른쪽 클릭해 나타나는 메뉴로도 지정할 수 있습니다.</li>
@@ -259,7 +264,7 @@
 <p>국제우주정거장(ISS)이 달이나 태양 앞을 통과하는 위치와 시각을 예측합니다. 통과 시간은 관측 조건에 따라 달라지므로, 선택한 예측 결과에서 확인하세요.</p>
 <ol>
 <li><span class="ui">피사체</span> <span class="ui">ISS</span>, <span class="ui">대상</span> <span class="ui">달</span>(또는 <span class="ui">태양</span>)을 고릅니다.</li>
-<li>촬영할 지역을 찾으려면 <span class="ui">통과 예측 지역</span>의 <span class="ui">통과 위치 찾기</span>를 누르세요. 현재 지도 범위에서 통과가 보이는 <strong>띠</strong>가 그려집니다. 행을 누르면 지도가 그 띠로 이동합니다. 낮에 발생하거나 천체가 지평선에 가까운 통과 예측은 별도의 접힌 그룹에서 확인할 수 있습니다.</li>
+<li>촬영할 지역을 찾으려면 <span class="ui">통과 예측 지역</span>의 <span class="ui">통과 위치 찾기</span>를 누르세요. 현재 지도 범위에서 통과가 보이는 <strong>띠</strong>가 그려집니다. 각 행에는 시각, 달의 고도, 달 모양(예: 보름달 99%), 밤·낮이 표시되며, 행을 누르면 지도가 그 띠로 이동합니다. 낮에 발생하거나 천체가 지평선에 가까운 통과 예측은 별도의 접힌 그룹에서 확인할 수 있습니다.</li>
 <li>띠 위에 촬영지를 지정하고 <span class="ui">ISS 달 통과</span>의 <span class="ui">14일 탐색</span>을 누릅니다.</li>
 <li>결과 행에서 등급(<span class="ui">통과 예상</span> · <span class="ui">통과 가능</span> · <span class="ui">근접</span>), 천체와 ISS 사이의 각거리, 통과 시간을 확인하고 <span class="ui">선택</span>으로 확정합니다. 선택한 결과는 프로젝트로 자동 저장되며 시뮬레이션에서 0.1초 단위로 볼 수 있습니다.</li>
 </ol>
@@ -353,9 +358,21 @@
 <section>
 <h2 id="calendar">천문 달력·위젯·캘린더</h2>
 <p><span class="ui">천문 달력</span>에는 보름달(슈퍼문·마이크로문), 삭, 월식·일식, 유성우, 행성 충·합, 달과 행성·밝은 별의 근접·엄폐, 금성 최대 밝기, 춘분·하지·추분·동지가 표시됩니다.</p>
-<p>근접·합의 시각은 <em>기준 위치에서 관측할 수 있는 시각</em>으로 안내합니다. 날짜를 누르면 그날의 해와 달 카드, 저장한 계획, 천문 현상이 표시됩니다. 유성우에는 달빛이 관측에 미치는 영향도 함께 표시됩니다.</p>
+<p>근접·합의 시각은 <em>기준 위치에서 관측할 수 있는 시각</em>으로 안내합니다. 날짜를 누르면 그날의 해와 달 카드, 저장한 계획, 천문 현상이 표시됩니다. 유성우에는 달빛이 관측에 미치는 영향도 함께 표시됩니다. 일식·월식의 경로 지도와 촬영지별 식 시각은 <a href="#eclipse">일식·월식</a>에서 확인합니다.</p>
 <p>천문 현상 또는 촬영 계획에서 <span class="ui">캘린더에 추가</span>를 누르면 기기 캘린더에 일정이 저장되며, 전날 저녁과 1시간 전 알림이 설정됩니다. iPhone·iPad는 일정 편집 화면이 뜨고, Mac은 바로 저장됩니다. 앱은 캘린더를 읽지 않습니다.</p>
 <p>홈 화면과 알림 센터에서 다음 위젯을 사용할 수 있습니다: <span class="ui">오늘 하늘</span> · <span class="ui">오늘의 달</span> · <span class="ui">오늘의 태양</span> · <span class="ui">다음 촬영 기회</span>. 잠금 화면 위젯도 지원합니다. 위젯에는 앱이 마지막으로 계산한 값이 표시되므로, 정보가 오래되었다면 앱을 실행해 갱신하세요.</p>
+</section>
+
+<section>
+<h2 id="eclipse">일식·월식</h2>
+<p>시작 메뉴의 <span class="ui">일식·월식</span>에서 앞으로 10년 동안 일어날 일식과 월식을 날짜순으로 확인합니다. 각 행에는 식의 종류(개기일식·금환일식·부분일식·개기월식 등)와 날짜, 보이는 지역, 기준 위치에서 보이는지(<span class="ui">보여요</span> · <span class="ui">일부만 보여요</span> · <span class="ui">이 위치에선 안 보여요</span>)가 표시됩니다. 일식은 해가 최대로 얼마나 가려지는지도 함께 보여 줍니다. 보이는지는 식이 진행되는 동안 천체가 지평선 위에 있는지로 판정하며, 산·건물 같은 지형은 반영하지 않습니다.</p>
+<ol>
+<li>목록에서 식을 누르면 그 식으로 새 프로젝트가 열립니다. <span class="ui">피사체</span>는 <span class="ui">없음</span>, <span class="ui">대상</span>은 일식이면 <span class="ui">태양</span>, 월식이면 <span class="ui">달</span>이 되고, 날짜와 시각은 식이 가장 클 때로 맞춰집니다.</li>
+<li>지도에는 식이 보이는 지역이 그려집니다. 개기일식·금환일식은 경로 띠와 남북 한계선(점선), 중심선, 중심선 위 10분 간격 시각이 함께 표시됩니다. 경로는 여러 시간대를 지나므로 시각은 UTC입니다.</li>
+<li>촬영지를 지정하면 패널의 식 카드에 그 자리에서 보이는지와 접촉 시각(<span class="ui">부분식 시작</span> · <span class="ui">최대</span> · <span class="ui">부분식 끝</span> 등)이 계획 시간대로 표시되고, 시각마다 천체의 고도가 함께 나옵니다. 지평선 아래면 고도가 빨간색으로 표시됩니다. 프로젝트는 촬영지를 지정할 때 저장됩니다.</li>
+<li><a href="#sim">시뮬레이션</a>은 식이 가장 클 때의 장면으로 열립니다. 일식은 달 원반이 해를 가리며 하늘이 어두워지고, 월식은 달에 지구 그림자가 드리워집니다.</li>
+</ol>
+<div class="note">피사체나 대상을 바꾸거나 계획 날짜를 다른 날로 옮기면 식 정보가 사라지고 일반 계획이 됩니다. 같은 날 안에서 시각만 바꾸면 유지됩니다. 다시 식 계획으로 만들려면 <span class="ui">일식·월식</span> 목록에서 다시 고르세요.</div>
 </section>
 
 <section>
@@ -390,11 +407,21 @@
 <tr><th>항목</th><th>설명</th></tr>
 <tr><td><span class="ui">타임존</span></td><td>계획 시각을 표시할 시간대를 선택합니다.</td></tr>
 <tr><td><span class="ui">언어</span></td><td>시스템 기본 · 한국어 · English · 日本語. 앱을 다시 실행하면 적용됩니다.</td></tr>
-<tr><td><span class="ui">기본 높이</span></td><td>새 계획에 사용할 <span class="ui">촬영 높이</span>와 <span class="ui">사람 키</span>의 기본값을 설정합니다.</td></tr>
+<tr><td><span class="ui">기본 높이</span></td><td>새 계획에 사용할 <span class="ui">촬영 높이</span>와 <span class="ui">사람 키</span>의 기본값을 설정합니다(촬영 높이 0~50 m, 사람 키 0.5~3 m).</td></tr>
 <tr><td><span class="ui">Google API 키</span></td><td>해외 실사 3D와 Google 지도에 사용할 개인 키를 등록합니다(선택 사항). 등록하면 구독보다 우선하여 사용합니다. 저장·전송 방식은 <a href="#sim-overseas">해외 실사 3D</a>를 참고하세요.</td></tr>
 <tr><td><span class="ui">해외 실사 3D 구독</span></td><td>구독을 신청하거나 <span class="ui">구독 관리</span>·<span class="ui">구매 복원</span>을 이용합니다.</td></tr>
-<tr><td><span class="ui">데이터 출처</span></td><td>지도·지형·궤도·항적 자료의 출처를 확인합니다.</td></tr>
 </table>
+</section>
+
+<section>
+<h2 id="about">도움말·정보</h2>
+<p>시작 메뉴의 <span class="ui">도움말·정보</span>에서 앱 버전을 확인하고 다음 항목을 이용할 수 있습니다.</p>
+<ul>
+<li><span class="ui">사용 설명서</span> — 이 설명서를 앱 언어에 맞춰 엽니다.</li>
+<li><span class="ui">문의 메일 보내기</span> — support@yjlab.io로 보낼 메일을 씁니다. 본문에 앱 버전·기기 모델·OS·언어가 미리 채워지며, 보내기 전에 지워도 됩니다. 위치나 프로젝트 정보는 들어가지 않습니다.</li>
+<li><span class="ui">데이터 출처</span> — 지도·지형·광해·궤도·항적·일식·월식 자료의 출처를 확인합니다.</li>
+<li><span class="ui">오픈소스 라이선스</span> — 앱에 사용한 오픈소스 라이브러리의 라이선스를 확인합니다.</li>
+</ul>
 </section>
 
 <section>

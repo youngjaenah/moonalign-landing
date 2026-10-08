@@ -139,9 +139,11 @@
       <li><a href="#photo">Photo Check — the path on your scouting photo</a></li>
       <li><a href="#ar">AR Check — aim on site</a></li>
       <li><a href="#calendar">Sky calendar, widgets, and Calendar</a></li>
+      <li><a href="#eclipse">Eclipses</a></li>
       <li><a href="#projects">Managing and sharing projects</a></li>
       <li><a href="#tools">Tables and tools</a></li>
       <li><a href="#settings">Settings</a></li>
+      <li><a href="#about">Help &amp; About</a></li>
       <li><a href="#trouble">Troubleshooting</a></li>
     </ol>
   </details>
@@ -166,8 +168,10 @@
 <tr><td><span class="ui">Projects</span></td><td>Your saved projects (<a href="#projects">Managing projects</a>).</td></tr>
 <tr><td><span class="ui">Landmarks</span></td><td>Start from a landmark whose height has already been researched (<a href="#tools">Tables and tools</a>).</td></tr>
 <tr><td><span class="ui">Sky calendar</span></td><td>Full moons, eclipses, meteor showers, planet events (<a href="#calendar">Sky calendar</a>).</td></tr>
+<tr><td><span class="ui">Eclipses</span></td><td>Solar and lunar eclipses of the next ten years with path maps; pick one to start a plan (<a href="#eclipse">Eclipses</a>).</td></tr>
 <tr><td><span class="ui">Moon Exposure Table</span> · <span class="ui">Hyperfocal Table</span></td><td>Reference tables for the field.</td></tr>
 <tr><td><span class="ui">Settings</span></td><td>Time zone, language, default heights, Google key, subscription (<a href="#settings">Settings</a>).</td></tr>
+<tr><td><span class="ui">Help &amp; About</span></td><td>User guide, support email, data sources, open-source licenses (<a href="#about">Help &amp; About</a>).</td></tr>
 </table>
 <div class="tip">A fresh install includes six example projects — <span class="ui">[DEMO] N Seoul Tower Moonrise</span> · <span class="ui">[DEMO] Lotte World Tower Sunset</span> · <span class="ui">[DEMO] Eiffel Tower Moonrise, Paris</span> · <span class="ui">[DEMO] Ushiku Daibutsu, Japan</span> · <span class="ui">[DEMO] Road to Heaven Sunset, Hokkaido</span> · <span class="ui">[DEMO] North Window Arch Moonrise</span>. Open them to see what a finished plan looks like. Ushiku Daibutsu and North Window Arch open in Simulation with a composition already set up. Once deleted, they don't come back.</div>
 </section>
@@ -187,6 +191,7 @@
 
 <h3 id="plan-assign">Setting the target and shooting spot</h3>
 <p>The <span class="target">target</span> is what you line up with the Moon (cyan); the <span class="spot">shooting spot</span> is where you stand (orange). There are several ways to set them, all with the same result.</p>
+<p>In Structure and Person modes, set the target first. The shooting spot is calculated from the target, so the <span class="ui">Shooting spot</span> chip stays dimmed until a target is set.</p>
 <ul>
 <li><strong>iPhone</strong>: tap the <span class="ui">Target</span> or <span class="ui">Shooting spot</span> chip below the map and a crosshair appears. Move the map to put the crosshair on the spot, then tap <span class="ui">Target here</span> / <span class="ui">Shooting spot here</span>.</li>
 <li><strong>iPad · Mac</strong>: the <span class="ui">Set target</span> · <span class="ui">Set shooting spot</span> buttons in the panel, or long-press the map (right-click on the Mac).</li>
@@ -257,7 +262,7 @@
 <p>The International Space Station crosses the Moon's disk in about half a second. MoonAlign forecasts it to the second from NASA orbit data.</p>
 <ol>
 <li>Choose <span class="ui">Subject</span> <span class="ui">ISS</span> and <span class="ui">Body</span> <span class="ui">Moon</span> (or <span class="ui">Sun</span>).</li>
-<li>Not sure where to go? Tap <span class="ui">Find transit spots</span> under <span class="ui">Predicted transit areas</span>. It draws the <strong>bands</strong> where a transit is visible within the current map view. Tap a row to move the map to that band. Daytime and near-horizon bands are collected in a folded group.</li>
+<li>Not sure where to go? Tap <span class="ui">Find transit spots</span> under <span class="ui">Predicted transit areas</span>. It draws the <strong>bands</strong> where a transit is visible within the current map view. Each row shows the time, the Moon's altitude, its phase (for example, Full Moon 99%), and day or night. Tap a row to move the map to that band. Daytime and near-horizon bands are collected in a folded group.</li>
 <li>Set the shooting spot on a band and tap <span class="ui">Search 14 days</span> under <span class="ui">ISS lunar transit</span>.</li>
 <li>Check each result's grade (<span class="ui">Transit expected</span> · <span class="ui">Possible</span> · <span class="ui">Close pass</span>), separation, and duration, then tap <span class="ui">Select</span> to confirm. Confirming saves automatically, and the simulation lets you step through it in 0.1-second increments.</li>
 </ol>
@@ -350,9 +355,21 @@
 
 <section>
 <h2 id="calendar">Sky calendar, widgets, and Calendar</h2>
-<p>The <span class="ui">Sky calendar</span> shows full moons (supermoons and micromoons), new moons, lunar and solar eclipses, meteor showers, planet oppositions and conjunctions, close approaches and occultations of the Moon with planets and bright stars, Venus at greatest brilliancy, and the equinoxes and solstices. Close approaches and conjunctions are reported at the time <em>they're actually visible from your reference location</em>. Tap a date to see that day's Sun &amp; Moon card, your saved plans, and its events. Meteor showers note how much moonlight will interfere.</p>
+<p>The <span class="ui">Sky calendar</span> shows full moons (supermoons and micromoons), new moons, lunar and solar eclipses, meteor showers, planet oppositions and conjunctions, close approaches and occultations of the Moon with planets and bright stars, Venus at greatest brilliancy, and the equinoxes and solstices. Close approaches and conjunctions are reported at the time <em>they're actually visible from your reference location</em>. Tap a date to see that day's Sun &amp; Moon card, your saved plans, and its events. Meteor showers note how much moonlight will interfere. For eclipse path maps and eclipse times at your shooting spot, see <a href="#eclipse">Eclipses</a>.</p>
 <p><span class="ui">Add to Calendar</span> on an event or plan row adds it to your device's calendar (with reminders the evening before and an hour before). iPhone and iPad show the event editor; the Mac saves it directly. The app never reads your calendar.</p>
 <p>Home screen and Notification Center widgets: <span class="ui">Today's sky</span> · <span class="ui">Today's Moon</span> · <span class="ui">Today's Sun</span> · <span class="ui">Next shooting chance</span>, plus Lock Screen widgets. Widgets show what the app last calculated, so open the app once in a while.</p>
+</section>
+
+<section>
+<h2 id="eclipse">Eclipses</h2>
+<p><span class="ui">Eclipses</span> on Home lists the solar and lunar eclipses of the next ten years by date. Each row shows the type (total, annular, or partial solar eclipse, total lunar eclipse, and so on), the date, where it's visible, and whether it can be seen from your reference location (<span class="ui">Visible</span> · <span class="ui">Partly visible</span> · <span class="ui">Not visible from here</span>). Solar eclipses also show how much of the Sun is covered at most. Visibility is judged by whether the body is above the horizon during the eclipse; mountains and buildings are not taken into account.</p>
+<ol>
+<li>Tap an eclipse to open a new project for it. <span class="ui">Subject</span> is set to <span class="ui">None</span>, <span class="ui">Body</span> to <span class="ui">Sun</span> for a solar eclipse or <span class="ui">Moon</span> for a lunar one, and the date and time to the moment of greatest eclipse.</li>
+<li>The map shows where the eclipse is visible. Total and annular solar eclipses also show the path band, the northern and southern limits (dashed), the central line, and times every 10 minutes along it. The path crosses several time zones, so these times are in UTC.</li>
+<li>Set a shooting spot, and the eclipse card in the panel shows whether it's visible there and the contact times (<span class="ui">Partial begins</span> · <span class="ui">Maximum</span> · <span class="ui">Partial ends</span>, and so on) in the plan's time zone, each with the body's altitude. Altitudes below the horizon are shown in red. The project is saved when you set the shooting spot.</li>
+<li><a href="#sim">Simulation</a> opens at greatest eclipse. For a solar eclipse the Moon's disk covers the Sun and the sky darkens; for a lunar eclipse Earth's shadow falls across the Moon.</li>
+</ol>
+<div class="note">Changing the subject or body, or moving the plan to another day, removes the eclipse and turns it into a regular plan. Changing only the time on the same day keeps it. To make it an eclipse plan again, pick it from the <span class="ui">Eclipses</span> list.</div>
 </section>
 
 <section>
@@ -387,11 +404,21 @@
 <tr><th>Item</th><th>What it does</th></tr>
 <tr><td><span class="ui">Time zone</span></td><td>The time zone plan times are shown in.</td></tr>
 <tr><td><span class="ui">Language</span></td><td>System default · 한국어 · English · 日本語. Takes effect after restarting the app.</td></tr>
-<tr><td><span class="ui">Default heights</span></td><td><span class="ui">Camera height</span> and <span class="ui">Person height</span> for new plans.</td></tr>
+<tr><td><span class="ui">Default heights</span></td><td><span class="ui">Camera height</span> and <span class="ui">Person height</span> for new plans (camera height 0–50 m, person height 0.5–3 m).</td></tr>
 <tr><td><span class="ui">Google API key</span></td><td>Register your own key for photorealistic 3D outside Korea and Google Maps (optional). It takes priority over the subscription. See <a href="#sim-overseas">Photorealistic 3D outside Korea</a> for how it is stored and sent.</td></tr>
 <tr><td><span class="ui">Photorealistic 3D subscription</span></td><td>Subscribe · <span class="ui">Manage subscription</span> · <span class="ui">Restore purchases</span>.</td></tr>
-<tr><td><span class="ui">Data sources</span></td><td>Where the map, terrain, orbit, and air traffic data come from.</td></tr>
 </table>
+</section>
+
+<section>
+<h2 id="about">Help &amp; About</h2>
+<p><span class="ui">Help &amp; About</span> on Home shows the app version and the following.</p>
+<ul>
+<li><span class="ui">User guide</span> — opens this guide in the app's language.</li>
+<li><span class="ui">Email support</span> — writes an email to support@yjlab.io. The app version, device model, OS, and language are filled in for you, and you can delete them before sending. No location or project information is included.</li>
+<li><span class="ui">Data sources</span> — where the map, terrain, light pollution, orbit, air traffic, and eclipse data come from.</li>
+<li><span class="ui">Open-source licenses</span> — licenses of the open-source libraries used in the app.</li>
+</ul>
 </section>
 
 <section>

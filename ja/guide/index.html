@@ -139,9 +139,11 @@
       <li><a href="#photo">写真チェック — 下見写真に経路を描く</a></li>
       <li><a href="#ar">ARチェック — 現場で狙いを定める</a></li>
       <li><a href="#calendar">天文カレンダー・ウィジェット・カレンダー</a></li>
+      <li><a href="#eclipse">日食・月食</a></li>
       <li><a href="#projects">プロジェクトの管理と共有</a></li>
       <li><a href="#tools">表とツール</a></li>
       <li><a href="#settings">設定</a></li>
+      <li><a href="#about">ヘルプ・情報</a></li>
       <li><a href="#trouble">困ったときは</a></li>
     </ol>
   </details>
@@ -166,8 +168,10 @@
 <tr><td><span class="ui">プロジェクト</span></td><td>保存したプロジェクトの一覧(<a href="#projects">プロジェクトの管理</a>)。</td></tr>
 <tr><td><span class="ui">ランドマーク</span></td><td>高さを調べてあるランドマークからすぐに始めます(<a href="#tools">表とツール</a>)。</td></tr>
 <tr><td><span class="ui">天文カレンダー</span></td><td>満月・食・流星群・惑星のイベント(<a href="#calendar">天文カレンダー</a>)。</td></tr>
+<tr><td><span class="ui">日食・月食</span></td><td>これから10年間の日食・月食の一覧と経路の地図。食を選んで撮影プランを始めます(<a href="#eclipse">日食・月食</a>)。</td></tr>
 <tr><td><span class="ui">月の露出表</span>・<span class="ui">過焦点距離表</span></td><td>現場で使う参考表。</td></tr>
 <tr><td><span class="ui">設定</span></td><td>タイムゾーン・言語・既定の高さ・Googleキー・サブスクリプション(<a href="#settings">設定</a>)。</td></tr>
+<tr><td><span class="ui">ヘルプ・情報</span></td><td>使い方ガイド・問い合わせメール・データの出典・オープンソースライセンス(<a href="#about">ヘルプ・情報</a>)。</td></tr>
 </table>
 <div class="tip">インストール直後は6つの例が入っています — <span class="ui">[デモ] Nソウルタワーの月の出</span>・<span class="ui">[デモ] ロッテワールドタワーの日の入り</span>・<span class="ui">[デモ] パリ・エッフェル塔の月の出</span>・<span class="ui">[デモ] 日本・牛久大仏</span>・<span class="ui">[デモ] 北海道・天に続く道の日の入り</span>・<span class="ui">[デモ] ノースウィンドウ・アーチの月の出</span>。完成したプランがどんなものか開いてみてください。牛久大仏とノースウィンドウ・アーチは、シミュレーションで構図を合わせた状態で開きます。削除しても再び作られることはありません。</div>
 </section>
@@ -187,6 +191,7 @@
 
 <h3 id="plan-assign">ターゲットと撮影地の指定</h3>
 <p><span class="target">ターゲット</span>は月と重ねる対象(シアン)、<span class="spot">撮影地</span>は自分が立つ場所(オレンジ)です。指定の方法はいくつかありますが、結果は同じです。</p>
+<p>構造物・人物モードでは、先にターゲットを指定します。撮影地はターゲットを基準に計算するため、ターゲットを指定するまで<span class="ui">撮影地</span>のチップは薄く表示されます。</p>
 <ul>
 <li><strong>iPhone</strong>:地図の下のチップ列で<span class="ui">ターゲット</span>または<span class="ui">撮影地</span>のチップを押すと十字線が出ます。地図を動かして十字線を目的の場所に置き、<span class="ui">ここをターゲットに</span>/<span class="ui">ここを撮影地に</span>を押します。</li>
 <li><strong>iPad・Mac</strong>:パネルの<span class="ui">ターゲット指定</span>・<span class="ui">撮影地指定</span>ボタン、または地図の長押し(Macは右クリック)メニュー。</li>
@@ -257,7 +262,7 @@
 <p>国際宇宙ステーションが月の円盤を横切るのは約0.5秒です。MoonAlignはNASAの軌道データから秒単位で予報します。</p>
 <ol>
 <li><span class="ui">被写体</span>で<span class="ui">ISS</span>、<span class="ui">対象</span>で<span class="ui">月</span>(または<span class="ui">太陽</span>)を選びます。</li>
-<li>どこへ行けばよいかわからなければ、<span class="ui">通過予測エリア</span>の<span class="ui">通過が見える場所を探す</span>を押します。いまの地図の範囲で通過が見える<strong>帯</strong>が描かれます。行を押すと地図がその帯に移動します。昼間や地平線近くの帯は折りたたまれたグループにまとまっています。</li>
+<li>どこへ行けばよいかわからなければ、<span class="ui">通過予測エリア</span>の<span class="ui">通過が見える場所を探す</span>を押します。いまの地図の範囲で通過が見える<strong>帯</strong>が描かれます。各行には時刻、月の高度、月の形(例:満月 99%)、昼・夜が表示され、行を押すと地図がその帯に移動します。昼間や地平線近くの帯は折りたたまれたグループにまとまっています。</li>
 <li>帯の上に撮影地を指定し、<span class="ui">ISS月面通過</span>の<span class="ui">14日間検索</span>を押します。</li>
 <li>結果の行で等級(<span class="ui">通過見込み</span>・<span class="ui">通過可能</span>・<span class="ui">接近</span>)、離角、通過時間を見て、<span class="ui">選択</span>で確定します。確定すると自動で保存され、シミュレーションで0.1秒単位で確認できます。</li>
 </ol>
@@ -350,9 +355,21 @@
 
 <section>
 <h2 id="calendar">天文カレンダー・ウィジェット・カレンダー</h2>
-<p><span class="ui">天文カレンダー</span>には、満月(スーパームーン・マイクロムーン)、新月、月食・日食、流星群、惑星の衝・合、月と惑星や明るい星の接近・食、金星の最大光度、春分・夏至・秋分・冬至が表示されます。接近や合は<em>基準の位置から実際に見える時刻</em>で知らせます。日付を押すと、その日の太陽と月のカード、保存したプラン、イベントが表示されます。流星群には月明かりの影響の度合いが付きます。</p>
+<p><span class="ui">天文カレンダー</span>には、満月(スーパームーン・マイクロムーン)、新月、月食・日食、流星群、惑星の衝・合、月と惑星や明るい星の接近・食、金星の最大光度、春分・夏至・秋分・冬至が表示されます。接近や合は<em>基準の位置から実際に見える時刻</em>で知らせます。日付を押すと、その日の太陽と月のカード、保存したプラン、イベントが表示されます。流星群には月明かりの影響の度合いが付きます。日食・月食の経路の地図と撮影地ごとの食の時刻は<a href="#eclipse">日食・月食</a>で確認します。</p>
 <p>イベントやプランの行の<span class="ui">カレンダーに追加</span>を押すと、端末のカレンダーに予定(前日の夜と1時間前の通知)が入ります。iPhone・iPadでは予定の編集画面が開き、Macではそのまま保存されます。アプリがカレンダーを読むことはありません。</p>
 <p>ホーム画面・通知センターのウィジェット:<span class="ui">今日の空</span>・<span class="ui">今日の月</span>・<span class="ui">今日の太陽</span>・<span class="ui">次の撮影チャンス</span>、そしてロック画面のウィジェット。ウィジェットはアプリが最後に計算した値を表示するので、長くアプリを開いていなければ一度開いてください。</p>
+</section>
+
+<section>
+<h2 id="eclipse">日食・月食</h2>
+<p>ホームの<span class="ui">日食・月食</span>では、これから10年間の日食と月食を日付順に確認できます。各行には食の種類(皆既日食・金環日食・部分日食・皆既月食など)、日付、見える地域、基準地点から見えるかどうか(<span class="ui">見えます</span>・<span class="ui">一部だけ見えます</span>・<span class="ui">この場所からは見えません</span>)が表示されます。日食では太陽が最大でどれだけ欠けるかも表示されます。見えるかどうかは食の間に天体が地平線の上にあるかで判定し、山や建物などの地形は考慮しません。</p>
+<ol>
+<li>一覧で食を押すと、その食の新しいプロジェクトが開きます。<span class="ui">被写体</span>は<span class="ui">なし</span>、<span class="ui">対象</span>は日食なら<span class="ui">太陽</span>、月食なら<span class="ui">月</span>になり、日付と時刻は食の最大の瞬間に合わせられます。</li>
+<li>地図には食が見える地域が描かれます。皆既日食・金環日食では、経路の帯、南北の限界線(点線)、中心線、中心線上の10分ごとの時刻も表示されます。経路は複数のタイムゾーンをまたぐため、時刻はUTCです。</li>
+<li>撮影地を指定すると、パネルの食カードに、その場所から見えるかどうかと接触の時刻(<span class="ui">部分食の始め</span>・<span class="ui">食の最大</span>・<span class="ui">部分食の終わり</span>など)がプランのタイムゾーンで表示され、時刻ごとに天体の高度も表示されます。地平線の下にあるときは高度が赤で表示されます。プロジェクトは撮影地を指定したときに保存されます。</li>
+<li><a href="#sim">シミュレーション</a>は食の最大の場面で開きます。日食では月の円盤が太陽を隠して空が暗くなり、月食では月に地球の影が落ちます。</li>
+</ol>
+<div class="note">被写体や対象を変えたり、プランの日付を別の日に移したりすると、食の情報は消えて通常のプランになります。同じ日のうちに時刻だけを変えた場合はそのまま残ります。もう一度食のプランにするには、<span class="ui">日食・月食</span>の一覧から選び直してください。</div>
 </section>
 
 <section>
@@ -387,11 +404,21 @@
 <tr><th>項目</th><th>説明</th></tr>
 <tr><td><span class="ui">タイムゾーン</span></td><td>プランの時刻を表示するタイムゾーン。</td></tr>
 <tr><td><span class="ui">言語</span></td><td>システムの既定・한국어・English・日本語。アプリを再起動すると反映されます。</td></tr>
-<tr><td><span class="ui">既定の高さ</span></td><td>新しいプランの<span class="ui">カメラの高さ</span>と<span class="ui">人の身長</span>。</td></tr>
-<tr><td><span class="ui">Google APIキー</span></td><td>韓国外の実写3DとGoogleマップに使う個人のキーを登録します（任意）。登録するとサブスクリプションより優先されます。保存と送信については<a href="#sim-overseas">韓国外の実写3D</a>をご覧ください。</td></tr>
+<tr><td><span class="ui">既定の高さ</span></td><td>新しいプランの<span class="ui">カメラの高さ</span>と<span class="ui">人の身長</span>(カメラの高さ0〜50 m、人の身長0.5〜3 m)。</td></tr>
+<tr><td><span class="ui">Google APIキー</span></td><td>韓国外の実写3DとGoogleマップに使う個人のキーを登録します（必要な場合）。登録するとサブスクリプションより優先されます。保存と送信については<a href="#sim-overseas">韓国外の実写3D</a>をご覧ください。</td></tr>
 <tr><td><span class="ui">実写3Dサブスクリプション</span></td><td>購読・<span class="ui">サブスクリプション管理</span>・<span class="ui">購入を復元</span>。</td></tr>
-<tr><td><span class="ui">データの出典</span></td><td>地図・地形・軌道・航跡のデータの出典。</td></tr>
 </table>
+</section>
+
+<section>
+<h2 id="about">ヘルプ・情報</h2>
+<p>ホームの<span class="ui">ヘルプ・情報</span>では、アプリのバージョンを確認でき、次の項目を利用できます。</p>
+<ul>
+<li><span class="ui">使い方ガイド</span> — このガイドをアプリの言語で開きます。</li>
+<li><span class="ui">メールで問い合わせる</span> — support@yjlab.io宛てのメールを作成します。本文にはアプリのバージョン・機種・OS・言語があらかじめ入り、送信前に削除してもかまいません。位置やプロジェクトの情報は含まれません。</li>
+<li><span class="ui">データの出典</span> — 地図・地形・光害・軌道・航跡・日食と月食のデータの出典を確認します。</li>
+<li><span class="ui">オープンソースライセンス</span> — アプリで使っているオープンソースライブラリのライセンスを確認します。</li>
+</ul>
 </section>
 
 <section>
