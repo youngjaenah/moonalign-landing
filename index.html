@@ -226,6 +226,16 @@
   }
 
   /* more tools */
+  /* 그림(2026-10-08) — 세계 장면 갤러리·기기 화면·도구 화면. 캡션은 작게, 그림은 둥근 모서리 + 옅은 테두리. */
+  .shots figure { margin: 0; }
+  .shots img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-soft); }
+  .shots figcaption { font-size: 0.85rem; color: var(--ink-dim); line-height: 1.5; margin-top: 10px; }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; margin-top: 40px; }
+  @media (max-width: 720px) { .gallery { grid-template-columns: 1fr; } }
+  .device-shots { display: grid; grid-template-columns: 3fr 1fr; gap: 24px; align-items: end; margin-top: 40px; }
+  @media (max-width: 720px) { .device-shots { grid-template-columns: 1fr; } .device-shots .phone { max-width: 240px; } }
+  .phone-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 40px; max-width: 780px; }
+  @media (max-width: 560px) { .phone-row { gap: 10px; } .phone-row figcaption { font-size: 0.75rem; } }
   .tools { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 14px 32px; margin-top: 24px; }
   .tools li { font-size: 0.95rem; color: var(--ink-dim); line-height: 1.6; }
   .tools b { color: var(--ink); }
@@ -357,12 +367,30 @@
   </div>
 </section>
 
+<section class="section" id="gallery">
+  <div class="wrap">
+    <span class="tag">Previews</span>
+    <h2>See the shot before you go — anywhere in the world</h2>
+    <p class="lead sect-lead">3D simulation with real terrain, buildings, and your lens&#x27;s field of view. Every scene below is an example project that comes with the app.</p>
+    <div class="gallery shots">
+      <figure><img src="/img/gallery/ushiku-en.jpg" width="1600" height="1067" alt="Ushiku Daibutsu, Japan — moonrise on Dec 24, 2026, the Moon at the Buddha&#x27;s fingertips (135mm)" loading="lazy"><figcaption>Ushiku Daibutsu, Japan — moonrise on Dec 24, 2026, the Moon at the Buddha&#x27;s fingertips (135mm)</figcaption></figure>
+      <figure><img src="/img/gallery/arch-en.jpg" width="1600" height="1067" alt="North Window, Arches National Park, USA — moonrise on May 16, 2027 (400mm)" loading="lazy"><figcaption>North Window, Arches National Park, USA — moonrise on May 16, 2027 (400mm)</figcaption></figure>
+      <figure><img src="/img/gallery/paris-en.jpg" width="1600" height="1067" alt="Eiffel Tower, Paris — moonrise on Dec 23, 2026 (200mm)" loading="lazy"><figcaption>Eiffel Tower, Paris — moonrise on Dec 23, 2026 (200mm)</figcaption></figure>
+      <figure><img src="/img/gallery/namsan-en.jpg" width="1600" height="1067" alt="N Seoul Tower, Seoul — moonrise on Jan 21, 2027 (400mm)" loading="lazy"><figcaption>N Seoul Tower, Seoul — moonrise on Jan 21, 2027 (400mm)</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="devices">
   <div class="wrap">
     <span class="tag nocaps">Mac · iPhone · iPad</span>
     <h2>Plan on the Mac, check on your iPhone</h2>
     <p class="lead sect-lead">Buy once with your Apple Account and use it on Mac, iPhone, and iPad, with projects synced through iCloud. On Android, buy it separately on Google Play; projects sync between Android devices through Google Drive. Between Apple and Android, share plans with a link.</p>
     <ul class="tools"><li><b>Mac</b> — plan on a big screen with the map and the 3D simulation in view.</li><li><b>iCloud</b> — projects sync to your iPhone and iPad as they are. Nothing to export.</li><li><b>iPhone · iPad</b> — open the same plan and check the site with a scouting photo and AR.</li></ul>
+    <div class="device-shots shots">
+      <figure><img src="/img/guide/band-mac-en.jpg" width="1600" height="1000" alt="Mac — pick a spot while watching the bands on the map" loading="lazy"><figcaption>Mac — pick a spot while watching the bands on the map</figcaption></figure>
+      <figure class="phone"><img src="/img/guide/plan-iphone-en.jpg" width="660" height="1434" alt="iPhone — the same plan, in the field" loading="lazy"><figcaption>iPhone — the same plan, in the field</figcaption></figure>
+    </div>
   </div>
 </section>
 
@@ -422,6 +450,11 @@
       <li><b>Share as link</b> — share a plan as a link; without the app, the summary and map open on the web.</li>
       <li><b>Camera auto capture</b> — burst with a supported USB-connected Sony or Canon camera timed to a plane crossing.</li>
     </ul>
+    <div class="phone-row shots">
+      <figure><img src="/img/tools/home-en.jpg" width="600" height="1304" alt="Home — today&#x27;s sky and your next shooting chance" loading="lazy"><figcaption>Home — today&#x27;s sky and your next shooting chance</figcaption></figure>
+      <figure><img src="/img/tools/calendar-en.jpg" width="600" height="1304" alt="Sky calendar — the Sun, the Moon, and sky events by date" loading="lazy"><figcaption>Sky calendar — the Sun, the Moon, and sky events by date</figcaption></figure>
+      <figure><img src="/img/tools/eclipse-en.jpg" width="600" height="1304" alt="Eclipses — the path of the total solar eclipse of Aug 2, 2027" loading="lazy"><figcaption>Eclipses — the path of the total solar eclipse of Aug 2, 2027</figcaption></figure>
+    </div>
   </div>
 </section>
 
