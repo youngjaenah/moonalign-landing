@@ -4,15 +4,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MoonAlign — 月・太陽の重なり撮影プランナー</title>
-  <meta name="description" content="ターゲットと日付を選ぶと、月や太陽が重なる撮影地を地図に表示します。3Dシミュレーションで構図を確認し、現地では下見写真とARで確かめます。ISS通過予測と飛行機のリアルタイム通知にも対応。">
+  <title>MoonAlign — 月や太陽と被写体が重なる構図を計画</title>
+  <meta name="description" content="被写体（アプリの「ターゲット」）と日付を選び、地図で撮影位置の候補と重なる時刻を探します。高さの情報を確認し、撮影位置を変えながら3Dシミュレーションで構図を比較できます。ISSの通過検索や飛行機のライブ監視にも対応しています。">
   <link rel="canonical" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/">
-  <meta property="og:title" content="MoonAlign — 月・太陽の重なり撮影プランナー">
-  <meta property="og:description" content="ターゲットと日付を選ぶと、月や太陽が重なる撮影地を地図に表示します。3Dシミュレーションで構図を確認し、現地では下見写真とARで確かめます。ISS通過予測と飛行機のリアルタイム通知にも対応。">
+  <meta property="og:title" content="MoonAlign — 月や太陽と被写体が重なる構図を計画">
+  <meta property="og:description" content="被写体（アプリの「ターゲット」）と日付を選び、地図で撮影位置の候補と重なる時刻を探します。高さの情報を確認し、撮影位置を変えながら3Dシミュレーションで構図を比較できます。ISSの通過検索や飛行機のライブ監視にも対応しています。">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -111,6 +111,7 @@
   }
   .btn-primary { background: var(--ink); color: #fff; }
   .btn-primary:hover { background: #2c2f36; }
+  .store-pending { display: inline-block; padding: 10px 0; color: var(--ink-dim); font-size: 0.9rem; }
   .btn-ghost { background: var(--bg); color: var(--ink); border: 1px solid var(--line); }
   .btn-ghost:hover { border-color: var(--ink-faint); background: var(--bg-soft); }
   .cta-meta { font-size: 0.83rem; color: var(--ink-faint); margin-top: 14px; }
@@ -192,6 +193,7 @@
   .mode h3 a { color: var(--ink); text-decoration: none; }
   .mode h3 a:hover { color: var(--accent); }
   .mode p { font-size: 0.9rem; color: var(--ink-dim); line-height: 1.65; }
+  .coverage { margin-top: 32px; }
 
   /* how-to flows */
   .howto { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
@@ -315,24 +317,24 @@
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac · Android</span> — 撮影計画アプリ</p>
-      <h1>ターゲットと日付から撮影地を見つける</h1>
-      <p class="lead">タワーの後ろから昇る月から、月面を横切るISSまで。角度・高さ・距離を自分で計算しなくても、ターゲットと日付を選べば<strong>どこで・いつ撮ればよいか</strong>をMoonAlignが見つけます。撮影地を動かしながら3Dシミュレーションで構図を確かめられます。</p>
+      <h1>月と被写体が重なる撮影位置を見つける</h1>
+      <p class="lead">被写体（アプリの「ターゲット」）と日付を選び、地図で<strong>撮影位置の候補と重なる時刻</strong>を探します。高さの情報を確認し、撮影位置を変えながら3Dシミュレーションで構図を比較できます。ISSの通過検索や飛行機のライブ監視にも対応しています。</p>
       <ul class="feat">
-        <li>ターゲットと日付を選ぶと、月が重なる撮影地を地図に表示</li>
+        <li>指定したターゲットと日付をもとに、月が重なる撮影位置の候補を地図に表示</li>
         <li>地形とレンズの焦点距離を反映した3Dシミュレーション</li>
-        <li>ISS通過時刻を秒単位で予測、月を横切る飛行機をリアルタイムで通知</li>
+        <li>ISSの予想通過時刻を秒単位で確認し、飛行機の通過の可能性をライブ通知で確認</li>
         <li>一度の購入でMac・iPhone・iPad — Macで作った計画をiPhone・iPadでそのまま確認</li>
       </ul>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#appstore-link">App Storeでダウンロード</a>
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=io.yjlab.moonalign">Google Playで入手</a>
+        <span class="store-pending">App Storeで公開予定</span>
+        <span class="store-pending">Google Playで公開予定</span>
         <a class="btn btn-ghost" href="#workflow">使い方を見る</a>
       </div>
-      <p class="cta-meta">$9.99 買い切り · 韓国外の実写3Dは個人のGoogleキー（無料）またはサブスクリプション · Androidは別途購入 · 日本語・英語・韓国語</p>
+      <p class="cta-meta">予定価格 US$9.99・買い切り · 韓国外のフォトリアリスティック3Dはご自身のGoogleキーまたは任意のサブスクリプション · Androidは別途購入 · 日本語・英語・韓国語</p>
     </div>
     <figure class="visual">
       <img src="/img/hero-sim-ja.jpg" width="2200" height="1520" alt="MoonAlign Macアプリのシミュレーション画面 — エッフェル塔の後ろに月が重なる場面" loading="eager">
-      <figcaption>Mac・シミュレーション — パリ・エッフェル塔、200mm、2026-10-02 23:03 月の出</figcaption>
+      <figcaption>Mac・シミュレーション — パリ・エッフェル塔、200mm、2026-10-02 23:03 月の出・パリ現地時刻（UTC+2）</figcaption>
     </figure>
   </div>
 </section>
@@ -343,10 +345,10 @@
     <h2>計画から現地確認、撮影まで</h2>
     <p class="lead sect-lead">撮影地と構図を前もって計画し、下見と撮影当日に実際の景色で確かめます。</p>
     <div class="stages">
-      <div class="stage"><span class="no">1</span><p class="where">自宅で · Macで計画</p><h3>計画</h3><p>ターゲットと日付を選ぶと、月がターゲットと重なる撮影地が地図に帯で表示されます。角度・高さ・距離の計算はアプリが行います。</p></div>
-      <div class="stage"><span class="no">2</span><p class="where">家で</p><h3>シミュレーション</h3><p>地図で撮影地を動かして構図を比べます。時刻とレンズの焦点距離を変えて、月がどこに見えるかを確かめます。</p></div>
-      <div class="stage"><span class="no">3</span><p class="where">下見・iPhone</p><h3>写真チェック</h3><p>下見写真に、計画した時刻の月の位置と軌跡が重なります。木や建物で隠れないかを確かめます。</p></div>
-      <div class="stage"><span class="no">4</span><p class="where">撮影当日・iPhone</p><h3>ARチェック</h3><p>カメラの映像に月の軌跡を重ね、方向と構図を最終確認します。</p></div>
+      <div class="stage"><span class="no">1</span><p class="where">撮影前・パソコンまたはモバイル</p><h3>計画</h3><p>ターゲットと日付を選び、高さの情報を確認します。月とターゲットが重なる撮影位置の候補が地図に帯で表示されます。</p></div>
+      <div class="stage"><span class="no">2</span><p class="where">自宅で</p><h3>シミュレーション</h3><p>地図で撮影地を動かして構図を比べます。時刻とレンズの焦点距離を変えて、月がどこに見えるかを確かめます。</p></div>
+      <div class="stage"><span class="no">3</span><p class="where">下見・モバイル</p><h3>写真チェック</h3><p>下見写真の天体やターゲットに基準点を合わせ、計画した月の軌跡を重ねて木や建物に隠れないか確かめます。</p></div>
+      <div class="stage"><span class="no">4</span><p class="where">撮影当日・AR対応のモバイル端末</p><h3>ARチェック</h3><p>カメラの映像に月の軌跡を重ね、方向と構図を最終確認します。</p></div>
     </div>
   </div>
 </section>
@@ -354,10 +356,10 @@
 <section class="section" id="gallery">
   <div class="wrap">
     <span class="tag">プレビュー</span>
-    <h2>世界のどこでも、撮る前に場面を確認</h2>
-    <p class="lead sect-lead">地形・建物・レンズの画角まで反映した3Dシミュレーションです。下の場面はすべてアプリに入っている例のプロジェクトです。</p>
+    <h2>世界各地の構図を撮影前に確認</h2>
+    <p class="lead sect-lead">地形・建物・レンズの画角を反映した3Dシミュレーションです。アプリに含まれるサンプルプロジェクトをもとに構図を確認できます。建物データの提供範囲と詳細さは地域によって異なります。</p>
     <div class="gallery shots">
-      <figure><img src="/img/gallery/ushiku-ja.jpg" width="1600" height="1067" alt="日本・牛久大仏 — 2026年12月24日の月の出、指先にかかる月(135mm)" loading="lazy"><figcaption>日本・牛久大仏 — 2026年12月24日の月の出、指先にかかる月(135mm)</figcaption></figure>
+      <figure><img src="/img/gallery/ushiku-ja.jpg" width="1600" height="1067" alt="日本・牛久大仏 — 2026年12月24日の月の出、指先にかかる月" loading="lazy"><figcaption>日本・牛久大仏 — 2026年12月24日の月の出、指先にかかる月</figcaption></figure>
       <figure><img src="/img/gallery/arch-ja.jpg" width="1600" height="1067" alt="アメリカ・アーチーズ国立公園 ノースウィンドウ — 2027年5月16日の月の出(400mm)" loading="lazy"><figcaption>アメリカ・アーチーズ国立公園 ノースウィンドウ — 2027年5月16日の月の出(400mm)</figcaption></figure>
       <figure><img src="/img/gallery/paris-ja.jpg" width="1600" height="1067" alt="パリ・エッフェル塔 — 2026年12月23日の月の出(200mm)" loading="lazy"><figcaption>パリ・エッフェル塔 — 2026年12月23日の月の出(200mm)</figcaption></figure>
       <figure><img src="/img/gallery/namsan-ja.jpg" width="1600" height="1067" alt="ソウル・Nソウルタワー — 2027年1月21日の月の出(400mm)" loading="lazy"><figcaption>ソウル・Nソウルタワー — 2027年1月21日の月の出(400mm)</figcaption></figure>
@@ -367,10 +369,10 @@
 
 <section class="section" id="devices">
   <div class="wrap">
-    <span class="tag nocaps">Mac・iPhone・iPad</span>
-    <h2>Macで計画し、iPhoneで確認</h2>
-    <p class="lead sect-lead">Apple アカウントで一度購入すればMac・iPhone・iPadで使え、プロジェクトはiCloudで同期されます。AndroidはGoogle Playで別途購入し、プロジェクトはAndroid端末どうしでGoogleドライブで同期されます。AppleとAndroidの間では計画をリンクで共有します。</p>
-    <ul class="tools"><li><b>Mac</b> — 大きな画面で地図と3Dシミュレーションを並べて計画。</li><li><b>iCloud</b> — プロジェクトがそのままiPhone・iPadに同期。書き出しは不要です。</li><li><b>iPhone · iPad</b> — 同じ計画を開き、下見写真とARで現地を確認。</li></ul>
+    <span class="tag nocaps">Mac・iPhone・iPad・Android</span>
+    <h2>パソコンでもモバイルでも撮影を計画</h2>
+    <p class="lead sect-lead">Macの大きな画面でも、モバイル端末だけでも撮影を計画できます。Apple製品は同じアカウントでiCloudを有効にするとプロジェクトが同期されます。Android端末間ではGoogleドライブの同期を有効にして利用します。AppleとAndroidの間ではリンクで計画を共有できます。</p>
+    <ul class="tools"><li><b>Mac</b> — 大きな画面で地図と3Dシミュレーションを見ながら構図を比較。</li><li><b>iPhone・iPad・Android</b> — 撮影計画の作成、下見写真の確認、対応端末でのARチェック。</li><li><b>同期と共有</b> — Apple製品ではiCloud、Androidでは選択したGoogleドライブのアカウントで同期し、プラットフォーム間ではリンクで共有。</li></ul>
     <div class="device-shots shots">
       <figure><img src="/img/guide/band-mac-ja.jpg" width="1600" height="1000" alt="Mac — 地図の帯を見ながら撮影地を選ぶ" loading="lazy"><figcaption>Mac — 地図の帯を見ながら撮影地を選ぶ</figcaption></figure>
       <figure class="phone"><img src="/img/guide/plan-iphone-ja.jpg" width="660" height="1434" alt="iPhone — 同じプランを現地で" loading="lazy"><figcaption>iPhone — 同じプランを現地で</figcaption></figure>
@@ -382,18 +384,18 @@
   <div class="wrap">
     <span class="tag">下見と撮影当日</span>
     <h2>現場でもう一度確かめる</h2>
-    <p class="lead sect-lead">地図・地形・3Dモデルのデータは実際と数メートルずれることがあり、木やクレーン、フェンスのように地図にないものもあります。シミュレーションは計画の出発点とし、下見で下見写真とARを使って実際の景色を必ず確かめましょう。</p>
+    <p class="lead sect-lead">地図・地形・3Dモデルのデータは実際と数メートルずれることがあり、木やクレーン、フェンスが載っていない場合もあります。シミュレーションは計画の出発点とし、現地で撮影した写真やARを使って実際の見通しを確かめましょう。</p>
     <!-- 스크린샷(사진 확인·AR)이 준비되면 그림 칸을 다시 넣는다(2026-10-03 사용자 결정: 그때까지 글만). -->
     <div class="product-pair">
       <div>
         <h3>下見写真で景色を確認</h3>
-        <p class="lead">撮影情報（EXIF）付きの下見写真を読み込むと、計画した時刻の月の位置と軌跡が写真の上に描かれます。</p>
+        <p class="lead">撮影情報（EXIF）が残った元の写真で、月・太陽またはターゲットに基準点を合わせると、計画した時刻の天体の位置と軌跡を重ねられます。自動検出された位置も確認し、必要に応じて補正してください。</p>
         <ul class="feat"><li>方位と高度がわかる空のグリッド</li><li>時刻スライダーで月の位置と軌跡を確認</li><li>写真の撮影時刻・焦点距離・位置を使用</li><li>カメラの時計のずれを入力して撮影時刻を補正</li></ul>
       </div>
       <div>
         <h3>ARで方向を確認</h3>
-        <p class="lead">現地でiPhoneやiPadをかざすと、カメラの映像に月の軌跡が重なります。月が昇る前に三脚を据えて方向を確かめられます。</p>
-        <ul class="feat"><li>月・ISS・銀河中心の軌跡</li><li>方位のずれは「合わせる」で補正</li><li>天体が出ている間の軌跡全体を表示</li><li>iPhone・iPadで利用可能</li></ul>
+        <p class="lead">現地でAR対応のモバイル端末をかざすと、カメラ映像に天体の軌跡が重なります。方位を補正し、月が昇る前に撮影方向と構図を確認しましょう。</p>
+        <ul class="feat"><li>月・ISS・銀河中心の軌跡</li><li>方位のずれは「合わせる」で補正</li><li>天体が出ている間の軌跡全体を表示</li><li>iPhone・iPadおよびARCore対応のAndroid端末で利用可能</li></ul>
       </div>
     </div>
   </div>
@@ -408,15 +410,17 @@
       <div class="mode"><h3><a href="#howto-structure">構造物</a></h3>
         <p>タワーや橋、スカイラインが月と重なる構図を計画します。主なランドマークは高さが自動で入ります。</p></div>
       <div class="mode"><h3><a href="#howto-person">人物</a></h3>
-        <p>月を背景にしたシルエットを計画します。身長1.7 mの人を基準に撮影地を表示します。</p></div>
+        <p>人物の身長とカメラの高さを反映して、月と重なる撮影位置の候補を探します。身長の初期値は1.7mで、変更できます。</p></div>
       <div class="mode"><h3><a href="#howto-iss">ISS</a></h3>
-        <p>NASAの軌道データから、ISSが月や太陽を横切る場所と時刻を秒単位で予測します。撮影前日にもう一度検索してください。</p></div>
+        <p>NASAの軌道データをもとに、ISSが月や太陽を横切る場所を探し、予想時刻を秒単位で確認できます。撮影前に最新データでもう一度検索してください。</p></div>
       <div class="mode"><h3><a href="#howto-plane">飛行機</a></h3>
-        <p>リアルタイムの飛行経路から月を横切りそうな飛行機を調べ、予想時刻に通知します。連写の準備をして瞬間を逃しません。</p></div>
+        <p>ライブの飛行経路から月を横切る可能性のある機体を探します。通知とカウントダウンで連写の準備をサポートします。データの遅延や進路変更により予測が変わることがあります。</p></div>
       <div class="mode"><h3>天の川</h3>
         <p>銀河中心が見える時間帯と、撮影地の光害の推定等級。</p></div>
-      <div class="mode"><h3>世界中どこでも</h3>
-        <p>全世界の地形で計画できます。3D建物は韓国ではV-World、それ以外ではGoogleフォトリアリスティック3Dを使います。</p></div>
+    </div>
+    <div class="coverage">
+      <h3>世界各地の撮影を計画</h3>
+      <p class="note">世界各地の地形データをもとに撮影を計画できます。3D建物はデータ提供地域で表示され、韓国ではV-World、韓国外ではGoogleフォトリアリスティック3Dを使います。韓国外の実写3Dにはご自身のGoogle APIキーまたはアプリのサブスクリプションが必要です。</p>
     </div>
   </div>
 </section>
@@ -426,14 +430,14 @@
     <span class="tag">そのほかのツール</span>
     <h2>撮影の前後に使うもの</h2>
     <ul class="tools">
-      <li><b>天文カレンダー</b> — 満月・食・流星群など主な天文現象を現在地基準で。</li>
-      <li><b>ウィジェット</b> — 今日の月と太陽、次の撮影チャンスをホーム画面とロック画面に。</li>
-      <li><b>カレンダーに追加</b> — 計画や天文現象を通知付きの予定として保存。</li>
-      <li><b>ランドマーク</b> — 高さが登録されたランドマークで計画を始め、自分で調べた場所も保存。</li>
-      <li><b>月の露出表・過焦点距離表</b> — 月の露出設定と、被写体にピントが合う距離。</li>
-      <li><b>リンクで共有</b> — 計画をリンクで共有。アプリがなくてもWebで概要と地図を表示。</li>
-      <li><b>カメラ自動撮影</b> — USB接続した対応ソニー・キヤノンのカメラで、飛行機の通過に合わせて連写。</li>
-    </ul>
+<li><b>天文カレンダー</b> — 満月・食・流星群など主な天文現象を選んだ観測地点に合わせて。</li>
+<li><b>ウィジェット</b> — 今日の月と太陽、次の撮影チャンスを確認できます。Androidはホーム画面、iPhone・iPadはホーム画面とロック画面に対応しています。</li>
+<li><b>カレンダーに追加</b> — 計画や天文現象を通知付きの予定として保存。</li>
+<li><b>ランドマーク</b> — 高さが登録されたランドマークで計画を始め、自分で調べた場所も保存。</li>
+<li><b>月の露出表・過焦点距離表</b> — 月の露出設定と、被写体にピントが合う距離。</li>
+<li><b>リンクで共有</b> — 計画をリンクで共有。アプリがなくてもWebで概要と地図を表示。</li>
+<li><b>カメラ自動撮影</b> — Mac・iPhone・iPadで対応するソニー製カメラをUSB接続し、飛行機の予想通過時刻の前後に連写します。キヤノン製カメラは試験対応で、実機での動作は未検証です。撮影前にアプリの1秒間のテスト撮影で確認してください。</li>
+</ul>
     <div class="phone-row shots">
       <figure><img src="/img/tools/home-ja.jpg" width="600" height="1304" alt="ホーム — 今日の空と次の撮影チャンス" loading="lazy"><figcaption>ホーム — 今日の空と次の撮影チャンス</figcaption></figure>
       <figure><img src="/img/tools/calendar-ja.jpg" width="600" height="1304" alt="天文カレンダー — 日付ごとの太陽と月、天文現象" loading="lazy"><figcaption>天文カレンダー — 日付ごとの太陽と月、天文現象</figcaption></figure>
@@ -453,7 +457,7 @@
       <p class="h-lead">ターゲットを選び、地図で撮影地を決めて構図を確かめます。</p>
       
       <ol class="flow">
-  <li><b>ターゲットを指定します。</b><span class="d">新しいプロジェクトで被写体に「構造物」を選び、撮りたい場所をターゲットに指定します。</span></li>
+  <li><b>ターゲットを指定します。</b><span class="d">新しいプロジェクトで被写体に「構造物」を選び、撮影したい構造物の位置をターゲットに指定します。</span></li>
   <li><b>撮影地を選びます。</b><span class="d">黄色の帯は月の出、青の帯は月の入りに重なる場所です。行けて視界が開けた場所を撮影地に指定します。</span></li>
   <li><b>日付と構図を確かめます。</b><span class="d">重なる日付を検索し、シミュレーションで時刻とレンズの焦点距離を変えて構図を確かめます。</span></li>
   <li><b>計画を保存して現地を確認します。</b><span class="d">撮影前に下見写真やARで実際の景色を確かめます。</span></li>
@@ -462,7 +466,7 @@
     
     <div class="howto" id="howto-person">
       <h3><span class="k">B</span>人物 — 月の前のシルエット</h3>
-      <p class="h-lead">人から遠く離れてズームし、人の大きさを保つと、月が相対的に大きく見えます。</p>
+      <p class="h-lead">人物から離れ、人物が画面内で同じ大きさになるように焦点距離を長くすると、月が相対的に大きく写ります。</p>
       
       <ol class="flow">
   <li><b>人物が立つ場所を選びます。</b><span class="d">被写体に「人物」を選び、尾根など背後に空がある場所をターゲットに指定します。</span></li>
@@ -489,10 +493,10 @@
       <p class="h-lead">リアルタイムの飛行経路から通過しそうな機体を確かめ、撮影の準備をします。</p>
       
       <ol class="flow">
-  <li><b>撮影地を指定します。</b><span class="d">被写体に「飛行機」を選び、撮影する場所を指定します。</span></li>
-  <li><b>ライブ監視を始めます。</b><span class="d">「ライブ監視を開始」を押し、周辺の機体の予想通過時刻と月への近さを確かめます。</span></li>
-  <li><b>通知に合わせて撮影します。</b><span class="d">通過通知とカウントダウンを見ながら連写の準備をします。</span></li>
-  <li><b>受信機があれば接続します。</b><span class="d">自分のADS-B受信機を使うと1秒ごとに更新されます。</span></li>
+<li><b>撮影地を指定します。</b><span class="d">被写体に「飛行機」を選び、撮影する場所を指定します。</span></li>
+<li><b>ライブ監視を始めます。</b><span class="d">「ライブ監視を開始」を押し、アプリを開いたままにします。周辺の機体の予想通過時刻と月への近さを確認します。</span></li>
+<li><b>通知に合わせて撮影します。</b><span class="d">通過通知とカウントダウンを見ながら連写の準備をします。</span></li>
+<li><b>受信機があれば接続します。</b><span class="d">自分のADS-B受信機を使うと1秒ごとに更新されます。</span></li>
 </ol>
     </div>
     
@@ -502,26 +506,26 @@
 <section class="section" id="google-key">
   <div class="wrap">
     <span class="tag nocaps">Google 3Dキー</span>
-    <h2>韓国外の撮影地も実写3Dで — 個人のGoogleキーなら無料</h2>
-    <p class="lead sect-lead">韓国の3D建物はキーの設定なしでV-Worldのデータで確認できます。韓国外の実写3D建物はGoogleマップAPIで読み込み、Googleは利用のたびに料金を請求します。<strong>実写3Dサブスクリプションはこの利用料を肩代わりするためのもので、利益を増やすための商品ではありません。</strong><strong>個人のGoogle APIキーを登録すれば、サブスクリプションなしで同じように利用できます。</strong></p>
+    <h2>ご自身のGoogleキーで、アプリのサブスクリプションなしに実写3Dを利用</h2>
+    <p class="lead sect-lead">韓国の3D建物は、別途キーを設定せずにV-Worldのデータで確認できます。韓国外のフォトリアリスティック3Dは<strong>ご自身のGoogle APIキーまたはアプリのサブスクリプション</strong>で利用できます。建物モデルはデータ提供地域で表示されます。</p>
     <p><a href="guide/#sim-overseas">Google APIキーの作成と設定方法を見る →</a></p>
     <p class="note">個人のキーはサブスクリプションより優先されます。Apple製品ではiCloudキーチェーン、Androidでは端末内に保存され、Googleにだけ送信されます。<b>開発者には渡りません</b>。</p>
-    <p class="note">一般的な計画用途ならほとんどがGoogleの月間無料枠に収まります。超えるとGoogleの料金が適用されるので、Google Cloudコンソールで使用量と料金を確認してください。</p>
+    <p class="note">ご自身のキーを使うにはGoogle Cloudの課金設定が必要です。Googleの月間無料枠を超えると料金が発生します。<a href="https://developers.google.com/maps/billing-and-pricing/pricing">最新の料金</a>とCloudコンソールの使用量をご確認ください。</p>
   </div>
 </section>
 
 <section class="section" id="pricing">
   <div class="wrap">
     <span class="tag">価格</span>
-    <h2>アプリは$9.99の買い切り · 実写3Dは個人のキー（無料）またはサブスクリプション</h2>
-    <p class="lead sect-lead">アプリは一度$9.99で購入すれば、同じApple アカウントでiPhone・iPad・Macで使えます。AndroidはGoogle Playで別途購入します。韓国外の実写3DはGoogleマップAPIの利用料のためだけに分かれています — <strong>個人のGoogle APIキーを登録すれば無料です。</strong>キーの設定が面倒なら、月$1.99・年$17.99のサブスクリプションでアプリが利用料を肩代わりします。</p>
+    <h2>アプリは買い切り・韓国外の実写3Dはオプション</h2>
+    <p class="lead sect-lead">予定価格はアプリUS$9.99、任意の実写3Dサブスクリプションは月額US$1.99または年額US$17.99です。Apple版は同じAppleアカウントのiPhone・iPad・Macで利用でき、Android版は別途購入となります。ご自身のGoogle APIキーを使えばアプリのサブスクリプションは不要で、Googleの料金が別途適用されます。公開後の実際の購入価格は各地域のストアでご確認ください。</p>
     <div class="table-wrap"><table>
-<tr><th>アプリ購入 · $9.99</th><th>韓国外の実写3D · オプション</th></tr>
-<tr><td>月・太陽・天の川の撮影計画と3Dシミュレーション</td><td>個人のGoogle APIキー登録またはサブスクリプション</td></tr>
-<tr><td>最大90日先までの重なる日付の検索</td><td>サブスクリプション：$1.99/月 · $17.99/年</td></tr>
-<tr><td>ISS通過予測と飛行機のリアルタイム通知</td><td>個人のキー：サブスクリプションなしで利用 <span class="m">— Googleの月間無料枠を超えるとGoogleの料金が適用</span></td></tr>
-<tr><td>下見の写真確認と現地のAR確認</td><td>必要な期間だけ登録し、いつでも解約可能</td></tr>
-<tr><td>天文カレンダー・ウィジェット・撮影参考表・計画の共有</td><td>計画画面のGoogleマップは個人のキーが必要 <span class="m">— サブスクリプションには含まれません</span></td></tr>
+<tr><th>アプリ購入・予定価格US$9.99</th><th>韓国外の実写3D・オプション</th></tr>
+<tr><td>月・太陽・天の川の撮影計画と地形を使った3Dシミュレーション</td><td>ご自身のGoogle APIキーまたはアプリのサブスクリプション</td></tr>
+<tr><td>選択した日付から最大90日間、重なる日付を検索</td><td>サブスクリプション予定価格：US$1.99/月・US$17.99/年</td></tr>
+<tr><td>ISS通過予測と飛行機のライブ監視</td><td>ご自身のキー：アプリのサブスクリプション不要・Googleの無料枠と超過料金が適用</td></tr>
+<tr><td>写真チェックと対応モバイル端末でのARチェック</td><td>サブスクリプション：再読み込みを含め端末ごとに1日30回・現地時刻の午前0時にリセット</td></tr>
+<tr><td>天文カレンダー・ウィジェット・参考表・計画の共有</td><td>Apple製品で選択するGoogleマップにはご自身のキーが必要・Androidの標準地図には不要</td></tr>
 </table></div>
   </div>
 </section>
@@ -530,12 +534,12 @@
   <div class="wrap">
     <span class="tag">FAQ</span>
     <h2>よくある質問</h2>
-    <details><summary>どのくらい正確ですか？</summary><p>天体の位置計算そのものの誤差はごく小さいです。実際の結果の誤差はほとんどが地形データと高さの入力から生じます。地形データは場所によって数mから数十mの誤差があり、森のある尾根から昇る場面は表示より遅れることがあります。人物モードのように重なる幅が狭い場合は、数mの違いで結果が変わります。大切な撮影はシミュレーションと、現地での写真確認・AR確認でもう一度確かめてください。</p></details>
+    <details><summary>どのくらい正確ですか？</summary><p>月や太陽との重なりには、地形データや高さの入力が大きく影響します。地形は実際と数mから数十mずれる場合があり、木や仮設構造物が載っていないこともあります。写真チェックでは基準点と撮影情報、ARチェックでは方位の補正が重要です。ISSや飛行機の予測は軌道・追跡データの新しさにも左右されます。大切な撮影では現地の見通しと構図を確認してください。</p></details>
     <details><summary>ISSの予測はなぜもう一度検索するのですか？</summary><p>ステーションは随時軌道を調整します。予測はNASAが公開する軌道データ（OEM）を使い、データごとに有効期間があります。最新の軌道データを反映できるよう、撮影前日にもう一度検索してください。</p></details>
-    <details><summary>飛行機のリアルタイムデータはどこから来ますか？</summary><p>標準はadsb.lolのコミュニティデータ（ODbL 1.0）で、30秒ごとに更新し、2時間後に自動で止まります。自分でADS-B受信機（readsb/dump1090）を運用しているなら、LANアドレスを入力して1秒更新・時間制限なしで使えます。</p></details>
-    <details><summary>世界中で使えますか？</summary><p>はい。全世界の地形データをもとに撮影地と時刻を計算します。3Dシミュレーションは韓国ではV-Worldを、それ以外ではサブスクリプションか個人のGoogle APIキーがあれば実写3D建物を表示します。どちらもなくても月の軌跡と地形は表示されます。</p></details>
-    <details><summary>対応機種と言語は？</summary><p>iPhone・iPad・Mac（macOS 14以降）はApp Storeで一度購入すればすべてで使え、プロジェクトはiCloudで同期されます。Android（Android 12以降）はGoogle Playで別途購入し、プロジェクトはAndroid端末どうしでGoogleドライブで同期されます。Apple製品とAndroidの間では計画をリンクで共有できます。AR確認はカメラが必要なためMacでは使えません。言語は日本語・英語・韓国語で、システム設定に従うかアプリ内で切り替えられます。</p></details>
-    <details><summary>実写3Dはなぜサブスクリプションですか？なしでも使えますか？</summary><p>韓国外の実写3D建物はGoogleマップAPIで読み込み、Googleは利用のたびに料金を請求します。サブスクリプションはこの利用料をアプリが肩代わりするためのもので、利益を増やすための商品ではありません。個人のGoogle APIキーを登録すればサブスクリプションなしで同じように利用でき、一般的な計画用途ならほとんどがGoogleの月間無料枠に収まります。<a href="guide/#sim-overseas">キーの作成と設定方法</a>をご覧ください。</p></details>
+    <details><summary>飛行機のリアルタイムデータはどこから来ますか？</summary><p>標準はadsb.lolのコミュニティデータ（ODbL 1.0）です。通常は約30秒ごと、通過が近づくとより短い間隔で確認しますが、サーバーの制限で遅れる場合があります。リモート監視は2時間後に自動停止します。ご自身のADS-B受信機（readsb/dump1090）のデータURLを指定すると、1秒間隔で更新され、セッションの時間制限はありません。モバイル端末ではアプリを開いたままにしてください。バックグラウンドでは監視が停止する場合があります。</p></details>
+    <details><summary>世界中で使えますか？</summary><p>世界各地の地形データを使って撮影を計画できます。3D建物はデータ提供地域で表示されます。韓国ではV-World、韓国外のGoogleフォトリアリスティック3Dにはご自身のGoogle APIキーまたはアプリのサブスクリプションが必要です。どちらもなくても天体の軌跡と地形を確認できます。</p></details>
+    <details><summary>対応機種と言語は？</summary><p>iOS・iPadOS 17以降、macOS 14以降、Android 12以降に対応しています。Apple版は一度購入すれば同じAppleアカウントで利用でき、iCloudを有効にすると同期されます。Android版は別途購入で、Googleドライブの同期を有効にするとAndroid端末間で同期されます。プラットフォーム間ではリンクで計画を共有できます。ARチェックはiPhone・iPadおよびARCore対応Android端末で利用でき、AndroidにはGoogle Play開発者サービス（AR）が必要です。MacではARに対応していません。日本語・英語・韓国語に対応し、システム言語に従うかアプリで変更できます。</p></details>
+    <details><summary>実写3Dはなぜサブスクリプションですか？なしでも使えますか？</summary><p>サブスクリプション料金は韓国外の実写3Dデータの利用費用に充てられます。ご自身のGoogle APIキーならアプリのサブスクリプションは不要で、Googleの無料枠と超過料金が適用されます。アプリのサブスクリプションでは再読み込みを含め端末ごとに1日30回までシーンを読み込めます。端末の現地時刻の午前0時にリセットされ、上限に達すると地形のみ表示されます。ご自身のキーにはこのアプリの上限は適用されません。<a href="guide/#sim-overseas">キーの設定と利用条件</a>をご確認ください。</p></details>
   </div>
 </section>
 
@@ -544,7 +548,7 @@
 <footer>
   <div class="wrap">
     <p class="foot-desc"><strong>MoonAlign</strong> — 月・太陽・ISS・飛行機・天の川の撮影計画アプリ。お問い合わせ：<a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
-    <p class="srcs">地図: Appleマップ・V-World(韓国国土交通部、公共ヌリ第1類型)・Googleマップ(自分のキー) · 地面標高: V-World 3D地形(韓国)・Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018、Copernicusプログラム(EU・ESA)提供 · 光害: EOG VIIRS夜間光(VNL V2) — OpenGeoHub再配布版(CC BY 4.0)からアプリが計算した推定値 · ISS軌道: NASA OEM・CelesTrak TLE · 航跡: adsb.lol(ODbL 1.0) · ジオイド: EGM96(NGA) · シミュレーション3D: V-World・Googleフォトリアリスティック3Dタイル · 天気: Apple Weather · 天文計算: astronomy-engine</p>
+    <p class="srcs">地図: Appleマップ・V-World(韓国国土交通部、公共ヌリ第1類型)・Googleマップ（Apple製品では個人キー、Androidでは標準搭載） · 地面標高: V-World 3D地形(韓国)・Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018、Copernicusプログラム(EU・ESA)提供 · 光害: EOG VIIRS夜間光(VNL V2) — OpenGeoHub再配布版(CC BY 4.0)からアプリが計算した推定値 · ISS軌道: NASA OEM・CelesTrak TLE · 航跡: adsb.lol(ODbL 1.0) · ジオイド: EGM96(NGA) · シミュレーション3D: V-World・Googleフォトリアリスティック3Dタイル · 天気: Apple Weather · 天文計算: astronomy-engine</p>
     <p class="copy">© 2026 <a href="../">YJLAB</a>. All rights reserved. · <a href="privacy/">プライバシーポリシー</a></p>
   </div>
 </footer>

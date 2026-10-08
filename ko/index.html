@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoonAlign — 달·해 정렬 사진 촬영 계획</title>
-  <meta name="description" content="타겟과 날짜를 선택하면 달이나 해가 타겟과 겹치는 촬영 위치를 지도에서 찾을 수 있습니다. 3D 시뮬레이션으로 구도를 계획하고, 답사 사진과 AR로 현장에서 확인하세요. ISS 통과 예측과 비행기 실시간 알림도 지원합니다.">
+  <meta name="description" content="사진에 담을 피사체(앱의 ‘타겟’)와 날짜를 정하고, 지도에서 정렬 후보 위치와 시각을 찾아보세요. 높이 정보를 확인한 뒤 위치를 바꿔 가며 3D 시뮬레이션으로 구도를 비교할 수 있습니다. ISS 통과 탐색과 비행기 라이브 감시도 지원합니다.">
   <link rel="canonical" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/">
   <meta property="og:title" content="MoonAlign — 달·해 정렬 사진 촬영 계획">
-  <meta property="og:description" content="타겟과 날짜를 선택하면 달이나 해가 타겟과 겹치는 촬영 위치를 지도에서 찾을 수 있습니다. 3D 시뮬레이션으로 구도를 계획하고, 답사 사진과 AR로 현장에서 확인하세요. ISS 통과 예측과 비행기 실시간 알림도 지원합니다.">
+  <meta property="og:description" content="사진에 담을 피사체(앱의 ‘타겟’)와 날짜를 정하고, 지도에서 정렬 후보 위치와 시각을 찾아보세요. 높이 정보를 확인한 뒤 위치를 바꿔 가며 3D 시뮬레이션으로 구도를 비교할 수 있습니다. ISS 통과 탐색과 비행기 라이브 감시도 지원합니다.">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -111,6 +111,7 @@
   }
   .btn-primary { background: var(--ink); color: #fff; }
   .btn-primary:hover { background: #2c2f36; }
+  .store-pending { display: inline-block; padding: 10px 0; color: var(--ink-dim); font-size: 0.9rem; }
   .btn-ghost { background: var(--bg); color: var(--ink); border: 1px solid var(--line); }
   .btn-ghost:hover { border-color: var(--ink-faint); background: var(--bg-soft); }
   .cta-meta { font-size: 0.83rem; color: var(--ink-faint); margin-top: 14px; }
@@ -192,6 +193,7 @@
   .mode h3 a { color: var(--ink); text-decoration: none; }
   .mode h3 a:hover { color: var(--accent); }
   .mode p { font-size: 0.9rem; color: var(--ink-dim); line-height: 1.65; }
+  .coverage { margin-top: 32px; }
 
   /* how-to flows */
   .howto { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
@@ -315,24 +317,24 @@
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac · Android</span> — 촬영 계획 앱</p>
-      <h1>타겟과 날짜로 촬영 위치를 찾으세요</h1>
-      <p class="lead">타워 뒤로 떠오르는 달부터 달 앞을 지나는 ISS까지. 각도·높이·거리를 직접 계산하지 않아도, 타겟과 날짜를 고르면 MoonAlign이 <strong>촬영 위치와 시각</strong>을 찾아 줍니다. 위치를 바꿔 가며 3D 시뮬레이션으로 구도를 미리 확인하세요.</p>
+      <h1>달과 피사체가 겹치는 촬영 위치를 찾아보세요</h1>
+      <p class="lead">사진에 담을 피사체(앱의 ‘타겟’)와 날짜를 정하고, 지도에서 <strong>정렬 후보 위치와 시각</strong>을 찾아보세요. 높이 정보를 확인한 뒤 위치를 바꿔 가며 3D 시뮬레이션으로 구도를 비교할 수 있습니다. ISS 통과 탐색과 비행기 라이브 감시도 지원합니다.</p>
       <ul class="feat">
-        <li>타겟과 날짜만 고르면 달이 걸리는 촬영 위치를 지도에 표시</li>
+        <li>타겟과 날짜를 기준으로 달이 겹쳐 보이는 후보 위치를 지도에 표시</li>
         <li>지형과 렌즈 초점거리를 반영한 3D 시뮬레이션</li>
-        <li>ISS 통과 시각을 초 단위로 예측, 달 앞을 지나는 비행기는 실시간 알림</li>
+        <li>ISS 예상 통과 시각을 초 단위로 확인하고, 비행기 통과 가능성을 라이브 알림으로 확인</li>
         <li>한 번 구매로 Mac·iPhone·iPad — Mac에서 만든 계획을 iPhone·iPad에서 이어서 확인</li>
       </ul>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#appstore-link">App Store에서 받기</a>
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=io.yjlab.moonalign">Google Play에서 받기</a>
+        <span class="store-pending">App Store 출시 예정</span>
+        <span class="store-pending">Google Play 출시 예정</span>
         <a class="btn btn-ghost" href="#workflow">사용 방법 보기</a>
       </div>
-      <p class="cta-meta">$9.99 1회 구매 · 해외 실사 3D는 개인 Google 키(무료) 또는 구독 · Android 별도 구매 · 한국어·영어·일본어 지원</p>
+      <p class="cta-meta">예정 가격 US$9.99 1회 구매 · 해외 실사 3D는 개인 Google 키 또는 선택 구독 · Android 별도 구매 · 한국어·영어·일본어 지원</p>
     </div>
     <figure class="visual">
       <img src="/img/hero-sim-ko.jpg" width="2200" height="1520" alt="MoonAlign Mac 앱의 시뮬레이션 화면 — 에펠탑 뒤로 달이 걸린 장면" loading="eager">
-      <figcaption>Mac · 시뮬레이션 — 파리 에펠탑, 200mm, 2026-10-02 23:03 월출</figcaption>
+      <figcaption>Mac · 시뮬레이션 — 파리 에펠탑, 200mm, 2026-10-02 23:03 월출 · 파리 현지 시각(UTC+2)</figcaption>
     </figure>
   </div>
 </section>
@@ -343,10 +345,10 @@
     <h2>계획부터 현장 확인, 촬영까지</h2>
     <p class="lead sect-lead">촬영 위치와 구도를 미리 계획하고, 답사와 촬영 당일에 현장의 시야를 확인합니다.</p>
     <div class="stages">
-      <div class="stage"><span class="no">1</span><p class="where">집에서 · Mac으로 계획</p><h3>계획</h3><p>타겟과 날짜를 선택하면 달과 타겟이 겹치는 촬영 위치를 지도에 띠로 표시합니다. 각도·높이·거리는 앱이 계산합니다.</p></div>
+      <div class="stage"><span class="no">1</span><p class="where">촬영 전 · 컴퓨터 또는 모바일</p><h3>계획</h3><p>타겟과 날짜를 정하고 높이 정보를 확인하면, 달과 타겟이 겹쳐 보이는 후보 위치를 지도에 띠로 표시합니다.</p></div>
       <div class="stage"><span class="no">2</span><p class="where">집에서</p><h3>시뮬레이션</h3><p>지도에서 위치를 바꾸며 구도를 비교합니다. 시각과 렌즈 초점거리를 조절해 달이 어디에 보일지 확인합니다.</p></div>
-      <div class="stage"><span class="no">3</span><p class="where">사전 답사 · iPhone</p><h3>사진 확인</h3><p>답사 사진 위에 계획한 촬영 시각의 달 위치와 경로를 표시해, 나무나 건물에 가리는지 확인합니다.</p></div>
-      <div class="stage"><span class="no">4</span><p class="where">촬영 당일 · iPhone</p><h3>AR 확인</h3><p>실시간 카메라 화면에 표시된 달의 경로를 보며 촬영 방향과 구도를 최종 확인합니다.</p></div>
+      <div class="stage"><span class="no">3</span><p class="where">사전 답사 · 모바일</p><h3>사진 확인</h3><p>답사 사진 속 천체나 타겟에 기준점을 맞추고, 계획 시각의 달 경로를 겹쳐 보며 나무나 건물에 가리는지 살펴봅니다.</p></div>
+      <div class="stage"><span class="no">4</span><p class="where">촬영 당일 · AR 지원 모바일</p><h3>AR 확인</h3><p>실시간 카메라 화면에 표시된 달의 경로를 보며 촬영 방향과 구도를 최종 확인합니다.</p></div>
     </div>
   </div>
 </section>
@@ -354,10 +356,10 @@
 <section class="section" id="gallery">
   <div class="wrap">
     <span class="tag">미리 보기</span>
-    <h2>세계 어디서나, 찍기 전에 장면을 봅니다</h2>
-    <p class="lead sect-lead">지형과 건물, 렌즈 화각까지 반영한 3D 시뮬레이션입니다. 아래 장면은 모두 앱에 들어 있는 예시 프로젝트입니다.</p>
+    <h2>세계 여러 촬영지의 구도를 미리 확인하세요</h2>
+    <p class="lead sect-lead">지형과 건물, 렌즈 화각을 반영한 3D 시뮬레이션입니다. 앱에 포함된 예시 프로젝트를 바탕으로 구도를 살펴볼 수 있습니다. 3D 건물의 제공 범위와 상세도는 지역에 따라 다릅니다.</p>
     <div class="gallery shots">
-      <figure><img src="/img/gallery/ushiku-ko.jpg" width="1600" height="1067" alt="일본 우시쿠 대불 — 2026년 12월 24일 월출, 손끝에 걸린 달 (135mm)" loading="lazy"><figcaption>일본 우시쿠 대불 — 2026년 12월 24일 월출, 손끝에 걸린 달 (135mm)</figcaption></figure>
+      <figure><img src="/img/gallery/ushiku-ko.jpg" width="1600" height="1067" alt="일본 우시쿠 대불 — 2026년 12월 24일 월출, 손끝에 걸린 달" loading="lazy"><figcaption>일본 우시쿠 대불 — 2026년 12월 24일 월출, 손끝에 걸린 달</figcaption></figure>
       <figure><img src="/img/gallery/arch-ko.jpg" width="1600" height="1067" alt="미국 아치스 국립공원 North Window — 2027년 5월 16일 월출 (400mm)" loading="lazy"><figcaption>미국 아치스 국립공원 North Window — 2027년 5월 16일 월출 (400mm)</figcaption></figure>
       <figure><img src="/img/gallery/paris-ko.jpg" width="1600" height="1067" alt="파리 에펠탑 — 2026년 12월 23일 월출 (200mm)" loading="lazy"><figcaption>파리 에펠탑 — 2026년 12월 23일 월출 (200mm)</figcaption></figure>
       <figure><img src="/img/gallery/namsan-ko.jpg" width="1600" height="1067" alt="서울 N서울타워 — 2027년 1월 21일 월출 (400mm)" loading="lazy"><figcaption>서울 N서울타워 — 2027년 1월 21일 월출 (400mm)</figcaption></figure>
@@ -367,10 +369,10 @@
 
 <section class="section" id="devices">
   <div class="wrap">
-    <span class="tag nocaps">Mac · iPhone · iPad</span>
-    <h2>Mac에서 계획하고, iPhone에서 확인</h2>
-    <p class="lead sect-lead">같은 Apple 계정으로 한 번만 구매하면 Mac·iPhone·iPad에서 모두 사용할 수 있고, 프로젝트는 iCloud로 동기화됩니다. Android는 Google Play에서 별도로 구매하며 Android 기기 간에는 Google Drive로 동기화합니다. Apple과 Android 간에는 링크로 계획을 공유할 수 있습니다.</p>
-    <ul class="tools"><li><b>Mac</b> — 넓은 화면에서 지도와 3D 시뮬레이션을 보며 촬영을 계획합니다.</li><li><b>iCloud</b> — 만든 프로젝트가 iPhone·iPad로 그대로 동기화됩니다. 따로 내보낼 필요가 없습니다.</li><li><b>iPhone·iPad</b> — 같은 계획을 불러와 답사 사진과 AR로 현장을 확인합니다.</li></ul>
+    <span class="tag nocaps">Mac · iPhone · iPad · Android</span>
+    <h2>컴퓨터에서도, 모바일에서도 촬영 계획</h2>
+    <p class="lead sect-lead">Mac의 넓은 화면으로 계획하거나 모바일 기기만으로 준비할 수 있습니다. Apple 기기는 같은 계정에서 iCloud를 사용하면 프로젝트가 동기화됩니다. Android는 Google Drive 동기화를 켜면 Android 기기끼리 동기화됩니다. Apple과 Android 사이에는 링크로 계획을 공유하세요.</p>
+    <ul class="tools"><li><b>Mac</b> — 넓은 화면에서 지도와 3D 시뮬레이션으로 구도를 비교합니다.</li><li><b>iPhone·iPad·Android</b> — 촬영 계획을 만들고, 답사 사진과 지원 기기의 AR로 현장을 확인합니다.</li><li><b>동기화와 공유</b> — Apple 기기는 iCloud, Android는 선택한 Google Drive 계정으로 동기화하고, 플랫폼 간에는 링크로 주고받습니다.</li></ul>
     <div class="device-shots shots">
       <figure><img src="/img/guide/band-mac-ko.jpg" width="1600" height="1000" alt="Mac — 지도의 띠를 보며 촬영지를 고릅니다" loading="lazy"><figcaption>Mac — 지도의 띠를 보며 촬영지를 고릅니다</figcaption></figure>
       <figure class="phone"><img src="/img/guide/plan-iphone-ko.jpg" width="660" height="1434" alt="iPhone — 같은 계획을 현장에서" loading="lazy"><figcaption>iPhone — 같은 계획을 현장에서</figcaption></figure>
@@ -387,13 +389,13 @@
     <div class="product-pair">
       <div>
         <h3>답사 사진으로 시야 확인</h3>
-        <p class="lead">촬영 정보(EXIF)가 포함된 답사 사진을 불러오면, 계획한 시각의 달 위치와 경로를 사진 위에 표시합니다.</p>
-        <ul class="feat"><li>방위와 고도를 확인하는 하늘 좌표 격자</li><li>시각 슬라이더로 달의 위치와 경로 확인</li><li>사진의 촬영 시각·초점거리·위치 정보 반영</li><li>카메라 시계의 오차를 입력해 촬영 시각 보정</li></ul>
+        <p class="lead">촬영 정보(EXIF)가 담긴 원본 사진에서 달·태양 또는 타겟을 기준으로 위치를 맞추면, 계획 시각의 천체 위치와 경로를 겹쳐 볼 수 있습니다. 자동 검출된 위치도 확인하고 필요하면 보정하세요.</p>
+        <ul class="feat"><li>방위각과 고도각을 확인하는 하늘 좌표 격자</li><li>시각 슬라이더로 달의 위치와 경로 확인</li><li>사진의 촬영 시각·초점거리·위치 정보 반영</li><li>카메라 시계의 오차를 입력해 촬영 시각 보정</li></ul>
       </div>
       <div>
         <h3>AR로 촬영 방향 확인</h3>
-        <p class="lead">현장에서 iPhone·iPad를 들면 달의 경로가 카메라 화면에 겹쳐 보입니다. 달이 뜨기 전에 삼각대를 설치하고 촬영 방향을 확인하세요.</p>
-        <ul class="feat"><li>달·ISS·은하수 중심부의 경로 표시</li><li>‘맞추기’ 기능으로 나침반 오차 보정</li><li>천체가 떠 있는 시간대의 전체 경로 확인</li><li>iPhone·iPad에서 지원</li></ul>
+        <p class="lead">현장에서 AR 지원 모바일 기기를 들면 천체 경로가 카메라 화면에 겹쳐 보입니다. 방위를 보정한 뒤 달이 뜨기 전에 촬영 방향과 구도를 확인하세요.</p>
+        <ul class="feat"><li>달·ISS·은하수 중심부의 경로 표시</li><li>‘맞추기’ 기능으로 나침반 오차 보정</li><li>천체가 떠 있는 시간대의 전체 경로 확인</li><li>iPhone·iPad 및 ARCore 지원 Android 기기에서 제공</li></ul>
       </div>
     </div>
   </div>
@@ -408,15 +410,17 @@
       <div class="mode"><h3><a href="#howto-structure">구조물</a></h3>
         <p>타워·다리·스카이라인과 달이 겹치는 구도를 계획합니다. 주요 랜드마크의 높이는 자동으로 입력됩니다.</p></div>
       <div class="mode"><h3><a href="#howto-person">사람</a></h3>
-        <p>달을 배경으로 한 실루엣 촬영을 계획합니다. 키 1.7m를 기준으로 촬영 가능한 위치를 표시합니다.</p></div>
+        <p>사람의 키와 촬영 높이를 반영해 달과 겹쳐 보이는 후보 위치를 찾습니다. 사람 키 기본값은 1.7m이며 조절할 수 있습니다.</p></div>
       <div class="mode"><h3><a href="#howto-iss">ISS</a></h3>
-        <p>NASA 궤도 자료를 바탕으로 ISS가 달이나 태양 앞을 통과하는 위치와 시각을 초 단위로 예측합니다. 촬영 전날 다시 탐색하세요.</p></div>
+        <p>NASA 궤도 자료를 바탕으로 ISS가 달이나 태양 앞을 통과할 위치를 찾고, 예상 시각을 초 단위로 확인합니다. 촬영 전 최신 자료로 다시 탐색하세요.</p></div>
       <div class="mode"><h3><a href="#howto-plane">비행기</a></h3>
-        <p>실시간 비행 경로를 바탕으로 달 앞을 통과할 가능성을 확인하고, 예상 통과 시점에 맞춰 알림을 제공합니다. 통과 순간을 놓치지 않도록 연속 촬영을 준비할 수 있습니다.</p></div>
+        <p>실시간 비행 경로에서 달 앞을 통과할 가능성이 있는 기체를 찾습니다. 알림과 카운트다운을 보며 연속 촬영을 준비하세요. 데이터 지연이나 항로 변화에 따라 예측은 달라질 수 있습니다.</p></div>
       <div class="mode"><h3>은하수</h3>
-        <p>은하수 중심부가 보이는 시간과 촬영지의 예상 광해 등급을 확인합니다.</p></div>
-      <div class="mode"><h3>전 세계 촬영지 지원</h3>
-        <p>전 세계 지형을 바탕으로 촬영을 계획합니다. 3D 건물은 국내에서 V-World, 해외에서 Google 실사 3D 데이터를 사용합니다.</p></div>
+        <p>은하수 중심부가 보이는 시간과 촬영지의 추정 광해 등급을 확인합니다.</p></div>
+    </div>
+    <div class="coverage">
+      <h3>해외 촬영지도 계획하세요</h3>
+      <p class="note">세계 여러 지역의 지형을 바탕으로 촬영을 계획합니다. 3D 건물은 데이터 제공 지역에서 표시되며, 한국은 V-World, 한국 밖은 Google 실사 3D를 사용합니다. 해외 실사 3D에는 개인 Google API 키 또는 앱 구독이 필요합니다.</p>
     </div>
   </div>
 </section>
@@ -427,12 +431,12 @@
     <h2>촬영 전후에 사용하는 도구</h2>
     <ul class="tools">
 <li><b>천문 달력</b> — 보름달, 일식·월식, 유성우 등 주요 천문 현상을 관측 위치에 맞춰 확인합니다.</li>
-<li><b>위젯</b> — 오늘의 달과 태양, 다음 촬영 기회를 홈 화면과 잠금 화면에서 확인합니다.</li>
+<li><b>위젯</b> — 오늘의 달과 태양, 다음 촬영 기회를 위젯으로 확인합니다. Android는 홈 화면 위젯, iPhone·iPad는 홈 화면과 잠금 화면 위젯을 제공합니다.</li>
 <li><b>캘린더에 추가</b> — 촬영 계획과 천문 현상을 일정으로 저장하고 알림을 받습니다.</li>
 <li><b>랜드마크</b> — 높이 정보가 등록된 명소로 촬영을 계획하고, 직접 측정한 장소도 저장합니다.</li>
 <li><b>달 노출 표·과초점 표</b> — 달 촬영의 노출 설정과 피사체를 선명하게 담을 수 있는 거리를 참고합니다.</li>
 <li><b>링크로 공유</b> — 촬영 계획을 링크로 공유합니다. 앱이 없어도 웹에서 요약과 지도를 확인할 수 있습니다.</li>
-<li><b>카메라 자동 촬영</b> — USB로 연결한 지원 Sony·Canon 카메라로 비행기 통과 시점에 맞춰 연속 촬영합니다.</li>
+<li><b>카메라 자동 촬영</b> — Mac·iPhone·iPad에서 지원 Sony 카메라를 USB로 연결해 비행기 통과 전후로 연속 촬영합니다. Canon은 시험 지원이며 실기 검증 전입니다. 촬영 전 앱의 ‘1초 시험 촬영’으로 동작을 확인하세요.</li>
 </ul>
     <div class="phone-row shots">
       <figure><img src="/img/tools/home-ko.jpg" width="600" height="1304" alt="시작 메뉴 — 오늘 하늘과 다음 촬영 기회" loading="lazy"><figcaption>시작 메뉴 — 오늘 하늘과 다음 촬영 기회</figcaption></figure>
@@ -453,7 +457,7 @@
       <p class="h-lead">타겟을 정하고, 지도에서 촬영 위치를 선택한 뒤 구도를 확인합니다.</p>
       
       <ol class="flow">
-<li><b>타겟을 지정합니다.</b><span class="d">새 프로젝트에서 피사체를 ‘구조물’로 선택하고, 촬영할 장소를 ‘타겟’으로 지정합니다.</span></li>
+<li><b>타겟을 지정합니다.</b><span class="d">새 프로젝트에서 피사체를 ‘구조물’로 선택하고, 사진에 담을 구조물의 위치를 ‘타겟’으로 지정합니다.</span></li>
 <li><b>촬영 위치를 선택합니다.</b><span class="d">노란 띠는 달이 뜰 때, 파란 띠는 질 때 정렬되는 위치입니다. 접근할 수 있고 시야가 트인 곳을 촬영지로 지정합니다.</span></li>
 <li><b>날짜와 구도를 확인합니다.</b><span class="d">정렬 날짜를 탐색하고, 시뮬레이션에서 촬영 시각과 렌즈 초점거리를 조절해 구도를 확인합니다.</span></li>
 <li><b>계획을 저장하고 현장을 확인합니다.</b><span class="d">촬영 전 답사 사진이나 AR로 실제 시야를 확인합니다.</span></li>
@@ -462,7 +466,7 @@
     
     <div class="howto" id="howto-person">
       <h3><span class="k">B</span>사람 — 달 앞의 실루엣</h3>
-      <p class="h-lead">사람에게서 멀리 떨어져 망원렌즈로 같은 크기로 담으면, 달이 상대적으로 크게 보입니다.</p>
+      <p class="h-lead">사람에게서 멀리 떨어지고, 사람이 프레임에서 같은 크기를 차지하도록 초점거리를 늘리면 달이 상대적으로 크게 보입니다.</p>
       
       <ol class="flow">
 <li><b>사람이 설 위치를 정합니다.</b><span class="d">피사체를 ‘사람’으로 선택하고, 능선처럼 사람 뒤로 하늘이 보이는 곳을 ‘타겟’으로 지정합니다.</span></li>
@@ -490,7 +494,7 @@
       
       <ol class="flow">
 <li><b>촬영지를 지정합니다.</b><span class="d">피사체를 ‘비행기’로 선택하고 촬영할 위치를 지정합니다.</span></li>
-<li><b>실시간 감시를 시작합니다.</b><span class="d">‘라이브 감시’를 켜고 주변 기체의 예상 통과 시각과 달에 접근하는 정도를 확인합니다.</span></li>
+<li><b>실시간 감시를 시작합니다.</b><span class="d">‘라이브 감시’를 켜고 앱을 열어 둡니다. 주변 기체의 예상 통과 시각과 달에 접근하는 정도를 확인합니다.</span></li>
 <li><b>알림에 맞춰 촬영합니다.</b><span class="d">통과 예상 알림과 카운트다운을 확인하고 연속 촬영을 준비합니다.</span></li>
 <li><b>수신기를 연결할 수 있습니다.</b><span class="d">개인 ADS-B 수신기가 있다면 연결해 1초 간격으로 데이터를 갱신할 수 있습니다.</span></li>
 </ol>
@@ -502,26 +506,26 @@
 <section class="section" id="google-key">
   <div class="wrap">
     <span class="tag nocaps">Google 3D 키</span>
-    <h2>해외 촬영지도 실사 3D로 — 개인 Google 키로 무료로</h2>
-    <p class="lead sect-lead">국내 3D 건물은 별도의 키 설정 없이 V-World 데이터로 확인할 수 있습니다. 해외 실사 3D 건물은 Google 지도 API로 불러오며, Google은 이 API를 사용할 때마다 사용료를 받습니다. <strong>해외 실사 3D 구독은 이 사용료를 대신 내기 위한 것이며, 수익을 더 내기 위한 상품이 아닙니다.</strong> <strong>개인 Google API 키를 등록하면 구독 없이 동일하게 이용할 수 있습니다.</strong></p>
+    <h2>해외 실사 3D, 개인 Google 키로 구독 없이</h2>
+    <p class="lead sect-lead">한국의 3D 건물은 별도 키 설정 없이 V-World 데이터로 확인합니다. 한국 밖의 실사 3D는 <strong>개인 Google API 키 또는 앱 구독</strong>으로 이용할 수 있습니다. 건물 모델은 데이터 제공 지역에서 표시됩니다.</p>
     <p><a href="guide/#sim-overseas">Google API 키 발급 및 설정 방법 보기 →</a></p>
     <p class="note">개인 키를 등록하면 구독보다 우선하여 사용합니다. 키는 Apple 기기에서는 iCloud 키체인, Android에서는 기기 안에 저장되며, Google에만 전송되고 <b>개발자에게는 전달되지 않습니다</b>.</p>
-    <p class="note">일반적인 촬영 계획 용도는 대부분 Google의 월 무료 한도 안에 있습니다. 한도를 초과하면 Google 요금 정책에 따라 비용이 발생할 수 있으므로, Google Cloud 콘솔에서 사용량과 요금을 확인하세요.</p>
+    <p class="note">개인 키를 사용하려면 Google Cloud 결제 설정이 필요합니다. Google의 월 무료 한도 안에서는 비용이 없고, 한도를 넘으면 Google 요금이 적용됩니다. <a href="https://developers.google.com/maps/billing-and-pricing/pricing">최신 요금</a>과 Cloud 콘솔의 사용량을 확인하세요.</p>
   </div>
 </section>
 
 <section class="section" id="pricing">
   <div class="wrap">
     <span class="tag">가격</span>
-    <h2>앱은 $9.99 1회 구매 · 해외 실사 3D는 개인 키(무료) 또는 구독</h2>
-    <p class="lead sect-lead">앱은 $9.99에 한 번 구매하며, 같은 Apple 계정의 iPhone·iPad·Mac에서 사용할 수 있습니다. Android는 Google Play에서 별도로 구매합니다. 해외 실사 3D만 따로인 것은 Google 지도 API 사용료 때문이며, <strong>개인 Google API 키를 등록하면 무료로 이용할 수 있습니다.</strong> 키 설정이 번거롭다면 월 $1.99 또는 연 $17.99 구독으로 앱이 사용료를 대신 냅니다.</p>
+    <h2>앱은 1회 구매 · 해외 실사 3D는 선택 사항</h2>
+    <p class="lead sect-lead">예정 가격은 앱 US$9.99, 해외 실사 3D 구독 월 US$1.99 또는 연 US$17.99입니다. 앱은 같은 Apple 계정의 iPhone·iPad·Mac에서 함께 사용하며, Android는 별도 구매입니다. 개인 Google API 키를 사용하면 앱 구독은 필요하지 않으며 Google 요금이 별도로 적용됩니다. 출시 후 실제 결제 금액은 각 지역 스토어에서 확인하세요.</p>
     <div class="table-wrap"><table>
-<tr><th>앱 구매 · $9.99</th><th>해외 실사 3D · 선택 사항</th></tr>
-<tr><td>달·해·은하수 촬영 계획과 3D 시뮬레이션</td><td>개인 Google API 키 등록 또는 구독</td></tr>
-<tr><td>최대 90일 이내의 정렬 날짜 탐색</td><td>구독: $1.99/월 · $17.99/년</td></tr>
-<tr><td>ISS 통과 예측과 비행기 실시간 알림</td><td>개인 키: 구독 없이 이용 <span class="m">— Google 월 무료 한도를 넘으면 Google 요금 적용</span></td></tr>
-<tr><td>답사 사진 확인과 현장 AR 확인</td><td>필요한 기간에 구독하고 해지 가능</td></tr>
-<tr><td>천문 달력·위젯·촬영 참고표·계획 공유</td><td>계획 화면의 Google 지도는 개인 키 필요 <span class="m">— 구독에 포함되지 않음</span></td></tr>
+<tr><th>앱 구매 · 예정 US$9.99</th><th>해외 실사 3D · 선택 사항</th></tr>
+<tr><td>달·태양·은하수 촬영 계획과 지형 기반 3D 시뮬레이션</td><td>개인 Google API 키 또는 앱 구독</td></tr>
+<tr><td>선택한 날짜부터 최대 90일간 정렬 날짜 탐색</td><td>구독 예정 가격: US$1.99/월 · US$17.99/년</td></tr>
+<tr><td>ISS 통과 예측과 비행기 라이브 감시</td><td>개인 키: 앱 구독 불필요 · Google 무료 한도와 초과 요금 적용</td></tr>
+<tr><td>답사 사진 확인과 지원 모바일 기기의 AR 확인</td><td>구독: 기기별 하루 30회 장면 로드(재로드 포함) · 현지 자정에 초기화</td></tr>
+<tr><td>천문 달력·위젯·촬영 참고표·계획 공유</td><td>Apple 기기의 선택형 Google 지도는 개인 키 필요 · Android 기본 Google 지도는 개인 키 불필요</td></tr>
 </table></div>
   </div>
 </section>
@@ -530,12 +534,12 @@
   <div class="wrap">
     <span class="tag">FAQ</span>
     <h2>자주 묻는 질문</h2>
-    <details><summary>얼마나 정확한가요?</summary><p>천체 위치 계산 자체의 오차는 아주 작습니다. 실제 결과의 오차는 대부분 지형 자료와 높이 입력에서 생깁니다. 지형 자료는 곳에 따라 수 m에서 수십 m의 오차가 있어, 숲이 있는 능선 위로 뜨는 장면은 표시보다 늦을 수 있고, 사람 모드처럼 정렬 폭이 좁은 경우에는 몇 m 차이로 결과가 바뀝니다. 중요한 촬영은 시뮬레이션과 현장의 사진 확인·AR 확인으로 한 번 더 확인하세요.</p></details>
+    <details><summary>얼마나 정확한가요?</summary><p>달·태양 정렬에서는 지형 자료와 높이 입력이 결과에 큰 영향을 줍니다. 지형은 실제와 수 m에서 수십 m 차이가 날 수 있고, 나무나 임시 구조물이 자료에 없을 수도 있습니다. 사진 확인은 기준점과 촬영 정보, AR은 방위 보정이 중요합니다. ISS·비행기 예측은 궤도와 실시간 데이터의 최신성에도 영향을 받습니다. 중요한 촬영은 현장에서 시야와 구도를 다시 확인하세요.</p></details>
     <details><summary>ISS 예보는 왜 다시 탐색하라고 하나요?</summary><p>정거장은 수시로 궤도를 조정합니다. 예보는 NASA가 공개하는 궤도 자료(OEM)를 쓰고, 자료마다 유효 기간이 있습니다. 최신 궤도 자료를 반영할 수 있도록 촬영 전날 다시 탐색하세요.</p></details>
-    <details><summary>비행기 라이브 데이터는 어디서 오나요?</summary><p>기본은 adsb.lol 커뮤니티 데이터(ODbL 1.0)이고, 30초마다 갱신하며 2시간 뒤 자동으로 멈춥니다. 직접 ADS-B 수신기(readsb/dump1090)를 운영한다면 LAN 주소를 넣어 1초 갱신, 시간 제한 없이 사용할 수 있습니다.</p></details>
-    <details><summary>해외에서도 사용할 수 있나요?</summary><p>네. 전 세계 지형 자료를 바탕으로 촬영 위치와 시각을 계산합니다. 3D 시뮬레이션은 한국에서 V-World를, 그 밖에서는 구독이나 개인 Google API 키가 있으면 실사 3D 건물을 보여 줍니다. 둘 다 없어도 달 경로와 지형은 보입니다.</p></details>
-    <details><summary>어떤 기기·언어를 지원하나요?</summary><p>iPhone·iPad·Mac(macOS 14 이상)은 App Store에서 한 번 구매하면 모두 사용할 수 있고, 프로젝트는 iCloud로 동기화됩니다. Android(Android 12 이상)는 Google Play에서 따로 구매하고, 프로젝트는 Android 기기끼리 Google Drive로 동기화됩니다. Apple 기기와 Android 사이에는 계획을 링크로 공유해 주고받을 수 있습니다. AR 확인은 카메라가 필요해 Mac에서는 사용할 수 없습니다. 언어는 영어·한국어·일본어이고, 시스템 설정을 따르거나 앱에서 바꿀 수 있습니다.</p></details>
-    <details><summary>해외 실사 3D는 왜 구독인가요? 구독 없이도 이용할 수 있나요?</summary><p>해외 실사 3D 건물은 Google 지도 API로 불러오며, Google은 사용할 때마다 사용료를 받습니다. 구독은 이 사용료를 앱이 대신 내기 위한 것이며, 수익을 더 내기 위한 상품이 아닙니다. 개인 Google API 키를 등록하면 구독 없이 동일하게 이용할 수 있고, 일반적인 계획 용도는 대부분 Google의 월 무료 한도 안에 있습니다. <a href="guide/#sim-overseas">키 발급 및 설정 방법</a>을 확인하세요.</p></details>
+    <details><summary>비행기 라이브 데이터는 어디서 오나요?</summary><p>기본은 adsb.lol 커뮤니티 데이터(ODbL 1.0)입니다. 보통 약 30초마다 갱신하고 통과가 임박하면 더 자주 확인하지만, 서버 제한에 따라 지연될 수 있습니다. 원격 감시는 2시간 뒤 자동으로 멈춥니다. 개인 ADS-B 수신기(readsb/dump1090)의 데이터 주소를 넣으면 1초 간격으로 갱신하며 세션 시간 제한은 없습니다. 모바일에서는 앱을 열어 두세요. 백그라운드에서는 감시가 중단될 수 있습니다.</p></details>
+    <details><summary>해외에서도 사용할 수 있나요?</summary><p>세계 여러 지역의 지형을 바탕으로 촬영을 계획할 수 있습니다. 3D 건물은 데이터 제공 지역에서 표시됩니다. 한국은 V-World를 사용하며, 한국 밖의 Google 실사 3D에는 개인 Google API 키 또는 앱 구독이 필요합니다. 둘 다 없어도 천체 경로와 지형을 확인할 수 있습니다.</p></details>
+    <details><summary>어떤 기기·언어를 지원하나요?</summary><p>iOS·iPadOS 17 이상, macOS 14 이상, Android 12 이상을 지원합니다. Apple 기기는 한 번 구매해 같은 Apple 계정에서 사용하며, iCloud를 켜면 프로젝트가 동기화됩니다. Android는 별도 구매이고, Google Drive 동기화를 켜면 Android 기기끼리 동기화됩니다. 플랫폼 간에는 계획 링크를 공유할 수 있습니다. AR은 iPhone·iPad와 ARCore 지원 Android 기기에서 제공하며, Android에는 Google Play AR 서비스가 필요합니다. Mac에서는 AR을 지원하지 않습니다. 한국어·영어·일본어를 지원하며 시스템 언어를 따르거나 앱에서 변경할 수 있습니다.</p></details>
+    <details><summary>해외 실사 3D는 왜 구독인가요? 구독 없이도 이용할 수 있나요?</summary><p>구독료는 해외 실사 3D 데이터 이용 비용을 충당합니다. 개인 Google API 키를 등록하면 앱 구독 없이 이용할 수 있으며, Google의 무료 한도와 초과 요금이 적용됩니다. 앱 구독에는 기기별 하루 30회 장면 로드 한도가 있고 재로드도 포함됩니다. 기기 현지 시각 자정에 초기화되며, 한도에 도달하면 지형만 표시됩니다. 개인 키에는 이 앱 한도가 적용되지 않습니다. <a href="guide/#sim-overseas">키 발급과 이용 조건</a>을 확인하세요.</p></details>
   </div>
 </section>
 
@@ -544,7 +548,7 @@
 <footer>
   <div class="wrap">
     <p class="foot-desc"><strong>MoonAlign</strong> — 달과 해, ISS, 비행기, 은하수 촬영을 위한 계획 앱. 문의: <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
-    <p class="srcs">지도: Apple 지도 · V-World(국토교통부, 공공누리 제1유형) · Google 지도(본인 키) · 지면고도: V-World 3D 지형(국내) · Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018, Copernicus 프로그램(EU·ESA) · 광해: EOG VIIRS 야간광(VNL V2) — OpenGeoHub 재배포본(CC BY 4.0)으로 앱이 계산한 추정값 · ISS 궤도: NASA OEM · CelesTrak TLE · 비행기 항적: adsb.lol(ODbL 1.0) · 지오이드: EGM96(NGA) · 시뮬레이션 3D: V-World · Google 실사 3D 타일 · 날씨: Apple Weather · 천문 계산: astronomy-engine</p>
+    <p class="srcs">지도: Apple 지도 · V-World(국토교통부, 공공누리 제1유형) · Google 지도(Apple 기기는 개인 키, Android는 기본 제공) · 지면고도: V-World 3D 지형(국내) · Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018, Copernicus 프로그램(EU·ESA) · 광해: EOG VIIRS 야간광(VNL V2) — OpenGeoHub 재배포본(CC BY 4.0)으로 앱이 계산한 추정값 · ISS 궤도: NASA OEM · CelesTrak TLE · 비행기 항적: adsb.lol(ODbL 1.0) · 지오이드: EGM96(NGA) · 시뮬레이션 3D: V-World · Google 실사 3D 타일 · 날씨: Apple Weather · 천문 계산: astronomy-engine</p>
     <p class="copy">© 2026 <a href="../">YJLAB</a>. All rights reserved. · <a href="privacy/">개인정보처리방침</a></p>
   </div>
 </footer>

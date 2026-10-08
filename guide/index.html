@@ -149,7 +149,8 @@
 
 <section>
 <h2 id="start">Getting started</h2>
-<p>MoonAlign is a one-time purchase that works across iPhone, iPad, and Mac. Projects (shooting plans) sync between your devices automatically through iCloud Drive.</p>
+<p>Plan on a Mac’s larger screen or prepare your shoot entirely on mobile. Apple devices sync projects through iCloud when using the same account with iCloud enabled. Turn on Google Drive sync to sync between Android devices. Share plans between Apple and Android with a link.</p>
+<p>Screen-by-screen examples use Apple devices. Android map, sync, and AR requirements are called out where they differ.</p>
 
 <h3 id="start-home">Home</h3>
 <p>The app opens on Home. The <span class="ui">Today's sky</span> card at the top shows today's sunrise and sunset, moonrise and moonset, the day strip (day, twilight, night, and when the Moon is up), your next planned alignment, and the nearest sky event. It uses your device's location, or the shooting spot of your last project if location isn't available.</p>
@@ -272,7 +273,7 @@
 <li>Run your own ADS-B receiver (readsb, dump1090)? Turn on <span class="ui">My receiver</span> and enter its aircraft.json address — it's faster and more accurate.</li>
 <li>While watching, the shooting spot and body are locked. Tap <span class="ui">Stop watching</span> first to change them.</li>
 <li><span class="ui">Transit history</span> keeps past candidates.</li>
-<li><span class="ui">Camera auto capture (Sony · Canon)</span>: connect your camera over USB and it bursts automatically around the crossing. Try <span class="ui">Test shutter for 1 second</span> first.</li>
+<li><span class="ui">Camera auto capture (Sony · Canon)</span>: On Mac, iPhone, and iPad, connect a supported Sony camera over USB for burst shooting around a predicted plane crossing. Canon support is experimental and has not been verified on a physical camera. Use the app’s 1-second shutter test before a shoot.</li>
 </ul>
 </section>
 
@@ -289,9 +290,11 @@
 <li>The time you set with the slider and the view you dragged to are saved to the project when you leave Simulation, so it reopens on the same scene. The <span class="ui">View</span> button below brings the view back to facing the Moon or Sun. Moving the target or shooting spot, or changing the date, clears the saved scene.</li>
 </ul>
 <h3 id="sim-overseas">Photorealistic 3D outside Korea</h3>
-<p>Photorealistic 3D buildings outside Korea come from the Google Maps API, and Google charges each time it is used. The <span class="ui">Photorealistic 3D subscription</span> exists so the app can pay that fee for you — it isn’t there to make extra money. So <strong>register your own Google API key and you can use exactly the same thing without a subscription.</strong> With neither, only terrain is shown.</p>
-<p>Add your own key under <span class="ui">Google API key</span> in settings; it takes priority over the subscription. The key is stored in iCloud Keychain, syncs only between your Apple devices, and is sent only to Google. Typical planning use stays mostly within Google’s monthly free allowance; beyond it, costs may apply under Google’s pricing. Google Maps on the plan screen also needs your own key and is not part of the subscription.</p>
-<p>Building display has a daily usage limit. If you reach it, you can use it again the next day.</p>
+<p>In Korea, V-World provides 3D buildings without a separate key setup. Outside Korea, use <strong>your own Google API key or an app subscription</strong> for photorealistic 3D. Building models are shown where data is available.</p>
+<p>Your own key takes priority over the subscription. It’s stored in iCloud Keychain on Apple devices and on the device on Android, sent only to Google, and <b>never to the developer</b>.</p>
+<p>Your own key requires Google Cloud billing to be enabled. Usage within Google’s monthly free allowance is free; overage charges apply beyond it. Check <a href="https://developers.google.com/maps/billing-and-pricing/pricing">current pricing</a> and your usage in the Cloud console.</p>
+<p>The subscription covers the cost of photorealistic 3D data outside Korea. With your own Google API key, no app subscription is needed; Google’s free allowance and overage charges apply. The app subscription allows 30 scene loads per device per day, including reloads, and resets at local midnight. After the limit, only terrain is shown. Your own key is not subject to this app limit. See</p>
+<p>Optional Google Maps on Apple devices needs your own key · the default Android map does not</p>
 <p><strong>Creating and setting up a Google API key</strong></p>
 <ol>
       <li><b>Sign in to the Google Cloud console.</b>
@@ -332,7 +335,7 @@
 <section>
 <h2 id="ar">AR Check — aim on site</h2>
 <!-- shot: ar -->
-<p>On the day, hold up your iPhone or iPad on site and the planned path appears over the real sky, so you can frame the shot before the Moon rises (real devices only, not on the Mac).</p>
+<p>Overlay celestial paths on the camera view on iPhone, iPad, or an ARCore-supported Android device. Android requires Google Play Services for AR. AR Check is not available on Mac. Calibrate the heading before checking your shooting direction and framing.</p>
 <ul>
 <li><span class="ui">Time</span>: scrub through the whole time the body is up.</li>
 <li><span class="ui">Align</span>: corrects compass error. If the body is visible, put it in the crosshair and tap <span class="ui">Align to Moon</span>; if not, put the top of the target in the crosshair and tap <span class="ui">Align to target</span> (<span class="ui">Align to person</span> in person mode).</li>
@@ -381,7 +384,7 @@
 <tr><td><span class="ui">Time zone</span></td><td>The time zone plan times are shown in.</td></tr>
 <tr><td><span class="ui">Language</span></td><td>System default · 한국어 · English · 日本語. Takes effect after restarting the app.</td></tr>
 <tr><td><span class="ui">Default heights</span></td><td><span class="ui">Camera height</span> and <span class="ui">Person height</span> for new plans.</td></tr>
-<tr><td><span class="ui">Google API key</span></td><td>Your own key for photorealistic 3D outside Korea and Google Maps (optional). Shared only between your devices through iCloud Keychain.</td></tr>
+<tr><td><span class="ui">Google API key</span></td><td>Your own key takes priority over the subscription. It’s stored in iCloud Keychain on Apple devices and on the device on Android, sent only to Google, and <b>never to the developer</b>.</td></tr>
 <tr><td><span class="ui">Photorealistic 3D subscription</span></td><td>Subscribe · <span class="ui">Manage subscription</span> · <span class="ui">Restore purchases</span>.</td></tr>
 <tr><td><span class="ui">Data sources</span></td><td>Where the map, terrain, orbit, and air traffic data come from.</td></tr>
 </table>

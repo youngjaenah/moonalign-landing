@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoonAlign — Planning Moon and Sun alignment shots</title>
-  <meta name="description" content="Pick a target and a date, and find on the map where to stand for the Moon or Sun to line up with it. Plan the framing in a 3D simulation, then check it on site with a scouting photo and AR. ISS transit predictions and live plane alerts included.">
+  <meta name="description" content="Choose a subject (the app’s “target”) and a date to find candidate shooting spots and alignment times on the map. Check the height data, then move between spots to compare framing in 3D. You can also search for ISS transits and watch for potential plane crossings.">
   <link rel="canonical" href="https://moonalign.yjlab.io/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/">
   <meta property="og:title" content="MoonAlign — Planning Moon and Sun alignment shots">
-  <meta property="og:description" content="Pick a target and a date, and find on the map where to stand for the Moon or Sun to line up with it. Plan the framing in a 3D simulation, then check it on site with a scouting photo and AR. ISS transit predictions and live plane alerts included.">
+  <meta property="og:description" content="Choose a subject (the app’s “target”) and a date to find candidate shooting spots and alignment times on the map. Check the height data, then move between spots to compare framing in 3D. You can also search for ISS transits and watch for potential plane crossings.">
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -111,6 +111,7 @@
   }
   .btn-primary { background: var(--ink); color: #fff; }
   .btn-primary:hover { background: #2c2f36; }
+  .store-pending { display: inline-block; padding: 10px 0; color: var(--ink-dim); font-size: 0.9rem; }
   .btn-ghost { background: var(--bg); color: var(--ink); border: 1px solid var(--line); }
   .btn-ghost:hover { border-color: var(--ink-faint); background: var(--bg-soft); }
   .cta-meta { font-size: 0.83rem; color: var(--ink-faint); margin-top: 14px; }
@@ -192,6 +193,7 @@
   .mode h3 a { color: var(--ink); text-decoration: none; }
   .mode h3 a:hover { color: var(--accent); }
   .mode p { font-size: 0.9rem; color: var(--ink-dim); line-height: 1.65; }
+  .coverage { margin-top: 32px; }
 
   /* how-to flows */
   .howto { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--line); }
@@ -331,24 +333,24 @@
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac · Android</span> — Photography planner</p>
-      <h1>Find where to shoot from a target and a date</h1>
-      <p class="lead">From the Moon rising behind a tower to the ISS crossing its disk. No need to work out angles, heights, or distances yourself: pick a target and a date, and MoonAlign finds <strong>where and when to shoot</strong>. Move the spot around and preview the framing in a 3D simulation.</p>
+      <h1>Find where the Moon lines up with your subject</h1>
+      <p class="lead">Choose a subject (the app’s “target”) and a date to find <strong>candidate shooting spots and alignment times</strong> on the map. Check the height data, then move between spots to compare framing in 3D. You can also search for ISS transits and watch for potential plane crossings.</p>
       <ul class="feat">
-        <li>Pick a target and a date — shooting spots where the Moon lines up appear on the map</li>
+        <li>See candidate spots where the Moon lines up with your target on the chosen date</li>
         <li>3D simulation with terrain and your lens focal length</li>
-        <li>ISS transit times predicted to the second, live alerts for planes crossing the Moon</li>
-        <li>One purchase for Mac, iPhone, and iPad — continue a Mac-made plan on iPhone or iPad</li>
+        <li>View predicted ISS transit times to the second and get live alerts for potential plane crossings</li>
+        <li>One purchase for Mac, iPhone, and iPad — continue a plan created on your Mac on iPhone or iPad</li>
       </ul>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#appstore-link">Download on the App Store</a>
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=io.yjlab.moonalign">Get it on Google Play</a>
+        <span class="store-pending">Coming to the App Store</span>
+        <span class="store-pending">Coming to Google Play</span>
         <a class="btn btn-ghost" href="#workflow">See how it works</a>
       </div>
-      <p class="cta-meta">$9.99 one-time purchase · Photorealistic 3D outside Korea with your own Google key (free) or a subscription · Android sold separately · English, Korean, Japanese</p>
+      <p class="cta-meta">Planned price: US$9.99, one-time purchase · Photorealistic 3D outside Korea with your own Google key or an optional subscription · Android sold separately · English, Korean, Japanese</p>
     </div>
     <figure class="visual">
       <img src="/img/hero-sim-en.jpg" width="2200" height="1520" alt="MoonAlign simulation on the Mac — the Moon framed behind the Eiffel Tower" loading="eager">
-      <figcaption>Mac · Simulation — Eiffel Tower, Paris, 200mm, moonrise 2026-10-02 23:03</figcaption>
+      <figcaption>Mac · Simulation — Eiffel Tower, Paris, 200mm, moonrise on 2026-10-02 at 23:03 · Paris local time (UTC+2)</figcaption>
     </figure>
   </div>
 </section>
@@ -359,10 +361,10 @@
     <h2>From planning to on-site checks to the shot</h2>
     <p class="lead sect-lead">Plan the spot and framing in advance, then check the real view while scouting and on the day.</p>
     <div class="stages">
-      <div class="stage"><span class="no">1</span><p class="where">At home · plan on the Mac</p><h3>Plan</h3><p>Pick a target and a date, and the shooting spots where the Moon lines up with the target appear on the map as a band. The app works out the angles, heights, and distances.</p></div>
+      <div class="stage"><span class="no">1</span><p class="where">Before the shoot · desktop or mobile</p><h3>Plan</h3><p>Choose a target and date, then check the height data. Bands on the map show candidate spots where the Moon lines up with your target.</p></div>
       <div class="stage"><span class="no">2</span><p class="where">At home</p><h3>Simulation</h3><p>Compare framings by moving the spot on the map. Adjust the time and lens focal length to see where the Moon will appear.</p></div>
-      <div class="stage"><span class="no">3</span><p class="where">Scouting · iPhone</p><h3>Photo Check</h3><p>The Moon’s position and path at the planned time are drawn over your scouting photo, so you can check whether trees or buildings block it.</p></div>
-      <div class="stage"><span class="no">4</span><p class="where">On the day · iPhone</p><h3>AR Check</h3><p>Watch the Moon’s path over the live camera view and make the final check of direction and framing.</p></div>
+      <div class="stage"><span class="no">3</span><p class="where">Scouting · mobile</p><h3>Photo Check</h3><p>Align a reference point with a celestial object or your target in a scouting photo, then overlay the planned Moon path to check for trees or buildings in the way.</p></div>
+      <div class="stage"><span class="no">4</span><p class="where">Shoot day · AR-supported mobile device</p><h3>AR Check</h3><p>Watch the Moon’s path over the live camera view and make the final check of direction and framing.</p></div>
     </div>
   </div>
 </section>
@@ -370,10 +372,10 @@
 <section class="section" id="gallery">
   <div class="wrap">
     <span class="tag">Previews</span>
-    <h2>See the shot before you go — anywhere in the world</h2>
-    <p class="lead sect-lead">3D simulation with real terrain, buildings, and your lens&#x27;s field of view. Every scene below is an example project that comes with the app.</p>
+    <h2>Preview your framing at locations around the world</h2>
+    <p class="lead sect-lead">3D simulation with terrain, buildings, and your lens’s field of view. Explore compositions based on the sample projects included in the app. Building coverage and detail vary by location.</p>
     <div class="gallery shots">
-      <figure><img src="/img/gallery/ushiku-en.jpg" width="1600" height="1067" alt="Ushiku Daibutsu, Japan — moonrise on Dec 24, 2026, the Moon at the Buddha&#x27;s fingertips (135mm)" loading="lazy"><figcaption>Ushiku Daibutsu, Japan — moonrise on Dec 24, 2026, the Moon at the Buddha&#x27;s fingertips (135mm)</figcaption></figure>
+      <figure><img src="/img/gallery/ushiku-en.jpg" width="1600" height="1067" alt="Ushiku Daibutsu, Japan — moonrise on Dec 24, 2026, the Moon at the Buddha’s fingertips" loading="lazy"><figcaption>Ushiku Daibutsu, Japan — moonrise on Dec 24, 2026, the Moon at the Buddha’s fingertips</figcaption></figure>
       <figure><img src="/img/gallery/arch-en.jpg" width="1600" height="1067" alt="North Window, Arches National Park, USA — moonrise on May 16, 2027 (400mm)" loading="lazy"><figcaption>North Window, Arches National Park, USA — moonrise on May 16, 2027 (400mm)</figcaption></figure>
       <figure><img src="/img/gallery/paris-en.jpg" width="1600" height="1067" alt="Eiffel Tower, Paris — moonrise on Dec 23, 2026 (200mm)" loading="lazy"><figcaption>Eiffel Tower, Paris — moonrise on Dec 23, 2026 (200mm)</figcaption></figure>
       <figure><img src="/img/gallery/namsan-en.jpg" width="1600" height="1067" alt="N Seoul Tower, Seoul — moonrise on Jan 21, 2027 (400mm)" loading="lazy"><figcaption>N Seoul Tower, Seoul — moonrise on Jan 21, 2027 (400mm)</figcaption></figure>
@@ -383,10 +385,10 @@
 
 <section class="section" id="devices">
   <div class="wrap">
-    <span class="tag nocaps">Mac · iPhone · iPad</span>
-    <h2>Plan on the Mac, check on your iPhone</h2>
-    <p class="lead sect-lead">Buy once with your Apple Account and use it on Mac, iPhone, and iPad, with projects synced through iCloud. On Android, buy it separately on Google Play; projects sync between Android devices through Google Drive. Between Apple and Android, share plans with a link.</p>
-    <ul class="tools"><li><b>Mac</b> — plan on a big screen with the map and the 3D simulation in view.</li><li><b>iCloud</b> — projects sync to your iPhone and iPad as they are. Nothing to export.</li><li><b>iPhone · iPad</b> — open the same plan and check the site with a scouting photo and AR.</li></ul>
+    <span class="tag nocaps">Mac · iPhone · iPad · Android</span>
+    <h2>Plan on desktop or mobile</h2>
+    <p class="lead sect-lead">Plan on a Mac’s larger screen or prepare your shoot entirely on mobile. Apple devices sync projects through iCloud when using the same account with iCloud enabled. Turn on Google Drive sync to sync between Android devices. Share plans between Apple and Android with a link.</p>
+    <ul class="tools"><li><b>Mac</b> — compare framing with the map and 3D simulation on a larger screen.</li><li><b>iPhone · iPad · Android</b> — create plans, check scouting photos, and use AR on supported devices.</li><li><b>Sync and sharing</b> — use iCloud on Apple devices or your chosen Google Drive account on Android, and share links across platforms.</li></ul>
     <div class="device-shots shots">
       <figure><img src="/img/guide/band-mac-en.jpg" width="1600" height="1000" alt="Mac — pick a spot while watching the bands on the map" loading="lazy"><figcaption>Mac — pick a spot while watching the bands on the map</figcaption></figure>
       <figure class="phone"><img src="/img/guide/plan-iphone-en.jpg" width="660" height="1434" alt="iPhone — the same plan, in the field" loading="lazy"><figcaption>iPhone — the same plan, in the field</figcaption></figure>
@@ -396,20 +398,20 @@
 
 <section class="section" id="verify">
   <div class="wrap">
-    <span class="tag">Scouting and the day</span>
+    <span class="tag">Scouting and shoot day</span>
     <h2>Checking again on site</h2>
     <p class="lead sect-lead">Map, terrain, and 3D model data can be off by a few meters, and trees, cranes, and fences may not be on any map at all. Treat the simulation as a starting point, and scout the spot beforehand to check the real view with a scouting photo and AR.</p>
     <!-- 스크린샷(사진 확인·AR)이 준비되면 그림 칸을 다시 넣는다(2026-10-03 사용자 결정: 그때까지 글만). -->
     <div class="product-pair">
       <div>
         <h3>Check the view with a scouting photo</h3>
-        <p class="lead">Load a scouting photo with shooting data (EXIF), and the Moon’s position and path at the planned time are drawn on the photo.</p>
+        <p class="lead">Use an original photo with capture data (EXIF) and align a reference point with the Moon, Sun, or your target to overlay the planned position and path. Check automatically detected positions and adjust them if needed.</p>
         <ul class="feat"><li>A sky grid for azimuth and altitude</li><li>Check the Moon’s position and path with the time slider</li><li>Uses the photo’s capture time, focal length, and location</li><li>Enter the camera clock error to correct the capture time</li></ul>
       </div>
       <div>
         <h3>Check the direction with AR</h3>
-        <p class="lead">Hold up your iPhone or iPad on site and the Moon’s path appears over the camera view. Set up the tripod and check the direction before the Moon rises.</p>
-        <ul class="feat"><li>Paths of the Moon, the ISS, and the galactic core</li><li>Correct compass error with Align</li><li>See the whole path while the body is up</li><li>Available on iPhone and iPad</li></ul>
+        <p class="lead">Hold up a supported mobile device to overlay the celestial path on the camera view. Calibrate the heading, then check your direction and framing before the Moon rises.</p>
+        <ul class="feat"><li>Paths of the Moon, the ISS, and the galactic core</li><li>Correct compass error with Align</li><li>See the full path while the object is above the horizon</li><li>Available on iPhone, iPad, and ARCore-supported Android devices</li></ul>
       </div>
     </div>
   </div>
@@ -424,15 +426,17 @@
       <div class="mode"><h3><a href="#howto-structure">Structure</a></h3>
         <p>Plan framings where a tower, bridge, or skyline lines up with the Moon. Heights of major landmarks are filled in automatically.</p></div>
       <div class="mode"><h3><a href="#howto-person">Person</a></h3>
-        <p>Plan a silhouette against the Moon. Shooting spots are shown for a person 1.7 m tall.</p></div>
+        <p>Find candidate spots using the person’s height and the camera height. The default person height is 1.7 m and can be adjusted.</p></div>
       <div class="mode"><h3><a href="#howto-iss">ISS</a></h3>
-        <p>From NASA orbit data, predicts where and when the ISS crosses the Moon or Sun, to the second. Search again the day before you shoot.</p></div>
+        <p>Use NASA orbit data to find potential lunar or solar ISS transit locations and view predicted times to the second. Search again with the latest data before your shoot.</p></div>
       <div class="mode"><h3><a href="#howto-plane">Plane</a></h3>
-        <p>Checks live flight paths for planes likely to cross the Moon and alerts you at the expected moment, so you’re ready to burst and don’t miss it.</p></div>
+        <p>Find aircraft that may cross the Moon using live flight paths. Alerts and a countdown help you prepare for burst shooting. Data delays and course changes can affect predictions.</p></div>
       <div class="mode"><h3>Milky Way</h3>
         <p>When the galactic core is visible, and the shooting spot’s estimated light pollution class.</p></div>
-      <div class="mode"><h3>Anywhere in the world</h3>
-        <p>Plan with worldwide terrain. 3D buildings come from V-World in Korea and Google Photorealistic 3D elsewhere.</p></div>
+    </div>
+    <div class="coverage">
+      <h3>Plan shoots around the world</h3>
+      <p class="note">Plan using terrain data from around the world. Buildings appear where 3D data is available: V-World in Korea and Google Photorealistic 3D elsewhere. Outside Korea, photorealistic 3D requires your own Google API key or an app subscription.</p>
     </div>
   </div>
 </section>
@@ -442,14 +446,14 @@
     <span class="tag">More tools</span>
     <h2>For before and after the shot</h2>
     <ul class="tools">
-      <li><b>Sky calendar</b> — major events such as full moons, eclipses, and meteor showers, for your location.</li>
-      <li><b>Widgets</b> — today’s Moon and Sun and your next shooting chance on the Home Screen and Lock Screen.</li>
-      <li><b>Add to Calendar</b> — save plans and sky events as calendar events with reminders.</li>
-      <li><b>Landmarks</b> — plan with landmarks whose heights are on file, and save places you measured yourself.</li>
-      <li><b>Moon Exposure Table · Hyperfocal Table</b> — exposure settings for the Moon and the distance at which your subject stays sharp.</li>
-      <li><b>Share as link</b> — share a plan as a link; without the app, the summary and map open on the web.</li>
-      <li><b>Camera auto capture</b> — burst with a supported USB-connected Sony or Canon camera timed to a plane crossing.</li>
-    </ul>
+<li><b>Sky calendar</b> — major events such as full moons, eclipses, and meteor showers, for your location.</li>
+<li><b>Widgets</b> — See today’s Moon and Sun and your next shooting chance. Android has Home Screen widgets; iPhone and iPad also offer Lock Screen widgets.</li>
+<li><b>Add to Calendar</b> — save plans and sky events as calendar events with reminders.</li>
+<li><b>Landmarks</b> — plan with landmarks with preset height data, and save places you measured yourself.</li>
+<li><b>Moon Exposure Table · Hyperfocal Table</b> — exposure settings for the Moon and the distance at which your subject stays sharp.</li>
+<li><b>Share as link</b> — share a plan as a link; without the app, the summary and map open on the web.</li>
+<li><b>Camera auto capture</b> — On Mac, iPhone, and iPad, connect a supported Sony camera over USB for burst shooting around a predicted plane crossing. Canon support is experimental and has not been verified on a physical camera. Use the app’s 1-second shutter test before a shoot.</li>
+</ul>
     <div class="phone-row shots">
       <figure><img src="/img/tools/home-en.jpg" width="600" height="1304" alt="Home — today&#x27;s sky and your next shooting chance" loading="lazy"><figcaption>Home — today&#x27;s sky and your next shooting chance</figcaption></figure>
       <figure><img src="/img/tools/calendar-en.jpg" width="600" height="1304" alt="Sky calendar — the Sun, the Moon, and sky events by date" loading="lazy"><figcaption>Sky calendar — the Sun, the Moon, and sky events by date</figcaption></figure>
@@ -469,7 +473,7 @@
       <p class="h-lead">Choose a target, pick a shooting spot on the map, and check the framing.</p>
       
       <ol class="flow">
-  <li><b>Set the target.</b><span class="d">In a new project, choose ‘Structure’ as the subject and set the place you want to shoot as the target.</span></li>
+  <li><b>Set the target.</b><span class="d">In a new project, choose ‘Structure’ as the subject and set the location of the structure you want to photograph as the target.</span></li>
   <li><b>Choose the shooting spot.</b><span class="d">The yellow band lines up at moonrise, the blue band at moonset. Set an accessible spot with a clear view as the shooting spot.</span></li>
   <li><b>Check the date and framing.</b><span class="d">Search for alignment dates, then adjust the time and lens focal length in the simulation to check the framing.</span></li>
   <li><b>Save the plan and check the site.</b><span class="d">Before the shoot, check the real view with a scouting photo or AR.</span></li>
@@ -478,7 +482,7 @@
     
     <div class="howto" id="howto-person">
       <h3><span class="k">B</span>Person — a silhouette in front of the Moon</h3>
-      <p class="h-lead">Stand far from the person and zoom in to keep them the same size, and the Moon looks larger by comparison.</p>
+      <p class="h-lead">Move farther from the person and increase the focal length to keep them the same size in the frame. The Moon will appear larger relative to them.</p>
       
       <ol class="flow">
   <li><b>Choose where the person stands.</b><span class="d">Choose ‘Person’ as the subject and set a spot with sky behind it, such as a ridge, as the target.</span></li>
@@ -505,10 +509,10 @@
       <p class="h-lead">Check likely crossings from live flight paths and get ready to shoot.</p>
       
       <ol class="flow">
-  <li><b>Set the shooting spot.</b><span class="d">Choose ‘Plane’ as the subject and set where you will shoot.</span></li>
-  <li><b>Start live watch.</b><span class="d">Start ‘Live watch’ and check nearby aircraft’s expected crossing times and how close they come to the Moon.</span></li>
-  <li><b>Shoot on the alert.</b><span class="d">Watch for the crossing alert and countdown, and get ready to burst.</span></li>
-  <li><b>Connect a receiver if you have one.</b><span class="d">With your own ADS-B receiver, data updates every second.</span></li>
+<li><b>Set the shooting spot.</b><span class="d">Choose ‘Plane’ as the subject and set where you will shoot.</span></li>
+<li><b>Start live watch.</b><span class="d">Start ‘Live Watch’ and keep the app open. Check nearby aircraft’s predicted crossing times and how close they come to the Moon.</span></li>
+<li><b>Shoot on the alert.</b><span class="d">Watch for the crossing alert and countdown, and prepare for burst shooting.</span></li>
+<li><b>Connect a receiver if you have one.</b><span class="d">With your own ADS-B receiver, data updates every second.</span></li>
 </ol>
     </div>
     
@@ -518,27 +522,27 @@
 <section class="section" id="google-key">
   <div class="wrap">
     <span class="tag nocaps">Google 3D key</span>
-    <h2>Photorealistic 3D outside Korea — free with your own Google key</h2>
-    <p class="lead sect-lead">3D buildings in Korea come from V-World with no key needed. Photorealistic 3D buildings outside Korea come from the Google Maps API, and Google charges each time it is used. <strong>The Photorealistic 3D subscription exists to cover that fee — it isn’t there to make extra money.</strong> <strong>Register your own Google API key and you can use exactly the same thing without a subscription.</strong></p>
+    <h2>Photorealistic 3D with your own Google key — no app subscription needed</h2>
+    <p class="lead sect-lead">In Korea, V-World provides 3D buildings without a separate key setup. Outside Korea, use <strong>your own Google API key or an app subscription</strong> for photorealistic 3D. Building models are shown where data is available.</p>
     <p><a href="guide/#sim-overseas">How to create and set up a Google API key →</a></p>
     <p class="note">Your own key takes priority over the subscription. It’s stored in iCloud Keychain on Apple devices and on the device on Android, sent only to Google, and <b>never to the developer</b>.</p>
-    <p class="note">Typical planning use stays mostly within Google’s monthly free allowance. Beyond it, Google’s pricing applies, so keep an eye on usage and charges in the Google Cloud console.</p>
+    <p class="note">Your own key requires Google Cloud billing to be enabled. Usage within Google’s monthly free allowance is free; overage charges apply beyond it. Check <a href="https://developers.google.com/maps/billing-and-pricing/pricing">current pricing</a> and your usage in the Cloud console.</p>
   </div>
 </section>
 
 <section class="section" id="pricing">
   <div class="wrap">
     <span class="tag">Pricing</span>
-    <h2>The app is $9.99 once · Photorealistic 3D with your own key (free) or a subscription</h2>
-    <p class="lead sect-lead">Buy the app once for $9.99 and use it on iPhone, iPad, and Mac with the same Apple Account. On Android, buy it separately on Google Play. Photorealistic 3D outside Korea is separate only because of the Google Maps API fee — <strong>register your own Google API key and it’s free.</strong> If setting up a key is a hassle, a subscription at $1.99/month or $17.99/year has the app pay the fee for you.</p>
+    <h2>Buy the app once · Photorealistic 3D outside Korea is optional</h2>
+    <p class="lead sect-lead">Planned pricing is US$9.99 for the app, with an optional photorealistic 3D subscription at US$1.99/month or US$17.99/year. One Apple purchase covers iPhone, iPad, and Mac on the same Apple Account; Android is sold separately. With your own Google API key, no app subscription is needed and Google’s pricing applies separately. Check your regional store for the actual price at launch.</p>
     <div class="table-wrap"><table>
-        <tr><th>App purchase · $9.99</th><th>Photorealistic 3D outside Korea · optional</th></tr>
-        <tr><td>Moon, Sun, and Milky Way planning with 3D simulation</td><td>Your own Google API key or a subscription</td></tr>
-        <tr><td>Alignment date search up to 90 days ahead</td><td>Subscription: $1.99/month · $17.99/year</td></tr>
-        <tr><td>ISS transit predictions and live plane alerts</td><td>Your own key: no subscription needed <span class="m">— Google pricing applies beyond the monthly free allowance</span></td></tr>
-        <tr><td>Photo Check for scouting and AR Check on site</td><td>Subscribe only when you need it and cancel anytime</td></tr>
-        <tr><td>Sky calendar, widgets, reference tables, plan sharing</td><td>Google Maps on the plan screen needs your own key <span class="m">— not part of the subscription</span></td></tr>
-      </table></div>
+<tr><th>App purchase · planned US$9.99</th><th>Photorealistic 3D outside Korea · optional</th></tr>
+<tr><td>Moon, Sun, and Milky Way planning with terrain-based 3D simulation</td><td>Your own Google API key or an app subscription</td></tr>
+<tr><td>Search up to 90 days from the selected date for alignments</td><td>Planned subscription: US$1.99/month · US$17.99/year</td></tr>
+<tr><td>ISS transit predictions and live plane watch</td><td>Your own key: no app subscription · Google’s free allowance and overage pricing apply</td></tr>
+<tr><td>Photo Check and AR Check on supported mobile devices</td><td>Subscription: 30 scene loads per device per day, including reloads · resets at local midnight</td></tr>
+<tr><td>Sky calendar, widgets, reference tables, and plan sharing</td><td>Optional Google Maps on Apple devices needs your own key · the default Android map does not</td></tr>
+</table></div>
   </div>
 </section>
 
@@ -546,12 +550,12 @@
   <div class="wrap">
     <span class="tag">FAQ</span>
     <h2>Frequently asked questions</h2>
-    <details><summary>How accurate is it?</summary><p>The error in the sky position calculation itself is very small. Most of the error in real results comes from terrain data and height inputs. Terrain data can be off by a few meters to tens of meters depending on the place, so the Moon may appear later than shown over a forested ridge, and with a narrow alignment such as Person mode, a few meters can change the result. For an important shoot, check again with the simulation and with Photo Check and AR Check on site.</p></details>
+    <details><summary>How accurate is it?</summary><p>Terrain data and height inputs have a large effect on Moon and Sun alignments. Terrain may differ from reality by a few to tens of meters, and trees or temporary structures may be missing. Photo Check depends on reference points and capture data; AR Check depends on heading calibration. ISS and plane predictions also depend on how current the orbit and live tracking data are. Check the actual view and framing on site before an important shoot.</p></details>
     <details><summary>Why should I search ISS predictions again?</summary><p>The station adjusts its orbit from time to time. Predictions use NASA’s published orbit data (OEM), and each data set is valid for a limited period. Search again the day before the shoot so the latest orbit data is used.</p></details>
-    <details><summary>Where does the live plane data come from?</summary><p>By default, adsb.lol community data (ODbL 1.0), updated every 30 seconds and stopping automatically after 2 hours. If you run your own ADS-B receiver (readsb/dump1090), enter its LAN address for 1-second updates with no time limit.</p></details>
-    <details><summary>Does it work worldwide?</summary><p>Yes. Shooting spots and times are calculated from worldwide terrain data. The 3D simulation uses V-World in Korea; elsewhere it shows photorealistic 3D buildings with a subscription or your own Google API key. Without either, you still see the Moon’s path and the terrain.</p></details>
-    <details><summary>Which devices and languages are supported?</summary><p>On iPhone, iPad, and Mac (macOS 14 or later), one App Store purchase covers all of them, and projects sync through iCloud. On Android (Android 12 or later), buy it separately on Google Play; projects sync between Android devices through Google Drive. Between Apple devices and Android, share plans with a link. AR Check needs a camera, so it isn’t available on the Mac. Languages are English, Korean, and Japanese; the app follows your system setting or can be changed in the app.</p></details>
-    <details><summary>Why is photorealistic 3D a subscription? Can I use it without one?</summary><p>Photorealistic 3D buildings outside Korea come from the Google Maps API, and Google charges each time it is used. The subscription has the app pay that fee for you — it isn’t there to make extra money. Register your own Google API key and you can use exactly the same thing without a subscription; typical planning use stays mostly within Google’s monthly free allowance. See <a href="guide/#sim-overseas">how to create and set up a key</a>.</p></details>
+    <details><summary>Where does the live plane data come from?</summary><p>The default source is adsb.lol community data (ODbL 1.0). Updates are usually about 30 seconds apart, with more frequent checks near a predicted crossing; server limits can cause delays. Remote watch stops automatically after 2 hours. With your own ADS-B receiver (readsb/dump1090), enter its data URL for 1-second updates without a session time limit. Keep the app open on mobile: watching may stop in the background.</p></details>
+    <details><summary>Does it work worldwide?</summary><p>You can plan using terrain data from around the world. Buildings appear where 3D data is available. Korea uses V-World; Google Photorealistic 3D outside Korea requires your own Google API key or an app subscription. Without either, you can still view celestial paths and terrain.</p></details>
+    <details><summary>Which devices and languages are supported?</summary><p>Supported systems are iOS and iPadOS 17 or later, macOS 14 or later, and Android 12 or later. One Apple purchase covers devices on the same Apple Account, with project sync when iCloud is enabled. Android is sold separately; enable Google Drive sync to sync projects between Android devices. Share plans across platforms with links. AR Check is available on iPhone, iPad, and ARCore-supported Android devices; Android also requires Google Play Services for AR. AR Check is not available on Mac. Choose English, Korean, or Japanese in the app, or follow the system language.</p></details>
+    <details><summary>Why is photorealistic 3D a subscription? Can I use it without one?</summary><p>The subscription covers the cost of photorealistic 3D data outside Korea. With your own Google API key, no app subscription is needed; Google’s free allowance and overage charges apply. The app subscription allows 30 scene loads per device per day, including reloads, and resets at local midnight. After the limit, only terrain is shown. Your own key is not subject to this app limit. See <a href="guide/#sim-overseas">key setup and usage conditions</a>.</p></details>
   </div>
 </section>
 
@@ -560,7 +564,7 @@
 <footer>
   <div class="wrap">
     <p class="foot-desc"><strong>MoonAlign</strong> — a planning app for shooting the Moon, the Sun, the ISS, planes, and the Milky Way. Contact: <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
-    <p class="srcs">Maps: Apple Maps · V-World (Korea MOLIT, KOGL Type 1) · Google Maps (your key) · Ground elevation: V-World 3D terrain (Korea) · Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018, provided under the Copernicus programme (EU, ESA) · Light pollution: EOG VIIRS night lights (VNL V2), estimated by the app from the OpenGeoHub redistribution (CC BY 4.0) · ISS orbit: NASA OEM · CelesTrak TLE · Air traffic: adsb.lol (ODbL 1.0) · Geoid: EGM96 (NGA) · 3D simulation: V-World · Google Photorealistic 3D Tiles · Weather: Apple Weather · Astronomy: astronomy-engine</p>
+    <p class="srcs">Maps: Apple Maps · V-World (Korea MOLIT, KOGL Type 1) · Google Maps (personal key on Apple devices; included on Android) · Ground elevation: V-World 3D terrain (Korea) · Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018, provided under the Copernicus programme (EU, ESA) · Light pollution: EOG VIIRS night lights (VNL V2), estimated by the app from the OpenGeoHub redistribution (CC BY 4.0) · ISS orbit: NASA OEM · CelesTrak TLE · Air traffic: adsb.lol (ODbL 1.0) · Geoid: EGM96 (NGA) · 3D simulation: V-World · Google Photorealistic 3D Tiles · Weather: Apple Weather · Astronomy: astronomy-engine</p>
     <p class="copy">© 2026 <a href="">YJLAB</a>. All rights reserved. · <a href="privacy/">Privacy Policy</a></p>
   </div>
 </footer>

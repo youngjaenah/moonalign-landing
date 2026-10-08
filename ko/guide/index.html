@@ -150,7 +150,8 @@
 
 <section>
 <h2 id="start">시작하기</h2>
-<p>이 설명서는 iPhone·iPad·Mac용 MoonAlign을 기준으로 안내합니다. 같은 Apple 계정으로 한 번 구매하면 세 기기에서 사용할 수 있습니다. 촬영 계획은 프로젝트로 저장되며, iCloud Drive를 통해 기기 간에 동기화됩니다.</p>
+<p>Mac의 넓은 화면으로 계획하거나 모바일 기기만으로 준비할 수 있습니다. Apple 기기는 같은 계정에서 iCloud를 사용하면 프로젝트가 동기화됩니다. Android는 Google Drive 동기화를 켜면 Android 기기끼리 동기화됩니다. Apple과 Android 사이에는 링크로 계획을 공유하세요.</p>
+<p>화면별 조작 예시는 Apple 기기를 기준으로 설명하며, Android의 지도·동기화·AR 지원 조건은 해당 절에서 구분합니다.</p>
 
 <h3 id="start-home">시작 메뉴</h3>
 <p>앱을 실행하면 시작 메뉴가 표시됩니다. 위쪽 <span class="ui">오늘 하늘</span> 카드에서 오늘의 일출·일몰, 월출·월몰, 하루 띠(낮·박명·밤과 달이 떠 있는 시간), 다음 정렬 계획, 다가오는 천문 현상을 확인할 수 있습니다.</p>
@@ -274,7 +275,7 @@
 <li>직접 운영하는 ADS-B 수신기(readsb·dump1090)가 있으면 <span class="ui">내 수신기</span>를 켜고 <code>aircraft.json</code> 주소를 입력하세요. 연결한 수신기의 데이터를 1초 간격으로 갱신합니다.</li>
 <li>감시 중에는 촬영지와 대상을 변경할 수 없습니다. 바꾸려면 <span class="ui">감시 중지</span>를 먼저 누르세요.</li>
 <li><span class="ui">통과 기회 기록</span>에서 이전 통과 후보를 확인할 수 있습니다.</li>
-<li><span class="ui">카메라 자동 촬영 (Sony·Canon)</span>: 지원 카메라를 USB로 연결하면 예상 통과 시점 전후로 연속 촬영합니다. <span class="ui">1초 시험 촬영</span>으로 먼저 확인하세요.</li>
+<li><span class="ui">카메라 자동 촬영 (Sony·Canon)</span>: Mac·iPhone·iPad에서 지원 Sony 카메라를 USB로 연결해 비행기 통과 전후로 연속 촬영합니다. Canon은 시험 지원이며 실기 검증 전입니다. 촬영 전 앱의 ‘1초 시험 촬영’으로 동작을 확인하세요.</li>
 </ul>
 </section>
 
@@ -291,11 +292,11 @@
 <li>시각 슬라이더로 옮긴 시각과 드래그로 맞춘 구도는 시뮬레이션을 떠날 때 프로젝트에 저장되어, 다시 열면 같은 장면으로 시작합니다. 구도는 아래 <span class="ui">시선</span> 버튼으로 처음 방향(천체 정면)으로 되돌립니다. 타겟·촬영지 위치나 날짜를 바꾸면 저장된 장면은 지워집니다.</li>
 </ul>
 <h3 id="sim-overseas">해외 실사 3D</h3>
-<p>해외 실사 3D 건물은 Google 지도 API로 불러오며, 사용량에 따라 Google 이용 요금이 발생합니다. <span class="ui">해외 실사 3D 구독</span>은 해당 이용 비용을 충당하기 위한 것으로, 추가 수익을 목적으로 하지 않습니다.</p>
-<p><strong>개인 Google API 키를 등록하면 구독 없이 동일한 실사 3D 기능을 이용할 수 있습니다.</strong> 구독과 개인 키가 모두 없으면 지형만 표시됩니다.</p>
-<p>개인 키는 설정의 <span class="ui">Google API 키</span>에 등록하며, 구독보다 우선하여 사용합니다. 키는 iCloud 키체인에 저장되어 내 Apple 기기 사이에서만 동기화되고, Google에만 전송됩니다. 개인 키 사용량에는 Google의 요금 정책이 적용됩니다. 무료 한도를 초과하면 비용이 발생할 수 있으므로 사용량과 요금을 확인하세요.</p>
-<p>계획 화면의 Google 지도도 개인 키가 필요하며 구독에는 포함되지 않습니다.</p>
-<p>건물 표시에는 하루 사용 한도가 있습니다. 한도에 도달하면 다음 날 다시 이용할 수 있습니다.</p>
+<p>한국의 3D 건물은 별도 키 설정 없이 V-World 데이터로 확인합니다. 한국 밖의 실사 3D는 <strong>개인 Google API 키 또는 앱 구독</strong>으로 이용할 수 있습니다. 건물 모델은 데이터 제공 지역에서 표시됩니다.</p>
+<p>개인 키를 등록하면 구독보다 우선하여 사용합니다. 키는 Apple 기기에서는 iCloud 키체인, Android에서는 기기 안에 저장되며, Google에만 전송되고 <b>개발자에게는 전달되지 않습니다</b>.</p>
+<p>개인 키를 사용하려면 Google Cloud 결제 설정이 필요합니다. Google의 월 무료 한도 안에서는 비용이 없고, 한도를 넘으면 Google 요금이 적용됩니다. <a href="https://developers.google.com/maps/billing-and-pricing/pricing">최신 요금</a>과 Cloud 콘솔의 사용량을 확인하세요.</p>
+<p>구독료는 해외 실사 3D 데이터 이용 비용을 충당합니다. 개인 Google API 키를 등록하면 앱 구독 없이 이용할 수 있으며, Google의 무료 한도와 초과 요금이 적용됩니다. 앱 구독에는 기기별 하루 30회 장면 로드 한도가 있고 재로드도 포함됩니다. 기기 현지 시각 자정에 초기화되며, 한도에 도달하면 지형만 표시됩니다. 개인 키에는 이 앱 한도가 적용되지 않습니다.</p>
+<p>Apple 기기의 선택형 Google 지도는 개인 키 필요 · Android 기본 Google 지도는 개인 키 불필요</p>
 <p><strong>Google API 키 발급 및 설정</strong></p>
 <ol>
       <li><b>Google Cloud 콘솔에 로그인합니다.</b>
@@ -336,7 +337,7 @@
 <section>
 <h2 id="ar">AR 확인 — 현장에서 촬영 방향 확인</h2>
 <!-- shot: ar -->
-<p>촬영 당일 현장에서 iPhone·iPad를 들면 계획한 천체 경로가 카메라 화면의 하늘 위에 겹쳐 표시됩니다. 달이 뜨기 전에 구도를 잡을 수 있습니다. Mac에서는 AR 확인을 지원하지 않습니다.</p>
+<p>iPhone·iPad 및 ARCore 지원 Android 기기에서 천체 경로를 카메라 화면에 겹쳐 볼 수 있습니다. Android에는 Google Play AR 서비스가 필요하며 Mac에서는 지원하지 않습니다. 방위를 보정한 뒤 촬영 방향과 구도를 확인하세요.</p>
 <ul>
 <li><span class="ui">시각</span>: 시각을 조절하며 천체가 떠 있는 시간대의 전체 경로를 확인합니다.</li>
 <li><span class="ui">맞추기</span>: 나침반 오차를 바로잡습니다. 하늘에 달이 보이면 십자선에 맞춘 뒤 <span class="ui">달에 맞추기</span>를 누릅니다. 달이 보이지 않으면 타겟 꼭대기를 십자선에 맞춘 뒤 <span class="ui">타겟에 맞추기</span>를 누릅니다. 사람 모드에서는 <span class="ui">사람에 맞추기</span>를 사용합니다.</li>
@@ -386,7 +387,7 @@
 <tr><td><span class="ui">타임존</span></td><td>계획 시각을 표시할 시간대를 선택합니다.</td></tr>
 <tr><td><span class="ui">언어</span></td><td>시스템 기본 · 한국어 · English · 日本語. 앱을 다시 실행하면 적용됩니다.</td></tr>
 <tr><td><span class="ui">기본 높이</span></td><td>새 계획에 사용할 <span class="ui">촬영 높이</span>와 <span class="ui">사람 키</span>의 기본값을 설정합니다.</td></tr>
-<tr><td><span class="ui">Google API 키</span></td><td>해외 실사 3D와 Google 지도에 사용할 개인 키를 등록합니다(선택 사항). 키는 Apple 기기 간에 iCloud 키체인으로 동기화됩니다.</td></tr>
+<tr><td><span class="ui">Google API 키</span></td><td>개인 키를 등록하면 구독보다 우선하여 사용합니다. 키는 Apple 기기에서는 iCloud 키체인, Android에서는 기기 안에 저장되며, Google에만 전송되고 <b>개발자에게는 전달되지 않습니다</b>.</td></tr>
 <tr><td><span class="ui">해외 실사 3D 구독</span></td><td>구독을 신청하거나 <span class="ui">구독 관리</span>·<span class="ui">구매 복원</span>을 이용합니다.</td></tr>
 <tr><td><span class="ui">데이터 출처</span></td><td>지도·지형·궤도·항적 자료의 출처를 확인합니다.</td></tr>
 </table>
