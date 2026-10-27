@@ -7,7 +7,8 @@
 (function (root) {
   'use strict';
 
-  var VERSION = 1;                                     // 이 페이지가 읽는 가장 새 형식
+  var VERSION = 2;                                     // 이 페이지가 읽는 가장 새 형식(v2 = v1 + ss, spec 021)
+  var STATIONS = ['css'];                              // v2 ss 허용 값(ISS는 키 없음) — 모르는 값은 새 버전 필요
   var MAX_LINK = 4000;                                 // 앱과 같은 입력 상한(링크 전체)
   var PAGE_PREFIX = 'https://moonalign.yjlab.io/p';    // 해시 앞부분 — 해시만 받을 때 링크 길이 환산용
   var MAX_INFLATED = 16 * 1024;                        // 해제 폭탄 방어(앱과 같음)
@@ -125,6 +126,12 @@
       var text = new TextDecoder('utf-8', { fatal: true }).decode(raw);
       var plan = JSON.parse(text);
       validate(plan);
+      // ss(우주정거장 대상, spec 021) — v1에선 모르는 키라 버리고, v2에선 모르는 값이면 ISS로 잘못 열지 않게 새 버전 필요.
+      if ('ss' in plan) {
+        if (v < 2) delete plan.ss;
+        else if (!isStr(plan.ss)) throw new Bad();
+        else if (STATIONS.indexOf(plan.ss) < 0) return { kind: 'unsupported', version: v };
+      }
       return { kind: 'ok', plan: plan };
     } catch (e) {
       return { kind: 'corrupt' };
@@ -216,8 +223,10 @@
       case 'st': return (p.b === 'gc') ? body : body + ' · ' + S['mode.st'];
       case 'hu': return body + ' · ' + S['mode.hu'];
       case 'fr': return body;
-      case 'is': return p.b === 'sun' ? S['mode.is.sun'] : S['mode.is.moon'];
-      case 'ip': return S['mode.ip'];
+      case 'is':
+        if (p.ss === 'css') return p.b === 'sun' ? S['mode.css.sun'] : S['mode.css.moon'];
+        return p.b === 'sun' ? S['mode.is.sun'] : S['mode.is.moon'];
+      case 'ip': return p.ss === 'css' ? S['mode.css.pass'] : S['mode.ip'];
       case 'pl': return S['mode.pl'];
     }
     return body;

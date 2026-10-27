@@ -11,14 +11,14 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
   <link rel="apple-touch-icon" href="/img/icon/apple-touch-icon.png">
-  <meta name="description" content="MoonAlignの使い方ガイド — ターゲットと撮影地の指定、モード別の流れ(構造物・人物・ISS・飛行機・天の川)、シミュレーション・写真チェック・ARチェック、天文カレンダー、共有、困ったときは。">
+  <meta name="description" content="MoonAlignの使い方ガイド — ターゲットと撮影地の指定、モード別の流れ(構造物・人物・宇宙ステーション・飛行機・天の川)、シミュレーション・写真チェック・ARチェック、天文カレンダー、共有、困ったときは。">
   <link rel="canonical" href="https://moonalign.yjlab.io/ja/guide/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/guide/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/guide/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/guide/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/guide/">
   <meta property="og:title" content="使い方ガイド — MoonAlign">
-  <meta property="og:description" content="MoonAlignの使い方ガイド — ターゲットと撮影地の指定、モード別の流れ(構造物・人物・ISS・飛行機・天の川)、シミュレーション・写真チェック・ARチェック、天文カレンダー、共有、困ったときは。">
+  <meta property="og:description" content="MoonAlignの使い方ガイド — ターゲットと撮影地の指定、モード別の流れ(構造物・人物・宇宙ステーション・飛行機・天の川)、シミュレーション・写真チェック・ARチェック、天文カレンダー、共有、困ったときは。">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:type" content="article">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -133,7 +133,7 @@
       <li><a href="#structure">構造物 — タワーの後ろに月を重ねる</a></li>
       <li><a href="#person">人物 — 月の前のシルエット</a></li>
       <li><a href="#free">なしと天の川</a></li>
-      <li><a href="#iss">ISS — 月面・太陽面通過</a></li>
+      <li><a href="#iss">宇宙ステーション(ISS・天宮) — 月面・太陽面通過</a></li>
       <li><a href="#plane">飛行機 — ライブ監視</a></li>
       <li><a href="#sim">シミュレーション — 3Dで事前確認</a></li>
       <li><a href="#photo">写真チェック — 下見写真に経路を描く</a></li>
@@ -187,7 +187,7 @@
 <p>パネル上部の2つを選ぶと、残りの流れがそれに合わせて変わります。</p>
 <ul>
 <li><span class="ui">対象</span> — 空の何を撮るか:<span class="ui">月</span>・<span class="ui">太陽</span>・<span class="ui">天の川</span>。</li>
-<li><span class="ui">被写体</span> — その手前に何を置くか:<span class="ui">構造物</span>(タワー・橋・スカイライン)・<span class="ui">人物</span>(シルエット)・<span class="ui">なし</span>(天体だけ)・<span class="ui">ISS</span>・<span class="ui">飛行機</span>。</li>
+<li><span class="ui">被写体</span> — その手前に何を置くか:<span class="ui">構造物</span>(タワー・橋・スカイライン)・<span class="ui">人物</span>(シルエット)・<span class="ui">なし</span>(天体だけ)・<span class="ui">宇宙ステーション</span>(ISS・天宮)・<span class="ui">飛行機</span>。</li>
 </ul>
 
 <h3 id="plan-assign">ターゲットと撮影地の指定</h3>
@@ -260,16 +260,16 @@
 </section>
 
 <section>
-<h2 id="iss">ISS — 月面・太陽面通過</h2>
-<p>国際宇宙ステーションが月の円盤を横切るのは約0.5秒です。MoonAlignはNASAの軌道データから秒単位で予報します。</p>
+<h2 id="iss">宇宙ステーション(ISS・天宮) — 月面・太陽面通過</h2>
+<p>国際宇宙ステーションが月の円盤を横切るのは約0.5秒です。MoonAlignはNASAの軌道データから秒単位で予報します。中国の宇宙ステーション天宮も一度にまとめて探します。</p>
 <ol>
-<li><span class="ui">被写体</span>で<span class="ui">ISS</span>、<span class="ui">対象</span>で<span class="ui">月</span>(または<span class="ui">太陽</span>)を選びます。</li>
-<li>どこへ行けばよいかわからなければ、<span class="ui">通過予測エリア</span>の<span class="ui">通過が見える場所を探す</span>を押します。いまの地図の範囲で通過が見える<strong>帯</strong>が描かれます。各行には時刻、月の高度、月の形(例:満月 99%)、昼・夜が表示され、行を押すと地図がその帯に移動します。昼間や地平線近くの帯は折りたたまれたグループにまとまっています。</li>
-<li>帯の上に撮影地を指定し、<span class="ui">ISS月面通過</span>の<span class="ui">14日間検索</span>を押します。</li>
-<li>結果の行で等級(<span class="ui">通過見込み</span>・<span class="ui">通過可能</span>・<span class="ui">接近</span>)、離角、通過時間を見て、<span class="ui">選択</span>で確定します。確定すると自動で保存され、シミュレーションで0.1秒単位で確認できます。</li>
+<li><span class="ui">被写体</span>で<span class="ui">宇宙ステーション</span>、<span class="ui">対象</span>で<span class="ui">月</span>(または<span class="ui">太陽</span>)を選びます。ISSと天宮をまとめて探すので、ステーションを選ぶ必要はありません。</li>
+<li>どこへ行けばよいかわからなければ、<span class="ui">通過予測エリア</span>の<span class="ui">通過が見える場所を探す</span>を押します。いまの地図の範囲で通過が見える<strong>帯</strong>が描かれます。各行には時刻、月の高度、月の形(例:満月 99%)、昼・夜が表示され、行を押すと地図がその帯に移動します。帯はステーションごとに色が違い(ISSは紫・天宮はピンク)、行にステーション名が付きます。昼間や地平線近くの帯は折りたたまれたグループにまとまっています。</li>
+<li>帯の上に撮影地を指定し、<span class="ui">宇宙ステーションの月面通過</span>の<span class="ui">14日間検索</span>を押します。</li>
+<li>結果の行でステーション名、等級(<span class="ui">通過見込み</span>・<span class="ui">通過可能</span>・<span class="ui">接近</span>)、離角、通過時間を見て、<span class="ui">選択</span>で確定します。確定すると自動で保存され、シミュレーションで0.1秒単位で確認できます。</li>
 </ol>
-<p><span class="ui">ISS上空通過</span>(折りたたみ)は、月の前ではなく夜空を横切るISSです。明るさ、最大高度、方向、見える時間が表示されます。</p>
-<div class="note">予報はすべて軌道データに基づく予測です。ISSは随時軌道を調整するので、<strong>撮影の前日に必ずもう一度検索</strong>してください。状態の行で使ったデータ(NASA OEMまたはTLE)と有効期限を確認できます。</div>
+<p><span class="ui">上空通過</span>(折りたたみ)は、月の前ではなく夜空を横切るステーションです。明るさ、最大高度、方向、見える時間が表示されます。</p>
+<div class="note">予報はすべて軌道データに基づく予測です。ステーションは随時軌道を調整するので、<strong>撮影の前日に必ずもう一度検索</strong>してください。状態の行で使ったデータ(NASA OEMまたはTLE)と有効期限を確認できます。天宮は中国有人宇宙プロジェクト弁公室の軌道暦から作られた軌道で約6日先まで計算し、それより先は通常のTLEで計算するため誤差が大きくなります — 結果の行の出典(<span class="ui">軌道暦</span>・<span class="ui">TLE</span>)を確認してください。</div>
 </section>
 
 <section>
@@ -296,10 +296,10 @@
 <p>地形・建物・実際のレンズの画角でプランを事前に確認します。韓国ではV-World 3D(国土交通部)、韓国外ではGoogleフォトリアリスティック3Dを使います。</p>
 <ul>
 <li><span class="ui">時刻</span>スライダー:重なる時刻の前後を動かし、月がターゲットの後ろに入っていく様子を見ます。範囲は(i)にあります。</li>
-<li><span class="ui">焦点距離</span>:14〜1200mmとセンサー(<span class="ui">フルサイズ</span>・<span class="ui">APS-C ソニー/ニコン</span>・<span class="ui">APS-C キヤノン</span>・<span class="ui">マイクロフォーサーズ</span>)。クロップセンサーでは35mm換算の焦点距離も表示されます。</li>
+<li><span class="ui">焦点距離</span>:14〜1200mmとセンサー(<span class="ui">フルサイズ</span>・<span class="ui">APS-C ソニー/ニコン</span>・<span class="ui">APS-C キヤノン</span>・<span class="ui">マイクロフォーサーズ</span>)。クロップセンサーでは35mm換算の焦点距離も表示されます。画面を2本指で広げたりつまんだりしても(MacはトラックパッドのピンチまたはControl+スクロール)焦点距離が変わり、指を離すとその値がプロジェクトに保存されます。</li>
 <li><span class="ui">絞り</span>:選ぶとピントの案内が付きます — 月にピントを合わせてもターゲットまでシャープか、それともどこに合わせるか、2枚を合成すべきか。</li>
 <li><span class="ui">高さを測る</span>:3Dモデルで構造物の高さを測り、<span class="ui">この高さを使う</span>でプランに入れます。</li>
-<li>画面上のチップ:<span class="ui">カメラ位置を見る</span>(自分の位置を外から確認)・<span class="ui">横位置</span>/<span class="ui">縦位置</span>・<span class="ui">シルエット表示</span>・<span class="ui">画像を保存</span>。画面をドラッグすると視線を動かせます。</li>
+<li>画面上のチップ:<span class="ui">カメラ位置を見る</span>(自分の位置を外から確認)・<span class="ui">横位置</span>/<span class="ui">縦位置</span>・<span class="ui">シルエット表示</span>・<span class="ui">画像を保存</span>。画面をドラッグすると視線を動かせ、2本指で広げると拡大できます。</li>
 <li>時刻スライダーで動かした時刻とドラッグで合わせた構図は、シミュレーションを離れるときにプロジェクトに保存され、次に開くと同じ場面から始まります。構図は下の<span class="ui">視線</span>ボタンで最初の向き(天体の正面)に戻せます。ターゲット・撮影地の位置や日付を変えると、保存された場面は消えます。</li>
 </ul>
 <h3 id="sim-overseas">韓国外の実写3D</h3>
@@ -335,13 +335,17 @@
 <ol>
 <li><span class="ui">写真チェック</span>タブで<span class="ui">写真を選択</span>から写真を読み込みます。撮影時刻・焦点距離・GPS(EXIF)のある元の写真が向いています。</li>
 <li><span class="ui">基準</span>(月・太陽・天の川・ターゲット)と<span class="ui">位置</span>(この写真の位置/撮影地の位置/現在地)を選びます。</li>
-<li>赤いリング(天体)とオレンジの印(ターゲットの頂上・人物の頭)を写真の実際の位置にドラッグして合わせます。拡大してから長押しでドラッグすると細かく動かせます。</li>
+<li>基準点にマークを置きます — 赤いリングは天体、青緑の印はターゲットの頂上・人物の頭です。月・太陽は写真から自動で見つけてリングを置くので、位置が合っているか確かめるだけで構いません。
+<ul>
+<li><strong>iPhone・iPad</strong>:1本指で写真を動かして中央の十字線を基準点に合わせ、<span class="ui">ここにマークを置く</span>を押します。2本指で広げて拡大するほど正確に合わせられます。置き直すときは<span class="ui">マークを置き直す</span>を押してください。</li>
+<li><strong>Mac</strong>:写真の中の基準点をクリックします。トラックパッドのピンチまたはControl(⌘)+スクロールで拡大し、拡大中はスクロールで写真を動かせます。</li>
+</ul></li>
 <li><span class="ui">時刻</span>スライダーで予定の時間帯の経路を見渡します。</li>
 </ol>
 <ul>
 <li>カメラの時計が数秒ずれていたら<span class="ui">時計補正</span>に秒を入れてください。</li>
 <li><span class="ui">35mm換算</span>は35mm換算の焦点距離です。EXIFと違う場合は元の値も表示されます。</li>
-<li>ISS・飛行機のプロジェクトには写真チェックはありません。</li>
+<li>宇宙ステーション・飛行機のプロジェクトには写真チェックはありません。</li>
 </ul>
 </section>
 
@@ -461,7 +465,7 @@
 <details><summary>構造物の高さが空、またはおかしい</summary><p>ランドマーク表にない建物は高さが見つからないことがあります。直接入力するか、シミュレーションの<span class="ui">高さを測る</span>で3Dモデルから測ってください。よく使う対象なら<span class="ui">マイランドマークに保存</span>しておきましょう。</p></details>
 <details><summary>シミュレーションで月やターゲットが見えず、壁のようなものにふさがれる</summary><p>地図では開けて見えても、3Dでは撮影地が建物の中や壁・擁壁のすぐ後ろ、木の中に置かれていたり、ターゲットと撮影地の間に建物や丘があったりすることがあります。計画地図の遮り表示は地形だけを判定し、建物は見ていません。</p><p>シミュレーションの<span class="ui">カメラ位置を見る</span>を押して、カメラがどこに置かれているかを外から確認してください。建物の中や壁の後ろなら、撮影地を開けた場所へ少し動かすか、<span class="ui">カメラの高さ</span>を変えてみてください。ターゲットと撮影地の間に障害物があるなら、帯の上の別の場所を選んでください。実際の見え方は<a href="#tips-streetview">ストリートビュー</a>でも事前に確認できます。</p></details>
 <details><summary>シミュレーションで韓国外の建物が表示されない</summary><p>韓国以外では<span class="ui">実写3Dサブスクリプション</span>か自分のGoogleキーがないと建物は表示されません。どちらかあるなら、1日の利用上限に達した可能性があります — 翌日にまた表示されます。</p></details>
-<details><summary>ISSの通過時刻が昨日と変わった</summary><p>正常です。ISSの軌道は随時調整され、新しい軌道データが出ると予報も変わります。撮影の前日にもう一度検索してください。</p></details>
+<details><summary>宇宙ステーションの通過時刻が昨日と変わった</summary><p>正常です。ISS・天宮の軌道は随時調整され、新しい軌道データが出ると予報も変わります。撮影の前日にもう一度検索してください。</p></details>
 <details><summary>共有されたリンクを押すとWebページが開く</summary><p>アプリがインストールされていれば、ページの<span class="ui">MoonAlignアプリで開く</span>を押してください。ブラウザのアドレスバーに直接貼り付けたリンクはアプリで開かず、メッセンジャーなどで<em>押したとき</em>にアプリで開きます。</p></details>
 <details><summary>ほかの端末にプロジェクトが表示されない</summary><p>両方の端末で同じApple AccountのiCloud Driveがオンになっている必要があります。最初のダウンロード中は一覧に<em>ダウンロード中</em>の案内が表示されます。</p></details>
 <p>そのほかのお問い合わせは<a href="mailto:support@yjlab.io">support@yjlab.io</a>までお送りください。</p>
