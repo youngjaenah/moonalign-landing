@@ -157,7 +157,7 @@
 
 <section>
 <h2 id="start">Getting started</h2>
-<p>Plan on a Mac’s larger screen or prepare your shoot entirely on mobile. Apple devices sync projects through iCloud when using the same account with iCloud enabled. Turn on Google Drive sync to sync between Android devices. Share plans between Apple and Android with a link.</p>
+<p>Plan on a Mac's larger screen or prepare your shoot entirely on mobile. Apple devices sync projects through iCloud when using the same account with iCloud enabled. Turn on Google Drive sync to sync between Android devices. Share plans between Apple and Android with a link.</p>
 <p>Screen-by-screen examples use Apple devices. Android map, sync, and AR requirements are called out where they differ.</p>
 
 <h3 id="start-home">Home</h3>
@@ -199,7 +199,7 @@
 <li><strong>iPad · Mac</strong>: the <span class="ui">Set target</span> · <span class="ui">Set shooting spot</span> buttons in the panel, or long-press the map (right-click on the Mac).</li>
 <li>Search: the magnifier at the top left of the map, <span class="ui">Search places</span>.</li>
 <li>The shooting spot can also come from <span class="ui">My location</span> or <span class="ui">From photo</span> (a photo with location data).</li>
-<li>On iPhone and iPad you can drag the pins. Moved one by mistake? <span class="ui">Undo move</span> at the top left of the map puts it back (positions only — date and time stay as they are).</li>
+<li>On iPhone and iPad you can drag the pins. Moved one by mistake? <span class="ui">Undo move</span> at the top left of the map puts it back, and <span class="ui">Redo move</span> applies it again (positions only — date and time stay as they are).</li>
 </ul>
 
 <h3 id="plan-heights">Heights and ground elevation</h3>
@@ -227,7 +227,7 @@
 
 <section>
 <h2 id="structure">Structure — the Moon behind a tower</h2>
-<figure class="shot"><img src="/img/guide/band-mac-en.jpg" alt="The planning screen on the Mac" loading="lazy"><figcaption>The planning screen on the Mac — the yellow band (moonrise) and blue band (moonset), and the Moon’s direction from the shooting spot (red). The shooting spot card on the left shows the result. Example: the Eiffel Tower, moonrise on 2026-12-23.</figcaption></figure>
+<figure class="shot"><img src="/img/guide/band-mac-en.jpg" alt="The planning screen on the Mac" loading="lazy"><figcaption>The planning screen on the Mac — the yellow band (moonrise) and blue band (moonset), and the Moon's direction from the shooting spot (red). The shooting spot card on the left shows the result. Example: the Eiffel Tower, moonrise on 2026-12-23.</figcaption></figure>
 <p>This is MoonAlign's core flow; the other modes follow the same grammar.</p>
 <ol>
 <li>Choose <span class="ui">Body</span> <span class="ui">Moon</span> and <span class="ui">Subject</span> <span class="ui">Structure</span>.</li>
@@ -262,7 +262,7 @@
 
 <section>
 <h2 id="iss">Space stations (ISS, Tiangong) — lunar and solar transits</h2>
-<p>The International Space Station crosses the Moon's disk in about half a second. MoonAlign forecasts it to the second from NASA orbit data. China's Tiangong station is searched at the same time.</p>
+<p>MoonAlign predicts where and when the International Space Station (ISS) and China's Tiangong station cross in front of the Moon or Sun. Both stations are searched at the same time. A crossing of the disk takes less than a second; check the exact duration in the result you select. The ISS is computed from NASA orbit data (OEM, with CelesTrak TLE as a fallback), and Tiangong from CelesTrak orbit data.</p>
 <ol>
 <li>Choose <span class="ui">Subject</span> <span class="ui">Space station</span> and <span class="ui">Body</span> <span class="ui">Moon</span> (or <span class="ui">Sun</span>). The ISS and Tiangong are searched together, so there is no station to pick.</li>
 <li>Not sure where to go? Tap <span class="ui">Find transit spots</span> under <span class="ui">Predicted transit areas</span>. It draws the <strong>bands</strong> where a transit is visible within the current map view. Each row shows the time, the Moon's altitude, its phase (for example, Full Moon 99%), and day or night. Tap a row to move the map to that band. Each station has its own band color (ISS purple, Tiangong pink), and each row is labeled with the station. Daytime and near-horizon bands are collected in a folded group.</li>
@@ -284,10 +284,10 @@
 <figure class="shot"><img src="/img/guide/plane-mac-en.jpg" alt="Plane live watch on the Mac" loading="lazy"><figcaption>Plane live watch on the Mac — a shooting spot near Gimpo (recorded data from 2026-09-07). Yellow icons are nearby aircraft; the red icon (AAR1045) is expected to cross the Moon in about 32 seconds, and the alert at the top of the map announces it.</figcaption></figure>
 <p>While watching, nearby aircraft appear on the map as plane icons turned in their direction of travel, with their flight numbers. The color shows their status: <strong>yellow</strong> normal · <strong>orange</strong> a candidate passing near the Moon · <strong>red</strong> transit expected · <strong>gray</strong> no position update for several seconds. On the Mac, hover over an icon to see the flight number, altitude, and when its position was received.</p>
 <ul>
-<li>Run your own ADS-B receiver (readsb, dump1090)? Turn on <span class="ui">My receiver</span> and enter its aircraft.json address — it's faster and more accurate.</li>
+<li>Run your own ADS-B receiver (readsb, dump1090)? Turn on <span class="ui">My receiver</span> and enter its aircraft.json address. It refreshes at 1-second intervals, faster than public traffic.</li>
 <li>While watching, the shooting spot and body are locked. Tap <span class="ui">Stop watching</span> first to change them.</li>
 <li><span class="ui">Transit history</span> keeps past candidates.</li>
-<li><span class="ui">Camera auto capture (Sony · Canon)</span>: On Mac, iPhone, and iPad, connect a supported Sony or Canon camera over USB for burst shooting around a predicted plane crossing (Canon support is experimental). Use the app’s 1-second shutter test before a shoot.</li>
+<li><span class="ui">Camera auto capture (Sony · Canon)</span>: On Mac, iPhone, and iPad, connect a supported Sony or Canon camera over USB for burst shooting around a predicted plane crossing (Canon support is experimental). Use <span class="ui">Test shutter for 1 second</span> in the app before a shoot.</li>
 </ul>
 </section>
 
@@ -305,28 +305,29 @@
 </ul>
 <h3 id="sim-overseas">Photorealistic 3D outside Korea</h3>
 <p>In Korea, V-World provides 3D buildings without a separate key setup. Outside Korea, use <strong>your own Google API key or an app subscription</strong> for photorealistic 3D. Building models are shown where data is available.</p>
-<p>Your own key takes priority over the subscription. It’s stored in iCloud Keychain on Apple devices and on the device on Android, sent only to Google, and <b>never to the developer</b>.</p>
-<p>Your own key requires Google Cloud billing to be enabled. Usage within Google’s monthly free allowance is free; overage charges apply beyond it. Check <a href="https://developers.google.com/maps/billing-and-pricing/pricing">current pricing</a> and your usage in the Cloud console.</p>
-<p>The subscription covers the cost of photorealistic 3D data outside Korea. With your own Google API key, no app subscription is needed; Google’s free allowance and overage charges apply. The app subscription allows 30 scene loads per device per day, including reloads, and resets at local midnight. After the limit, only terrain is shown. Your own key is not subject to this app limit.</p>
+<p>Your own key takes priority over the subscription. It's stored in iCloud Keychain on Apple devices and on the device on Android, sent only to Google, and <b>never to the developer</b>.</p>
+<p>Your own key requires Google Cloud billing to be enabled. Usage within Google's monthly free allowance is free; overage charges apply beyond it. Check <a href="https://developers.google.com/maps/billing-and-pricing/pricing">current pricing</a> and your usage in the Cloud console.</p>
+<p>The subscription covers the cost of photorealistic 3D data outside Korea. With your own Google API key, no app subscription is needed; Google's free allowance and overage charges apply. The app subscription allows 30 scene loads per device per day, including reloads, and resets at local midnight. After the limit, only terrain is shown. Your own key is not subject to this app limit.</p>
+<p>Choose <span class="ui">Monthly</span> or <span class="ui">Yearly</span>. The subscription renews automatically each period until you cancel. On iPhone, iPad, and Mac it's charged to your Apple account and can be canceled anytime under Subscriptions in your App Store account settings (<span class="ui">Manage subscription</span> in Settings); on Android it's charged to your Google Play account and can be canceled anytime under subscriptions in Google Play. If you reinstalled the app or added a device, tap <span class="ui">Restore purchases</span>. The subscription screen links to the <span class="ui">Terms of Use (EULA)</span> and the <span class="ui">Privacy Policy</span>.</p>
 <p>On Apple devices, Google Maps on the plan screen is available only with your own key (it is not part of the subscription). On Android it is the default map and needs no key.</p>
 <p><strong>Creating and setting up a Google API key</strong></p>
 <ol>
       <li><b>Sign in to the Google Cloud console.</b>
         <span><a href="https://console.cloud.google.com" rel="noopener">console.cloud.google.com</a> — any regular Google account works.</span></li>
       <li><b>Create a project.</b>
-        <span>Project picker at the top → “New project.” Enter any name (e.g. <code>moonalign-3d</code>).</span></li>
+        <span>Project picker at the top → "New project." Enter any name (e.g. <code>moonalign-3d</code>).</span></li>
       <li><b>Link a billing account.</b>
-        <span>Map APIs require a card on file. Costs may apply beyond the free allowance, so check Google’s current pricing before you start.</span></li>
+        <span>Map APIs require a card on file. Costs may apply beyond the free allowance, so check Google's current pricing before you start.</span></li>
       <li><b>Enable the Map Tiles API.</b>
-        <span>In “APIs &amp; Services → Library,” search for <code>Map Tiles API</code> and enable it. Photorealistic 3D tiles are part of this API.</span></li>
+        <span>In "APIs &amp; Services → Library," search for <code>Map Tiles API</code> and enable it. Photorealistic 3D tiles are part of this API.</span></li>
       <li><b>Create an API key.</b>
-        <span>“APIs &amp; Services → Credentials → + Create credentials → API key.” Copy the key string.</span></li>
+        <span>"APIs &amp; Services → Credentials → + Create credentials → API key." Copy the key string.</span></li>
       <li><b>Restrict the key (recommended).</b>
-        <span>Edit the key → “API restrictions” → allow <code>Map Tiles API</code> only. This limits which APIs the key can be used for. Set “Application restrictions” to “None” — a key restricted to iOS apps won’t work in MoonAlign.</span></li>
+        <span>Edit the key → "API restrictions" → allow <code>Map Tiles API</code> only. This limits which APIs the key can be used for. Set "Application restrictions" to "None" — a key restricted to iOS apps won't work in MoonAlign.</span></li>
       <li><b>Paste it into MoonAlign.</b>
-        <span>Plan screen → Settings → “Google API key.” It takes effect the next time the simulation loads.</span></li>
+        <span>Plan screen → Settings → "Google API key." It takes effect the next time the simulation loads.</span></li>
     </ol>
-<p>You can set cost alerts under “Billing → Budgets &amp; alerts” in the Google Cloud console. Budget alerts don’t stop usage or charges automatically, so keep an eye on both usage and charges.</p>
+<p>You can set cost alerts under "Billing → Budgets &amp; alerts" in the Google Cloud console. Budget alerts don't stop usage or charges automatically, so keep an eye on both usage and charges.</p>
 </section>
 
 <section>
@@ -366,8 +367,8 @@
 <section>
 <h2 id="calendar">Sky calendar, widgets, and Calendar</h2>
 <p>The <span class="ui">Sky calendar</span> shows full moons (supermoons and micromoons), new moons, lunar and solar eclipses, meteor showers, planet oppositions and conjunctions, close approaches and occultations of the Moon with planets and bright stars, Venus at greatest brilliancy, and the equinoxes and solstices. Close approaches and conjunctions are reported at the time <em>they're actually visible from your reference location</em>. Tap a date to see that day's Sun &amp; Moon card, your saved plans, and its events. Meteor showers note how much moonlight will interfere. For eclipse path maps and eclipse times at your shooting spot, see <a href="#eclipse">Eclipses</a>.</p>
-<p><span class="ui">Add to Calendar</span> on an event or plan row adds it to your device's calendar (with reminders the evening before and an hour before). iPhone and iPad show the event editor; the Mac saves it directly. The app never reads your calendar.</p>
-<p>Home screen and Notification Center widgets: <span class="ui">Today's sky</span> · <span class="ui">Today's Moon</span> · <span class="ui">Today's Sun</span> · <span class="ui">Next shooting chance</span>, plus Lock Screen widgets. Widgets show what the app last calculated, so open the app once in a while.</p>
+<p><span class="ui">Add to Calendar</span> on an event or plan row adds it to your device's calendar (with reminders the evening before and an hour before). iPhone and iPad show the event editor; the Mac saves it directly. Android also shows the event editor, but it can't add reminders automatically, so the recommended reminder times are written on the first line of the notes; set the reminders yourself. The app never reads your calendar.</p>
+<p>Home screen and Notification Center widgets: <span class="ui">Today's sky</span> · <span class="ui">Today's Moon</span> · <span class="ui">Today's Sun</span> · <span class="ui">Next shooting chance</span>, plus Lock Screen widgets on iPhone and iPad. Widgets show what the app last calculated, so open the app once in a while.</p>
 </section>
 
 <section>
@@ -385,9 +386,10 @@
 <section>
 <h2 id="projects">Managing and sharing projects</h2>
 <p>A plan is saved as a project automatically as soon as you set the shooting spot. <span class="ui">Projects</span> lists them by most recently edited; long-press a row (right-click on the Mac) for <span class="ui">Open</span> · <span class="ui">Rename…</span> · <span class="ui">Share as Link…</span> · <span class="ui">Export as File…</span> · <span class="ui">Delete…</span>. To delete several at once, use <span class="ui">Select</span>.</p>
-<p>Projects sync through iCloud Drive across devices on the same Apple Account. Without iCloud they stay on that device.</p>
+<p>Projects sync through iCloud Drive across devices on the same Apple Account. Without iCloud they stay on that device. On iPhone and iPad, downloads over cellular can be slow or stall; if the list shows a notice, connect to Wi-Fi or turn on iCloud Drive in Settings &gt; Cellular. A notice that a project file or the folder couldn't be read doesn't mean anything was deleted; the app tries again automatically shortly after.</p>
+<p>On Android, turn on <span class="ui">Google Drive sync</span> in Settings to sync between Android devices on the same Google account (it doesn't sync with Apple devices (iPhone, iPad, Mac); move plans with a link or file). While projects first download, an empty list shows <span class="ui">Waiting for your Google Drive projects</span>, and if it can't connect you're asked to check your network. Projects download again when you reopen the app.</p>
 <h3 id="projects-share">Sharing as a link</h3>
-<p>To share a plan with a friend, tap <span class="ui">Share as Link…</span> and send it in any messenger. When they tap the link, the <span class="ui">Shared plan</span> screen opens and <span class="ui">Import</span> creates a new project. For someone without the app, the same link opens a web page with the plan's summary and a map.</p>
+<p>To share a plan with a friend, tap <span class="ui">Share as Link…</span> and send it in any messenger. When they tap the link, the <span class="ui">Shared plan</span> screen opens and <span class="ui">Import</span> creates a new project. If the same plan is already there, <span class="ui">Open</span> opens that project; to make another copy, tap <span class="ui">Import Again</span>. For someone without the app, the same link opens a web page with the plan's summary and a map.</p>
 <ul>
 <li>The link contains the shooting spot's location and the project name. A link can't be taken back once sent, so you're asked to confirm the first time.</li>
 <li>The plan lives only inside the link; nothing is stored on a server.</li>
@@ -416,7 +418,8 @@
 <tr><td><span class="ui">Language</span></td><td>System default · 한국어 · English · 日本語. Takes effect after restarting the app.</td></tr>
 <tr><td><span class="ui">Default heights</span></td><td><span class="ui">Camera height</span> and <span class="ui">Person height</span> for new plans (camera height 0–50 m, person height 0.5–3 m).</td></tr>
 <tr><td><span class="ui">Google API key</span></td><td>Register your own key for photorealistic 3D outside Korea and Google Maps (optional). It takes priority over the subscription. See <a href="#sim-overseas">Photorealistic 3D outside Korea</a> for how it is stored and sent.</td></tr>
-<tr><td><span class="ui">Photorealistic 3D subscription</span></td><td>Subscribe · <span class="ui">Manage subscription</span> · <span class="ui">Restore purchases</span>.</td></tr>
+<tr><td><span class="ui">Photorealistic 3D subscription</span></td><td>Subscribe · <span class="ui">Manage subscription</span> · <span class="ui">Restore purchases</span>. For plans, renewal, and canceling, see <a href="#sim-overseas">Photorealistic 3D outside Korea</a>.</td></tr>
+<tr><td><span class="ui">Google Drive sync</span></td><td>Android only. Syncs projects and My landmarks between Android devices on the same Google account (<a href="#projects">Managing projects</a>).</td></tr>
 </table>
 </section>
 
@@ -425,6 +428,7 @@
 <p><span class="ui">Help &amp; About</span> on Home shows the app version and the following.</p>
 <ul>
 <li><span class="ui">User guide</span> — opens this guide in the app's language.</li>
+<li><span class="ui">Privacy Policy</span> — opens how the app handles your information, in the app's language.</li>
 <li><span class="ui">Email support</span> — writes an email to support@yjlab.io. The app version, device model, OS, and language are filled in for you, and you can delete them before sending. No location or project information is included.</li>
 <li><span class="ui">Data sources</span> — where the map, terrain, light pollution, orbit, air traffic, and eclipse data come from.</li>
 <li><span class="ui">Open-source licenses</span> — licenses of the open-source libraries used in the app.</li>
@@ -469,7 +473,7 @@
 <details><summary>No buildings outside Korea in the simulation</summary><p>Outside Korea, buildings need the <span class="ui">Photorealistic 3D subscription</span> or your own Google key. If you have one, you may have reached the daily usage limit — buildings come back the next day.</p></details>
 <details><summary>The space station transit time changed since yesterday</summary><p>That's expected. ISS and Tiangong orbits are adjusted from time to time and forecasts change with new orbit data. Search again the day before you shoot.</p></details>
 <details><summary>Tapping a shared link opens a web page</summary><p>If the app is installed, tap <span class="ui">Open in MoonAlign</span> on the page. A link pasted into the browser's address bar doesn't open the app; it opens the app when you <em>tap</em> it in a messenger or similar.</p></details>
-<details><summary>Projects don't show up on my other device</summary><p>Both devices need iCloud Drive turned on with the same Apple Account. While projects first download, the list says they're downloading.</p></details>
+<details><summary>Projects don't show up on my other device</summary><p>Both devices need iCloud Drive turned on with the same Apple Account. While projects first download, the list says they're downloading. If it takes long on iPhone or iPad, or the list says projects couldn't be downloaded yet, connect to Wi-Fi or turn on iCloud Drive in Settings &gt; Cellular. When a file or the folder couldn't be read, the app tries again automatically, and the projects haven't been deleted.</p><p>On Android, both devices need <span class="ui">Google Drive sync</span> turned on with the same Google account. Android and Apple devices don't sync with each other; move plans with a link or file.</p></details>
 <p>For anything else, write to <a href="mailto:support@yjlab.io">support@yjlab.io</a>.</p>
 </section>
 

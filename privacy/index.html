@@ -11,14 +11,14 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
   <link rel="apple-touch-icon" href="/img/icon/apple-touch-icon.png">
-  <meta name="description" content="What information the MoonAlign app uses, where it goes and how long it&#x27;s kept — no login, ads or analytics; plans and photos stay on your device.">
+  <meta name="description" content="What information the MoonAlign app uses, where it goes and how long it&#x27;s kept — no MoonAlign account, ads or analytics; plans and photos stay on your device.">
   <link rel="canonical" href="https://moonalign.yjlab.io/privacy/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/privacy/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/privacy/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/privacy/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/privacy/">
   <meta property="og:title" content="Privacy Policy — MoonAlign">
-  <meta property="og:description" content="What information the MoonAlign app uses, where it goes and how long it&#x27;s kept — no login, ads or analytics; plans and photos stay on your device.">
+  <meta property="og:description" content="What information the MoonAlign app uses, where it goes and how long it&#x27;s kept — no MoonAlign account, ads or analytics; plans and photos stay on your device.">
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="article">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -147,16 +147,16 @@
     <p class="lead">MoonAlign has no accounts and processes your shooting plans and photos on your device. Only what a feature needs is sent to the service that provides it.</p>
 <!-- Privacy policy body (en). Section ids must match ko.html in the same order (build_landing.py --check). -->
 
-<p><strong>Effective date: October 6, 2026</strong></p>
+<p><strong>Effective date: October 31, 2026</strong></p>
 <p>YJLAB ("we") makes and operates the MoonAlign app for iPhone, iPad, Mac and Android (the "app"). This policy explains what information the app uses, where it is sent and how long it is kept.</p>
 
 <section>
 <h2 id="summary">Summary</h2>
 <ul>
-<li>MoonAlign has no sign-up or login. We don't ask for your name, email address or phone number.</li>
+<li>MoonAlign has no sign-up or MoonAlign account. We don't ask for your name, email address or phone number. On Android, you choose a Google account only if you turn on the optional Google Drive sync.</li>
 <li>The app contains no advertising, analytics or crash-reporting tools. We don't track or sell your activity.</li>
 <li>Shooting plans, photos and the camera view are processed on your device. They are not sent to our server.</li>
-<li>For features such as maps, terrain and live aircraft positions, the app sends coordinates or search terms to the service that provides that feature. Those services use them only to answer the request.</li>
+<li>For features such as maps, terrain and live aircraft positions, the app sends coordinates or search terms to the service that provides that feature. Each service handles this information under its own privacy policy.</li>
 <li>Our server keeps only the minimum needed to issue map keys, such as a random install ID.</li>
 </ul>
 </section>
@@ -171,7 +171,7 @@
 <tr><td>Shooting plans and My landmarks</td><td>Saved as files on your device. If sync is on, they go to your own cloud account (see <a href="#sync">Sync and backup</a>).</td></tr>
 <tr><td>Calendar</td><td>The app adds a single event only when you tap Add to Calendar. It never reads your calendar.</td></tr>
 <tr><td>Notifications</td><td>Plane transit alerts and similar notices are local notifications scheduled on your device.</td></tr>
-<tr><td>Camera connection (Mac)</td><td>Auto burst in Plane mode sends commands only to a camera connected over USB.</td></tr>
+<tr><td>Camera connection (Mac, iPhone, iPad)</td><td>Auto burst in Plane mode sends commands only to a camera connected over USB.</td></tr>
 </table>
 </section>
 
@@ -180,12 +180,12 @@
 <p>When you use the features below, the app sends requests directly to the service listed. Your device's IP address is part of every request, and each service may handle its access logs under its own policy.</p>
 <table>
 <tr><th>Service</th><th>What is sent</th><th>Purpose</th></tr>
-<tr><td>Apple Maps and geocoding (iOS, Mac); Google Maps SDK and geocoding (Android)</td><td>The map area you're viewing, place search terms, location coordinates (to find a city name)</td><td>Map display, place search, reference location name</td></tr>
+<tr><td>Apple Maps and geocoding (iOS, Mac); Google Maps SDK and geocoding (Android)</td><td>The map area you're viewing, place search terms, location coordinates (to find a city name), coordinates of the target and shooting site you set (iOS and Mac: to look up the place name and time zone)</td><td>Map display, place search, names and time zones for the reference location, target and shooting site</td></tr>
 <tr><td>V-World (Korea's national spatial information platform)</td><td>Map and 3D areas in Korea, coordinates of the point you choose, place search terms</td><td>Maps, 3D buildings and terrain in Korea, building heights, place search</td></tr>
 <tr><td>Google Map Tiles API</td><td>The 3D scene area you're viewing</td><td>Photorealistic 3D buildings (for subscribers or users with their own Google key)</td></tr>
 <tr><td>Copernicus DEM (hosted on Amazon Web Services)</td><td>Approximate location (a 1° × 1° grid cell)</td><td>Ground elevation outside Korea</td></tr>
 <tr><td>adsb.lol</td><td>The shooting site's coordinates</td><td>Live positions of nearby aircraft in Plane mode (only while watching)</td></tr>
-<tr><td>NASA and CelesTrak</td><td>No personal information</td><td>ISS orbit data</td></tr>
+<tr><td>NASA and CelesTrak</td><td>No personal information</td><td>ISS and Tiangong orbit data</td></tr>
 <tr><td>Cesium (cesium.com)</td><td>No personal information</td><td>Library for the 3D simulation</td></tr>
 </table>
 <p>The app may also send requests to an aircraft receiver address you enter yourself (a device on your own network).</p>
@@ -198,6 +198,7 @@
 <tr><th>Information</th><th>Retention</th></tr>
 <tr><td>Install identifier — a random ID the app creates on first launch (Android) or an Apple App Attest key ID (iOS, Mac), with its public key. It is not a hardware ID or advertising ID.</td><td>As long as the installation exists (overwritten on re-registration)</td></tr>
 <tr><td>Request counts — daily requests per install identifier and per IP address (abuse prevention)</td><td>Up to 48 hours (2 hours for IP addresses)</td></tr>
+<tr><td>Subscriber install list — install identifiers per hash of a Google Play purchase token, per day (Android subscribers, abuse prevention)</td><td>Up to 48 hours</td></tr>
 <tr><td>Subscription check result — a hash of the Google Play purchase token with the product and expiry time (Android subscribers)</td><td>Up to 6 hours</td></tr>
 </table>
 <p>To confirm the app is genuine, the server receives a verdict from Apple (App Attest) or Google (Play Integrity). Android subscriptions are confirmed by looking up the purchase token with Google Play. For iOS and Mac subscriptions, the server only verifies the App Store transaction signature and does not keep it. Your location, shooting plans and search terms never reach this server.</p>
@@ -205,7 +206,7 @@
 
 <section>
 <h2 id="purchases">Purchases and subscriptions</h2>
-<p>Payment for the app and the Photorealistic 3D subscription is handled by the App Store or Google Play. We never receive your payment method or billing details. You can manage subscriptions and request refunds in each store.</p>
+<p>Payment for the app and the Photorealistic 3D subscription is handled by the App Store or Google Play. We never receive your payment method or billing details. The subscription renews automatically, and you can cancel anytime. You can manage subscriptions and request refunds in each store.</p>
 </section>
 
 <section>
@@ -220,7 +221,7 @@
 
 <section>
 <h2 id="share">Share links</h2>
-<p>A link created with Share contains the shooting plan itself, including target and shooting site coordinates, the date and notes. That part comes after the # in the address, so it is never sent to the website's server. However, anyone who receives the link can see its contents, so check who you share it with.</p>
+<p>A link created with Share contains the shooting plan itself, including the project name, target and shooting site coordinates, the shooting time and camera settings. That part comes after the # in the address, so it is never sent to the website's server. However, anyone who receives the link can see its contents, so check who you share it with. If someone without the app opens the link on the web, the page requests map tiles for the plan's area from OpenStreetMap's tile servers to show the map.</p>
 </section>
 
 <section>

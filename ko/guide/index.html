@@ -201,7 +201,7 @@
 <li><strong>iPad·Mac</strong>: 패널의 <span class="ui">타겟 지정</span> 또는 <span class="ui">촬영지 지정</span> 버튼을 누릅니다. 지도를 길게 누르거나 Mac에서 오른쪽 클릭해 나타나는 메뉴로도 지정할 수 있습니다.</li>
 <li>장소 이름으로 찾으려면 지도 왼쪽 위의 돋보기를 누르고 <span class="ui">장소 검색</span>에 이름을 입력합니다.</li>
 <li>촬영지는 <span class="ui">현재 위치</span>나 <span class="ui">사진에서</span>(위치 정보가 포함된 사진)로도 지정할 수 있습니다.</li>
-<li>iPhone·iPad에서는 핀을 끌어 옮길 수 있습니다. 이전 위치로 돌아가려면 지도 왼쪽 위 <span class="ui">위치 되돌리기</span>를 누릅니다. 위치만 되돌아가며 날짜와 시각은 유지됩니다.</li>
+<li>iPhone·iPad에서는 핀을 끌어 옮길 수 있습니다. 이전 위치로 돌아가려면 지도 왼쪽 위 <span class="ui">위치 되돌리기</span>를, 되돌린 것을 다시 적용하려면 <span class="ui">위치 다시 실행</span>을 누릅니다. 위치만 바뀌며 날짜와 시각은 유지됩니다.</li>
 </ul>
 
 <h3 id="plan-heights">높이와 지면고도</h3>
@@ -264,7 +264,7 @@
 
 <section>
 <h2 id="iss">우주정거장(ISS·톈궁) — 달·태양면 통과</h2>
-<p>국제우주정거장(ISS)이 달이나 태양 앞을 통과하는 위치와 시각을 예측합니다. 통과 시간은 관측 조건에 따라 달라지므로, 선택한 예측 결과에서 확인하세요. 중국 우주정거장 톈궁도 한 번에 함께 찾습니다.</p>
+<p>국제우주정거장(ISS)과 중국 우주정거장 톈궁이 달이나 태양 앞을 지나는 위치와 시각을 예측합니다. 두 정거장은 한 번에 함께 찾습니다. 원반을 지나는 데 1초도 걸리지 않으며 정확한 통과 시간은 선택한 결과에서 확인하세요. ISS는 NASA 궤도 자료(OEM, 없으면 CelesTrak TLE), 톈궁은 CelesTrak 궤도 자료로 계산합니다.</p>
 <ol>
 <li><span class="ui">피사체</span> <span class="ui">우주정거장</span>, <span class="ui">대상</span> <span class="ui">달</span>(또는 <span class="ui">태양</span>)을 고릅니다. ISS와 톈궁을 함께 찾으므로 정거장은 따로 고르지 않습니다.</li>
 <li>촬영할 지역을 찾으려면 <span class="ui">통과 예측 지역</span>의 <span class="ui">통과 위치 찾기</span>를 누르세요. 현재 지도 범위에서 통과가 보이는 <strong>띠</strong>가 그려집니다. 각 행에는 시각, 달의 고도, 달 모양(예: 보름달 99%), 밤·낮이 표시되며, 행을 누르면 지도가 그 띠로 이동합니다. 띠는 정거장마다 색이 다르고(ISS 보라 · 톈궁 분홍), 행에 정거장 이름이 붙습니다. 낮에 발생하거나 천체가 지평선에 가까운 통과 예측은 별도의 접힌 그룹에서 확인할 수 있습니다.</li>
@@ -286,7 +286,7 @@
 <figure class="shot"><img src="/img/guide/plane-mac-ko.jpg" alt="Mac 비행기 라이브 감시" loading="lazy"><figcaption>Mac 비행기 라이브 감시 — 김포 부근 촬영지(2026-09-07 녹화 자료). 노란 아이콘은 주변 기체, 빨간 아이콘(AAR1045)은 약 32초 뒤 달 앞을 지날 것으로 예상된 기체이며, 지도 위쪽 알림이 통과 예상을 알려 줍니다.</figcaption></figure>
 <p>감시하는 동안 지도에 주변 기체가 진행 방향으로 돌아간 비행기 아이콘과 편명으로 표시됩니다. 색으로 상태를 구분합니다: <strong>노랑</strong> 일반 · <strong>주황</strong> 달 근처를 지날 후보 · <strong>빨강</strong> 통과 예상 · <strong>회색</strong> 몇 초 이상 위치가 갱신되지 않은 기체. Mac에서는 아이콘에 포인터를 올리면 편명·고도·위치를 받은 시각이 보입니다.</p>
 <ul>
-<li>직접 운영하는 ADS-B 수신기(readsb·dump1090)가 있으면 <span class="ui">내 수신기</span>를 켜고 <code>aircraft.json</code> 주소를 입력하세요. 연결한 수신기의 데이터를 1초 간격으로 갱신합니다.</li>
+<li>직접 운영하는 ADS-B 수신기(readsb·dump1090)가 있으면 <span class="ui">내 수신기</span>를 켜고 <code>aircraft.json</code> 주소를 입력하세요. 연결한 수신기의 데이터를 1초 간격으로 갱신해 공개 항적보다 빠릅니다.</li>
 <li>감시 중에는 촬영지와 대상을 변경할 수 없습니다. 바꾸려면 <span class="ui">감시 중지</span>를 먼저 누르세요.</li>
 <li><span class="ui">통과 기회 기록</span>에서 이전 통과 후보를 확인할 수 있습니다.</li>
 <li><span class="ui">카메라 자동 촬영 (Sony·Canon)</span>: Mac·iPhone·iPad에서 지원되는 Sony·Canon 카메라를 USB로 연결해 비행기 통과 전후로 연속 촬영합니다(Canon은 시험 지원). 촬영 전 앱의 ‘1초 시험 촬영’으로 동작을 확인하세요.</li>
@@ -310,6 +310,7 @@
 <p>개인 키를 등록하면 구독보다 우선하여 사용합니다. 키는 Apple 기기에서는 iCloud 키체인, Android에서는 기기 안에 저장되며, Google에만 전송되고 <b>개발자에게는 전달되지 않습니다</b>.</p>
 <p>개인 키를 사용하려면 Google Cloud 결제 설정이 필요합니다. Google의 월 무료 한도 안에서는 비용이 없고, 한도를 넘으면 Google 요금이 적용됩니다. <a href="https://developers.google.com/maps/billing-and-pricing/pricing">최신 요금</a>과 Cloud 콘솔의 사용량을 확인하세요.</p>
 <p>구독료는 해외 실사 3D 데이터 이용 비용을 충당합니다. 개인 Google API 키를 등록하면 앱 구독 없이 이용할 수 있으며, Google의 무료 한도와 초과 요금이 적용됩니다. 앱 구독에는 기기별 하루 30회 장면 로드 한도가 있고 재로드도 포함됩니다. 기기 현지 시각 자정에 초기화되며, 한도에 도달하면 지형만 표시됩니다. 개인 키에는 이 앱 한도가 적용되지 않습니다.</p>
+<p>구독은 <span class="ui">월 구독</span>과 <span class="ui">연 구독</span> 중에서 고르며, 해지하기 전까지 기간마다 자동으로 갱신됩니다. iPhone·iPad·Mac은 Apple 계정으로 결제되고 App Store 계정 설정의 구독(설정의 <span class="ui">구독 관리</span>)에서, Android는 Google Play 계정으로 결제되고 Google Play의 구독 관리에서 언제든 해지할 수 있습니다. 앱을 다시 설치했거나 기기를 추가했다면 <span class="ui">구매 복원</span>을 누르세요. 구독 화면에서 <span class="ui">이용약관(EULA)</span>과 <span class="ui">개인정보처리방침</span>을 확인할 수 있습니다.</p>
 <p>계획 화면의 Google 지도는 Apple 기기에서는 개인 키를 등록해야 선택할 수 있고(구독에 포함되지 않음), Android에서는 기본 지도라 키가 필요 없습니다.</p>
 <p><strong>Google API 키 발급 및 설정</strong></p>
 <ol>
@@ -369,8 +370,8 @@
 <h2 id="calendar">천문 달력·위젯·캘린더</h2>
 <p><span class="ui">천문 달력</span>에는 보름달(슈퍼문·마이크로문), 삭, 월식·일식, 유성우, 행성 충·합, 달과 행성·밝은 별의 근접·엄폐, 금성 최대 밝기, 춘분·하지·추분·동지가 표시됩니다.</p>
 <p>근접·합의 시각은 <em>기준 위치에서 관측할 수 있는 시각</em>으로 안내합니다. 날짜를 누르면 그날의 해와 달 카드, 저장한 계획, 천문 현상이 표시됩니다. 유성우에는 달빛이 관측에 미치는 영향도 함께 표시됩니다. 일식·월식의 경로 지도와 촬영지별 식 시각은 <a href="#eclipse">일식·월식</a>에서 확인합니다.</p>
-<p>천문 현상 또는 촬영 계획에서 <span class="ui">캘린더에 추가</span>를 누르면 기기 캘린더에 일정이 저장되며, 전날 저녁과 1시간 전 알림이 설정됩니다. iPhone·iPad는 일정 편집 화면이 뜨고, Mac은 바로 저장됩니다. 앱은 캘린더를 읽지 않습니다.</p>
-<p>홈 화면과 알림 센터에서 다음 위젯을 사용할 수 있습니다: <span class="ui">오늘 하늘</span> · <span class="ui">오늘의 달</span> · <span class="ui">오늘의 태양</span> · <span class="ui">다음 촬영 기회</span>. 잠금 화면 위젯도 지원합니다. 위젯에는 앱이 마지막으로 계산한 값이 표시되므로, 정보가 오래되었다면 앱을 실행해 갱신하세요.</p>
+<p>천문 현상 또는 촬영 계획에서 <span class="ui">캘린더에 추가</span>를 누르면 기기 캘린더에 일정이 저장되며, 전날 저녁과 1시간 전 알림이 설정됩니다. iPhone·iPad는 일정 편집 화면이 뜨고, Mac은 바로 저장됩니다. Android도 일정 편집 화면이 뜨지만 알림을 자동으로 넣을 수 없어, 권장 알림 시각을 메모 첫 줄에 적어 둡니다 — 알림은 직접 설정하세요. 앱은 캘린더를 읽지 않습니다.</p>
+<p>홈 화면과 알림 센터에서 다음 위젯을 사용할 수 있습니다: <span class="ui">오늘 하늘</span> · <span class="ui">오늘의 달</span> · <span class="ui">오늘의 태양</span> · <span class="ui">다음 촬영 기회</span>. iPhone·iPad에서는 잠금 화면 위젯도 지원합니다. 위젯에는 앱이 마지막으로 계산한 값이 표시되므로, 정보가 오래되었다면 앱을 실행해 갱신하세요.</p>
 </section>
 
 <section>
@@ -388,11 +389,12 @@
 <section>
 <h2 id="projects">프로젝트 관리와 공유</h2>
 <p>계획은 촬영지를 지정하는 순간 프로젝트로 자동 저장됩니다. <span class="ui">프로젝트</span> 목록은 최근 수정순이며, 행을 길게 누르면(Mac은 오른쪽 클릭) <span class="ui">열기</span> · <span class="ui">이름 바꾸기…</span> · <span class="ui">링크로 공유…</span> · <span class="ui">파일로 내보내기…</span> · <span class="ui">삭제…</span>가 나옵니다. 여러 프로젝트를 삭제하려면 <span class="ui">선택</span>을 누릅니다.</p>
-<p>프로젝트는 iCloud Drive로 같은 Apple 계정의 기기들 사이에 동기화됩니다. iCloud를 쓰지 않으면 그 기기에만 저장됩니다.</p>
+<p>프로젝트는 iCloud Drive로 같은 Apple 계정의 기기들 사이에 동기화됩니다. iCloud를 쓰지 않으면 그 기기에만 저장됩니다. iPhone·iPad에서 셀룰러로 연결되어 있으면 내려받기가 느리거나 멈출 수 있습니다 — 목록에 안내가 보이면 Wi-Fi에 연결하거나 설정 &gt; 셀룰러에서 iCloud Drive를 켜세요. 프로젝트 파일이나 폴더를 읽지 못했다는 안내가 보여도 프로젝트가 지워진 것은 아니며, 앱이 잠시 뒤 자동으로 다시 읽습니다.</p>
+<p>Android는 설정의 <span class="ui">Google Drive 동기화</span>를 켜면 같은 Google 계정의 Android 기기끼리 동기화됩니다(Apple 기기(iPhone·iPad·Mac)와는 동기화되지 않으니 링크나 파일로 옮기세요). 처음 받는 동안 목록이 비어 있으면 <span class="ui">Google Drive의 프로젝트를 기다리는 중이에요</span>가 보이고, 연결하지 못하면 네트워크를 확인하라는 안내가 뜹니다. 앱을 다시 열면 다시 받습니다.</p>
 <h3 id="projects-share">링크로 공유</h3>
-<p>촬영 계획을 공유하려면 <span class="ui">링크로 공유…</span>를 누르고 메신저 등으로 링크를 보냅니다. 받은 사람이 링크를 누르면 <span class="ui">공유받은 계획</span> 화면에서 <span class="ui">가져오기</span>로 새 프로젝트를 만듭니다. 앱이 없는 사람에게는 같은 링크가 계획 요약과 지도를 보여 주는 웹 페이지로 열립니다.</p>
+<p>촬영 계획을 공유하려면 <span class="ui">링크로 공유…</span>를 누르고 메신저 등으로 링크를 보냅니다. 받은 사람이 링크를 누르면 <span class="ui">공유받은 계획</span> 화면에서 <span class="ui">가져오기</span>로 새 프로젝트를 만듭니다. 이미 같은 계획이 있으면 <span class="ui">열기</span>로 그 프로젝트를 열고, 따로 하나 더 만들려면 <span class="ui">새로 가져오기</span>를 누릅니다. 앱이 없는 사람에게는 같은 링크가 계획 요약과 지도를 보여 주는 웹 페이지로 열립니다.</p>
 <ul>
-<li>링크에는 촬영지 위치와 프로젝트 이름이 들어갑니다. 이미 공유한 링크는 회수할 수 없으므로, 보내기 전에 포함된 정보를 확인하세요.</li>
+<li>링크에는 촬영지 위치와 프로젝트 이름이 들어갑니다. 이미 공유한 링크는 회수할 수 없으므로 처음 공유할 때 한 번 확인을 받습니다. 보내기 전에 포함된 정보를 확인하세요.</li>
 <li>계획 내용은 링크 안에만 있고 서버에 저장되지 않습니다.</li>
 <li>지면고도 같은 자동 값은 받는 기기에서 다시 조회합니다. 직접 입력한 높이는 그대로 유지됩니다.</li>
 <li>시뮬레이션에서 맞춘 시각과 구도도 함께 전달되어, 받은 사람도 같은 장면으로 열 수 있습니다.</li>
@@ -419,7 +421,8 @@
 <tr><td><span class="ui">언어</span></td><td>시스템 기본 · 한국어 · English · 日本語. 앱을 다시 실행하면 적용됩니다.</td></tr>
 <tr><td><span class="ui">기본 높이</span></td><td>새 계획에 사용할 <span class="ui">촬영 높이</span>와 <span class="ui">사람 키</span>의 기본값을 설정합니다(촬영 높이 0~50 m, 사람 키 0.5~3 m).</td></tr>
 <tr><td><span class="ui">Google API 키</span></td><td>해외 실사 3D와 Google 지도에 사용할 개인 키를 등록합니다(선택 사항). 등록하면 구독보다 우선하여 사용합니다. 저장·전송 방식은 <a href="#sim-overseas">해외 실사 3D</a>를 참고하세요.</td></tr>
-<tr><td><span class="ui">해외 실사 3D 구독</span></td><td>구독을 신청하거나 <span class="ui">구독 관리</span>·<span class="ui">구매 복원</span>을 이용합니다.</td></tr>
+<tr><td><span class="ui">해외 실사 3D 구독</span></td><td>구독을 신청하거나 <span class="ui">구독 관리</span>·<span class="ui">구매 복원</span>을 이용합니다. 구독 종류·갱신·해지는 <a href="#sim-overseas">해외 실사 3D</a>를 참고하세요.</td></tr>
+<tr><td><span class="ui">Google Drive 동기화</span></td><td>Android 전용. 같은 Google 계정의 Android 기기끼리 프로젝트와 내 랜드마크를 동기화합니다(<a href="#projects">프로젝트 관리</a>).</td></tr>
 </table>
 </section>
 
@@ -428,6 +431,7 @@
 <p>시작 메뉴의 <span class="ui">도움말·정보</span>에서 앱 버전을 확인하고 다음 항목을 이용할 수 있습니다.</p>
 <ul>
 <li><span class="ui">사용 설명서</span> — 이 설명서를 앱 언어에 맞춰 엽니다.</li>
+<li><span class="ui">개인정보처리방침</span> — 앱이 다루는 정보와 처리 방식을 앱 언어에 맞춰 엽니다.</li>
 <li><span class="ui">문의 메일 보내기</span> — support@yjlab.io로 보낼 메일을 씁니다. 본문에 앱 버전·기기 모델·OS·언어가 미리 채워지며, 보내기 전에 지워도 됩니다. 위치나 프로젝트 정보는 들어가지 않습니다.</li>
 <li><span class="ui">데이터 출처</span> — 지도·지형·광해·궤도·항적·일식·월식 자료의 출처를 확인합니다.</li>
 <li><span class="ui">오픈소스 라이선스</span> — 앱에 사용한 오픈소스 라이브러리의 라이선스를 확인합니다.</li>
@@ -472,7 +476,7 @@
 <details><summary>시뮬레이션에 해외 건물이 표시되지 않습니다</summary><p>해외 건물을 표시하려면 <span class="ui">해외 실사 3D 구독</span> 또는 개인 Google API 키가 필요합니다. 구독이나 키가 설정되어 있다면 화면에 표시된 안내를 확인하세요. 하루 사용 한도에 도달했다는 안내가 표시되면 다음 날 다시 이용할 수 있습니다.</p></details>
 <details><summary>우주정거장 통과 예측 시각이 달라졌습니다</summary><p>ISS·톈궁 궤도는 수시로 조정되므로, 새로운 궤도 자료가 반영되면 예측 시각이 달라질 수 있습니다. 촬영 전날 다시 탐색하세요.</p></details>
 <details><summary>공유 링크가 앱 대신 웹 페이지로 열립니다</summary><p>앱이 설치되어 있다면 페이지의 <span class="ui">MoonAlign 앱에서 열기</span>를 누르세요. 브라우저 주소창에 직접 붙여 넣은 링크는 앱으로 열리지 않고, 메신저 등에서 <em>눌렀을 때</em> 앱으로 열립니다.</p></details>
-<details><summary>다른 기기에 프로젝트가 표시되지 않습니다</summary><p>두 기기 모두 같은 Apple 계정의 iCloud Drive가 켜져 있어야 합니다. 처음 내려받는 동안에는 목록에 <em>내려받는 중</em> 안내가 보입니다.</p></details>
+<details><summary>다른 기기에 프로젝트가 표시되지 않습니다</summary><p>두 기기 모두 같은 Apple 계정의 iCloud Drive가 켜져 있어야 합니다. 처음 내려받는 동안에는 목록에 <em>내려받는 중</em> 안내가 보입니다. iPhone·iPad에서 오래 걸리거나 <em>아직 내려받지 못했어요</em>가 보이면 Wi-Fi에 연결하거나 설정 &gt; 셀룰러에서 iCloud Drive를 켜세요. 파일·폴더를 읽지 못했다는 안내는 앱이 잠시 뒤 자동으로 다시 시도하며, 프로젝트가 지워진 것은 아닙니다.</p><p>Android는 두 기기 모두 같은 Google 계정으로 <span class="ui">Google Drive 동기화</span>를 켜야 합니다. Android와 Apple 기기 사이는 동기화되지 않으니 링크나 파일로 옮기세요.</p></details>
 <p>그 밖의 문의는 <a href="mailto:support@yjlab.io">support@yjlab.io</a>로 보내 주세요.</p>
 </section>
 
