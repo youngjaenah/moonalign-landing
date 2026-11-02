@@ -1,16 +1,16 @@
 /*
- MoonAlign 계획 공유 페이지(/p) — spec 019 contracts/share-page.md. 손으로 쓰는 파일(생성물 아님).
+ MoonAlign 계획 공유 페이지(/p): spec 019 contracts/share-page.md. 손으로 쓰는 파일(생성물 아님).
  형식은 contracts/share-payload.md, 참조 구현은 scripts/share/make_fixtures.py, 견본은 Tests/Parity/fixtures/share_link.json.
- 계획 데이터는 URL 해시(#)에만 있고 서버로 가지 않는다 — 이 스크립트도 어디에도 보내지 않는다(외부 요청은 지도 타일뿐).
+ 계획 데이터는 URL 해시(#)에만 있고 서버로 가지 않는다. 이 스크립트도 어디에도 보내지 않는다(외부 요청은 지도 타일뿐).
  앞부분(해석·보조 계산)은 DOM과 분리돼 node 테스트(Tests/ShareLink/share-page.test.js)가 같은 함수를 부른다.
 */
 (function (root) {
   'use strict';
 
   var VERSION = 2;                                     // 이 페이지가 읽는 가장 새 형식(v2 = v1 + ss, spec 021)
-  var STATIONS = ['css'];                              // v2 ss 허용 값(ISS는 키 없음) — 모르는 값은 새 버전 필요
+  var STATIONS = ['css'];                              // v2 ss 허용 값(ISS는 키 없음): 모르는 값은 새 버전 필요
   var MAX_LINK = 4000;                                 // 앱과 같은 입력 상한(링크 전체)
-  var PAGE_PREFIX = 'https://moonalign.yjlab.io/p';    // 해시 앞부분 — 해시만 받을 때 링크 길이 환산용
+  var PAGE_PREFIX = 'https://moonalign.yjlab.io/p';    // 해시 앞부분: 해시만 받을 때 링크 길이 환산용
   var MAX_INFLATED = 16 * 1024;                        // 해제 폭탄 방어(앱과 같음)
   var NAME_MAX = 200;
   var MODES = ['st', 'hu', 'fr', 'is', 'ip', 'pl'];
@@ -62,7 +62,7 @@
     } else if ('eh' in o && !isNum(o.eh, 0, 500)) throw new Bad();
   }
 
-  /** data-model.md §1 검증 — 앱과 같은 규칙. 어기면 Bad. */
+  /** data-model.md §1 검증: 앱과 같은 규칙. 어기면 Bad. */
   function validate(p) {
     if (!p || typeof p !== 'object' || Array.isArray(p)) throw new Bad();
     if (!isStr(p.n) || cpLen(p.n) < 1 || cpLen(p.n) > NAME_MAX) throw new Bad();
@@ -86,9 +86,9 @@
     if ('fc' in c && c.fc !== 0 && c.fc !== 1) throw new Bad();
     if ('ap' in c && !isNum(c.ap, 0.5, 64)) throw new Bad();
     if ('ev' in p && !isNum(p.ev, -10, 30)) throw new Bad();
-    // 일식·월식 id(spec 020) — 문자열이 아니면 손상, 형식이 아니면 무시(render에서 거른다).
+    // 일식·월식 id(spec 020): 문자열이 아니면 손상, 형식이 아니면 무시(render에서 거른다).
     if ('ec' in p && !isStr(p.ec)) throw new Bad();
-    // 시뮬 장면(2026-10-08) — 시각과(또는) 방위·고도 한 쌍. 페이지는 쓰지 않고 형식만 앱과 같이 본다.
+    // 시뮬 장면(2026-10-08): 시각과(또는) 방위·고도 한 쌍. 페이지는 쓰지 않고 형식만 앱과 같이 본다.
     if ('sv' in p) {
       var sv = p.sv;
       if (!sv || typeof sv !== 'object' || Array.isArray(sv) || Object.keys(sv).length === 0) throw new Bad();
@@ -98,7 +98,7 @@
     }
   }
 
-  /** 식 행(spec 020) — 피사체 없음 계획의 식 id만. 종류 세분은 앱 몫(웹엔 번들 자료가 없다) — 일식/월식 + 날짜(UTC 최대식 날짜). */
+  /** 식 행(spec 020): 피사체 없음 계획의 식 id만. 종류 세분은 앱 몫(웹엔 번들 자료가 없다): 일식/월식 + 날짜(UTC 최대식 날짜). */
   function eclipseLabel(p, S, L) {
     if ((p.m || 'st') !== 'fr' || !isStr(p.ec) || !/^\d{4}-\d{2}-\d{2}[SL]$/.test(p.ec)) return null;
     var kind = S[p.ec.charAt(10) === 'S' ? 'eclipseSolar' : 'eclipseLunar'];
@@ -110,7 +110,7 @@
 
   /**
    * `location.hash`(앞의 '#' 포함) → {kind:'ok', plan} | {kind:'unsupported', version} | {kind:'corrupt'}.
-   * inflateRaw(bytes, limit) → Uint8Array|null — 브라우저는 DecompressionStream, node 테스트는 zlib.
+   * inflateRaw(bytes, limit) → Uint8Array|null: 브라우저는 DecompressionStream, node 테스트는 zlib.
    */
   async function parseShareFragment(hash, inflateRaw) {
     try {
@@ -126,7 +126,7 @@
       var text = new TextDecoder('utf-8', { fatal: true }).decode(raw);
       var plan = JSON.parse(text);
       validate(plan);
-      // ss(우주정거장 대상, spec 021) — v1에선 모르는 키라 버리고, v2에선 모르는 값이면 ISS로 잘못 열지 않게 새 버전 필요.
+      // ss(우주정거장 대상, spec 021): v1에선 모르는 키라 버리고, v2에선 모르는 값이면 ISS로 잘못 열지 않게 새 버전 필요.
       if ('ss' in plan) {
         if (v < 2) delete plan.ss;
         else if (!isStr(plan.ss)) throw new Bad();
@@ -138,7 +138,7 @@
     }
   }
 
-  /** 브라우저 해제 — 상한을 넘으면 읽기를 멈추고 null. */
+  /** 브라우저 해제: 상한을 넘으면 읽기를 멈추고 null. */
   async function browserInflateRaw(bytes, limit) {
     if (typeof DecompressionStream !== 'function') return null;
     try {
@@ -157,7 +157,7 @@
     } catch (e) { return null; }
   }
 
-  /** 두 지점 구면 거리(km) — 화면 보조(천문 계산 아님). */
+  /** 두 지점 구면 거리(km): 화면 보조(천문 계산 아님). */
   function distanceKm(a, b) {
     var R = 6371.0088, rad = Math.PI / 180;
     var dLa = (b.la - a.la) * rad, dLo = (b.lo - a.lo) * rad;
@@ -166,7 +166,7 @@
   }
 
   /**
-   * '앱에서 열기' 주소 — 같은 도메인 안 링크로는 유니버설 링크·앱 링크가 열리지 않아 앱 스킴을 쓴다. 계획은 쿼리(d)에 — 이 주소는 서버로 가지 않는다.
+   * '앱에서 열기' 주소: 같은 도메인 안 링크로는 유니버설 링크·앱 링크가 열리지 않아 앱 스킴을 쓴다. 계획은 쿼리(d)에: 이 주소는 서버로 가지 않는다.
    * Android는 intent 주소(앱이 없으면 Chrome이 Play 스토어의 그 패키지로 보낸다), 그 밖은 moonalign://.
    */
   function appLink(fragment, platform) {
@@ -194,7 +194,7 @@
   if (typeof module === 'object' && module.exports) { module.exports = api; return; }
   root.MoonShare = api;
 
-  // ── 렌더(브라우저) — 문구·랜드마크 이름은 페이지가 싣는 SHARE_STRINGS·landmarks.json. 사용자 문자열은 textContent로만.
+  // ── 렌더(브라우저): 문구·랜드마크 이름은 페이지가 싣는 SHARE_STRINGS·landmarks.json. 사용자 문자열은 textContent로만.
 
   function lang() {
     var langs = (navigator.languages || [navigator.language || 'en']);
@@ -288,9 +288,9 @@
     }
     setText('plan-spot', p.s.la.toFixed(5) + ', ' + p.s.lo.toFixed(5));
     el('open-app').href = appLink(location.hash, order);
-    // Windows·Linux 등엔 MoonAlign 앱이 없다 — 눌러도 아무 일이 없어(2026-10-04 Windows Chrome) 버튼과 안내를 숨긴다.
+    // Windows·Linux 등엔 MoonAlign 앱이 없다. 눌러도 아무 일이 없어(2026-10-04 Windows Chrome) 버튼과 안내를 숨긴다.
     if (order === 'other') { el('open-app').hidden = true; document.querySelectorAll('[data-s="open.app.note"]').forEach(function (e) { e.hidden = true; }); }
-    // 앱이 없으면 스킴 링크는 조용히 실패한다(사파리 경고 또는 메신저 인앱 브라우저에선 무반응 — 2026-10-04 실기기 T038).
+    // 앱이 없으면 스킴 링크는 조용히 실패한다(사파리 경고 또는 메신저 인앱 브라우저에선 무반응: 2026-10-04 실기기 T038).
     // 누른 뒤 페이지가 계속 보이면 앱이 안 열린 것으로 보고 설치 안내 + 스토어 버튼으로. 앱이 열리면 페이지가 가려져 타이머를 끈다.
     el('open-app').addEventListener('click', function () {
       var timer = setTimeout(function () {

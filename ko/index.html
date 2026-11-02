@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- 생성물 — 직접 고치지 말 것. 원본: template.html + strings/<lang>.json + videos.json + Fixtures/demo/steps (spec 009) -->
+<!-- 생성물: 직접 고치지 말 것. 원본: template.html + strings/<lang>.json + videos.json + Fixtures/demo/steps (spec 009) -->
 <html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MoonAlign — 달·해 정렬 사진 촬영 계획</title>
+  <title>MoonAlign, 달·해 정렬 사진 촬영 계획</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
@@ -15,7 +15,7 @@
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/">
-  <meta property="og:title" content="MoonAlign — 달·해 정렬 사진 촬영 계획">
+  <meta property="og:title" content="MoonAlign, 달·해 정렬 사진 촬영 계획">
   <meta property="og:description" content="사진에 담을 타겟(건물·산 등)과 날짜를 정하고, 지도에서 정렬 후보 위치와 시각을 찾아보세요. 높이 정보를 확인한 뒤 위치를 바꿔 가며 3D 시뮬레이션으로 구도를 비교할 수 있습니다. 우주정거장(ISS·톈궁) 통과 탐색과 비행기 라이브 감시도 지원합니다.">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:type" content="website">
@@ -29,7 +29,7 @@
     --ink-faint: #8b9099;
     --accent: #2d5bd7;
     --line: #e7e7e4;
-    /* MoonAlign map symbols — the app draws a gold band where the moon rises
+    /* MoonAlign map symbols: the app draws a gold band where the moon rises
        into alignment and a blue band where it sets. Used only inside app visuals. */
     --rise: #b8860b;
     --set: #2d5bd7;
@@ -120,7 +120,7 @@
   .btn-ghost:hover { border-color: var(--ink-faint); background: var(--bg-soft); }
   .cta-meta { font-size: 0.83rem; color: var(--ink-faint); margin-top: 14px; }
 
-  /* hero visual — 앱 실제 화면(Mac 시뮬레이션) */
+  /* hero visual: 앱 실제 화면(Mac 시뮬레이션) */
   .visual {
     border: 1px solid var(--line);
     border-radius: 16px;
@@ -149,7 +149,7 @@
     font-size: 1.03rem; color: var(--ink-dim); margin-bottom: 36px; line-height: 1.7; max-width: 60ch;
   }
 
-  /* workflow — a real sequence, so the numbers carry information */
+  /* workflow: a real sequence, so the numbers carry information */
   .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   @media (max-width: 900px) { .stages { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .stages { grid-template-columns: 1fr; } }
@@ -166,7 +166,7 @@
   .stage .where { font-size: 0.76rem; color: var(--ink-faint); letter-spacing: 0.02em; margin-bottom: 8px; }
   .stage p { font-size: 0.92rem; color: var(--ink-dim); line-height: 1.65; }
 
-  /* verify blocks (Photo Check / AR) — product-style two-column rows */
+  /* verify blocks (Photo Check / AR): product-style two-column rows */
   .product { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .product + .product { margin-top: 64px; }
   .product.flip .p-visual { order: -1; }
@@ -232,13 +232,13 @@
   }
 
   /* more tools */
-  /* 그림(2026-10-08) — 세계 장면 갤러리·기기 화면·도구 화면. 캡션은 작게, 그림은 둥근 모서리 + 옅은 테두리. */
+  /* 그림(2026-10-08): 세계 장면 갤러리·기기 화면·도구 화면. 캡션은 작게, 그림은 둥근 모서리 + 옅은 테두리. */
   .shots figure { margin: 0; }
   .shots img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-soft); }
   .shots figcaption { font-size: 0.85rem; color: var(--ink-dim); line-height: 1.5; margin-top: 10px; }
   .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; margin-top: 40px; }
   @media (max-width: 720px) { .gallery { grid-template-columns: 1fr; } }
-  /* 시뮬 vs 실제 촬영(2026-10-27) — 세로 두 장을 나란히, 폰에서도 두 칸(비교가 목적). */
+  /* 시뮬 vs 실제 촬영(2026-10-27): 세로 두 장을 나란히, 폰에서도 두 칸(비교가 목적). */
   .proof { margin-top: 56px; }
   .proof h3 { font-size: 1.15rem; margin: 0 0 8px; }
   .proof-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 760px; margin-top: 20px; }
@@ -281,7 +281,7 @@
   .copy { color: var(--ink-faint); font-size: 0.82rem; }
   .copy a { color: var(--ink-dim); }
 
-  /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+  /* 줄 바꿈: 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
      일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
   html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
   html:lang(ko) p, html:lang(ko) li { text-wrap: pretty; }
@@ -289,7 +289,7 @@
   html:lang(ja) body { word-break: auto-phrase; }
 </style>
 <style>
-  /* spec 009 — 언어 스위처·영상·언어 안내 바 */
+  /* spec 009: 언어 스위처·영상·언어 안내 바 */
   .lang-switch { display: flex; gap: 12px; font-size: 0.84rem; margin-left: 20px; }
   .lang-switch a { color: var(--ink-dim); text-decoration: none; }
   .lang-switch a:hover { color: var(--ink); }
@@ -325,14 +325,14 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac · Android</span> — 촬영 계획 앱</p>
+      <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac · Android</span>: 촬영 계획 앱</p>
       <h1>달이 타겟과 겹치는 촬영 위치를 찾아보세요</h1>
       <p class="lead">사진에 담을 타겟(건물·산 등)과 날짜를 정하고, 지도에서 <strong>정렬 후보 위치와 시각</strong>을 찾아보세요. 높이 정보를 확인한 뒤 위치를 바꿔 가며 3D 시뮬레이션으로 구도를 비교할 수 있습니다. 우주정거장(ISS·톈궁) 통과 탐색과 비행기 라이브 감시도 지원합니다.</p>
       <ul class="feat">
         <li>타겟과 날짜를 기준으로 달이 겹쳐 보이는 후보 위치를 지도에 표시</li>
         <li>지형과 렌즈 초점거리를 반영한 3D 시뮬레이션</li>
         <li>ISS·톈궁 예상 통과 시각을 초 단위로 표시하고, 비행기 통과 가능성을 라이브 알림으로 확인</li>
-        <li>한 번 구매로 Mac·iPhone·iPad — Mac에서 만든 계획을 iPhone·iPad에서 이어서 확인</li>
+        <li>한 번 구매로 Mac·iPhone·iPad, Mac에서 만든 계획을 iPhone·iPad에서 이어서 확인</li>
       </ul>
       <div class="hero-cta">
         <span class="store-pending">App Store 출시 예정</span>
@@ -342,8 +342,8 @@
       <p class="cta-meta">예정 가격 US$9.99 1회 구매 · 해외 실사 3D는 개인 Google 키 또는 선택 구독 · Android 별도 구매 · 한국어·영어·일본어 지원</p>
     </div>
     <figure class="visual">
-      <img src="/img/hero-sim-ko.jpg" width="2200" height="1520" alt="MoonAlign Mac 앱의 시뮬레이션 화면 — 에펠탑 뒤로 달이 걸린 장면" loading="eager">
-      <figcaption>Mac · 시뮬레이션 — 파리 에펠탑, 200mm, 2026-10-02 23:03 월출 · 파리 현지 시각(UTC+2)</figcaption>
+      <img src="/img/hero-sim-ko.jpg" width="2200" height="1520" alt="MoonAlign Mac 앱의 시뮬레이션 화면, 에펠탑 뒤로 달이 걸린 장면" loading="eager">
+      <figcaption>Mac · 시뮬레이션, 파리 에펠탑, 200mm, 2026-10-02 23:03 월출 · 파리 현지 시각(UTC+2)</figcaption>
     </figure>
   </div>
 </section>
@@ -368,17 +368,17 @@
     <h2>세계 여러 촬영지의 구도를 미리 확인하세요</h2>
     <p class="lead sect-lead">지형과 건물, 렌즈 화각을 반영한 3D 시뮬레이션입니다. 앱에 포함된 예시 프로젝트를 바탕으로 구도를 살펴볼 수 있습니다. 3D 건물의 제공 범위와 상세도는 지역에 따라 다릅니다.</p>
     <div class="gallery shots">
-      <figure><img src="/img/gallery/ushiku-ko.jpg" width="1600" height="1067" alt="일본 우시쿠 대불 — 2026년 12월 24일 월출, 손끝에 걸린 달" loading="lazy"><figcaption>일본 우시쿠 대불 — 2026년 12월 24일 월출, 손끝에 걸린 달</figcaption></figure>
-      <figure><img src="/img/gallery/arch-ko.jpg" width="1600" height="1067" alt="미국 아치스 국립공원 North Window — 2027년 5월 16일 월출 (400mm)" loading="lazy"><figcaption>미국 아치스 국립공원 North Window — 2027년 5월 16일 월출 (400mm)</figcaption></figure>
-      <figure><img src="/img/gallery/paris-ko.jpg" width="1600" height="1067" alt="파리 에펠탑 — 2026년 12월 23일 월출 (200mm)" loading="lazy"><figcaption>파리 에펠탑 — 2026년 12월 23일 월출 (200mm)</figcaption></figure>
-      <figure><img src="/img/gallery/namsan-ko.jpg" width="1600" height="1067" alt="서울 N서울타워 — 2027년 1월 21일 월출 (400mm)" loading="lazy"><figcaption>서울 N서울타워 — 2027년 1월 21일 월출 (400mm)</figcaption></figure>
+      <figure><img src="/img/gallery/ushiku-ko.jpg" width="1600" height="1067" alt="일본 우시쿠 대불, 2026년 12월 24일 월출, 손끝에 걸린 달" loading="lazy"><figcaption>일본 우시쿠 대불, 2026년 12월 24일 월출, 손끝에 걸린 달</figcaption></figure>
+      <figure><img src="/img/gallery/arch-ko.jpg" width="1600" height="1067" alt="미국 아치스 국립공원 North Window, 2027년 5월 16일 월출 (400mm)" loading="lazy"><figcaption>미국 아치스 국립공원 North Window, 2027년 5월 16일 월출 (400mm)</figcaption></figure>
+      <figure><img src="/img/gallery/paris-ko.jpg" width="1600" height="1067" alt="파리 에펠탑, 2026년 12월 23일 월출 (200mm)" loading="lazy"><figcaption>파리 에펠탑, 2026년 12월 23일 월출 (200mm)</figcaption></figure>
+      <figure><img src="/img/gallery/namsan-ko.jpg" width="1600" height="1067" alt="서울 N서울타워, 2027년 1월 21일 월출 (400mm)" loading="lazy"><figcaption>서울 N서울타워, 2027년 1월 21일 월출 (400mm)</figcaption></figure>
     </div>
     <div class="proof">
       <h3>시뮬레이션과 실제 촬영</h3>
       <p class="sect-lead">서울 여의도 한강공원에서 2026년 10월 27일 18:27 월출을 계획하고 시뮬레이션으로 미리 본 장면(왼쪽), 같은 자리에서 실제로 찍은 사진(오른쪽)입니다.</p>
       <div class="proof-pair shots">
-        <figure><img src="/img/gallery/proof-sim-ko.jpg" width="800" height="1200" alt="시뮬레이션 — 18:27:29, 800mm(APS-C, 환산 1200mm)" loading="lazy"><figcaption>시뮬레이션 — 18:27:29, 800mm(APS-C, 환산 1200mm)</figcaption></figure>
-        <figure><img src="/img/gallery/proof-real.jpg" width="800" height="1200" alt="실제 촬영 — 18:27:27, Sony α6700 + 800mm" loading="lazy"><figcaption>실제 촬영 — 18:27:27, Sony α6700 + 800mm</figcaption></figure>
+        <figure><img src="/img/gallery/proof-sim-ko.jpg" width="800" height="1200" alt="시뮬레이션, 18:27:29, 800mm(APS-C, 환산 1200mm)" loading="lazy"><figcaption>시뮬레이션, 18:27:29, 800mm(APS-C, 환산 1200mm)</figcaption></figure>
+        <figure><img src="/img/gallery/proof-real.jpg" width="800" height="1200" alt="실제 촬영, 18:27:27, Sony α6700 + 800mm" loading="lazy"><figcaption>실제 촬영, 18:27:27, Sony α6700 + 800mm</figcaption></figure>
       </div>
     </div>
   </div>
@@ -389,10 +389,10 @@
     <span class="tag nocaps">Mac · iPhone · iPad · Android</span>
     <h2>Mac에서도, 모바일에서도 촬영 계획</h2>
     <p class="lead sect-lead">Mac의 넓은 화면으로 계획하거나 모바일 기기만으로 준비할 수 있습니다. Apple 기기는 같은 계정에서 iCloud를 사용하면 프로젝트가 동기화됩니다. Android는 Google Drive 동기화를 활성화하면 Android 기기끼리 동기화됩니다. Apple과 Android 사이에는 링크로 계획을 공유하세요.</p>
-    <ul class="tools"><li><b>Mac</b> — 넓은 화면에서 지도와 3D 시뮬레이션으로 구도를 비교합니다.</li><li><b>iPhone·iPad·Android</b> — 촬영 계획을 만들고, 답사 사진과 지원 기기의 AR로 현장을 확인합니다.</li><li><b>동기화와 공유</b> — Apple 기기는 iCloud, Android는 선택한 Google Drive 계정으로 동기화하고, 플랫폼 간에는 링크로 계획을 공유합니다.</li></ul>
+    <ul class="tools"><li><b>Mac</b>, 넓은 화면에서 지도와 3D 시뮬레이션으로 구도를 비교합니다.</li><li><b>iPhone·iPad·Android</b>: 촬영 계획을 만들고, 답사 사진과 지원 기기의 AR로 현장을 확인합니다.</li><li><b>동기화와 공유</b>: Apple 기기는 iCloud, Android는 선택한 Google Drive 계정으로 동기화하고, 플랫폼 간에는 링크로 계획을 공유합니다.</li></ul>
     <div class="device-shots shots">
-      <figure><img src="/img/guide/band-mac-ko.jpg" width="1600" height="1000" alt="Mac — 지도의 띠를 보며 촬영지를 선택합니다" loading="lazy"><figcaption>Mac — 지도의 띠를 보며 촬영지를 선택합니다</figcaption></figure>
-      <figure class="phone"><img src="/img/guide/plan-iphone-ko.jpg" width="660" height="1434" alt="iPhone — 같은 계획을 현장에서" loading="lazy"><figcaption>iPhone — 같은 계획을 현장에서</figcaption></figure>
+      <figure><img src="/img/guide/band-mac-ko.jpg" width="1600" height="1000" alt="Mac, 지도의 띠를 보며 촬영지를 선택합니다" loading="lazy"><figcaption>Mac, 지도의 띠를 보며 촬영지를 선택합니다</figcaption></figure>
+      <figure class="phone"><img src="/img/guide/plan-iphone-ko.jpg" width="660" height="1434" alt="iPhone, 같은 계획을 현장에서" loading="lazy"><figcaption>iPhone, 같은 계획을 현장에서</figcaption></figure>
     </div>
   </div>
 </section>
@@ -447,19 +447,19 @@
     <span class="tag">그 밖의 도구</span>
     <h2>촬영 전후에 사용하는 도구</h2>
     <ul class="tools">
-<li><b>천문 달력</b> — 보름달, 일식·월식, 유성우 등 주요 천문 현상을 관측 위치에 맞춰 확인합니다.</li>
-<li><b>일식·월식</b> — 앞으로 10년의 일식·월식 목록과 경로 지도, 기준 위치에서의 가시성을 보고, 촬영지를 지정하면 그 자리의 식 시각을 확인합니다.</li>
-<li><b>위젯</b> — 오늘의 달과 태양, 다음 촬영 기회를 위젯으로 확인합니다. Android는 홈 화면 위젯, iPhone·iPad는 홈 화면과 잠금 화면 위젯, Mac은 알림 센터와 데스크톱 위젯을 제공합니다.</li>
-<li><b>캘린더에 추가</b> — 촬영 계획과 천문 현상을 일정으로 저장하고 알림을 받습니다.</li>
-<li><b>랜드마크</b> — 높이 정보가 등록된 명소로 촬영을 계획하고, 직접 측정한 장소도 저장합니다.</li>
-<li><b>달 노출 표·과초점 표</b> — 달 모양별 ISO 시작값과, 피사체를 선명하게 담을 수 있는 거리를 참고합니다.</li>
-<li><b>링크로 공유</b> — 촬영 계획을 링크로 공유합니다. 앱이 없어도 웹에서 요약과 지도를 확인할 수 있습니다.</li>
-<li><b>카메라 자동 촬영</b> — Mac·iPhone·iPad에서 지원되는 Sony·Canon 카메라를 USB로 연결해 비행기 통과 전후로 연속 촬영합니다(Canon은 시험 지원). 촬영 전 앱의 ‘1초 시험 촬영’으로 동작을 확인하세요.</li>
+<li><b>천문 달력</b>, 보름달, 일식·월식, 유성우 등 주요 천문 현상을 관측 위치에 맞춰 확인합니다.</li>
+<li><b>일식·월식</b>: 앞으로 10년의 일식·월식 목록과 경로 지도, 기준 위치에서의 가시성을 보고, 촬영지를 지정하면 그 자리의 식 시각을 확인합니다.</li>
+<li><b>위젯</b>: 오늘의 달과 태양, 다음 촬영 기회를 위젯으로 확인합니다. Android는 홈 화면 위젯, iPhone·iPad는 홈 화면과 잠금 화면 위젯, Mac은 알림 센터와 데스크톱 위젯을 제공합니다.</li>
+<li><b>캘린더에 추가</b>: 촬영 계획과 천문 현상을 일정으로 저장하고 알림을 받습니다.</li>
+<li><b>랜드마크</b>: 높이 정보가 등록된 명소로 촬영을 계획하고, 직접 측정한 장소도 저장합니다.</li>
+<li><b>달 노출 표·과초점 표</b>: 달 모양별 ISO 시작값과, 피사체를 선명하게 담을 수 있는 거리를 참고합니다.</li>
+<li><b>링크로 공유</b>: 촬영 계획을 링크로 공유합니다. 앱이 없어도 웹에서 요약과 지도를 확인할 수 있습니다.</li>
+<li><b>카메라 자동 촬영</b>: Mac·iPhone·iPad에서 지원되는 Sony·Canon 카메라를 USB로 연결해 비행기 통과 전후로 연속 촬영합니다(Canon은 시험 지원). 촬영 전 앱의 ‘1초 시험 촬영’으로 동작을 확인하세요.</li>
 </ul>
     <div class="phone-row shots">
-      <figure><img src="/img/tools/home-ko.jpg" width="600" height="1304" alt="시작 메뉴 — 오늘 하늘과 다음 촬영 기회" loading="lazy"><figcaption>시작 메뉴 — 오늘 하늘과 다음 촬영 기회</figcaption></figure>
-      <figure><img src="/img/tools/calendar-ko.jpg" width="600" height="1304" alt="천문 달력 — 날짜별 해와 달, 천문 현상" loading="lazy"><figcaption>천문 달력 — 날짜별 해와 달, 천문 현상</figcaption></figure>
-      <figure><img src="/img/tools/eclipse-ko.jpg" width="600" height="1304" alt="일식·월식 — 2027년 8월 2일 개기일식 경로" loading="lazy"><figcaption>일식·월식 — 2027년 8월 2일 개기일식 경로</figcaption></figure>
+      <figure><img src="/img/tools/home-ko.jpg" width="600" height="1304" alt="시작 메뉴, 오늘 하늘과 다음 촬영 기회" loading="lazy"><figcaption>시작 메뉴, 오늘 하늘과 다음 촬영 기회</figcaption></figure>
+      <figure><img src="/img/tools/calendar-ko.jpg" width="600" height="1304" alt="천문 달력, 날짜별 해와 달, 천문 현상" loading="lazy"><figcaption>천문 달력, 날짜별 해와 달, 천문 현상</figcaption></figure>
+      <figure><img src="/img/tools/eclipse-ko.jpg" width="600" height="1304" alt="일식·월식, 2027년 8월 2일 개기일식 경로" loading="lazy"><figcaption>일식·월식, 2027년 8월 2일 개기일식 경로</figcaption></figure>
     </div>
   </div>
 </section>
@@ -471,7 +471,7 @@
     <p class="lead sect-lead">핵심 절차를 따라 촬영을 계획해 보세요. 화면별 기능과 자세한 설정은 <a href="guide/">사용 설명서</a>에서 확인할 수 있습니다.</p>
     
     <div class="howto" id="howto-structure">
-      <h3><span class="k">A</span>구조물 — 타워와 달이 겹치는 구도</h3>
+      <h3><span class="k">A</span>구조물, 타워와 달이 겹치는 구도</h3>
       <p class="h-lead">타겟을 정하고, 지도에서 촬영 위치를 선택한 뒤 구도를 확인합니다.</p>
       
       <ol class="flow">
@@ -483,7 +483,7 @@
     </div>
     
     <div class="howto" id="howto-person">
-      <h3><span class="k">B</span>사람 — 달 앞의 실루엣</h3>
+      <h3><span class="k">B</span>사람, 달 앞의 실루엣</h3>
       <p class="h-lead">사람에게서 멀리 떨어지고, 사람이 프레임에서 같은 크기를 차지하도록 초점거리를 늘리면 달이 상대적으로 크게 보입니다.</p>
       
       <ol class="flow">
@@ -495,7 +495,7 @@
     </div>
     
     <div class="howto" id="howto-iss">
-      <h3><span class="k">C</span>우주정거장 — 달 앞을 통과하는 순간</h3>
+      <h3><span class="k">C</span>우주정거장, 달 앞을 통과하는 순간</h3>
       <p class="h-lead">짧은 통과 순간을 담을 수 있도록 촬영 위치와 시각을 미리 확인합니다.</p>
       
       <ol class="flow">
@@ -507,7 +507,7 @@
     </div>
     
     <div class="howto" id="howto-plane">
-      <h3><span class="k">D</span>비행기 — 실시간 통과 알림</h3>
+      <h3><span class="k">D</span>비행기, 실시간 통과 알림</h3>
       <p class="h-lead">실시간 비행 경로로 통과 가능성을 확인하고 촬영을 준비합니다.</p>
       
       <ol class="flow">
@@ -566,8 +566,8 @@
 
 <footer>
   <div class="wrap">
-    <p class="foot-desc"><strong>MoonAlign</strong> — 달과 해, 우주정거장(ISS·톈궁), 비행기, 은하수 촬영을 위한 계획 앱. 문의: <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
-    <p class="srcs">지도: Apple 지도 · V-World(국토교통부, 공공누리 제1유형) · Google 지도(Apple 기기는 개인 키, Android는 기본 제공) · 지면고도: V-World 3D 지형(국내) · Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018, Copernicus 프로그램(EU·ESA) · 광해: EOG VIIRS 야간광(VNL V2) — OpenGeoHub 재배포본(CC BY 4.0)으로 앱이 계산한 추정값 · ISS 궤도: NASA OEM · CelesTrak TLE · 톈궁 궤도: CelesTrak SupGP(중국 유인우주국 궤도력 기반) · CelesTrak TLE · 비행기 항적: adsb.lol(ODbL 1.0) · 지오이드: EGM96(NGA) · 시뮬레이션 3D: V-World · Google 실사 3D 타일 · 일식·월식 지도: Natural Earth(퍼블릭 도메인) · 천문 계산: astronomy-engine</p>
+    <p class="foot-desc"><strong>MoonAlign</strong>, 달과 해, 우주정거장(ISS·톈궁), 비행기, 은하수 촬영을 위한 계획 앱. 문의: <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+    <p class="srcs">지도: Apple 지도 · V-World(국토교통부, 공공누리 제1유형) · Google 지도(Apple 기기는 개인 키, Android는 기본 제공) · 지면고도: V-World 3D 지형(국내) · Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018, Copernicus 프로그램(EU·ESA) · 광해: EOG VIIRS 야간광(VNL V2), OpenGeoHub 재배포본(CC BY 4.0)으로 앱이 계산한 추정값 · ISS 궤도: NASA OEM · CelesTrak TLE · 톈궁 궤도: CelesTrak SupGP(중국 유인우주국 궤도력 기반) · CelesTrak TLE · 비행기 항적: adsb.lol(ODbL 1.0) · 지오이드: EGM96(NGA) · 시뮬레이션 3D: V-World · Google 실사 3D 타일 · 일식·월식 지도: Natural Earth(퍼블릭 도메인) · 천문 계산: astronomy-engine</p>
     <p class="copy">© 2026 <a href="../">YJLAB</a>. All rights reserved. · <a href="privacy/">개인정보처리방침</a></p>
   </div>
 </footer>

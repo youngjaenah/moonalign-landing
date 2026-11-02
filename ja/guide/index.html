@@ -1,24 +1,24 @@
-<!-- 생성물 — 직접 고치지 말 것. 원본: guide-template.html + guide-src/<lang>.html + strings/<lang>.json의 guide.* -->
+<!-- 생성물: 직접 고치지 말 것. 원본: guide-template.html + guide-src/<lang>.html + strings/<lang>.json의 guide.* -->
 <!DOCTYPE html>
-<!-- 원본(손으로 고치는 곳) — 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
+<!-- 원본(손으로 고치는 곳): 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
      본문은 guide-src/<lang>.html, 목차는 본문의 <h2 id>에서 자동. -->
 <html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>使い方ガイド — MoonAlign</title>
+  <title>使い方ガイド：MoonAlign</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
   <link rel="apple-touch-icon" href="/img/icon/apple-touch-icon.png">
-  <meta name="description" content="MoonAlignの使い方ガイド — ターゲットと撮影地の指定、モード別の流れ(構造物・人物・宇宙ステーション・飛行機・天の川)、シミュレーション・写真チェック・ARチェック、天文カレンダー、共有、困ったときは。">
+  <meta name="description" content="MoonAlignの使い方ガイド：ターゲットと撮影地の指定、モード別の流れ(構造物・人物・宇宙ステーション・飛行機・天の川)、シミュレーション・写真チェック・ARチェック、天文カレンダー、共有、困ったときは。">
   <link rel="canonical" href="https://moonalign.yjlab.io/ja/guide/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/guide/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/guide/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/guide/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/guide/">
-  <meta property="og:title" content="使い方ガイド — MoonAlign">
-  <meta property="og:description" content="MoonAlignの使い方ガイド — ターゲットと撮影地の指定、モード別の流れ(構造物・人物・宇宙ステーション・飛行機・天の川)、シミュレーション・写真チェック・ARチェック、天文カレンダー、共有、困ったときは。">
+  <meta property="og:title" content="使い方ガイド：MoonAlign">
+  <meta property="og:description" content="MoonAlignの使い方ガイド：ターゲットと撮影地の指定、モード別の流れ(構造物・人物・宇宙ステーション・飛行機・天の川)、シミュレーション・写真チェック・ARチェック、天文カレンダー、共有、困ったときは。">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:type" content="article">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -106,7 +106,7 @@
     article .note { background: #2a2414; }
   }
 
-  /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+  /* 줄 바꿈: 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
      일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
   html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
   html:lang(ko) article p, html:lang(ko) article li { text-wrap: pretty; }
@@ -131,14 +131,14 @@
     <ol>
       <li><a href="#start">はじめに</a></li>
       <li><a href="#plan">計画画面のしくみ</a></li>
-      <li><a href="#structure">構造物 — タワーの後ろに月を重ねる</a></li>
-      <li><a href="#person">人物 — 月の前のシルエット</a></li>
+      <li><a href="#structure">構造物：タワーの後ろに月を重ねる</a></li>
+      <li><a href="#person">人物：月の前のシルエット</a></li>
       <li><a href="#free">なしと天の川</a></li>
-      <li><a href="#iss">宇宙ステーション(ISS・天宮) — 月面・太陽面通過</a></li>
-      <li><a href="#plane">飛行機 — ライブ監視</a></li>
-      <li><a href="#sim">シミュレーション — 3Dで事前確認</a></li>
-      <li><a href="#photo">写真チェック — 下見写真に経路を描く</a></li>
-      <li><a href="#ar">ARチェック — 現場で狙いを定める</a></li>
+      <li><a href="#iss">宇宙ステーション(ISS・天宮)：月面・太陽面通過</a></li>
+      <li><a href="#plane">飛行機：ライブ監視</a></li>
+      <li><a href="#sim">シミュレーション：3Dで事前確認</a></li>
+      <li><a href="#photo">写真チェック：下見写真に経路を描く</a></li>
+      <li><a href="#ar">ARチェック：現場で狙いを定める</a></li>
       <li><a href="#calendar">天文カレンダー・ウィジェット・カレンダー</a></li>
       <li><a href="#eclipse">日食・月食</a></li>
       <li><a href="#projects">プロジェクトの管理と共有</a></li>
@@ -151,8 +151,8 @@
   </details>
   <article>
     <h1>使い方ガイド</h1>
-    <p class="lead">計画から現地確認まで — 各画面でできることと使い方。</p>
-<!-- 使い方ガイド本文(ja)。guide/ko.html の翻訳 — 節の id は ko・en と同じ順序で同じにすること(build_landing.py --check)。
+    <p class="lead">計画から現地確認まで：各画面でできることと使い方。</p>
+<!-- 使い方ガイド本文(ja)。guide/ko.html の翻訳：節の id は ko・en と同じ順序で同じにすること(build_landing.py --check)。
      画面の名前はアプリの実際の日本語ラベル(Localizable.xcstrings)。 -->
 
 <section>
@@ -175,20 +175,20 @@
 <tr><td><span class="ui">設定</span></td><td>タイムゾーン・言語・既定の高さ・Googleキー・サブスクリプション(<a href="#settings">設定</a>)。</td></tr>
 <tr><td><span class="ui">ヘルプ・情報</span></td><td>使い方ガイド・問い合わせメール・データの出典・オープンソースライセンス(<a href="#about">ヘルプ・情報</a>)。</td></tr>
 </table>
-<div class="tip">インストール直後は6つの例が入っています — <span class="ui">[デモ] Nソウルタワーの月の出</span>・<span class="ui">[デモ] ロッテワールドタワーの日の入り</span>・<span class="ui">[デモ] パリ・エッフェル塔の月の出</span>・<span class="ui">[デモ] 日本・牛久大仏</span>・<span class="ui">[デモ] 北海道・天に続く道の日の入り</span>・<span class="ui">[デモ] ノースウィンドウ・アーチの月の出</span>。完成したプランがどんなものか開いてみてください。牛久大仏とノースウィンドウ・アーチは、シミュレーションで構図を合わせた状態で開きます。削除しても再び作られることはありません。</div>
+<div class="tip">インストール直後は6つの例が入っています。<span class="ui">[デモ] Nソウルタワーの月の出</span>・<span class="ui">[デモ] ロッテワールドタワーの日の入り</span>・<span class="ui">[デモ] パリ・エッフェル塔の月の出</span>・<span class="ui">[デモ] 日本・牛久大仏</span>・<span class="ui">[デモ] 北海道・天に続く道の日の入り</span>・<span class="ui">[デモ] ノースウィンドウ・アーチの月の出</span>。完成したプランがどんなものか開いてみてください。牛久大仏とノースウィンドウ・アーチは、シミュレーションで構図を合わせた状態で開きます。削除しても再び作られることはありません。</div>
 </section>
 
 <section>
 <h2 id="plan">計画画面のしくみ</h2>
-<figure class="shot phone"><img src="/img/guide/plan-iphone-ja.jpg" alt="iPhoneの計画画面" loading="lazy"><figcaption>iPhoneの計画画面 — 地図の下のチップ列(ターゲット・撮影地・カメラの高さ)と、引き上げる引き出しの日付・対象・被写体・太陽と月のカード。</figcaption></figure>
+<figure class="shot phone"><img src="/img/guide/plan-iphone-ja.jpg" alt="iPhoneの計画画面" loading="lazy"><figcaption>iPhoneの計画画面：地図の下のチップ列(ターゲット・撮影地・カメラの高さ)と、引き上げる引き出しの日付・対象・被写体・太陽と月のカード。</figcaption></figure>
 <p>上中央のタブで4つの画面を行き来します：<span class="ui">計画</span> → <span class="ui">シミュレーション</span> → <span class="ui">写真チェック</span> → <span class="ui">ARチェック</span>(iPhoneでは短く<span class="ui">計画・シミュ・写真・AR</span>)。左上の家のアイコンは<span class="ui">ホーム</span>、右の歯車は設定です。MacにはARがありません。</p>
 <p>iPhoneの縦向きでは地図が画面全体に表示され、下の引き出しを引き上げてパネルを見ます。iPhoneの横向きとiPadの横向きは地図とパネルが横並び、Macはサイズを変えられるサイドバーです。</p>
 
 <h3 id="plan-subject">対象と被写体</h3>
 <p>パネル上部の2つを選ぶと、残りの流れがそれに合わせて変わります。</p>
 <ul>
-<li><span class="ui">対象</span> — 空の何を撮るか：<span class="ui">月</span>・<span class="ui">太陽</span>・<span class="ui">天の川</span>。</li>
-<li><span class="ui">被写体</span> — その手前に何を置くか：<span class="ui">構造物</span>(タワー・橋・スカイライン)・<span class="ui">人物</span>(シルエット)・<span class="ui">なし</span>(天体だけ)・<span class="ui">宇宙ステーション</span>(ISS・天宮)・<span class="ui">飛行機</span>。</li>
+<li><span class="ui">対象</span>：空の何を撮るか：<span class="ui">月</span>・<span class="ui">太陽</span>・<span class="ui">天の川</span>。</li>
+<li><span class="ui">被写体</span>：その手前に何を置くか：<span class="ui">構造物</span>(タワー・橋・スカイライン)・<span class="ui">人物</span>(シルエット)・<span class="ui">なし</span>(天体だけ)・<span class="ui">宇宙ステーション</span>(ISS・天宮)・<span class="ui">飛行機</span>。</li>
 </ul>
 
 <h3 id="plan-assign">ターゲットと撮影地の指定</h3>
@@ -206,7 +206,7 @@
 <p>重なりは角度で決まるので、高さが大切です。ターゲットのカードには<span class="ui">地面標高</span>と<span class="ui">構造物の高さ</span>(人物モードでは<span class="ui">人の身長</span>)、撮影地には<span class="ui">地面標高</span>と<span class="ui">カメラの高さ</span>があります。</p>
 <ul>
 <li>値の横のバッジが出どころを示します：<span class="ui">自動</span>(地形データから取得)・<span class="ui">手動</span>(自分で入力)・<span class="ui">シミュ地形</span>(3Dシミュレーションで測った表面で補正)・<span class="ui">設定の既定値</span>。</li>
-<li>ランドマーク一覧にある構造物は高さが自動で入ります。見つからないと<span class="ui">構造物の高さが見つかりませんでした</span>が表示されます — 直接入力するか、シミュレーションの<span class="ui">高さを測る</span>で測ってください。</li>
+<li>ランドマーク一覧にある構造物は高さが自動で入ります。見つからないと<span class="ui">構造物の高さが見つかりませんでした</span>が表示されます。直接入力するか、シミュレーションの<span class="ui">高さを測る</span>で測ってください。</li>
 <li>カメラの高さはプリセット<span class="ui">伏せて 0.3</span>・<span class="ui">三脚 1.4</span>・<span class="ui">立って 1.6</span>から選べます。</li>
 <li>屋上や橋の上から撮るなら、地面標高は<em>立っている床</em>の高さです。シミュレーションを一度開くと3Dモデルの表面で自動補正されます。</li>
 </ul>
@@ -226,8 +226,8 @@
 </section>
 
 <section>
-<h2 id="structure">構造物 — タワーの後ろに月を重ねる</h2>
-<figure class="shot"><img src="/img/guide/band-mac-ja.jpg" alt="Macの計画画面" loading="lazy"><figcaption>Macの計画画面 — 黄色い帯(月の出)と青い帯(月の入り)、撮影地から見た月の方向(赤)。左の撮影地カードに結果が出ます。例：パリ・エッフェル塔、2026-12-23の月の出。</figcaption></figure>
+<h2 id="structure">構造物：タワーの後ろに月を重ねる</h2>
+<figure class="shot"><img src="/img/guide/band-mac-ja.jpg" alt="Macの計画画面" loading="lazy"><figcaption>Macの計画画面：黄色い帯(月の出)と青い帯(月の入り)、撮影地から見た月の方向(赤)。左の撮影地カードに結果が出ます。例：パリ・エッフェル塔、2026-12-23の月の出。</figcaption></figure>
 <p>MoonAlignの基本の流れです。ほかのモードも同じ文法に従います。</p>
 <ol>
 <li><span class="ui">対象</span>で<span class="ui">月</span>、<span class="ui">被写体</span>で<span class="ui">構造物</span>を選びます。</li>
@@ -244,7 +244,7 @@
 </section>
 
 <section>
-<h2 id="person">人物 — 月の前のシルエット</h2>
+<h2 id="person">人物：月の前のシルエット</h2>
 <p>遠くから望遠で引き寄せると、人物はそのままで月だけが大きくなります。人物モードは<span class="ui">人の身長</span>(既定1.7 m)を高さとして帯を描きます。</p>
 <ol>
 <li><span class="ui">被写体</span>で<span class="ui">人物</span>を選び、人が立つ場所(尾根や丘の上)をターゲットに指定します。</li>
@@ -261,7 +261,7 @@
 </section>
 
 <section>
-<h2 id="iss">宇宙ステーション(ISS・天宮) — 月面・太陽面通過</h2>
+<h2 id="iss">宇宙ステーション(ISS・天宮)：月面・太陽面通過</h2>
 <p>国際宇宙ステーション(ISS)と中国の宇宙ステーション天宮が月や太陽の前を横切る場所と時刻を予測します。2つのステーションは一度にまとめて探します。円盤を横切るのは1秒もかからないので、正確な通過時間は選んだ結果で確認してください。ISSはNASAの軌道データ(OEM、なければCelesTrak TLE)、天宮はCelesTrakの軌道データで計算します。</p>
 <ol>
 <li><span class="ui">被写体</span>で<span class="ui">宇宙ステーション</span>、<span class="ui">対象</span>で<span class="ui">月</span>(または<span class="ui">太陽</span>)を選びます。ISSと天宮をまとめて探すので、ステーションを選ぶ必要はありません。</li>
@@ -270,18 +270,18 @@
 <li>結果の行でステーション名、等級(<span class="ui">通過見込み</span>・<span class="ui">通過可能</span>・<span class="ui">接近</span>)、離角、通過時間を見て、<span class="ui">選択</span>で確定します。確定すると自動で保存され、シミュレーションで0.1秒単位で確認できます。</li>
 </ol>
 <p><span class="ui">上空通過</span>(折りたたみ)は、月の前ではなく夜空を横切るステーションです。明るさ、最大高度、方向、見える時間が表示されます。</p>
-<div class="note">予報はすべて軌道データに基づく予測です。ステーションは随時軌道を調整するので、<strong>撮影の前日に必ずもう一度検索</strong>してください。状態の行で使ったデータ(NASA OEMまたはTLE)と有効期限を確認できます。天宮は中国有人宇宙プロジェクト弁公室の軌道暦から作られた軌道で約6日先まで計算し、それより先は通常のTLEで計算するため誤差が大きくなります — 結果の行の出典(<span class="ui">軌道暦</span>・<span class="ui">TLE</span>)を確認してください。</div>
+<div class="note">予報はすべて軌道データに基づく予測です。ステーションは随時軌道を調整するので、<strong>撮影の前日に必ずもう一度検索</strong>してください。状態の行で使ったデータ(NASA OEMまたはTLE)と有効期限を確認できます。天宮は中国有人宇宙プロジェクト弁公室の軌道暦から作られた軌道で約6日先まで計算し、それより先は通常のTLEで計算するため誤差が大きくなります。結果の行の出典(<span class="ui">軌道暦</span>・<span class="ui">TLE</span>)を確認してください。</div>
 </section>
 
 <section>
-<h2 id="plane">飛行機 — ライブ監視</h2>
+<h2 id="plane">飛行機：ライブ監視</h2>
 <p>月の前を横切る飛行機は事前に予報できません。そこでMoonAlignは撮影地の周りのリアルタイムの航跡を監視し、通過の数秒前に知らせます。</p>
 <ol>
 <li><span class="ui">被写体</span>で<span class="ui">飛行機</span>を選び、撮影地を指定します。</li>
 <li><span class="ui">最大距離</span>(km)を決めて<span class="ui">ライブ監視を開始</span>を押します。既定のデータはadsb.lolの公開航跡(30秒ごとに更新、2時間後に自動停止)です。</li>
 <li>候補の行に残り秒数・離角・高度・距離が表示され、通過が近づくとカウントダウンと<em>連写準備</em>の通知が届きます。</li>
 </ol>
-<figure class="shot"><img src="/img/guide/plane-mac-ja.jpg" alt="Macの飛行機ライブ監視" loading="lazy"><figcaption>Macの飛行機ライブ監視 — 金浦付近の撮影地(2026-09-07の記録データ)。黄色のアイコンは周辺の機体、赤のアイコン(AAR1045)は約32秒後に月の前を通過すると予測された機体で、地図上部の通知が通過見込みを知らせます。</figcaption></figure>
+<figure class="shot"><img src="/img/guide/plane-mac-ja.jpg" alt="Macの飛行機ライブ監視" loading="lazy"><figcaption>Macの飛行機ライブ監視：金浦付近の撮影地(2026-09-07の記録データ)。黄色のアイコンは周辺の機体、赤のアイコン(AAR1045)は約32秒後に月の前を通過すると予測された機体で、地図上部の通知が通過見込みを知らせます。</figcaption></figure>
 <p>監視中は、周辺の機体が進行方向に向いた飛行機アイコンと便名で地図に表示されます。色で状態を区別します：<strong>黄</strong> 通常・<strong>オレンジ</strong> 月の近くを通る候補・<strong>赤</strong> 通過見込み・<strong>グレー</strong> 数秒以上位置が更新されていない機体。Macではアイコンにポインタを合わせると、便名・高度・位置を受信した時刻が表示されます。</p>
 <ul>
 <li>自分のADS-B受信機(readsb・dump1090)があるなら<span class="ui">自分の受信機</span>をオンにしてaircraft.jsonのアドレスを入れてください。1秒間隔で更新され、公開航跡より速くなります。</li>
@@ -292,13 +292,13 @@
 </section>
 
 <section>
-<h2 id="sim">シミュレーション — 3Dで事前確認</h2>
-<figure class="shot"><img src="/img/guide/sim-mac-ja.jpg" alt="Macのシミュレーション" loading="lazy"><figcaption>Macのシミュレーション — エッフェル塔の第1展望台と第2展望台の間に重なる月(2026-12-23 16:19、200mm、フルサイズ、縦位置)。下で時刻・焦点距離・絞りを変えます。</figcaption></figure>
+<h2 id="sim">シミュレーション：3Dで事前確認</h2>
+<figure class="shot"><img src="/img/guide/sim-mac-ja.jpg" alt="Macのシミュレーション" loading="lazy"><figcaption>Macのシミュレーション：エッフェル塔の第1展望台と第2展望台の間に重なる月(2026-12-23 16:19、200mm、フルサイズ、縦位置)。下で時刻・焦点距離・絞りを変えます。</figcaption></figure>
 <p>地形・建物・実際のレンズの画角でプランを事前に確認します。韓国ではV-World 3D(国土交通部)、韓国外ではGoogleフォトリアリスティック3Dを使います。</p>
 <ul>
 <li><span class="ui">時刻</span>スライダー：重なる時刻の前後を動かし、月がターゲットの後ろに入っていく様子を見ます。範囲は(i)にあります。スライダー両側の◀ ▶を押すと1目盛り(月の重なりなら10秒)ずつ動かせ、狙った構図で止めやすくなります。</li>
 <li><span class="ui">焦点距離</span>：14〜1200mmとセンサー(<span class="ui">フルサイズ</span>・<span class="ui">APS-C ソニー/ニコン</span>・<span class="ui">APS-C キヤノン</span>・<span class="ui">マイクロフォーサーズ</span>)。クロップセンサーでは35mm換算の焦点距離も表示されます。画面を2本指で広げたりつまんだりしても(MacはトラックパッドのピンチまたはControl+スクロール)焦点距離が変わり、指を離すとその値がプロジェクトに保存されます。</li>
-<li><span class="ui">絞り</span>：選ぶとピントの案内が付きます — 月にピントを合わせてもターゲットまでシャープか、それともどこに合わせるか、2枚を合成すべきか。</li>
+<li><span class="ui">絞り</span>：選ぶとピントの案内が付きます。月にピントを合わせてもターゲットまでシャープか、それともどこに合わせるか、2枚を合成すべきか。</li>
 <li><span class="ui">高さを測る</span>：3Dモデルで構造物の高さを測り、<span class="ui">この高さを使う</span>でプランに入れます。</li>
 <li>画面上のチップ：<span class="ui">カメラ位置を見る</span>(自分の位置を外から確認)・<span class="ui">横位置</span>/<span class="ui">縦位置</span>・<span class="ui">シルエット表示</span>。今の画面は下のパネルの<span class="ui">画像を保存</span>で保存します。画面をドラッグすると視線を動かせ、2本指で広げると拡大できます。</li>
 <li>時刻スライダーで動かした時刻とドラッグで合わせた構図は、シミュレーションを離れるときにプロジェクトに保存され、次に開くと同じ場面から始まります。構図は下の<span class="ui">視線</span>ボタンで最初の向き(天体の正面)に戻せます。ターゲット・撮影地の位置や日付を変えると、保存された場面は消えます。</li>
@@ -313,7 +313,7 @@
 <p><strong>Google APIキーの作成と設定</strong></p>
 <ol>
       <li><b>Google Cloudコンソールにサインインします。</b>
-        <span><a href="https://console.cloud.google.com" rel="noopener">console.cloud.google.com</a> — 通常のGoogleアカウントで構いません。</span></li>
+        <span><a href="https://console.cloud.google.com" rel="noopener">console.cloud.google.com</a>：通常のGoogleアカウントで構いません。</span></li>
       <li><b>プロジェクトを作成します。</b>
         <span>上部のプロジェクト選択 → 「新しいプロジェクト」。名前は任意です(例：<code>moonalign-3d</code>)。</span></li>
       <li><b>請求先アカウントをリンクします。</b>
@@ -331,14 +331,14 @@
 </section>
 
 <section>
-<h2 id="photo">写真チェック — 下見写真に経路を描く</h2>
-<figure class="shot"><img src="/img/guide/photo-mac-ja.jpg" alt="Macの写真チェック" loading="lazy"><figcaption>Macの写真チェック — 2026-10-27の朝、蚕室漢江公園で撮った下見写真(07:32、35mm換算120mm)。写真の中の月(赤い点線の輪)を基準に合わせると、計画時刻(10/27 07:40)の月の位置(黄色の円)と経路が描かれ、8分後に月がNソウルタワーの先端にかかることが分かります。</figcaption></figure>
-<figure class="shot portrait"><img src="/img/guide/photo-result.jpg" alt="実際の撮影結果 — Nソウルタワーの後ろの満月" loading="lazy"><figcaption>実際の結果 — 同じ朝、同じ場所から07:40:13に撮影(Sony α6700 + 800mm、35mm換算1200mm)。写真チェックが示したとおり、月がNソウルタワーの真後ろにかかりました。</figcaption></figure>
+<h2 id="photo">写真チェック：下見写真に経路を描く</h2>
+<figure class="shot"><img src="/img/guide/photo-mac-ja.jpg" alt="Macの写真チェック" loading="lazy"><figcaption>Macの写真チェック：2026-10-27の朝、蚕室漢江公園で撮った下見写真(07:32、35mm換算120mm)。写真の中の月(赤い点線の輪)を基準に合わせると、計画時刻(10/27 07:40)の月の位置(黄色の円)と経路が描かれ、8分後に月がNソウルタワーの先端にかかることが分かります。</figcaption></figure>
+<figure class="shot portrait"><img src="/img/guide/photo-result.jpg" alt="実際の撮影結果：Nソウルタワーの後ろの満月" loading="lazy"><figcaption>実際の結果、同じ朝、同じ場所から07:40:13に撮影(Sony α6700 + 800mm、35mm換算1200mm)。写真チェックが示したとおり、月がNソウルタワーの真後ろにかかりました。</figcaption></figure>
 <p>下見のときに撮影地で写真を1枚撮っておくと、予定日の天体の経路をその写真の上に描きます。地図にない木やクレーン、フェンスを確かめるのに使います。</p>
 <ol>
 <li><span class="ui">写真チェック</span>タブで<span class="ui">写真を選択</span>から写真を読み込みます。撮影時刻・焦点距離・GPS(EXIF)のある元の写真が向いています。</li>
 <li><span class="ui">基準</span>(月・太陽・天の川・ターゲット)と<span class="ui">位置</span>(この写真の位置/撮影地の位置/現在地)を選びます。</li>
-<li>基準点にマークを置きます — 赤いリングは天体、青緑の印はターゲットの頂上・人物の頭です。月・太陽は写真から自動で見つけてリングを置くので、位置が合っているか確かめるだけで構いません。
+<li>基準点にマークを置きます。赤いリングは天体、青緑の印はターゲットの頂上・人物の頭です。月・太陽は写真から自動で見つけてリングを置くので、位置が合っているか確かめるだけで構いません。
 <ul>
 <li><strong>iPhone・iPad・Android</strong>：1本指で写真を動かして中央の十字線を基準点に合わせ、<span class="ui">ここにマークを置く</span>を押します。2本指で広げて拡大するほど正確に合わせられます。置き直すときは<span class="ui">マークを置き直す</span>を押してください。</li>
 <li><strong>Mac</strong>：写真の中の基準点をクリックします。トラックパッドのピンチ、またはControl(⌃)かCommand(⌘)を押しながらスクロールして拡大し、拡大中はスクロールで写真を動かせます。</li>
@@ -353,7 +353,7 @@
 </section>
 
 <section>
-<h2 id="ar">ARチェック — 現場で狙いを定める</h2>
+<h2 id="ar">ARチェック：現場で狙いを定める</h2>
 <!-- shot: ar -->
 <p>iPhone・iPadおよびARCore対応Android端末で、カメラ映像に天体の軌跡を重ねて確認できます。AndroidにはGoogle Play開発者サービス（AR）が必要です。Macでは対応していません。方位を補正してから撮影方向と構図を確認してください。</p>
 <ul>
@@ -367,7 +367,7 @@
 <section>
 <h2 id="calendar">天文カレンダー・ウィジェット・カレンダー</h2>
 <p><span class="ui">天文カレンダー</span>には、満月(スーパームーン・マイクロムーン)、新月、月食・日食、流星群、惑星の衝・合、月と惑星や明るい星の接近・食、金星の最大光度、春分・夏至・秋分・冬至が表示されます。接近や合は<em>基準の位置から実際に見える時刻</em>で知らせます。日付を押すと、その日の太陽と月のカード、保存したプラン、イベントが表示されます。流星群には月明かりの影響の度合いが付きます。日食・月食の経路の地図と撮影地ごとの食の時刻は<a href="#eclipse">日食・月食</a>で確認します。</p>
-<p>イベントやプランの行の<span class="ui">カレンダーに追加</span>を押すと、端末のカレンダーに予定(前日の夜と1時間前の通知)が入ります。iPhone・iPadでは予定の編集画面が開き、Macではそのまま保存されます。Androidでも予定の編集画面が開きますが、通知を自動で入れられないため、おすすめの通知時刻をメモの1行目に書いておきます — 通知はご自身で設定してください。アプリがカレンダーを読むことはありません。</p>
+<p>イベントやプランの行の<span class="ui">カレンダーに追加</span>を押すと、端末のカレンダーに予定(前日の夜と1時間前の通知)が入ります。iPhone・iPadでは予定の編集画面が開き、Macではそのまま保存されます。Androidでも予定の編集画面が開きますが、通知を自動で入れられないため、おすすめの通知時刻をメモの1行目に書いておきます。通知はご自身で設定してください。アプリがカレンダーを読むことはありません。</p>
 <p>ホーム画面・通知センターのウィジェット：<span class="ui">今日の空</span>・<span class="ui">今日の月</span>・<span class="ui">今日の太陽</span>・<span class="ui">次の撮影チャンス</span>、そしてiPhone・iPadではロック画面のウィジェット。ウィジェットはアプリが最後に計算した値を表示するので、長くアプリを開いていなければ一度開いてください。</p>
 </section>
 
@@ -386,7 +386,7 @@
 <section>
 <h2 id="projects">プロジェクトの管理と共有</h2>
 <p>プランは撮影地を指定した時点でプロジェクトとして自動で保存されます。<span class="ui">プロジェクト</span>一覧は最近変更した順で、行を長押し(Macは右クリック)すると<span class="ui">開く</span>・<span class="ui">名前を変更…</span>・<span class="ui">リンクで共有…</span>・<span class="ui">ファイルに書き出す…</span>・<span class="ui">削除…</span>が出ます。まとめて削除するには<span class="ui">選択</span>。</p>
-<p>プロジェクトは同じApple Accountの端末間でiCloud Driveを通じて同期されます。iCloudを使わない場合はその端末にだけ保存されます。iPhone・iPadでモバイル通信につながっていると、ダウンロードが遅くなったり止まったりすることがあります — 一覧に案内が出たら、Wi-Fiに接続するか、設定の「モバイル通信」でiCloud Driveをオンにしてください。プロジェクトのファイルやフォルダーを読み込めなかったという案内が出ても、プロジェクトが消えたわけではなく、少し後にアプリが自動で読み込み直します。</p>
+<p>プロジェクトは同じApple Accountの端末間でiCloud Driveを通じて同期されます。iCloudを使わない場合はその端末にだけ保存されます。iPhone・iPadでモバイル通信につながっていると、ダウンロードが遅くなったり止まったりすることがあります。一覧に案内が出たら、Wi-Fiに接続するか、設定の「モバイル通信」でiCloud Driveをオンにしてください。プロジェクトのファイルやフォルダーを読み込めなかったという案内が出ても、プロジェクトが消えたわけではなく、少し後にアプリが自動で読み込み直します。</p>
 <p>Androidでは設定の<span class="ui">Google Drive同期</span>をオンにすると、同じGoogleアカウントのAndroid端末どうしで同期されます(Apple製品（iPhone・iPad・Mac）とは同期されないので、リンクやファイルで移してください)。最初のダウンロード中に一覧が空なら<span class="ui">Google Driveのプロジェクトを待っています</span>と表示され、接続できないときはネットワークを確認するよう案内が出ます。アプリを開き直すと再度ダウンロードします。</p>
 <h3 id="projects-share">リンクで共有</h3>
 <p>友だちとプランを共有するには、<span class="ui">リンクで共有…</span>を押してメッセンジャーで送ります。受け取った人がリンクを押すと<span class="ui">共有されたプラン</span>画面が開き、<span class="ui">読み込む</span>で新しいプロジェクトが作られます。同じプランがすでにあれば<span class="ui">開く</span>でそのプロジェクトを開き、別にもう1つ作るときは<span class="ui">新しく読み込む</span>を押します。アプリを持っていない人には、同じリンクがプランの概要と地図を表示するWebページとして開きます。</p>
@@ -427,22 +427,22 @@
 <h2 id="about">ヘルプ・情報</h2>
 <p>ホームの<span class="ui">ヘルプ・情報</span>では、アプリのバージョンを確認でき、次の項目を利用できます。</p>
 <ul>
-<li><span class="ui">使い方ガイド</span> — このガイドをアプリの言語で開きます。</li>
-<li><span class="ui">プライバシーポリシー</span> — アプリが扱う情報とその取り扱いをアプリの言語で開きます。</li>
-<li><span class="ui">メールで問い合わせる</span> — support@yjlab.io宛てのメールを作成します。本文にはアプリのバージョン・機種・OS・言語があらかじめ入り、送信前に削除してもかまいません。位置やプロジェクトの情報は含まれません。</li>
-<li><span class="ui">データの出典</span> — 地図・地形・光害・軌道・航跡・日食と月食のデータの出典を確認します。</li>
-<li><span class="ui">オープンソースライセンス</span> — アプリで使っているオープンソースライブラリのライセンスを確認します。</li>
+<li><span class="ui">使い方ガイド</span>：このガイドをアプリの言語で開きます。</li>
+<li><span class="ui">プライバシーポリシー</span>：アプリが扱う情報とその取り扱いをアプリの言語で開きます。</li>
+<li><span class="ui">メールで問い合わせる</span>：support@yjlab.io宛てのメールを作成します。本文にはアプリのバージョン・機種・OS・言語があらかじめ入り、送信前に削除してもかまいません。位置やプロジェクトの情報は含まれません。</li>
+<li><span class="ui">データの出典</span>：地図・地形・光害・軌道・航跡・日食と月食のデータの出典を確認します。</li>
+<li><span class="ui">オープンソースライセンス</span>：アプリで使っているオープンソースライブラリのライセンスを確認します。</li>
 </ul>
 </section>
 
 <section>
 <h2 id="tips">使い方のヒント</h2>
 <h3 id="tips-maptypes">地図の種類を切り替えて撮影地を確かめる</h3>
-<p>帯の上で撮影地の候補を選んだら、決める前に地図の種類を切り替えながら、その場所を大きく拡大してみてください。同じ場所でも地図ごとにわかることが違います(選べる地図は端末によって異なります — <a href="#plan-map">地図のツール</a>)。</p>
+<p>帯の上で撮影地の候補を選んだら、決める前に地図の種類を切り替えながら、その場所を大きく拡大してみてください。同じ場所でも地図ごとにわかることが違います(選べる地図は端末によって異なります。<a href="#plan-map">地図のツール</a>)。</p>
 <ul>
-<li><strong>行ける場所か(通常の地図)</strong> — その場所へ続く道路・遊歩道・階段と、近くの駐車場を確認します。塀の中の敷地、軍事施設、工事現場、私有地など、入れない場所でないかも見ます。</li>
-<li><strong>実際はどうなっているか(航空写真)</strong> — 通常の地図にはない木、塀・防音壁、河川敷の傾斜や水際など、実際の地面を確認します。韓国では<span class="ui">V-World 航空写真</span>がいちばん詳しいです。</li>
-<li><strong>前が開けているか(方向線に沿って)</strong> — 撮影地からターゲットの方へ伸びる赤い線に沿って地図を動かし、間に高い建物・林・丘がないかを見ていきます。計画地図の遮り表示は地形だけを判定するので、建物や木は自分の目で確かめる必要があります。</li>
+<li><strong>行ける場所か(通常の地図)</strong>：その場所へ続く道路・遊歩道・階段と、近くの駐車場を確認します。塀の中の敷地、軍事施設、工事現場、私有地など、入れない場所でないかも見ます。</li>
+<li><strong>実際はどうなっているか(航空写真)</strong>：通常の地図にはない木、塀・防音壁、河川敷の傾斜や水際など、実際の地面を確認します。韓国では<span class="ui">V-World 航空写真</span>がいちばん詳しいです。</li>
+<li><strong>前が開けているか(方向線に沿って)</strong>：撮影地からターゲットの方へ伸びる赤い線に沿って地図を動かし、間に高い建物・林・丘がないかを見ていきます。計画地図の遮り表示は地形だけを判定するので、建物や木は自分の目で確かめる必要があります。</li>
 </ul>
 <p>よい場所が見つからなければ、帯に沿って少しずつずらしながら同じ確認を繰り返してください。帯の上のほかの場所も同じ日のほぼ同じ時刻に重なるので、行きやすく前が開けた場所を選ぶのがポイントです。</p>
 <h3 id="tips-streetview">ストリートビューで撮影地からの見え方を確かめる</h3>
@@ -453,7 +453,7 @@
 <li>ターゲットの方向へ向きを変え、さえぎられずに見えるか、その場所に実際に立てるか(フェンス・立入制限)を確認します。</li>
 </ol>
 <div class="note">ストリートビューは道路から撮った写真なので、撮影時期が古かったり、立つ位置や高さが違ったりすることがあります。ストリートビューがない場所では、AppleマップのLook Aroundも使えます。大切な撮影では、現地で<a href="#photo">写真チェック</a>と<a href="#ar">ARチェック</a>でもう一度確認してください。</div>
-<h3 id="tips-virtual-target">構造物なしで道の先に太陽・月を合わせる — 仮想ターゲット</h3>
+<h3 id="tips-virtual-target">構造物なしで道の先に太陽・月を合わせる。仮想ターゲット</h3>
 <p>まっすぐ続く道の先、橋の向こう、ビルの間の通りのように、<strong>方向</strong>が大事な場面には合わせる構造物がありません。そんなときは、その方向に<strong>仮想の高い柱</strong>が立っていると考えて計画します。アプリはそこに実際に何があるかに関係なく、太陽や月がその柱に重なる日付と時刻を計算します。</p>
 <p>例のプロジェクト<span class="ui">[デモ] 北海道・天に続く道の日の入り</span>がこの方法を使っています。丘の上の撮影地から、道が向かう約11 km先の道の上にターゲットを置き、構造物の高さを200 mにして、太陽が道の先に沈む日を探しています。</p>
 <ol>
@@ -470,7 +470,7 @@
 <details><summary>重なりが1日ずれて見える</summary><p>夜明け前に沈む月は、プランの日付(夜が始まった日)と撮影時刻の日付が違うことがあります。撮影地カードの<span class="ui">重なる時刻</span>を基準にしてください。</p><p>たとえば10/26のプランの重なる時刻が10/27(火) 07:40なら、その月は10/26の夕方に昇り、10/27の夜明け前に沈む月です。プランの日付を10/27に変えると、さらに翌朝に沈む月を計算するため、重ならないことがあります。日付は重なる時刻の日付ではなく、プランの日付(夜が始まった日)で選んでください。重なる時刻の日付を選ぶと、撮影地カードに案内と<span class="ui">前日へ移動</span>ボタンが表示されます。</p><p>別のタイムゾーンの撮影地ではタイムゾーンが現地時間になっているかも確認してください。</p></details>
 <details><summary>構造物の高さが空、またはおかしい</summary><p>ランドマーク表にない建物は高さが見つからないことがあります。直接入力するか、シミュレーションの<span class="ui">高さを測る</span>で3Dモデルから測ってください。よく使う対象なら<span class="ui">マイランドマークに保存</span>しておきましょう。</p></details>
 <details><summary>シミュレーションで月やターゲットが見えず、壁のようなものにふさがれる</summary><p>地図では開けて見えても、3Dでは撮影地が建物の中や壁・擁壁のすぐ後ろ、木の中に置かれていたり、ターゲットと撮影地の間に建物や丘があったりすることがあります。計画地図の遮り表示は地形だけを判定し、建物は見ていません。</p><p>シミュレーションの<span class="ui">カメラ位置を見る</span>を押して、カメラがどこに置かれているかを外から確認してください。建物の中や壁の後ろなら、撮影地を開けた場所へ少し動かすか、<span class="ui">カメラの高さ</span>を変えてみてください。ターゲットと撮影地の間に障害物があるなら、帯の上の別の場所を選んでください。実際の見え方は<a href="#tips-streetview">ストリートビュー</a>でも事前に確認できます。</p></details>
-<details><summary>シミュレーションで韓国外の建物が表示されない</summary><p>韓国以外では<span class="ui">実写3Dサブスクリプション</span>か自分のGoogleキーがないと建物は表示されません。どちらかあるなら、1日の利用上限に達した可能性があります — 翌日にまた表示されます。</p></details>
+<details><summary>シミュレーションで韓国外の建物が表示されない</summary><p>韓国以外では<span class="ui">実写3Dサブスクリプション</span>か自分のGoogleキーがないと建物は表示されません。どちらかあるなら、1日の利用上限に達した可能性があります。翌日にまた表示されます。</p></details>
 <details><summary>宇宙ステーションの通過時刻が昨日と変わった</summary><p>正常です。ISS・天宮の軌道は随時調整され、新しい軌道データが出ると予報も変わります。撮影の前日にもう一度検索してください。</p></details>
 <details><summary>共有されたリンクを押すとWebページが開く</summary><p>アプリがインストールされていれば、ページの<span class="ui">MoonAlignアプリで開く</span>を押してください。ブラウザのアドレスバーに直接貼り付けたリンクはアプリで開かず、メッセンジャーなどで<em>押したとき</em>にアプリで開きます。</p></details>
 <details><summary>ほかの端末にプロジェクトが表示されない</summary><p>両方の端末で同じApple AccountのiCloud Driveがオンになっている必要があります。最初のダウンロード中は一覧に<em>ダウンロード中</em>の案内が表示されます。iPhone・iPadで時間がかかったり<em>まだダウンロードできていません</em>と表示されたりしたら、Wi-Fiに接続するか、設定の「モバイル通信」でiCloud Driveをオンにしてください。ファイルやフォルダーを読み込めなかったという案内は、少し後にアプリが自動でやり直し、プロジェクトが消えたわけではありません。</p><p>Androidでは、両方の端末で同じGoogleアカウントの<span class="ui">Google Drive同期</span>をオンにする必要があります。AndroidとApple製品の間は同期されないので、リンクやファイルで移してください。</p></details>

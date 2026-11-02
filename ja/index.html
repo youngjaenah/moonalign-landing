@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- 생성물 — 직접 고치지 말 것. 원본: template.html + strings/<lang>.json + videos.json + Fixtures/demo/steps (spec 009) -->
+<!-- 생성물: 직접 고치지 말 것. 원본: template.html + strings/<lang>.json + videos.json + Fixtures/demo/steps (spec 009) -->
 <html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MoonAlign — 月や太陽と被写体が重なる構図を計画</title>
+  <title>MoonAlign：月や太陽と被写体が重なる構図を計画</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
@@ -15,7 +15,7 @@
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/">
-  <meta property="og:title" content="MoonAlign — 月や太陽と被写体が重なる構図を計画">
+  <meta property="og:title" content="MoonAlign：月や太陽と被写体が重なる構図を計画">
   <meta property="og:description" content="ターゲット（建物や山など）と日付を選び、地図で撮影位置の候補と重なる時刻を探します。高さの情報を確認し、撮影位置を変えながら3Dシミュレーションで構図を比較できます。宇宙ステーション（ISS・天宮）の通過検索や飛行機のライブ監視にも対応しています。">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:type" content="website">
@@ -29,7 +29,7 @@
     --ink-faint: #8b9099;
     --accent: #2d5bd7;
     --line: #e7e7e4;
-    /* MoonAlign map symbols — the app draws a gold band where the moon rises
+    /* MoonAlign map symbols: the app draws a gold band where the moon rises
        into alignment and a blue band where it sets. Used only inside app visuals. */
     --rise: #b8860b;
     --set: #2d5bd7;
@@ -120,7 +120,7 @@
   .btn-ghost:hover { border-color: var(--ink-faint); background: var(--bg-soft); }
   .cta-meta { font-size: 0.83rem; color: var(--ink-faint); margin-top: 14px; }
 
-  /* hero visual — 앱 실제 화면(Mac 시뮬레이션) */
+  /* hero visual: 앱 실제 화면(Mac 시뮬레이션) */
   .visual {
     border: 1px solid var(--line);
     border-radius: 16px;
@@ -149,7 +149,7 @@
     font-size: 1.03rem; color: var(--ink-dim); margin-bottom: 36px; line-height: 1.7; max-width: 60ch;
   }
 
-  /* workflow — a real sequence, so the numbers carry information */
+  /* workflow: a real sequence, so the numbers carry information */
   .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   @media (max-width: 900px) { .stages { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .stages { grid-template-columns: 1fr; } }
@@ -166,7 +166,7 @@
   .stage .where { font-size: 0.76rem; color: var(--ink-faint); letter-spacing: 0.02em; margin-bottom: 8px; }
   .stage p { font-size: 0.92rem; color: var(--ink-dim); line-height: 1.65; }
 
-  /* verify blocks (Photo Check / AR) — product-style two-column rows */
+  /* verify blocks (Photo Check / AR): product-style two-column rows */
   .product { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .product + .product { margin-top: 64px; }
   .product.flip .p-visual { order: -1; }
@@ -232,13 +232,13 @@
   }
 
   /* more tools */
-  /* 그림(2026-10-08) — 세계 장면 갤러리·기기 화면·도구 화면. 캡션은 작게, 그림은 둥근 모서리 + 옅은 테두리. */
+  /* 그림(2026-10-08): 세계 장면 갤러리·기기 화면·도구 화면. 캡션은 작게, 그림은 둥근 모서리 + 옅은 테두리. */
   .shots figure { margin: 0; }
   .shots img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-soft); }
   .shots figcaption { font-size: 0.85rem; color: var(--ink-dim); line-height: 1.5; margin-top: 10px; }
   .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; margin-top: 40px; }
   @media (max-width: 720px) { .gallery { grid-template-columns: 1fr; } }
-  /* 시뮬 vs 실제 촬영(2026-10-27) — 세로 두 장을 나란히, 폰에서도 두 칸(비교가 목적). */
+  /* 시뮬 vs 실제 촬영(2026-10-27): 세로 두 장을 나란히, 폰에서도 두 칸(비교가 목적). */
   .proof { margin-top: 56px; }
   .proof h3 { font-size: 1.15rem; margin: 0 0 8px; }
   .proof-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 760px; margin-top: 20px; }
@@ -281,7 +281,7 @@
   .copy { color: var(--ink-faint); font-size: 0.82rem; }
   .copy a { color: var(--ink-dim); }
 
-  /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+  /* 줄 바꿈: 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
      일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
   html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
   html:lang(ko) p, html:lang(ko) li { text-wrap: pretty; }
@@ -289,7 +289,7 @@
   html:lang(ja) body { word-break: auto-phrase; }
 </style>
 <style>
-  /* spec 009 — 언어 스위처·영상·언어 안내 바 */
+  /* spec 009: 언어 스위처·영상·언어 안내 바 */
   .lang-switch { display: flex; gap: 12px; font-size: 0.84rem; margin-left: 20px; }
   .lang-switch a { color: var(--ink-dim); text-decoration: none; }
   .lang-switch a:hover { color: var(--ink); }
@@ -325,14 +325,14 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac · Android</span> — 撮影計画アプリ</p>
+      <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac · Android</span>: 撮影計画アプリ</p>
       <h1>月がターゲットと重なる撮影位置を見つける</h1>
       <p class="lead">ターゲット（建物や山など）と日付を選び、地図で<strong>撮影位置の候補と重なる時刻</strong>を探します。高さの情報を確認し、撮影位置を変えながら3Dシミュレーションで構図を比較できます。宇宙ステーション（ISS・天宮）の通過検索や飛行機のライブ監視にも対応しています。</p>
       <ul class="feat">
         <li>指定したターゲットと日付をもとに、月が重なる撮影位置の候補を地図に表示</li>
         <li>地形とレンズの焦点距離を反映した3Dシミュレーション</li>
         <li>ISS・天宮の予想通過時刻を秒単位で表示し、飛行機の通過の可能性をライブ通知で確認</li>
-        <li>一度の購入でMac・iPhone・iPad — Macで作った計画をiPhone・iPadでそのまま確認</li>
+        <li>一度の購入でMac・iPhone・iPad：Macで作った計画をiPhone・iPadでそのまま確認</li>
       </ul>
       <div class="hero-cta">
         <span class="store-pending">App Storeで公開予定</span>
@@ -342,8 +342,8 @@
       <p class="cta-meta">予定価格 US$9.99・一度の購入 · 韓国外の実写3Dはご自身のGoogleキー、またはサブスクリプション（必要なときだけ） · Androidは別途購入 · 日本語・英語・韓国語</p>
     </div>
     <figure class="visual">
-      <img src="/img/hero-sim-ja.jpg" width="2200" height="1520" alt="MoonAlign Macアプリのシミュレーション画面 — エッフェル塔の後ろに月が重なる場面" loading="eager">
-      <figcaption>Mac・シミュレーション — パリ・エッフェル塔、200mm、2026-10-02 23:03 月の出・パリ現地時刻（UTC+2）</figcaption>
+      <img src="/img/hero-sim-ja.jpg" width="2200" height="1520" alt="MoonAlign Macアプリのシミュレーション画面：エッフェル塔の後ろに月が重なる場面" loading="eager">
+      <figcaption>Mac・シミュレーション：パリ・エッフェル塔、200mm、2026-10-02 23:03 月の出・パリ現地時刻（UTC+2）</figcaption>
     </figure>
   </div>
 </section>
@@ -368,17 +368,17 @@
     <h2>世界各地の構図を撮影前に確認</h2>
     <p class="lead sect-lead">地形・建物・レンズの画角を反映した3Dシミュレーションです。アプリに含まれるサンプルプロジェクトをもとに構図を確認できます。建物データの提供範囲と詳細さは地域によって異なります。</p>
     <div class="gallery shots">
-      <figure><img src="/img/gallery/ushiku-ja.jpg" width="1600" height="1067" alt="日本・牛久大仏 — 2026年12月24日の月の出、指先にかかる月" loading="lazy"><figcaption>日本・牛久大仏 — 2026年12月24日の月の出、指先にかかる月</figcaption></figure>
-      <figure><img src="/img/gallery/arch-ja.jpg" width="1600" height="1067" alt="アメリカ・アーチーズ国立公園 ノースウィンドウ — 2027年5月16日の月の出(400mm)" loading="lazy"><figcaption>アメリカ・アーチーズ国立公園 ノースウィンドウ — 2027年5月16日の月の出(400mm)</figcaption></figure>
-      <figure><img src="/img/gallery/paris-ja.jpg" width="1600" height="1067" alt="パリ・エッフェル塔 — 2026年12月23日の月の出(200mm)" loading="lazy"><figcaption>パリ・エッフェル塔 — 2026年12月23日の月の出(200mm)</figcaption></figure>
-      <figure><img src="/img/gallery/namsan-ja.jpg" width="1600" height="1067" alt="ソウル・Nソウルタワー — 2027年1月21日の月の出(400mm)" loading="lazy"><figcaption>ソウル・Nソウルタワー — 2027年1月21日の月の出(400mm)</figcaption></figure>
+      <figure><img src="/img/gallery/ushiku-ja.jpg" width="1600" height="1067" alt="日本・牛久大仏：2026年12月24日の月の出、指先にかかる月" loading="lazy"><figcaption>日本・牛久大仏：2026年12月24日の月の出、指先にかかる月</figcaption></figure>
+      <figure><img src="/img/gallery/arch-ja.jpg" width="1600" height="1067" alt="アメリカ・アーチーズ国立公園 ノースウィンドウ：2027年5月16日の月の出(400mm)" loading="lazy"><figcaption>アメリカ・アーチーズ国立公園 ノースウィンドウ：2027年5月16日の月の出(400mm)</figcaption></figure>
+      <figure><img src="/img/gallery/paris-ja.jpg" width="1600" height="1067" alt="パリ・エッフェル塔：2026年12月23日の月の出(200mm)" loading="lazy"><figcaption>パリ・エッフェル塔：2026年12月23日の月の出(200mm)</figcaption></figure>
+      <figure><img src="/img/gallery/namsan-ja.jpg" width="1600" height="1067" alt="ソウル・Nソウルタワー：2027年1月21日の月の出(400mm)" loading="lazy"><figcaption>ソウル・Nソウルタワー：2027年1月21日の月の出(400mm)</figcaption></figure>
     </div>
     <div class="proof">
       <h3>シミュレーションと実際の撮影</h3>
       <p class="sect-lead">ソウル・汝矣島漢江公園から2026年10月27日18:27の月の出を計画し、シミュレーションで事前に確認した場面(左)と、同じ場所で実際に撮った写真(右)です。</p>
       <div class="proof-pair shots">
-        <figure><img src="/img/gallery/proof-sim-ja.jpg" width="800" height="1200" alt="シミュレーション — 18:27:29、800mm(APS-C、35mm換算1200mm)" loading="lazy"><figcaption>シミュレーション — 18:27:29、800mm(APS-C、35mm換算1200mm)</figcaption></figure>
-        <figure><img src="/img/gallery/proof-real.jpg" width="800" height="1200" alt="実際の撮影 — 18:27:27、Sony α6700 + 800mm" loading="lazy"><figcaption>実際の撮影 — 18:27:27、Sony α6700 + 800mm</figcaption></figure>
+        <figure><img src="/img/gallery/proof-sim-ja.jpg" width="800" height="1200" alt="シミュレーション：18:27:29、800mm(APS-C、35mm換算1200mm)" loading="lazy"><figcaption>シミュレーション：18:27:29、800mm(APS-C、35mm換算1200mm)</figcaption></figure>
+        <figure><img src="/img/gallery/proof-real.jpg" width="800" height="1200" alt="実際の撮影：18:27:27、Sony α6700 + 800mm" loading="lazy"><figcaption>実際の撮影：18:27:27、Sony α6700 + 800mm</figcaption></figure>
       </div>
     </div>
   </div>
@@ -389,10 +389,10 @@
     <span class="tag nocaps">Mac・iPhone・iPad・Android</span>
     <h2>Macでもモバイルでも撮影を計画</h2>
     <p class="lead sect-lead">Macの大きな画面でも、モバイル端末だけでも撮影を計画できます。Apple製品は同じアカウントでiCloudを有効にするとプロジェクトが同期されます。Android端末間ではGoogle Driveの同期を有効にして利用します。AppleとAndroidの間ではリンクで計画を共有できます。</p>
-    <ul class="tools"><li><b>Mac</b> — 大きな画面で地図と3Dシミュレーションを見ながら構図を比較。</li><li><b>iPhone・iPad・Android</b> — 撮影計画の作成、下見写真の確認、対応端末でのARチェック。</li><li><b>同期と共有</b> — Apple製品ではiCloud、Androidでは選択したGoogle Driveのアカウントで同期し、プラットフォーム間ではリンクで共有。</li></ul>
+    <ul class="tools"><li><b>Mac</b>：大きな画面で地図と3Dシミュレーションを見ながら構図を比較。</li><li><b>iPhone・iPad・Android</b>：撮影計画の作成、下見写真の確認、対応端末でのARチェック。</li><li><b>同期と共有</b>：Apple製品ではiCloud、Androidでは選択したGoogle Driveのアカウントで同期し、プラットフォーム間ではリンクで共有。</li></ul>
     <div class="device-shots shots">
-      <figure><img src="/img/guide/band-mac-ja.jpg" width="1600" height="1000" alt="Mac — 地図の帯を見ながら撮影地を選ぶ" loading="lazy"><figcaption>Mac — 地図の帯を見ながら撮影地を選ぶ</figcaption></figure>
-      <figure class="phone"><img src="/img/guide/plan-iphone-ja.jpg" width="660" height="1434" alt="iPhone — 同じプランを現地で" loading="lazy"><figcaption>iPhone — 同じプランを現地で</figcaption></figure>
+      <figure><img src="/img/guide/band-mac-ja.jpg" width="1600" height="1000" alt="Mac：地図の帯を見ながら撮影地を選ぶ" loading="lazy"><figcaption>Mac：地図の帯を見ながら撮影地を選ぶ</figcaption></figure>
+      <figure class="phone"><img src="/img/guide/plan-iphone-ja.jpg" width="660" height="1434" alt="iPhone：同じプランを現地で" loading="lazy"><figcaption>iPhone：同じプランを現地で</figcaption></figure>
     </div>
   </div>
 </section>
@@ -447,19 +447,19 @@
     <span class="tag">そのほかのツール</span>
     <h2>撮影の前後に使うもの</h2>
     <ul class="tools">
-<li><b>天文カレンダー</b> — 満月・食・流星群など主な天文現象を選んだ観測地点に合わせて。</li>
-<li><b>日食・月食</b> — 今後10年の日食・月食の一覧と経路の地図、基準位置からの見え方。撮影地を指定すると、その場所での食の時刻を表示。</li>
-<li><b>ウィジェット</b> — 今日の月と太陽、次の撮影チャンスを確認できます。Androidはホーム画面、iPhone・iPadはホーム画面とロック画面、Macは通知センターとデスクトップに対応しています。</li>
-<li><b>カレンダーに追加</b> — 計画や天文現象を通知付きの予定として保存。</li>
-<li><b>ランドマーク</b> — 高さが登録されたランドマークで計画を始め、自分で調べた場所も保存。</li>
-<li><b>月の露出表・過焦点距離表</b> — 月の形ごとのISO開始値と、被写体にピントが合う距離。</li>
-<li><b>リンクで共有</b> — 計画をリンクで共有。アプリがなくてもWebで概要と地図を表示。</li>
-<li><b>カメラ自動撮影</b> — Mac・iPhone・iPadで対応するソニー・キヤノン製カメラをUSB接続し、飛行機の予想通過時刻の前後に連写します（キヤノンは試験対応）。撮影前にアプリの1秒間のテスト撮影で確認してください。</li>
+<li><b>天文カレンダー</b>：満月・食・流星群など主な天文現象を選んだ観測地点に合わせて。</li>
+<li><b>日食・月食</b>：今後10年の日食・月食の一覧と経路の地図、基準位置からの見え方。撮影地を指定すると、その場所での食の時刻を表示。</li>
+<li><b>ウィジェット</b>：今日の月と太陽、次の撮影チャンスを確認できます。Androidはホーム画面、iPhone・iPadはホーム画面とロック画面、Macは通知センターとデスクトップに対応しています。</li>
+<li><b>カレンダーに追加</b>：計画や天文現象を通知付きの予定として保存。</li>
+<li><b>ランドマーク</b>：高さが登録されたランドマークで計画を始め、自分で調べた場所も保存。</li>
+<li><b>月の露出表・過焦点距離表</b>：月の形ごとのISO開始値と、被写体にピントが合う距離。</li>
+<li><b>リンクで共有</b>：計画をリンクで共有。アプリがなくてもWebで概要と地図を表示。</li>
+<li><b>カメラ自動撮影</b>：Mac・iPhone・iPadで対応するソニー・キヤノン製カメラをUSB接続し、飛行機の予想通過時刻の前後に連写します（キヤノンは試験対応）。撮影前にアプリの1秒間のテスト撮影で確認してください。</li>
 </ul>
     <div class="phone-row shots">
-      <figure><img src="/img/tools/home-ja.jpg" width="600" height="1304" alt="ホーム — 今日の空と次の撮影チャンス" loading="lazy"><figcaption>ホーム — 今日の空と次の撮影チャンス</figcaption></figure>
-      <figure><img src="/img/tools/calendar-ja.jpg" width="600" height="1304" alt="天文カレンダー — 日付ごとの太陽と月、天文現象" loading="lazy"><figcaption>天文カレンダー — 日付ごとの太陽と月、天文現象</figcaption></figure>
-      <figure><img src="/img/tools/eclipse-ja.jpg" width="600" height="1304" alt="日食・月食 — 2027年8月2日の皆既日食の経路" loading="lazy"><figcaption>日食・月食 — 2027年8月2日の皆既日食の経路</figcaption></figure>
+      <figure><img src="/img/tools/home-ja.jpg" width="600" height="1304" alt="ホーム：今日の空と次の撮影チャンス" loading="lazy"><figcaption>ホーム：今日の空と次の撮影チャンス</figcaption></figure>
+      <figure><img src="/img/tools/calendar-ja.jpg" width="600" height="1304" alt="天文カレンダー：日付ごとの太陽と月、天文現象" loading="lazy"><figcaption>天文カレンダー：日付ごとの太陽と月、天文現象</figcaption></figure>
+      <figure><img src="/img/tools/eclipse-ja.jpg" width="600" height="1304" alt="日食・月食：2027年8月2日の皆既日食の経路" loading="lazy"><figcaption>日食・月食：2027年8月2日の皆既日食の経路</figcaption></figure>
     </div>
   </div>
 </section>
@@ -471,7 +471,7 @@
     <p class="lead sect-lead">主な手順に沿って撮影を計画できます。すべての画面と設定は<a href="guide/">使い方ガイド</a>で説明しています。</p>
     
     <div class="howto" id="howto-structure">
-      <h3><span class="k">A</span>構造物 — タワーに重なる月</h3>
+      <h3><span class="k">A</span>構造物：タワーに重なる月</h3>
       <p class="h-lead">ターゲットを選び、地図で撮影地を決めて構図を確かめます。</p>
       
       <ol class="flow">
@@ -483,7 +483,7 @@
     </div>
     
     <div class="howto" id="howto-person">
-      <h3><span class="k">B</span>人物 — 月の前のシルエット</h3>
+      <h3><span class="k">B</span>人物：月の前のシルエット</h3>
       <p class="h-lead">人物から離れ、人物が画面内で同じ大きさになるように焦点距離を長くすると、月が相対的に大きく写ります。</p>
       
       <ol class="flow">
@@ -495,7 +495,7 @@
     </div>
     
     <div class="howto" id="howto-iss">
-      <h3><span class="k">C</span>宇宙ステーション — 月を横切る瞬間</h3>
+      <h3><span class="k">C</span>宇宙ステーション：月を横切る瞬間</h3>
       <p class="h-lead">一瞬の通過を捉えられるよう、場所と時刻を前もって確かめます。</p>
       
       <ol class="flow">
@@ -507,7 +507,7 @@
     </div>
     
     <div class="howto" id="howto-plane">
-      <h3><span class="k">D</span>飛行機 — リアルタイム通過通知</h3>
+      <h3><span class="k">D</span>飛行機：リアルタイム通過通知</h3>
       <p class="h-lead">リアルタイムの飛行経路から通過しそうな機体を確かめ、撮影の準備をします。</p>
       
       <ol class="flow">
@@ -566,8 +566,8 @@
 
 <footer>
   <div class="wrap">
-    <p class="foot-desc"><strong>MoonAlign</strong> — 月・太陽・宇宙ステーション（ISS・天宮）・飛行機・天の川の撮影計画アプリ。お問い合わせ：<a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
-    <p class="srcs">地図: Appleマップ・V-World(韓国国土交通部、公共ヌリ第1類型)・Googleマップ（Apple製品では個人キー、Androidでは標準搭載） · 地面標高: V-World 3D地形(韓国)・Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018、Copernicusプログラム(EU・ESA)提供 · 光害: EOG VIIRS夜間光(VNL V2) — OpenGeoHub再配布版(CC BY 4.0)からアプリが計算した推定値 · ISS軌道: NASA OEM・CelesTrak TLE · 天宮の軌道: CelesTrak SupGP（中国有人宇宙プロジェクト弁公室の軌道暦に基づく）・CelesTrak TLE · 航跡: adsb.lol(ODbL 1.0) · ジオイド: EGM96(NGA) · シミュレーション3D: V-World・Googleフォトリアリスティック3Dタイル · 日食・月食の地図: Natural Earth(パブリックドメイン) · 天文計算: astronomy-engine</p>
+    <p class="foot-desc"><strong>MoonAlign</strong>：月・太陽・宇宙ステーション（ISS・天宮）・飛行機・天の川の撮影計画アプリ。お問い合わせ：<a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+    <p class="srcs">地図: Appleマップ・V-World(韓国国土交通部、公共ヌリ第1類型)・Googleマップ（Apple製品では個人キー、Androidでは標準搭載） · 地面標高: V-World 3D地形(韓国)・Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018、Copernicusプログラム(EU・ESA)提供 · 光害: EOG VIIRS夜間光(VNL V2)：OpenGeoHub再配布版(CC BY 4.0)からアプリが計算した推定値 · ISS軌道: NASA OEM・CelesTrak TLE · 天宮の軌道: CelesTrak SupGP（中国有人宇宙プロジェクト弁公室の軌道暦に基づく）・CelesTrak TLE · 航跡: adsb.lol(ODbL 1.0) · ジオイド: EGM96(NGA) · シミュレーション3D: V-World・Googleフォトリアリスティック3Dタイル · 日食・月食の地図: Natural Earth(パブリックドメイン) · 天文計算: astronomy-engine</p>
     <p class="copy">© 2026 <a href="../">YJLAB</a>. All rights reserved. · <a href="privacy/">プライバシーポリシー</a></p>
   </div>
 </footer>

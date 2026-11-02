@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- 생성물 — 직접 고치지 말 것. 원본: template.html + strings/<lang>.json + videos.json + Fixtures/demo/steps (spec 009) -->
+<!-- 생성물: 직접 고치지 말 것. 원본: template.html + strings/<lang>.json + videos.json + Fixtures/demo/steps (spec 009) -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MoonAlign — Planning Moon and Sun alignment shots</title>
+  <title>MoonAlign, Planning Moon and Sun alignment shots</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
@@ -15,7 +15,7 @@
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/">
-  <meta property="og:title" content="MoonAlign — Planning Moon and Sun alignment shots">
+  <meta property="og:title" content="MoonAlign, Planning Moon and Sun alignment shots">
   <meta property="og:description" content="Choose a target (a building, a peak, and so on) and a date to find candidate shooting spots and alignment times on the map. Check the height data, then move between spots to compare framing in 3D. You can also search for space station (ISS and Tiangong) transits and watch for potential plane crossings.">
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
@@ -29,7 +29,7 @@
     --ink-faint: #8b9099;
     --accent: #2d5bd7;
     --line: #e7e7e4;
-    /* MoonAlign map symbols — the app draws a gold band where the moon rises
+    /* MoonAlign map symbols: the app draws a gold band where the moon rises
        into alignment and a blue band where it sets. Used only inside app visuals. */
     --rise: #b8860b;
     --set: #2d5bd7;
@@ -120,7 +120,7 @@
   .btn-ghost:hover { border-color: var(--ink-faint); background: var(--bg-soft); }
   .cta-meta { font-size: 0.83rem; color: var(--ink-faint); margin-top: 14px; }
 
-  /* hero visual — 앱 실제 화면(Mac 시뮬레이션) */
+  /* hero visual: 앱 실제 화면(Mac 시뮬레이션) */
   .visual {
     border: 1px solid var(--line);
     border-radius: 16px;
@@ -149,7 +149,7 @@
     font-size: 1.03rem; color: var(--ink-dim); margin-bottom: 36px; line-height: 1.7; max-width: 60ch;
   }
 
-  /* workflow — a real sequence, so the numbers carry information */
+  /* workflow: a real sequence, so the numbers carry information */
   .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   @media (max-width: 900px) { .stages { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .stages { grid-template-columns: 1fr; } }
@@ -166,7 +166,7 @@
   .stage .where { font-size: 0.76rem; color: var(--ink-faint); letter-spacing: 0.02em; margin-bottom: 8px; }
   .stage p { font-size: 0.92rem; color: var(--ink-dim); line-height: 1.65; }
 
-  /* verify blocks (Photo Check / AR) — product-style two-column rows */
+  /* verify blocks (Photo Check / AR): product-style two-column rows */
   .product { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .product + .product { margin-top: 64px; }
   .product.flip .p-visual { order: -1; }
@@ -232,13 +232,13 @@
   }
 
   /* more tools */
-  /* 그림(2026-10-08) — 세계 장면 갤러리·기기 화면·도구 화면. 캡션은 작게, 그림은 둥근 모서리 + 옅은 테두리. */
+  /* 그림(2026-10-08): 세계 장면 갤러리·기기 화면·도구 화면. 캡션은 작게, 그림은 둥근 모서리 + 옅은 테두리. */
   .shots figure { margin: 0; }
   .shots img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-soft); }
   .shots figcaption { font-size: 0.85rem; color: var(--ink-dim); line-height: 1.5; margin-top: 10px; }
   .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 24px; margin-top: 40px; }
   @media (max-width: 720px) { .gallery { grid-template-columns: 1fr; } }
-  /* 시뮬 vs 실제 촬영(2026-10-27) — 세로 두 장을 나란히, 폰에서도 두 칸(비교가 목적). */
+  /* 시뮬 vs 실제 촬영(2026-10-27): 세로 두 장을 나란히, 폰에서도 두 칸(비교가 목적). */
   .proof { margin-top: 56px; }
   .proof h3 { font-size: 1.15rem; margin: 0 0 8px; }
   .proof-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 760px; margin-top: 20px; }
@@ -281,7 +281,7 @@
   .copy { color: var(--ink-faint); font-size: 0.82rem; }
   .copy a { color: var(--ink-dim); }
 
-  /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+  /* 줄 바꿈: 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
      일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
   html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
   html:lang(ko) p, html:lang(ko) li { text-wrap: pretty; }
@@ -289,7 +289,7 @@
   html:lang(ja) body { word-break: auto-phrase; }
 </style>
 <style>
-  /* spec 009 — 언어 스위처·영상·언어 안내 바 */
+  /* spec 009: 언어 스위처·영상·언어 안내 바 */
   .lang-switch { display: flex; gap: 12px; font-size: 0.84rem; margin-left: 20px; }
   .lang-switch a { color: var(--ink-dim); text-decoration: none; }
   .lang-switch a:hover { color: var(--ink); }
@@ -341,14 +341,14 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac · Android</span> — Photography planner</p>
+      <p class="eyebrow"><span class="nocaps">iPhone · iPad · Mac · Android</span>: Photography planner</p>
       <h1>Find where the Moon lines up with your target</h1>
       <p class="lead">Choose a target (a building, a peak, and so on) and a date to find <strong>candidate shooting spots and alignment times</strong> on the map. Check the height data, then move between spots to compare framing in 3D. You can also search for space station (ISS and Tiangong) transits and watch for potential plane crossings.</p>
       <ul class="feat">
         <li>See candidate spots where the Moon lines up with your target on the chosen date</li>
         <li>3D simulation with terrain and your lens focal length</li>
         <li>See predicted ISS and Tiangong transit times shown to the second and get live alerts for potential plane crossings</li>
-        <li>One purchase for Mac, iPhone, and iPad — continue a plan created on your Mac on iPhone or iPad</li>
+        <li>One purchase for Mac, iPhone, and iPad. Continue a plan created on your Mac on iPhone or iPad</li>
       </ul>
       <div class="hero-cta">
         <span class="store-pending">Coming to the App Store</span>
@@ -358,8 +358,8 @@
       <p class="cta-meta">Planned price: US$9.99, one-time purchase · Photorealistic 3D outside Korea with your own Google key or an optional subscription · Android sold separately · English, Korean, Japanese</p>
     </div>
     <figure class="visual">
-      <img src="/img/hero-sim-en.jpg" width="2200" height="1520" alt="MoonAlign simulation on the Mac — the Moon framed behind the Eiffel Tower" loading="eager">
-      <figcaption>Mac · Simulation — Eiffel Tower, Paris, 200mm, moonrise on 2026-10-02 at 23:03 · Paris local time (UTC+2)</figcaption>
+      <img src="/img/hero-sim-en.jpg" width="2200" height="1520" alt="MoonAlign simulation on the Mac. The Moon framed behind the Eiffel Tower" loading="eager">
+      <figcaption>Mac · Simulation. Eiffel Tower, Paris, 200mm, moonrise on 2026-10-02 at 23:03 · Paris local time (UTC+2)</figcaption>
     </figure>
   </div>
 </section>
@@ -384,17 +384,17 @@
     <h2>Preview your framing at locations around the world</h2>
     <p class="lead sect-lead">3D simulation with terrain, buildings, and your lens&#x27;s field of view. Explore compositions based on the sample projects included in the app. Building coverage and detail vary by location.</p>
     <div class="gallery shots">
-      <figure><img src="/img/gallery/ushiku-en.jpg" width="1600" height="1067" alt="Ushiku Daibutsu, Japan — moonrise on Dec 24, 2026, the Moon at the Buddha&#x27;s fingertips" loading="lazy"><figcaption>Ushiku Daibutsu, Japan — moonrise on Dec 24, 2026, the Moon at the Buddha&#x27;s fingertips</figcaption></figure>
-      <figure><img src="/img/gallery/arch-en.jpg" width="1600" height="1067" alt="North Window, Arches National Park, USA — moonrise on May 16, 2027 (400mm)" loading="lazy"><figcaption>North Window, Arches National Park, USA — moonrise on May 16, 2027 (400mm)</figcaption></figure>
-      <figure><img src="/img/gallery/paris-en.jpg" width="1600" height="1067" alt="Eiffel Tower, Paris — moonrise on Dec 23, 2026 (200mm)" loading="lazy"><figcaption>Eiffel Tower, Paris — moonrise on Dec 23, 2026 (200mm)</figcaption></figure>
-      <figure><img src="/img/gallery/namsan-en.jpg" width="1600" height="1067" alt="N Seoul Tower, Seoul — moonrise on Jan 21, 2027 (400mm)" loading="lazy"><figcaption>N Seoul Tower, Seoul — moonrise on Jan 21, 2027 (400mm)</figcaption></figure>
+      <figure><img src="/img/gallery/ushiku-en.jpg" width="1600" height="1067" alt="Ushiku Daibutsu, Japan. Moonrise on Dec 24, 2026, the Moon at the Buddha&#x27;s fingertips" loading="lazy"><figcaption>Ushiku Daibutsu, Japan. Moonrise on Dec 24, 2026, the Moon at the Buddha&#x27;s fingertips</figcaption></figure>
+      <figure><img src="/img/gallery/arch-en.jpg" width="1600" height="1067" alt="North Window, Arches National Park, USA. Moonrise on May 16, 2027 (400mm)" loading="lazy"><figcaption>North Window, Arches National Park, USA. Moonrise on May 16, 2027 (400mm)</figcaption></figure>
+      <figure><img src="/img/gallery/paris-en.jpg" width="1600" height="1067" alt="Eiffel Tower, Paris. Moonrise on Dec 23, 2026 (200mm)" loading="lazy"><figcaption>Eiffel Tower, Paris. Moonrise on Dec 23, 2026 (200mm)</figcaption></figure>
+      <figure><img src="/img/gallery/namsan-en.jpg" width="1600" height="1067" alt="N Seoul Tower, Seoul. Moonrise on Jan 21, 2027 (400mm)" loading="lazy"><figcaption>N Seoul Tower, Seoul. Moonrise on Jan 21, 2027 (400mm)</figcaption></figure>
     </div>
     <div class="proof">
       <h3>Simulation vs. the real shot</h3>
       <p class="sect-lead">A moonrise at 18:27 on Oct 27, 2026, planned from Yeouido Hangang Park in Seoul: the scene previewed in the simulation (left) and the photo taken from the same spot (right).</p>
       <div class="proof-pair shots">
-        <figure><img src="/img/gallery/proof-sim-en.jpg" width="800" height="1200" alt="Simulation — 18:27:29, 800mm (APS-C, 1200mm equivalent)" loading="lazy"><figcaption>Simulation — 18:27:29, 800mm (APS-C, 1200mm equivalent)</figcaption></figure>
-        <figure><img src="/img/gallery/proof-real.jpg" width="800" height="1200" alt="Real shot — 18:27:27, Sony α6700 + 800mm" loading="lazy"><figcaption>Real shot — 18:27:27, Sony α6700 + 800mm</figcaption></figure>
+        <figure><img src="/img/gallery/proof-sim-en.jpg" width="800" height="1200" alt="Simulation, 18:27:29, 800mm (APS-C, 1200mm equivalent)" loading="lazy"><figcaption>Simulation, 18:27:29, 800mm (APS-C, 1200mm equivalent)</figcaption></figure>
+        <figure><img src="/img/gallery/proof-real.jpg" width="800" height="1200" alt="Real shot, 18:27:27, Sony α6700 + 800mm" loading="lazy"><figcaption>Real shot, 18:27:27, Sony α6700 + 800mm</figcaption></figure>
       </div>
     </div>
   </div>
@@ -405,10 +405,10 @@
     <span class="tag nocaps">Mac · iPhone · iPad · Android</span>
     <h2>Plan on a Mac or on mobile</h2>
     <p class="lead sect-lead">Plan on a Mac&#x27;s larger screen or prepare your shoot entirely on mobile. Apple devices sync projects through iCloud when using the same account with iCloud enabled. Turn on Google Drive sync to sync between Android devices. Share plans between Apple and Android with a link.</p>
-    <ul class="tools"><li><b>Mac</b> — compare framing with the map and 3D simulation on a larger screen.</li><li><b>iPhone · iPad · Android</b> — create plans, check scouting photos, and use AR on supported devices.</li><li><b>Sync and sharing</b> — use iCloud on Apple devices or your chosen Google Drive account on Android, and share links across platforms.</li></ul>
+    <ul class="tools"><li><b>Mac</b>: compare framing with the map and 3D simulation on a larger screen.</li><li><b>iPhone · iPad · Android</b>: create plans, check scouting photos, and use AR on supported devices.</li><li><b>Sync and sharing</b>: use iCloud on Apple devices or your chosen Google Drive account on Android, and share links across platforms.</li></ul>
     <div class="device-shots shots">
-      <figure><img src="/img/guide/band-mac-en.jpg" width="1600" height="1000" alt="Mac — pick a spot while watching the bands on the map" loading="lazy"><figcaption>Mac — pick a spot while watching the bands on the map</figcaption></figure>
-      <figure class="phone"><img src="/img/guide/plan-iphone-en.jpg" width="660" height="1434" alt="iPhone — the same plan, in the field" loading="lazy"><figcaption>iPhone — the same plan, in the field</figcaption></figure>
+      <figure><img src="/img/guide/band-mac-en.jpg" width="1600" height="1000" alt="Mac, pick a spot while watching the bands on the map" loading="lazy"><figcaption>Mac, pick a spot while watching the bands on the map</figcaption></figure>
+      <figure class="phone"><img src="/img/guide/plan-iphone-en.jpg" width="660" height="1434" alt="iPhone, the same plan, in the field" loading="lazy"><figcaption>iPhone, the same plan, in the field</figcaption></figure>
     </div>
   </div>
 </section>
@@ -463,19 +463,19 @@
     <span class="tag">More tools</span>
     <h2>For before and after the shot</h2>
     <ul class="tools">
-<li><b>Sky calendar</b> — major events such as full moons, eclipses, and meteor showers, for your location.</li>
-<li><b>Eclipses</b> — solar and lunar eclipses for the next 10 years with path maps and visibility from your reference location; set a shooting spot to see the eclipse times there.</li>
-<li><b>Widgets</b> — See today's Moon and Sun and your next shooting chance. Android has Home Screen widgets; iPhone and iPad also offer Lock Screen widgets; on Mac, widgets go in Notification Center or on the desktop.</li>
-<li><b>Add to Calendar</b> — save plans and sky events as calendar events with reminders.</li>
-<li><b>Landmarks</b> — plan with landmarks with preset height data, and save places you measured yourself.</li>
-<li><b>Moon Exposure Table · Hyperfocal Table</b> — starting ISO values by Moon phase, and the distance at which your subject stays sharp.</li>
-<li><b>Share as link</b> — share a plan as a link; without the app, the summary and map open on the web.</li>
-<li><b>Camera auto capture</b> — On Mac, iPhone, and iPad, connect a supported Sony or Canon camera over USB for burst shooting around a predicted plane crossing (Canon support is experimental). Use the app's 1-second shutter test before a shoot.</li>
+<li><b>Sky calendar</b>: major events such as full moons, eclipses, and meteor showers, for your location.</li>
+<li><b>Eclipses</b>: solar and lunar eclipses for the next 10 years with path maps and visibility from your reference location; set a shooting spot to see the eclipse times there.</li>
+<li><b>Widgets</b>: See today's Moon and Sun and your next shooting chance. Android has Home Screen widgets; iPhone and iPad also offer Lock Screen widgets; on Mac, widgets go in Notification Center or on the desktop.</li>
+<li><b>Add to Calendar</b>: save plans and sky events as calendar events with reminders.</li>
+<li><b>Landmarks</b>: plan with landmarks with preset height data, and save places you measured yourself.</li>
+<li><b>Moon Exposure Table · Hyperfocal Table</b>: starting ISO values by Moon phase, and the distance at which your subject stays sharp.</li>
+<li><b>Share as link</b>: share a plan as a link; without the app, the summary and map open on the web.</li>
+<li><b>Camera auto capture</b>: On Mac, iPhone, and iPad, connect a supported Sony or Canon camera over USB for burst shooting around a predicted plane crossing (Canon support is experimental). Use the app's 1-second shutter test before a shoot.</li>
 </ul>
     <div class="phone-row shots">
-      <figure><img src="/img/tools/home-en.jpg" width="600" height="1304" alt="Home — today&#x27;s sky and your next shooting chance" loading="lazy"><figcaption>Home — today&#x27;s sky and your next shooting chance</figcaption></figure>
-      <figure><img src="/img/tools/calendar-en.jpg" width="600" height="1304" alt="Sky calendar — the Sun, the Moon, and sky events by date" loading="lazy"><figcaption>Sky calendar — the Sun, the Moon, and sky events by date</figcaption></figure>
-      <figure><img src="/img/tools/eclipse-en.jpg" width="600" height="1304" alt="Eclipses — the path of the total solar eclipse of Aug 2, 2027" loading="lazy"><figcaption>Eclipses — the path of the total solar eclipse of Aug 2, 2027</figcaption></figure>
+      <figure><img src="/img/tools/home-en.jpg" width="600" height="1304" alt="Home, today&#x27;s sky and your next shooting chance" loading="lazy"><figcaption>Home, today&#x27;s sky and your next shooting chance</figcaption></figure>
+      <figure><img src="/img/tools/calendar-en.jpg" width="600" height="1304" alt="Sky calendar, the Sun, the Moon, and sky events by date" loading="lazy"><figcaption>Sky calendar, the Sun, the Moon, and sky events by date</figcaption></figure>
+      <figure><img src="/img/tools/eclipse-en.jpg" width="600" height="1304" alt="Eclipses, the path of the total solar eclipse of Aug 2, 2027" loading="lazy"><figcaption>Eclipses, the path of the total solar eclipse of Aug 2, 2027</figcaption></figure>
     </div>
   </div>
 </section>
@@ -487,7 +487,7 @@
     <p class="lead sect-lead">Follow the key steps to plan a shot. Every screen and setting is explained in the <a href="guide/">user guide</a>.</p>
     
     <div class="howto" id="howto-structure">
-      <h3><span class="k">A</span>Structure — the Moon lined up with a tower</h3>
+      <h3><span class="k">A</span>Structure, the Moon lined up with a tower</h3>
       <p class="h-lead">Choose a target, pick a shooting spot on the map, and check the framing.</p>
       
       <ol class="flow">
@@ -499,7 +499,7 @@
     </div>
     
     <div class="howto" id="howto-person">
-      <h3><span class="k">B</span>Person — a silhouette in front of the Moon</h3>
+      <h3><span class="k">B</span>Person, a silhouette in front of the Moon</h3>
       <p class="h-lead">Move farther from the person and increase the focal length to keep them the same size in the frame. The Moon will appear larger relative to them.</p>
       
       <ol class="flow">
@@ -511,7 +511,7 @@
     </div>
     
     <div class="howto" id="howto-iss">
-      <h3><span class="k">C</span>Space stations — the moment one crosses the Moon</h3>
+      <h3><span class="k">C</span>Space stations, the moment one crosses the Moon</h3>
       <p class="h-lead">Check the spot and time in advance so you can catch the brief crossing.</p>
       
       <ol class="flow">
@@ -523,7 +523,7 @@
     </div>
     
     <div class="howto" id="howto-plane">
-      <h3><span class="k">D</span>Plane — live crossing alerts</h3>
+      <h3><span class="k">D</span>Plane, live crossing alerts</h3>
       <p class="h-lead">Check likely crossings from live flight paths and get ready to shoot.</p>
       
       <ol class="flow">
@@ -540,7 +540,7 @@
 <section class="section" id="google-key">
   <div class="wrap">
     <span class="tag nocaps">Google 3D key</span>
-    <h2>Photorealistic 3D with your own Google key — no app subscription needed</h2>
+    <h2>Photorealistic 3D with your own Google key. No app subscription needed</h2>
     <p class="lead sect-lead">In Korea, V-World provides 3D buildings without a separate key setup. Outside Korea, use <strong>your own Google API key or an app subscription</strong> for photorealistic 3D. Building models are shown where data is available.</p>
     <p><a href="guide/#sim-overseas">How to create and set up a Google API key →</a></p>
     <p class="note">Your own key takes priority over the subscription. It's stored in iCloud Keychain on Apple devices and on the device on Android, sent only to Google, and <b>never to the developer</b>.</p>
@@ -582,7 +582,7 @@
 
 <footer>
   <div class="wrap">
-    <p class="foot-desc"><strong>MoonAlign</strong> — a planning app for shooting the Moon, the Sun, space stations (ISS, Tiangong), planes, and the Milky Way. Contact: <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+    <p class="foot-desc"><strong>MoonAlign</strong>: a planning app for shooting the Moon, the Sun, space stations (ISS, Tiangong), planes, and the Milky Way. Contact: <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
     <p class="srcs">Maps: Apple Maps · V-World (Korea MOLIT, KOGL Type 1) · Google Maps (personal key on Apple devices; included on Android) · Ground elevation: V-World 3D terrain (Korea) · Copernicus DEM GLO-30 © DLR e.V. 2010-2014, © Airbus Defence and Space GmbH 2014-2018, provided under the Copernicus programme (EU, ESA) · Light pollution: EOG VIIRS night lights (VNL V2), estimated by the app from the OpenGeoHub redistribution (CC BY 4.0) · ISS orbit: NASA OEM · CelesTrak TLE · Tiangong orbit: CelesTrak SupGP (based on China Manned Space Agency ephemeris) · CelesTrak TLE · Air traffic: adsb.lol (ODbL 1.0) · Geoid: EGM96 (NGA) · 3D simulation: V-World · Google Photorealistic 3D Tiles · Eclipse maps: Natural Earth (public domain) · Astronomy: astronomy-engine</p>
     <p class="copy">© 2026 <a href="">YJLAB</a>. All rights reserved. · <a href="privacy/">Privacy Policy</a></p>
   </div>

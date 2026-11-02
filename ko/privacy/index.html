@@ -1,12 +1,12 @@
-<!-- 생성물 — 직접 고치지 말 것. 원본: guide-template.html + privacy-src/<lang>.html + strings/<lang>.json의 privacy.* -->
+<!-- 생성물: 직접 고치지 말 것. 원본: guide-template.html + privacy-src/<lang>.html + strings/<lang>.json의 privacy.* -->
 <!DOCTYPE html>
-<!-- 원본(손으로 고치는 곳) — 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
+<!-- 원본(손으로 고치는 곳): 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
      본문은 guide-src/<lang>.html, 목차는 본문의 <h2 id>에서 자동. -->
 <html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>개인정보처리방침 — MoonAlign</title>
+  <title>개인정보처리방침, MoonAlign</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
@@ -17,7 +17,7 @@
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/privacy/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/privacy/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/privacy/">
-  <meta property="og:title" content="개인정보처리방침 — MoonAlign">
+  <meta property="og:title" content="개인정보처리방침, MoonAlign">
   <meta property="og:description" content="MoonAlign 앱에서 처리하는 정보의 항목, 이용 목적, 전송 대상 및 보관 기간을 안내합니다.">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:type" content="article">
@@ -106,7 +106,7 @@
     article .note { background: #2a2414; }
   }
 
-  /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+  /* 줄 바꿈: 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
      일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
   html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
   html:lang(ko) article p, html:lang(ko) article li { text-wrap: pretty; }
@@ -146,7 +146,7 @@
     <h1>개인정보처리방침</h1>
     <p class="lead">MoonAlign은 별도의 회원 가입 없이 이용할 수 있습니다. 촬영 계획과 사진은 기기 내에서 처리합니다. 기능 제공에 필요한 정보만 해당 서비스에 전송합니다.</p>
 <!-- 개인정보처리방침 본문(ko 원본). 절 id는 en·ja와 같은 순서로 같아야 한다(build_landing.py --check).
-     내용은 앱이 실제로 보내는 것과 맞아야 한다 — 새 외부 서비스·서버 저장 항목·권한을 늘리면 세 언어 모두 고치고 시행일을 바꾼다.
+     내용은 앱이 실제로 보내는 것과 맞아야 한다. 새 외부 서비스·서버 저장 항목·권한을 늘리면 세 언어 모두 고치고 시행일을 바꾼다.
      Play Console 데이터 보안 양식(specs/018-android-app/release-checklist.md)과도 같아야 한다. -->
 
 <p><strong>시행일: 2026년 10월 31일</strong></p>
@@ -198,10 +198,10 @@
 <p>앱에 지도 키를 안전하게 발급하기 위해 개발자가 운영하는 서버(Cloudflare Workers)를 사용합니다. 이 서버는 정품 앱인지 확인한 뒤 키를 발급하며, 다음 정보만 보관합니다.</p>
 <table>
 <tr><th>정보</th><th>보관 기간</th></tr>
-<tr><td>설치 식별자 — 앱이 처음 실행될 때 생성한 무작위 ID(Android) 또는 Apple App Attest 키 ID(iOS·Mac)와 그 공개 키. 기기 고유 번호나 광고 ID가 아닙니다.</td><td>앱 설치가 유지되는 동안(재등록 시 기존 정보 갱신)</td></tr>
-<tr><td>요청 횟수 — 설치 식별자별·IP 주소별 하루 요청 수(남용 방지)</td><td>최대 48시간(IP 주소별은 2시간)</td></tr>
-<tr><td>구독 이용 설치 목록 — Google Play 구매 토큰의 해시값별 하루 설치 식별자 목록(Android 구독자, 남용 방지)</td><td>최대 48시간</td></tr>
-<tr><td>구독 확인 결과 — Google Play 구매 토큰의 해시값과 상품·만료 시각(Android 구독자)</td><td>최대 6시간</td></tr>
+<tr><td>설치 식별자: 앱이 처음 실행될 때 생성한 무작위 ID(Android) 또는 Apple App Attest 키 ID(iOS·Mac)와 그 공개 키. 기기 고유 번호나 광고 ID가 아닙니다.</td><td>앱 설치가 유지되는 동안(재등록 시 기존 정보 갱신)</td></tr>
+<tr><td>요청 횟수: 설치 식별자별·IP 주소별 하루 요청 수(남용 방지)</td><td>최대 48시간(IP 주소별은 2시간)</td></tr>
+<tr><td>구독 이용 설치 목록: Google Play 구매 토큰의 해시값별 하루 설치 식별자 목록(Android 구독자, 남용 방지)</td><td>최대 48시간</td></tr>
+<tr><td>구독 확인 결과: Google Play 구매 토큰의 해시값과 상품·만료 시각(Android 구독자)</td><td>최대 6시간</td></tr>
 </table>
 <p>정품 확인을 위해 Apple(App Attest) 또는 Google(Play Integrity)의 확인 결과를 전달받고, Android 구독은 Google Play에 구매 토큰을 조회해 확인합니다. iOS·Mac 구독은 App Store 거래 서명을 서버에서 검증만 하고 보관하지 않습니다. 위치, 촬영 계획, 검색어는 이 서버로 전송되지 않습니다.</p>
 </section>

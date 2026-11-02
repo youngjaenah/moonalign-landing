@@ -1,24 +1,24 @@
-<!-- 생성물 — 직접 고치지 말 것. 원본: guide-template.html + privacy-src/<lang>.html + strings/<lang>.json의 privacy.* -->
+<!-- 생성물: 직접 고치지 말 것. 원본: guide-template.html + privacy-src/<lang>.html + strings/<lang>.json의 privacy.* -->
 <!DOCTYPE html>
-<!-- 원본(손으로 고치는 곳) — 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
+<!-- 원본(손으로 고치는 곳): 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
      본문은 guide-src/<lang>.html, 목차는 본문의 <h2 id>에서 자동. -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy — MoonAlign</title>
+  <title>Privacy Policy, MoonAlign</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
   <link rel="apple-touch-icon" href="/img/icon/apple-touch-icon.png">
-  <meta name="description" content="What information the MoonAlign app uses, where it goes and how long it&#x27;s kept — no MoonAlign account, ads or analytics; plans and photos stay on your device.">
+  <meta name="description" content="What information the MoonAlign app uses, where it goes and how long it&#x27;s kept. No MoonAlign account, ads or analytics; plans and photos stay on your device.">
   <link rel="canonical" href="https://moonalign.yjlab.io/privacy/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/privacy/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/privacy/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/privacy/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/privacy/">
-  <meta property="og:title" content="Privacy Policy — MoonAlign">
-  <meta property="og:description" content="What information the MoonAlign app uses, where it goes and how long it&#x27;s kept — no MoonAlign account, ads or analytics; plans and photos stay on your device.">
+  <meta property="og:title" content="Privacy Policy, MoonAlign">
+  <meta property="og:description" content="What information the MoonAlign app uses, where it goes and how long it&#x27;s kept. No MoonAlign account, ads or analytics; plans and photos stay on your device.">
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="article">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -106,7 +106,7 @@
     article .note { background: #2a2414; }
   }
 
-  /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+  /* 줄 바꿈: 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
      일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
   html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
   html:lang(ko) article p, html:lang(ko) article li { text-wrap: pretty; }
@@ -196,10 +196,10 @@
 <p>To hand out map keys securely, the app talks to a server we operate on Cloudflare Workers. The server checks that the request comes from a genuine copy of the app before issuing a key, and keeps only the following.</p>
 <table>
 <tr><th>Information</th><th>Retention</th></tr>
-<tr><td>Install identifier — a random ID the app creates on first launch (Android) or an Apple App Attest key ID (iOS, Mac), with its public key. It is not a hardware ID or advertising ID.</td><td>As long as the installation exists (overwritten on re-registration)</td></tr>
-<tr><td>Request counts — daily requests per install identifier and per IP address (abuse prevention)</td><td>Up to 48 hours (2 hours for IP addresses)</td></tr>
-<tr><td>Subscriber install list — install identifiers per hash of a Google Play purchase token, per day (Android subscribers, abuse prevention)</td><td>Up to 48 hours</td></tr>
-<tr><td>Subscription check result — a hash of the Google Play purchase token with the product and expiry time (Android subscribers)</td><td>Up to 6 hours</td></tr>
+<tr><td>Install identifier: a random ID the app creates on first launch (Android) or an Apple App Attest key ID (iOS, Mac), with its public key. It is not a hardware ID or advertising ID.</td><td>As long as the installation exists (overwritten on re-registration)</td></tr>
+<tr><td>Request counts: daily requests per install identifier and per IP address (abuse prevention)</td><td>Up to 48 hours (2 hours for IP addresses)</td></tr>
+<tr><td>Subscriber install list: install identifiers per hash of a Google Play purchase token, per day (Android subscribers, abuse prevention)</td><td>Up to 48 hours</td></tr>
+<tr><td>Subscription check result: a hash of the Google Play purchase token with the product and expiry time (Android subscribers)</td><td>Up to 6 hours</td></tr>
 </table>
 <p>To confirm the app is genuine, the server receives a verdict from Apple (App Attest) or Google (Play Integrity). Android subscriptions are confirmed by looking up the purchase token with Google Play. For iOS and Mac subscriptions, the server only verifies the App Store transaction signature and does not keep it. Your location, shooting plans and search terms never reach this server.</p>
 </section>

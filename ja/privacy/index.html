@@ -1,24 +1,24 @@
-<!-- 생성물 — 직접 고치지 말 것. 원본: guide-template.html + privacy-src/<lang>.html + strings/<lang>.json의 privacy.* -->
+<!-- 생성물: 직접 고치지 말 것. 원본: guide-template.html + privacy-src/<lang>.html + strings/<lang>.json의 privacy.* -->
 <!DOCTYPE html>
-<!-- 원본(손으로 고치는 곳) — 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
+<!-- 원본(손으로 고치는 곳): 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
      본문은 guide-src/<lang>.html, 목차는 본문의 <h2 id>에서 자동. -->
 <html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>プライバシーポリシー — MoonAlign</title>
+  <title>プライバシーポリシー：MoonAlign</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
   <link rel="apple-touch-icon" href="/img/icon/apple-touch-icon.png">
-  <meta name="description" content="MoonAlignアプリが利用する情報、その送信先と保管期間 — 専用アカウント・広告・分析なし、撮影計画と写真は端末内で処理。">
+  <meta name="description" content="MoonAlignアプリが利用する情報、その送信先と保管期間：専用アカウント・広告・分析なし、撮影計画と写真は端末内で処理。">
   <link rel="canonical" href="https://moonalign.yjlab.io/ja/privacy/">
   <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/privacy/">
   <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/privacy/">
   <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/privacy/">
   <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/privacy/">
-  <meta property="og:title" content="プライバシーポリシー — MoonAlign">
-  <meta property="og:description" content="MoonAlignアプリが利用する情報、その送信先と保管期間 — 専用アカウント・広告・分析なし、撮影計画と写真は端末内で処理。">
+  <meta property="og:title" content="プライバシーポリシー：MoonAlign">
+  <meta property="og:description" content="MoonAlignアプリが利用する情報、その送信先と保管期間：専用アカウント・広告・分析なし、撮影計画と写真は端末内で処理。">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:type" content="article">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -106,7 +106,7 @@
     article .note { background: #2a2414; }
   }
 
-  /* 줄 바꿈 — 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+  /* 줄 바꿈: 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
      일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
   html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
   html:lang(ko) article p, html:lang(ko) article li { text-wrap: pretty; }
@@ -196,10 +196,10 @@
 <p>地図キーを安全に配布するため、開発者が運営するサーバー(Cloudflare Workers)を使います。このサーバーは正規のアプリであることを確認してからキーを発行し、以下の情報のみを保管します。</p>
 <table>
 <tr><th>情報</th><th>保管期間</th></tr>
-<tr><td>インストール識別子 — 初回起動時にアプリが作るランダムなID(Android)、またはApple App AttestのキーID(iOS・Mac)とその公開鍵。端末固有の番号や広告IDではありません。</td><td>インストールが続く間(再登録時に上書き)</td></tr>
-<tr><td>リクエスト回数 — インストール識別子ごと・IPアドレスごとの1日のリクエスト数(不正利用防止)</td><td>最大48時間(IPアドレスごとは2時間)</td></tr>
-<tr><td>サブスクリプション利用インストール一覧 — Google Play購入トークンのハッシュ値ごとの1日のインストール識別子(Androidのサブスクリプション利用者、不正利用防止)</td><td>最大48時間</td></tr>
-<tr><td>サブスクリプション確認結果 — Google Play購入トークンのハッシュ値と商品・有効期限(Androidのサブスクリプション利用者)</td><td>最大6時間</td></tr>
+<tr><td>インストール識別子：初回起動時にアプリが作るランダムなID(Android)、またはApple App AttestのキーID(iOS・Mac)とその公開鍵。端末固有の番号や広告IDではありません。</td><td>インストールが続く間(再登録時に上書き)</td></tr>
+<tr><td>リクエスト回数：インストール識別子ごと・IPアドレスごとの1日のリクエスト数(不正利用防止)</td><td>最大48時間(IPアドレスごとは2時間)</td></tr>
+<tr><td>サブスクリプション利用インストール一覧：Google Play購入トークンのハッシュ値ごとの1日のインストール識別子(Androidのサブスクリプション利用者、不正利用防止)</td><td>最大48時間</td></tr>
+<tr><td>サブスクリプション確認結果：Google Play購入トークンのハッシュ値と商品・有効期限(Androidのサブスクリプション利用者)</td><td>最大6時間</td></tr>
 </table>
 <p>正規のアプリであることを確認するため、Apple(App Attest)またはGoogle(Play Integrity)の確認結果を受け取ります。Androidのサブスクリプションは、購入トークンをGoogle Playに照会して確認します。iOS・Macのサブスクリプションは、App Storeの取引署名をサーバーで検証するだけで保管しません。位置情報、撮影計画、検索語はこのサーバーに送られません。</p>
 </section>
