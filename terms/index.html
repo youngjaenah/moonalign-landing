@@ -1,0 +1,253 @@
+<!-- 생성물: 직접 고치지 말 것. 원본: guide-template.html + terms-src/<lang>.html + strings/<lang>.json의 terms.* -->
+<!DOCTYPE html>
+<!-- 원본(손으로 고치는 곳): 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
+     본문은 guide-src/<lang>.html, 목차는 본문의 <h2 id>에서 자동. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Use, MoonAlign</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
+  <link rel="apple-touch-icon" href="/img/icon/apple-touch-icon.png">
+  <meta name="description" content="Terms for using the MoonAlign app: purchases and the Photorealistic 3D subscription, your own Google API key, the limits of predictions, and safety in the field.">
+  <link rel="canonical" href="https://moonalign.yjlab.io/terms/">
+  <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/terms/">
+  <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/terms/">
+  <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/terms/">
+  <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/terms/">
+  <meta property="og:title" content="Terms of Use, MoonAlign">
+  <meta property="og:description" content="Terms for using the MoonAlign app: purchases and the Photorealistic 3D subscription, your own Google API key, the limits of predictions, and safety in the field.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-soft: #f7f7f5; --ink: #17191d; --ink-dim: #585d66; --ink-faint: #8b9099;
+    --accent: #2d5bd7; --line: #e7e7e4; --target: #0aa5b8; --spot: #e8890c;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(255,255,255,0.88); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 0.98rem; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .brand .mark { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+  .brand .sub { color: var(--ink-faint); font-weight: 500; }
+  .nav-right { display: flex; align-items: center; gap: 20px; font-size: 0.86rem; }
+  .nav-right a { color: var(--ink-dim); text-decoration: none; }
+  .lang-switch { display: flex; gap: 12px; white-space: nowrap; }
+  .lang-switch .lang-on { color: var(--ink); font-weight: 600; }
+
+  .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding-top: 48px; padding-bottom: 80px; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; } }
+  @media (max-width: 600px) { .wrap { padding: 0 16px; } .nav-right .back { display: none; } }
+
+  @media (max-width: 600px) {
+    .nav { height: auto; min-height: 64px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; gap: 8px 16px; }
+    .nav-right { flex-shrink: 0; margin-left: auto; }
+  }
+
+  .toc { position: sticky; top: 88px; align-self: start; max-height: calc(100vh - 110px); overflow: auto; font-size: 0.88rem; }
+  .toc summary { list-style: none; font-weight: 600; color: var(--ink); margin-bottom: 10px; cursor: default; }
+  .toc summary::-webkit-details-marker { display: none; }
+  .toc ol { list-style: none; border-left: 1px solid var(--line); }
+  .toc li a { display: block; padding: 5px 0 5px 14px; color: var(--ink-dim); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; }
+  .toc li a:hover, .toc li a.on { color: var(--ink); border-left-color: var(--accent); }
+  @media (max-width: 860px) {
+    .toc { position: static; max-height: none; background: var(--bg-soft); border-radius: 12px; padding: 14px 16px; }
+    .toc summary { cursor: pointer; margin-bottom: 0; }
+    .toc[open] summary { margin-bottom: 10px; }
+  }
+
+  article { max-width: 72ch; }
+  article h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px; }
+  article .lead { color: var(--ink-dim); font-size: 1.05rem; margin-bottom: 36px; }
+  article section { padding-top: 12px; margin-bottom: 44px; border-top: 1px solid var(--line); }
+  article h2 { font-size: 1.45rem; letter-spacing: -0.01em; margin: 24px 0 12px; }
+  article h3 { font-size: 1.08rem; margin: 26px 0 8px; }
+  article p { margin: 0 0 12px; }
+  article ul, article ol { margin: 0 0 14px 1.3em; }
+  article li { margin: 4px 0; }
+  article .ui { font-weight: 600; }
+  article .tip { background: var(--bg-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article .note { background: #fff8e6; border-left: 3px solid #d9a400; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article .target { color: var(--target); font-weight: 600; }
+  article .spot { color: var(--spot); font-weight: 600; }
+  article table { border-collapse: collapse; margin: 8px 0 16px; font-size: 0.94rem; width: 100%; overflow-wrap: anywhere; }
+  article th, article td { text-align: left; border-bottom: 1px solid var(--line); padding: 7px 10px 7px 0; vertical-align: top; }
+  article th { color: var(--ink-dim); font-weight: 600; }
+  article kbd { font: 0.85em ui-monospace, Menlo, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+  article details { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 10px 0; }
+  article details summary { font-weight: 600; cursor: pointer; }
+  article details p { margin-top: 8px; }
+
+  article figure.shot { margin: 18px 0 22px; }
+  article figure.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
+  article figure.shot.phone img { max-width: 300px; border-radius: 28px; }
+  article figure.shot.portrait img { max-width: 420px; }
+  article figure.shot.pair { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  article figure.shot.pair img { width: auto; max-width: 100%; }
+  article figure.shot figcaption { width: 100%; font-size: 0.85rem; color: var(--ink-faint); margin-top: 8px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 40px; color: var(--ink-faint); font-size: 0.85rem; }
+  footer .biz { font-size: 0.76rem; line-height: 1.6; margin-top: 8px; }
+  footer a { color: var(--ink-dim); }
+
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111317; --bg-soft: #1b1e24; --ink: #eceef2; --ink-dim: #a7adb7; --ink-faint: #7c828c; --accent: #7aa2ff; --line: #2b2f37; --target: #39c6d6; --spot: #f2a33a; }
+    header { background: rgba(17,19,23,0.88); }
+    article .note { background: #2a2414; }
+  }
+
+  /* 줄 바꿈: 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+     일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
+  html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
+  html:lang(ko) article p, html:lang(ko) article li { text-wrap: pretty; }
+  html:lang(ko) article h2, html:lang(ko) article h3 { text-wrap: balance; }
+  html:lang(ja) body { word-break: auto-phrase; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/"><span class="mark"></span>MoonAlign <span class="sub">/ Terms of Use</span></a>
+    <div class="nav-right">
+      <a class="back" href="/">Home page</a>
+      <span class="lang-switch"><span class="lang-on">English</span> <a href="/ko/terms/" hreflang="ko" lang="ko">한국어</a> <a href="/ja/terms/" hreflang="ja" lang="ja">日本語</a></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <details class="toc" open>
+    <summary>Contents</summary>
+    <ol>
+      <li><a href="#scope">Scope</a></li>
+      <li><a href="#license">License</a></li>
+      <li><a href="#purchases">Purchases and subscriptions</a></li>
+      <li><a href="#own-key">Your own Google API key</a></li>
+      <li><a href="#accuracy">Predictions and data limits</a></li>
+      <li><a href="#safety">Safety in the field</a></li>
+      <li><a href="#third-party">Third-party services and data</a></li>
+      <li><a href="#liability">Limitation of liability</a></li>
+      <li><a href="#changes">Changes to these terms</a></li>
+      <li><a href="#law">Governing law</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </details>
+  <article>
+    <h1>Terms of Use</h1>
+    <p class="lead">These terms cover the license, purchases and subscriptions, and the limits of MoonAlign&#x27;s predictions. Your statutory consumer rights are not affected.</p>
+<!-- Terms of Use body (en). Section ids must match ko.html in the same order (build_landing.py --check). -->
+
+<p><strong>Effective date: November 5, 2026</strong></p>
+<p>These terms govern your use of the MoonAlign app for iPhone, iPad, Mac and Android (the "app"), provided by YJLAB ("we"). By installing or using the app, you agree to these terms.</p>
+
+<section>
+<h2 id="scope">Scope</h2>
+<ul>
+<li>If you got the app from the App Store, Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Standard EULA</a> also applies. Where the two differ, Apple's Standard EULA prevails.</li>
+<li>If you got the app from Google Play, these terms apply together with the Google Play Terms of Service.</li>
+<li>How we handle information is described in our <a href="../privacy/">Privacy Policy</a>.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="license">License</h2>
+<p>We grant you a personal, non-exclusive license to use the app on devices you own or control. You may not copy, resell or reverse engineer the app, use the map keys or servers it relies on outside the app, or call them in automated ways beyond normal use.</p>
+</section>
+
+<section>
+<h2 id="purchases">Purchases and subscriptions</h2>
+<ul>
+<li>The app is a paid app. Your purchase includes shot planning, terrain-based simulation and the shooting tools with no further payment.</li>
+<li>The <strong>Photorealistic 3D subscription</strong> (monthly or yearly) provides one thing: Google photorealistic 3D buildings at shooting spots outside Korea without your own key. Without it, the Moon's path and terrain are still shown everywhere.</li>
+<li>Subscriptions renew automatically for the same period and price unless you cancel. Cancellation and refunds follow the policies of the store you bought from (App Store or Google Play). Nothing in these terms limits your statutory consumer rights, such as withdrawal rights.</li>
+<li>To keep the service stable and prevent abuse, subscription features have a reasonable daily usage limit. If you reach it, you can use them again the next day.</li>
+<li>Photorealistic 3D buildings appear only where Google provides 3D data, and Google decides that coverage.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="own-key">Your own Google API key</h2>
+<p>If you add your own Google API key, you can use the same feature without a subscription. Charges and terms for that key are between you and Google; we don't pay or manage them for you. The key is stored only on your devices and in your own cloud keychain.</p>
+</section>
+
+<section>
+<h2 id="accuracy">Predictions and data limits</h2>
+<ul>
+<li>Alignment times and spots, space station transits, eclipse paths, light pollution classes and similar results are <strong>predictions and estimates</strong> based on public data and calculation models. Errors in terrain or building data, orbit changes, weather and atmospheric conditions can make reality differ.</li>
+<li>Space station orbits change often, so search again the day before your shoot.</li>
+<li>The app does not guarantee a successful shot or any particular result.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="safety">Safety in the field</h2>
+<ul>
+<li><strong>Never look at the Sun with your naked eye or through a camera, telescope or binoculars without a proper filter.</strong> It can damage your eyesight. Use a certified solar filter when photographing a solar eclipse or a space station crossing the Sun.</li>
+<li>When scouting and traveling to shooting spots, follow local laws on private property, restricted areas and drone flight, and take care at night, in the mountains and near water.</li>
+<li>Don't operate the app while driving.</li>
+</ul>
+</section>
+
+<section>
+<h2 id="third-party">Third-party services and data</h2>
+<p>The app uses third-party services and public data for maps, terrain, 3D buildings, orbits and aircraft positions (see Home → Help &amp; About → Data sources in the app). If these services stop, change or fail, some features may be limited. We will try to provide alternatives where we can.</p>
+</section>
+
+<section>
+<h2 id="liability">Limitation of liability</h2>
+<p>We develop and operate the app in good faith. To the extent permitted by law, we are not liable for losses arising from differences between predictions and reality, interruptions of third-party services, or your activities in the field, unless caused by our intent or gross negligence. This does not affect consumer rights that cannot be limited by law.</p>
+</section>
+
+<section>
+<h2 id="changes">Changes to these terms</h2>
+<p>When we change these terms, we update this page and the effective date at the top. We announce significant changes that are unfavorable to you on this page before they take effect.</p>
+</section>
+
+<section>
+<h2 id="law">Governing law</h2>
+<p>These terms are governed by the laws of the Republic of Korea. However, if the law of your country of residence gives you more favorable mandatory consumer protections, those protections apply.</p>
+</section>
+
+<section>
+<h2 id="contact">Contact</h2>
+<p>YJLAB · Representative: Youngjae Nah · Business registration no. 521-29-02447, Republic of Korea<br>
+37-5 Namhyeon 2-gil, Gwanak-gu, Seoul, Republic of Korea · <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+</section>
+
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 <a href="https://www.yjlab.io">YJLAB</a> · Contact <a href="mailto:support@yjlab.io">support@yjlab.io</a> · <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Use</a></p>
+    <p class="biz">YJLAB (와이제이랩) · Representative: Youngjae Nah · Business registration no. 521-29-02447, Republic of Korea (<a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=5212902447" target="_blank" rel="noopener">verify</a>) · Mail-order business no. 2026-서울관악-2130 · Address: 37-5 Namhyeon 2-gil, Gwanak-gu, Seoul, Republic of Korea · Phone: <a href="tel:+821065899411">+82 10-6589-9411</a> · Email: <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+  </div>
+</footer>
+<script>
+  // 폰 폭에선 목차를 접어 둔다. 지금 보는 절을 목차에 표시.
+  (function () {
+    var toc = document.querySelector('.toc');
+    if (window.matchMedia('(max-width: 860px)').matches) toc.removeAttribute('open');
+    var links = Array.prototype.slice.call(toc.querySelectorAll('a'));
+    var secs = links.map(function (a) { return document.getElementById(a.hash.slice(1)); });
+    function mark() {
+      var y = window.scrollY + 100, cur = 0;
+      secs.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
+      links.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+    }
+    window.addEventListener('scroll', mark, { passive: true }); mark();
+  })();
+</script>
+</body>
+</html>

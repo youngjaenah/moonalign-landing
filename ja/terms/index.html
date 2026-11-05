@@ -1,0 +1,253 @@
+<!-- 생성물: 직접 고치지 말 것. 원본: guide-template.html + terms-src/<lang>.html + strings/<lang>.json의 terms.* -->
+<!DOCTYPE html>
+<!-- 원본(손으로 고치는 곳): 생성물 guide/index.html·ko/guide/·ja/guide/는 build_landing.py가 만든다.
+     본문은 guide-src/<lang>.html, 목차는 본문의 <h2 id>에서 자동. -->
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>利用規約：MoonAlign</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/icon/icon-192.png">
+  <link rel="apple-touch-icon" href="/img/icon/apple-touch-icon.png">
+  <meta name="description" content="MoonAlignアプリの利用条件：購入と実写3Dサブスクリプション、ご自身のGoogle APIキー、予測の限界、現地での安全。">
+  <link rel="canonical" href="https://moonalign.yjlab.io/ja/terms/">
+  <link rel="alternate" hreflang="en" href="https://moonalign.yjlab.io/terms/">
+  <link rel="alternate" hreflang="ko" href="https://moonalign.yjlab.io/ko/terms/">
+  <link rel="alternate" hreflang="ja" href="https://moonalign.yjlab.io/ja/terms/">
+  <link rel="alternate" hreflang="x-default" href="https://moonalign.yjlab.io/terms/">
+  <meta property="og:title" content="利用規約：MoonAlign">
+  <meta property="og:description" content="MoonAlignアプリの利用条件：購入と実写3Dサブスクリプション、ご自身のGoogle APIキー、予測の限界、現地での安全。">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:type" content="article">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg-soft: #f7f7f5; --ink: #17191d; --ink-dim: #585d66; --ink-faint: #8b9099;
+    --accent: #2d5bd7; --line: #e7e7e4; --target: #0aa5b8; --spot: #e8890c;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(255,255,255,0.88); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 0.98rem; font-weight: 700; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .brand .mark { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+  .brand .sub { color: var(--ink-faint); font-weight: 500; }
+  .nav-right { display: flex; align-items: center; gap: 20px; font-size: 0.86rem; }
+  .nav-right a { color: var(--ink-dim); text-decoration: none; }
+  .lang-switch { display: flex; gap: 12px; white-space: nowrap; }
+  .lang-switch .lang-on { color: var(--ink); font-weight: 600; }
+
+  .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 56px; padding-top: 48px; padding-bottom: 80px; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; } }
+  @media (max-width: 600px) { .wrap { padding: 0 16px; } .nav-right .back { display: none; } }
+
+  @media (max-width: 600px) {
+    .nav { height: auto; min-height: 64px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; gap: 8px 16px; }
+    .nav-right { flex-shrink: 0; margin-left: auto; }
+  }
+
+  .toc { position: sticky; top: 88px; align-self: start; max-height: calc(100vh - 110px); overflow: auto; font-size: 0.88rem; }
+  .toc summary { list-style: none; font-weight: 600; color: var(--ink); margin-bottom: 10px; cursor: default; }
+  .toc summary::-webkit-details-marker { display: none; }
+  .toc ol { list-style: none; border-left: 1px solid var(--line); }
+  .toc li a { display: block; padding: 5px 0 5px 14px; color: var(--ink-dim); text-decoration: none; border-left: 2px solid transparent; margin-left: -1px; }
+  .toc li a:hover, .toc li a.on { color: var(--ink); border-left-color: var(--accent); }
+  @media (max-width: 860px) {
+    .toc { position: static; max-height: none; background: var(--bg-soft); border-radius: 12px; padding: 14px 16px; }
+    .toc summary { cursor: pointer; margin-bottom: 0; }
+    .toc[open] summary { margin-bottom: 10px; }
+  }
+
+  article { max-width: 72ch; }
+  article h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px; }
+  article .lead { color: var(--ink-dim); font-size: 1.05rem; margin-bottom: 36px; }
+  article section { padding-top: 12px; margin-bottom: 44px; border-top: 1px solid var(--line); }
+  article h2 { font-size: 1.45rem; letter-spacing: -0.01em; margin: 24px 0 12px; }
+  article h3 { font-size: 1.08rem; margin: 26px 0 8px; }
+  article p { margin: 0 0 12px; }
+  article ul, article ol { margin: 0 0 14px 1.3em; }
+  article li { margin: 4px 0; }
+  article .ui { font-weight: 600; }
+  article .tip { background: var(--bg-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article .note { background: #fff8e6; border-left: 3px solid #d9a400; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article .target { color: var(--target); font-weight: 600; }
+  article .spot { color: var(--spot); font-weight: 600; }
+  article table { border-collapse: collapse; margin: 8px 0 16px; font-size: 0.94rem; width: 100%; overflow-wrap: anywhere; }
+  article th, article td { text-align: left; border-bottom: 1px solid var(--line); padding: 7px 10px 7px 0; vertical-align: top; }
+  article th { color: var(--ink-dim); font-weight: 600; }
+  article kbd { font: 0.85em ui-monospace, Menlo, monospace; border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+  article details { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; margin: 10px 0; }
+  article details summary { font-weight: 600; cursor: pointer; }
+  article details p { margin-top: 8px; }
+
+  article figure.shot { margin: 18px 0 22px; }
+  article figure.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
+  article figure.shot.phone img { max-width: 300px; border-radius: 28px; }
+  article figure.shot.portrait img { max-width: 420px; }
+  article figure.shot.pair { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+  article figure.shot.pair img { width: auto; max-width: 100%; }
+  article figure.shot figcaption { width: 100%; font-size: 0.85rem; color: var(--ink-faint); margin-top: 8px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 40px; color: var(--ink-faint); font-size: 0.85rem; }
+  footer .biz { font-size: 0.76rem; line-height: 1.6; margin-top: 8px; }
+  footer a { color: var(--ink-dim); }
+
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111317; --bg-soft: #1b1e24; --ink: #eceef2; --ink-dim: #a7adb7; --ink-faint: #7c828c; --accent: #7aa2ff; --line: #2b2f37; --target: #39c6d6; --spot: #f2a33a; }
+    header { background: rgba(17,19,23,0.88); }
+    article .note { background: #2a2414; }
+  }
+
+  /* 줄 바꿈: 한국어는 띄어쓰기에서만(브라우저 기본은 글자 단위라 '확/인해야'처럼 낱말이 잘렸다, 2026-10-03),
+     일본어는 구 단위(auto-phrase, 지원 브라우저만). 긴 영문·URL은 넘치지 않게 끊는다. */
+  html:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
+  html:lang(ko) article p, html:lang(ko) article li { text-wrap: pretty; }
+  html:lang(ko) article h2, html:lang(ko) article h3 { text-wrap: balance; }
+  html:lang(ja) body { word-break: auto-phrase; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/ja/"><span class="mark"></span>MoonAlign <span class="sub">/ 利用規約</span></a>
+    <div class="nav-right">
+      <a class="back" href="/ja/">ホームページへ</a>
+      <span class="lang-switch"><a href="/terms/" hreflang="en" lang="en">English</a> <a href="/ko/terms/" hreflang="ko" lang="ko">한국어</a> <span class="lang-on">日本語</span></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <details class="toc" open>
+    <summary>目次</summary>
+    <ol>
+      <li><a href="#scope">適用範囲</a></li>
+      <li><a href="#license">使用許諾</a></li>
+      <li><a href="#purchases">購入とサブスクリプション</a></li>
+      <li><a href="#own-key">ご自身のGoogle APIキー</a></li>
+      <li><a href="#accuracy">予測とデータの限界</a></li>
+      <li><a href="#safety">安全と現地での利用</a></li>
+      <li><a href="#third-party">外部サービスとデータ</a></li>
+      <li><a href="#liability">責任の制限</a></li>
+      <li><a href="#changes">規約の変更</a></li>
+      <li><a href="#law">準拠法</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ol>
+  </details>
+  <article>
+    <h1>利用規約</h1>
+    <p class="lead">使用許諾、購入とサブスクリプション、MoonAlignの予測の限界について定めます。法令で保障される消費者の権利は制限されません。</p>
+<!-- 利用規約本文(ja)。節idはko.htmlと同じ順序で同じであること(build_landing.py --check)。 -->
+
+<p><strong>施行日：2026年11月5日</strong></p>
+<p>この規約は、YJLAB(以下「開発者」)が提供するMoonAlignアプリ(iPhone・iPad・Mac・Android、以下「アプリ」)の利用条件を定めます。アプリをインストールまたは利用した時点で、この規約に同意したものとみなします。</p>
+
+<section>
+<h2 id="scope">適用範囲</h2>
+<ul>
+<li>App Storeから入手したアプリには、Appleの標準エンドユーザー使用許諾契約(<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple標準EULA</a>)も適用され、両者が異なる場合はApple標準EULAが優先します。</li>
+<li>Google Playから入手したアプリには、この規約とGoogle Play利用規約が併せて適用されます。</li>
+<li>情報の取り扱いは<a href="../privacy/">プライバシーポリシー</a>に従います。</li>
+</ul>
+</section>
+
+<section>
+<h2 id="license">使用許諾</h2>
+<p>開発者は、アプリを購入したユーザーに、本人が所有または管理する端末でアプリを個人的・非独占的に利用する権利を付与します。アプリの複製・転売・リバースエンジニアリング、アプリが使う地図キーやサーバーのアプリ外での利用、通常の利用範囲を超えた自動化された呼び出しは禁止します。</p>
+</section>
+
+<section>
+<h2 id="purchases">購入とサブスクリプション</h2>
+<ul>
+<li>アプリは有料で販売され、購入すると撮影計画・地形ベースのシミュレーション・撮影ツールを追加の支払いなしで利用できます。</li>
+<li><strong>実写3Dサブスクリプション</strong>(月額・年額)が提供するのは、韓国外の撮影地でGoogleの実写3D建物をご自身のキーなしで表示する機能ひとつだけです。サブスクリプションがなくても、月の軌跡と地形はどこでも表示されます。</li>
+<li>サブスクリプションは解約しない限り、同じ期間・価格で自動更新されます。解約と返金は購入したストア(App StoreまたはGoogle Play)の方針と手続きに従います。法令で保障される撤回権などの消費者の権利は、この規約によって制限されません。</li>
+<li>サービスの安定と不正利用の防止のため、サブスクリプション機能には1日の利用回数に合理的な上限があります。上限に達した場合は、翌日から再び利用できます。</li>
+<li>実写3D建物はGoogleが3Dデータを提供している地域でのみ表示され、提供範囲はGoogleが決定します。</li>
+</ul>
+</section>
+
+<section>
+<h2 id="own-key">ご自身のGoogle APIキー</h2>
+<p>ご自身のGoogle APIキーを登録すると、サブスクリプションなしで同じ機能を利用できます。この場合、キーの利用料金と条件はユーザーとGoogleとの間の関係であり、開発者がその料金を負担または管理することはありません。キーは端末とユーザー本人のクラウドキーチェーンにのみ保存されます。</p>
+</section>
+
+<section>
+<h2 id="accuracy">予測とデータの限界</h2>
+<ul>
+<li>アプリが表示する重なりの時刻・場所、宇宙ステーションの通過、日食・月食の経路、光害の等級などは、公開データと計算モデルに基づく<strong>予測と推定</strong>です。地形・建物データの誤差、軌道の変更、天候や大気の状態により、実際とは異なる場合があります。</li>
+<li>宇宙ステーションの軌道は頻繁に変わるため、撮影前日に再検索してください。</li>
+<li>アプリは撮影の成功や特定の結果を保証しません。</li>
+</ul>
+</section>
+
+<section>
+<h2 id="safety">安全と現地での利用</h2>
+<ul>
+<li><strong>太陽を肉眼や、フィルターのないカメラ・望遠鏡・双眼鏡で見ないでください。</strong>視力を損なうおそれがあります。日食や太陽の前を通る宇宙ステーションを撮影するときは、認証された太陽フィルターを使用してください。</li>
+<li>撮影地の下見や移動の際は、私有地・立入制限区域・ドローン飛行規制などの現地の法令を守り、夜間・山岳・水辺での安全に注意してください。</li>
+<li>運転中はアプリを操作しないでください。</li>
+</ul>
+</section>
+
+<section>
+<h2 id="third-party">外部サービスとデータ</h2>
+<p>アプリは地図、地形、3D建物、軌道、航空機の位置などに外部サービスと公開データを利用します(出典はアプリのホーム → ヘルプ・情報 → データの出典)。これらのサービスの停止・変更・障害により、一部の機能が制限される場合があります。開発者は可能な範囲で代替手段の提供に努めます。</p>
+</section>
+
+<section>
+<h2 id="liability">責任の制限</h2>
+<p>開発者は誠実にアプリを開発・運営します。ただし法令で認められる範囲で、予測と実際の差、外部サービスの停止、ユーザーの現地での活動により生じた損害については、開発者の故意または重大な過失がない限り責任を負いません。この条項は、法令上制限できない消費者の権利に影響しません。</p>
+</section>
+
+<section>
+<h2 id="changes">規約の変更</h2>
+<p>規約を変更した場合は、このページと冒頭の施行日を更新します。ユーザーに不利な重要な変更は、施行前にこのページで事前にお知らせします。</p>
+</section>
+
+<section>
+<h2 id="law">準拠法</h2>
+<p>この規約は大韓民国の法律に準拠します。ただし、ユーザーの居住国の法律が消費者により有利な強行規定を定めている場合は、その規定が適用されます。</p>
+</section>
+
+<section>
+<h2 id="contact">お問い合わせ</h2>
+<p>YJLAB・代表者 Youngjae Nah・事業者登録番号 521-29-02447(大韓民国)<br>
+37-5 Namhyeon 2-gil, Gwanak-gu, Seoul, Republic of Korea・<a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+</section>
+
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 <a href="https://www.yjlab.io">YJLAB</a> · お問い合わせ <a href="mailto:support@yjlab.io">support@yjlab.io</a> · <a href="/ja/privacy/">プライバシーポリシー</a> · <a href="/ja/terms/">利用規約</a></p>
+    <p class="biz">商号 와이제이랩（YJLAB）・代表者 ナ・ヨンジェ（나영재）・事業者登録番号 521-29-02447（韓国、<a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=5212902447" target="_blank" rel="noopener">確認</a>）・通信販売業申告番号 2026-서울관악-2130・所在地 大韓民国ソウル特別市冠岳区南峴2キル37-5・電話 <a href="tel:+821065899411">+82 10-6589-9411</a>・メール <a href="mailto:support@yjlab.io">support@yjlab.io</a></p>
+  </div>
+</footer>
+<script>
+  // 폰 폭에선 목차를 접어 둔다. 지금 보는 절을 목차에 표시.
+  (function () {
+    var toc = document.querySelector('.toc');
+    if (window.matchMedia('(max-width: 860px)').matches) toc.removeAttribute('open');
+    var links = Array.prototype.slice.call(toc.querySelectorAll('a'));
+    var secs = links.map(function (a) { return document.getElementById(a.hash.slice(1)); });
+    function mark() {
+      var y = window.scrollY + 100, cur = 0;
+      secs.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
+      links.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+    }
+    window.addEventListener('scroll', mark, { passive: true }); mark();
+  })();
+</script>
+</body>
+</html>
