@@ -296,15 +296,19 @@
   .lang-switch a { color: var(--ink-dim); text-decoration: none; }
   .lang-switch a:hover { color: var(--ink); }
   .lang-switch .lang-on { color: var(--ink); font-weight: 600; }
-  .video { margin: 18px 0 22px; max-width: 620px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
+  .video { margin: 18px 0 10px; max-width: 620px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
   .video iframe { width: 100%; height: 100%; border: 0; display: block; }
   .video .yt { position: relative; display: block; width: 100%; height: 100%; cursor: pointer; }
   .video .yt img { width: 100%; height: 100%; object-fit: cover; display: block; }   /* maxresdefault 1280×720(올린 맞춤 썸네일) */
   .video .yt-play { position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px;
-    border-radius: 12px; background: rgba(20, 20, 20, 0.78); transition: background 0.15s; }
+    border-radius: 12px; background: #f00; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45); transition: background 0.15s; }
   .video .yt-play::after { content: ""; position: absolute; left: 27px; top: 14px;
     border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff; }
-  .video .yt:hover .yt-play, .video .yt:focus-visible .yt-play { background: #f00; }
+  .video .yt:hover .yt-play, .video .yt:focus-visible .yt-play { background: #c00; }
+  .video-link { margin: 0 0 22px; font-size: 0.88rem; }   /* 썸네일만으로는 영상인 줄 몰랐다(2026-11-05) */
+  .video-link a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .video-link a:hover { text-decoration: underline; }
+  .video-link .u { color: var(--ink-faint); font-weight: 400; margin-left: 6px; }
   #lang-notice { background: var(--bg-soft); border-bottom: 1px solid var(--line); font-size: 0.88rem;
     padding: 8px 24px; display: flex; gap: 10px; align-items: center; justify-content: center; }
   #lang-notice a { color: var(--accent); font-weight: 600; }
@@ -499,6 +503,7 @@
       <h3><span class="k">A</span>Structure, the Moon lined up with a tower</h3>
       <p class="h-lead">Choose a target, pick a shooting spot on the map, and check the framing.</p>
       <div class="video"><a class="yt" href="https://youtu.be/4fKkuyXQDLc" data-yt="4fKkuyXQDLc" data-title="Structure, the Moon lined up with a tower" aria-label="Play: Structure, the Moon lined up with a tower"><img src="https://i.ytimg.com/vi/4fKkuyXQDLc/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+      <p class="video-link"><a href="https://youtu.be/4fKkuyXQDLc" target="_blank" rel="noopener">▶ Watch on YouTube<span class="u">youtu.be/4fKkuyXQDLc</span></a></p>
       <ol class="flow">
   <li><b>Set the target.</b><span class="d">In a new project, choose 'Structure' as the subject and set the location of the structure you want to photograph as the target.</span></li>
   <li><b>Choose the shooting spot.</b><span class="d">The yellow band lines up at moonrise, the blue band at moonset. Set an accessible spot with a clear view as the shooting spot.</span></li>
@@ -511,6 +516,7 @@
       <h3><span class="k">B</span>Person, a silhouette in front of the Moon</h3>
       <p class="h-lead">Move farther from the person and increase the focal length to keep them the same size in the frame. The Moon will appear larger relative to them.</p>
       <div class="video"><a class="yt" href="https://youtu.be/CvTnMtY0w3A" data-yt="CvTnMtY0w3A" data-title="Person, a silhouette in front of the Moon" aria-label="Play: Person, a silhouette in front of the Moon"><img src="https://i.ytimg.com/vi/CvTnMtY0w3A/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+      <p class="video-link"><a href="https://youtu.be/CvTnMtY0w3A" target="_blank" rel="noopener">▶ Watch on YouTube<span class="u">youtu.be/CvTnMtY0w3A</span></a></p>
       <ol class="flow">
   <li><b>Choose where the person stands.</b><span class="d">Choose 'Person' as the subject and set a spot with sky behind it, such as a ridge, as the target.</span></li>
   <li><b>Adjust the shooting spot and height.</b><span class="d">Pick a shooting spot on the band. A lower camera shows more sky behind the person.</span></li>
@@ -523,6 +529,7 @@
       <h3><span class="k">C</span>Space stations, the moment one crosses the Moon</h3>
       <p class="h-lead">Check the spot and time in advance so you can catch the brief crossing.</p>
       <div class="video"><a class="yt" href="https://youtu.be/-67cOfAY4CE" data-yt="-67cOfAY4CE" data-title="Space stations, the moment one crosses the Moon" aria-label="Play: Space stations, the moment one crosses the Moon"><img src="https://i.ytimg.com/vi/-67cOfAY4CE/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+      <p class="video-link"><a href="https://youtu.be/-67cOfAY4CE" target="_blank" rel="noopener">▶ Watch on YouTube<span class="u">youtu.be/-67cOfAY4CE</span></a></p>
       <ol class="flow">
   <li><b>Find predicted transit areas.</b><span class="d">Choose 'Space station' as the subject, move the map to your area, and tap 'Find transit spots'. The ISS and Tiangong are searched together and drawn as bands in different colors.</span></li>
   <li><b>Check the spot and transit time.</b><span class="d">Set a shooting spot on a predicted band and use 'Search 14 days' to see the transit time and path there.</span></li>
@@ -535,6 +542,7 @@
       <h3><span class="k">D</span>Plane, live crossing alerts</h3>
       <p class="h-lead">Check likely crossings from live flight paths and get ready to shoot.</p>
       <div class="video"><a class="yt" href="https://youtu.be/uSREGnt50Eg" data-yt="uSREGnt50Eg" data-title="Plane, live crossing alerts" aria-label="Play: Plane, live crossing alerts"><img src="https://i.ytimg.com/vi/uSREGnt50Eg/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+      <p class="video-link"><a href="https://youtu.be/uSREGnt50Eg" target="_blank" rel="noopener">▶ Watch on YouTube<span class="u">youtu.be/uSREGnt50Eg</span></a></p>
       <ol class="flow">
 <li><b>Set the shooting spot.</b><span class="d">Choose 'Plane' as the subject and set where you will shoot.</span></li>
 <li><b>Start live watch.</b><span class="d">Tap 'Start live watch' and keep the app open. Check nearby aircraft's predicted crossing times and how close they come to the Moon.</span></li>

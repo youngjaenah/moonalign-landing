@@ -296,15 +296,19 @@
   .lang-switch a { color: var(--ink-dim); text-decoration: none; }
   .lang-switch a:hover { color: var(--ink); }
   .lang-switch .lang-on { color: var(--ink); font-weight: 600; }
-  .video { margin: 18px 0 22px; max-width: 620px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
+  .video { margin: 18px 0 10px; max-width: 620px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
   .video iframe { width: 100%; height: 100%; border: 0; display: block; }
   .video .yt { position: relative; display: block; width: 100%; height: 100%; cursor: pointer; }
   .video .yt img { width: 100%; height: 100%; object-fit: cover; display: block; }   /* maxresdefault 1280×720(올린 맞춤 썸네일) */
   .video .yt-play { position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px;
-    border-radius: 12px; background: rgba(20, 20, 20, 0.78); transition: background 0.15s; }
+    border-radius: 12px; background: #f00; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45); transition: background 0.15s; }
   .video .yt-play::after { content: ""; position: absolute; left: 27px; top: 14px;
     border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff; }
-  .video .yt:hover .yt-play, .video .yt:focus-visible .yt-play { background: #f00; }
+  .video .yt:hover .yt-play, .video .yt:focus-visible .yt-play { background: #c00; }
+  .video-link { margin: 0 0 22px; font-size: 0.88rem; }   /* 썸네일만으로는 영상인 줄 몰랐다(2026-11-05) */
+  .video-link a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .video-link a:hover { text-decoration: underline; }
+  .video-link .u { color: var(--ink-faint); font-weight: 400; margin-left: 6px; }
   #lang-notice { background: var(--bg-soft); border-bottom: 1px solid var(--line); font-size: 0.88rem;
     padding: 8px 24px; display: flex; gap: 10px; align-items: center; justify-content: center; }
   #lang-notice a { color: var(--accent); font-weight: 600; }
@@ -483,6 +487,7 @@
       <h3><span class="k">A</span>構造物：タワーに重なる月</h3>
       <p class="h-lead">ターゲットを選び、地図で撮影地を決めて構図を確かめます。</p>
       <div class="video"><a class="yt" href="https://youtu.be/g7GD6ZzH1h4" data-yt="g7GD6ZzH1h4" data-title="構造物：タワーに重なる月" aria-label="再生: 構造物：タワーに重なる月"><img src="https://i.ytimg.com/vi/g7GD6ZzH1h4/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+      <p class="video-link"><a href="https://youtu.be/g7GD6ZzH1h4" target="_blank" rel="noopener">▶ YouTubeで見る<span class="u">youtu.be/g7GD6ZzH1h4</span></a></p>
       <ol class="flow">
   <li><b>ターゲットを指定します。</b><span class="d">新しいプロジェクトで被写体に「構造物」を選び、撮影したい構造物の位置をターゲットに指定します。</span></li>
   <li><b>撮影地を選びます。</b><span class="d">黄色の帯は月の出、青の帯は月の入りに重なる場所です。行けて視界が開けた場所を撮影地に指定します。</span></li>
@@ -495,6 +500,7 @@
       <h3><span class="k">B</span>人物：月の前のシルエット</h3>
       <p class="h-lead">人物から離れ、人物が画面内で同じ大きさになるように焦点距離を長くすると、月が相対的に大きく写ります。</p>
       <div class="video"><a class="yt" href="https://youtu.be/isBq0IDw3I4" data-yt="isBq0IDw3I4" data-title="人物：月の前のシルエット" aria-label="再生: 人物：月の前のシルエット"><img src="https://i.ytimg.com/vi/isBq0IDw3I4/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+      <p class="video-link"><a href="https://youtu.be/isBq0IDw3I4" target="_blank" rel="noopener">▶ YouTubeで見る<span class="u">youtu.be/isBq0IDw3I4</span></a></p>
       <ol class="flow">
   <li><b>人物が立つ場所を選びます。</b><span class="d">被写体に「人物」を選び、尾根など背後に空がある場所をターゲットに指定します。</span></li>
   <li><b>撮影地と高さを調整します。</b><span class="d">帯の上で撮影地を選びます。カメラを低くすると人の背後の空が広くなります。</span></li>
@@ -507,6 +513,7 @@
       <h3><span class="k">C</span>宇宙ステーション：月を横切る瞬間</h3>
       <p class="h-lead">一瞬の通過を捉えられるよう、場所と時刻を前もって確かめます。</p>
       <div class="video"><a class="yt" href="https://youtu.be/cxRVNVoR0jQ" data-yt="cxRVNVoR0jQ" data-title="宇宙ステーション：月を横切る瞬間" aria-label="再生: 宇宙ステーション：月を横切る瞬間"><img src="https://i.ytimg.com/vi/cxRVNVoR0jQ/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+      <p class="video-link"><a href="https://youtu.be/cxRVNVoR0jQ" target="_blank" rel="noopener">▶ YouTubeで見る<span class="u">youtu.be/cxRVNVoR0jQ</span></a></p>
       <ol class="flow">
   <li><b>通過予測エリアを探します。</b><span class="d">被写体に「宇宙ステーション」を選び、地図を撮影したい地域に動かして「通過が見える場所を探す」を押します。ISSと天宮をまとめて探し、ステーションごとに色の違う帯で表示します。</span></li>
   <li><b>撮影地と通過時刻を確かめます。</b><span class="d">予測の帯の上に撮影地を指定し、「14日間検索」でその場所の通過時刻と経路を確かめます。</span></li>
@@ -519,6 +526,7 @@
       <h3><span class="k">D</span>飛行機：リアルタイム通過通知</h3>
       <p class="h-lead">リアルタイムの飛行経路から通過しそうな機体を確かめ、撮影の準備をします。</p>
       <div class="video"><a class="yt" href="https://youtu.be/AdlOLq9gw14" data-yt="AdlOLq9gw14" data-title="飛行機：リアルタイム通過通知" aria-label="再生: 飛行機：リアルタイム通過通知"><img src="https://i.ytimg.com/vi/AdlOLq9gw14/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+      <p class="video-link"><a href="https://youtu.be/AdlOLq9gw14" target="_blank" rel="noopener">▶ YouTubeで見る<span class="u">youtu.be/AdlOLq9gw14</span></a></p>
       <ol class="flow">
 <li><b>撮影地を指定します。</b><span class="d">被写体に「飛行機」を選び、撮影する場所を指定します。</span></li>
 <li><b>ライブ監視を始めます。</b><span class="d">「ライブ監視を開始」を押し、アプリを開いたままにします。周辺の機体の予想通過時刻と月への近さを確認します。</span></li>
