@@ -101,6 +101,21 @@
   footer .biz { font-size: 0.76rem; line-height: 1.6; margin-top: 8px; }
   footer a { color: var(--ink-dim); }
 
+  /* 모드별 데모 영상(랜딩 '사용법'과 같은 영상·같은 모양, videos.json). 앱 '도움말·정보'가 이 설명서를 연다(2026-11-06). */
+  article .video { margin: 18px 0 8px; max-width: 620px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
+  article .video iframe { width: 100%; height: 100%; border: 0; display: block; }
+  article .video .yt { position: relative; display: block; width: 100%; height: 100%; cursor: pointer; }
+  article .video .yt img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  article .video .yt-play { position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px;
+    border-radius: 12px; background: #f00; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45); transition: background 0.15s; }
+  article .video .yt-play::after { content: ""; position: absolute; left: 27px; top: 14px;
+    border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff; }
+  article .video .yt:hover .yt-play, article .video .yt:focus-visible .yt-play { background: #c00; }
+  article .video-link { margin: 0 0 22px; font-size: 0.88rem; }
+  article .video-link a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  article .video-link a:hover { text-decoration: underline; }
+  article .video-link .u { color: var(--ink-faint); font-weight: 400; margin-left: 6px; }
+
   @media (prefers-color-scheme: dark) {
     :root { --bg: #111317; --bg-soft: #1b1e24; --ink: #eceef2; --ink-dim: #a7adb7; --ink-faint: #7c828c; --accent: #7aa2ff; --line: #2b2f37; --target: #39c6d6; --spot: #f2a33a; }
     header { background: rgba(17,19,23,0.88); }
@@ -249,6 +264,19 @@
     }
     window.addEventListener('scroll', mark, { passive: true }); mark();
   })();
+  // 영상 썸네일을 누르면 그 자리에서 재생(랜딩과 같은 방식, 스크립트가 없으면 링크로 YouTube가 열린다).
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.yt');
+    if (!a) return;
+    e.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.yt + '?autoplay=1&rel=0&hl=' + document.documentElement.lang;
+    f.title = a.dataset.title;
+    f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    a.replaceWith(f);
+  });
 </script>
 </body>
 </html>

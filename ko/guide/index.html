@@ -101,6 +101,21 @@
   footer .biz { font-size: 0.76rem; line-height: 1.6; margin-top: 8px; }
   footer a { color: var(--ink-dim); }
 
+  /* 모드별 데모 영상(랜딩 '사용법'과 같은 영상·같은 모양, videos.json). 앱 '도움말·정보'가 이 설명서를 연다(2026-11-06). */
+  article .video { margin: 18px 0 8px; max-width: 620px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
+  article .video iframe { width: 100%; height: 100%; border: 0; display: block; }
+  article .video .yt { position: relative; display: block; width: 100%; height: 100%; cursor: pointer; }
+  article .video .yt img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  article .video .yt-play { position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px;
+    border-radius: 12px; background: #f00; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45); transition: background 0.15s; }
+  article .video .yt-play::after { content: ""; position: absolute; left: 27px; top: 14px;
+    border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff; }
+  article .video .yt:hover .yt-play, article .video .yt:focus-visible .yt-play { background: #c00; }
+  article .video-link { margin: 0 0 22px; font-size: 0.88rem; }
+  article .video-link a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  article .video-link a:hover { text-decoration: underline; }
+  article .video-link .u { color: var(--ink-faint); font-weight: 400; margin-left: 6px; }
+
   @media (prefers-color-scheme: dark) {
     :root { --bg: #111317; --bg-soft: #1b1e24; --ink: #eceef2; --ink-dim: #a7adb7; --ink-faint: #7c828c; --accent: #7aa2ff; --line: #2b2f37; --target: #39c6d6; --spot: #f2a33a; }
     header { background: rgba(17,19,23,0.88); }
@@ -230,6 +245,8 @@
 
 <section>
 <h2 id="structure">구조물: 타워와 달이 겹치는 구도</h2>
+<div class="video"><a class="yt" href="https://youtu.be/QbtNtTJeY2A" data-yt="QbtNtTJeY2A" data-title="구조물, 타워와 달이 겹치는 구도" aria-label="재생: 구조물, 타워와 달이 겹치는 구도"><img src="https://i.ytimg.com/vi/QbtNtTJeY2A/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+<p class="video-link"><a href="https://youtu.be/QbtNtTJeY2A" target="_blank" rel="noopener">▶ YouTube에서 보기<span class="u">youtu.be/QbtNtTJeY2A</span></a></p>
 <figure class="shot"><img src="/img/guide/band-mac-ko.jpg" alt="Mac 계획 화면" loading="lazy"><figcaption>Mac 계획 화면: 노란 띠(달이 뜰 때)와 파란 띠(질 때), 촬영지에서 본 달 방향(빨강). 왼쪽 촬영지 카드에 정렬 결과가 나옵니다. 예: 파리 에펠탑, 2026-12-23 월출.</figcaption></figure>
 <p>구조물 촬영의 기본 절차입니다. 촬영 대상을 지정하고, 촬영 위치와 시각을 찾은 뒤 시뮬레이션으로 구도를 확인합니다.</p>
 <ol>
@@ -248,6 +265,8 @@
 
 <section>
 <h2 id="person">사람: 달 앞의 실루엣</h2>
+<div class="video"><a class="yt" href="https://youtu.be/m94tOtHSsQk" data-yt="m94tOtHSsQk" data-title="사람, 달 앞의 실루엣" aria-label="재생: 사람, 달 앞의 실루엣"><img src="https://i.ytimg.com/vi/m94tOtHSsQk/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+<p class="video-link"><a href="https://youtu.be/m94tOtHSsQk" target="_blank" rel="noopener">▶ YouTube에서 보기<span class="u">youtu.be/m94tOtHSsQk</span></a></p>
 <p>사람에게서 멀리 떨어져 망원렌즈로 사람을 같은 크기로 담으면, 달이 상대적으로 크게 보입니다. 사람 모드는 <span class="ui">사람 키</span>(기본 1.7 m)를 기준으로 촬영 가능한 위치를 띠로 표시합니다.</p>
 <ol>
 <li><span class="ui">피사체</span> <span class="ui">사람</span>을 고르고, 사람이 설 자리(능선·언덕 위)를 타겟으로 지정합니다.</li>
@@ -265,6 +284,8 @@
 
 <section>
 <h2 id="iss">우주정거장(ISS·톈궁): 달·태양면 통과</h2>
+<div class="video"><a class="yt" href="https://youtu.be/ne5dcYO4mlo" data-yt="ne5dcYO4mlo" data-title="우주정거장, 달 앞을 통과하는 순간" aria-label="재생: 우주정거장, 달 앞을 통과하는 순간"><img src="https://i.ytimg.com/vi/ne5dcYO4mlo/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+<p class="video-link"><a href="https://youtu.be/ne5dcYO4mlo" target="_blank" rel="noopener">▶ YouTube에서 보기<span class="u">youtu.be/ne5dcYO4mlo</span></a></p>
 <p>국제우주정거장(ISS)과 중국 우주정거장 톈궁이 달이나 태양 앞을 지나는 위치와 시각을 예측합니다. 두 정거장은 한 번에 함께 찾습니다. 원반을 지나는 데 1초도 걸리지 않으며 정확한 통과 시간은 선택한 결과에서 확인하세요. ISS는 NASA 궤도 자료(OEM, 없으면 CelesTrak TLE), 톈궁은 CelesTrak 궤도 자료로 계산합니다.</p>
 <ol>
 <li><span class="ui">피사체</span> <span class="ui">우주정거장</span>, <span class="ui">대상</span> <span class="ui">달</span>(또는 <span class="ui">태양</span>)을 고릅니다. ISS와 톈궁을 함께 찾으므로 정거장은 따로 고르지 않습니다.</li>
@@ -278,6 +299,8 @@
 
 <section>
 <h2 id="plane">비행기: 라이브 감시</h2>
+<div class="video"><a class="yt" href="https://youtu.be/OiC9mX-j63c" data-yt="OiC9mX-j63c" data-title="비행기, 실시간 통과 알림" aria-label="재생: 비행기, 실시간 통과 알림"><img src="https://i.ytimg.com/vi/OiC9mX-j63c/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+<p class="video-link"><a href="https://youtu.be/OiC9mX-j63c" target="_blank" rel="noopener">▶ YouTube에서 보기<span class="u">youtu.be/OiC9mX-j63c</span></a></p>
 <p>MoonAlign은 촬영지 주변의 실시간 비행 경로를 바탕으로 달 앞을 통과할 가능성을 계산하고 알림을 제공합니다. 장기간의 촬영 일정을 미리 예측하는 방식과는 다릅니다.</p>
 <ol>
 <li><span class="ui">피사체</span> <span class="ui">비행기</span>를 고르고 촬영지를 지정합니다.</li>
@@ -504,6 +527,19 @@
     }
     window.addEventListener('scroll', mark, { passive: true }); mark();
   })();
+  // 영상 썸네일을 누르면 그 자리에서 재생(랜딩과 같은 방식, 스크립트가 없으면 링크로 YouTube가 열린다).
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.yt');
+    if (!a) return;
+    e.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.yt + '?autoplay=1&rel=0&hl=' + document.documentElement.lang;
+    f.title = a.dataset.title;
+    f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    a.replaceWith(f);
+  });
 </script>
 </body>
 </html>

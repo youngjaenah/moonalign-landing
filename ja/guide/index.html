@@ -101,6 +101,21 @@
   footer .biz { font-size: 0.76rem; line-height: 1.6; margin-top: 8px; }
   footer a { color: var(--ink-dim); }
 
+  /* 모드별 데모 영상(랜딩 '사용법'과 같은 영상·같은 모양, videos.json). 앱 '도움말·정보'가 이 설명서를 연다(2026-11-06). */
+  article .video { margin: 18px 0 8px; max-width: 620px; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
+  article .video iframe { width: 100%; height: 100%; border: 0; display: block; }
+  article .video .yt { position: relative; display: block; width: 100%; height: 100%; cursor: pointer; }
+  article .video .yt img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  article .video .yt-play { position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; margin: -24px 0 0 -34px;
+    border-radius: 12px; background: #f00; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45); transition: background 0.15s; }
+  article .video .yt-play::after { content: ""; position: absolute; left: 27px; top: 14px;
+    border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff; }
+  article .video .yt:hover .yt-play, article .video .yt:focus-visible .yt-play { background: #c00; }
+  article .video-link { margin: 0 0 22px; font-size: 0.88rem; }
+  article .video-link a { color: var(--accent); text-decoration: none; font-weight: 500; }
+  article .video-link a:hover { text-decoration: underline; }
+  article .video-link .u { color: var(--ink-faint); font-weight: 400; margin-left: 6px; }
+
   @media (prefers-color-scheme: dark) {
     :root { --bg: #111317; --bg-soft: #1b1e24; --ink: #eceef2; --ink-dim: #a7adb7; --ink-faint: #7c828c; --accent: #7aa2ff; --line: #2b2f37; --target: #39c6d6; --spot: #f2a33a; }
     header { background: rgba(17,19,23,0.88); }
@@ -228,6 +243,8 @@
 
 <section>
 <h2 id="structure">構造物：タワーの後ろに月を重ねる</h2>
+<div class="video"><a class="yt" href="https://youtu.be/g7GD6ZzH1h4" data-yt="g7GD6ZzH1h4" data-title="構造物：タワーに重なる月" aria-label="再生: 構造物：タワーに重なる月"><img src="https://i.ytimg.com/vi/g7GD6ZzH1h4/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+<p class="video-link"><a href="https://youtu.be/g7GD6ZzH1h4" target="_blank" rel="noopener">▶ YouTubeで見る<span class="u">youtu.be/g7GD6ZzH1h4</span></a></p>
 <figure class="shot"><img src="/img/guide/band-mac-ja.jpg" alt="Macの計画画面" loading="lazy"><figcaption>Macの計画画面：黄色い帯(月の出)と青い帯(月の入り)、撮影地から見た月の方向(赤)。左の撮影地カードに結果が出ます。例：パリ・エッフェル塔、2026-12-23の月の出。</figcaption></figure>
 <p>MoonAlignの基本の流れです。ほかのモードも同じ文法に従います。</p>
 <ol>
@@ -246,6 +263,8 @@
 
 <section>
 <h2 id="person">人物：月の前のシルエット</h2>
+<div class="video"><a class="yt" href="https://youtu.be/isBq0IDw3I4" data-yt="isBq0IDw3I4" data-title="人物：月の前のシルエット" aria-label="再生: 人物：月の前のシルエット"><img src="https://i.ytimg.com/vi/isBq0IDw3I4/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+<p class="video-link"><a href="https://youtu.be/isBq0IDw3I4" target="_blank" rel="noopener">▶ YouTubeで見る<span class="u">youtu.be/isBq0IDw3I4</span></a></p>
 <p>遠くから望遠で引き寄せると、人物はそのままで月だけが大きくなります。人物モードは<span class="ui">人の身長</span>(既定1.7 m)を高さとして帯を描きます。</p>
 <ol>
 <li><span class="ui">被写体</span>で<span class="ui">人物</span>を選び、人が立つ場所(尾根や丘の上)をターゲットに指定します。</li>
@@ -263,6 +282,8 @@
 
 <section>
 <h2 id="iss">宇宙ステーション(ISS・天宮)：月面・太陽面通過</h2>
+<div class="video"><a class="yt" href="https://youtu.be/cxRVNVoR0jQ" data-yt="cxRVNVoR0jQ" data-title="宇宙ステーション：月を横切る瞬間" aria-label="再生: 宇宙ステーション：月を横切る瞬間"><img src="https://i.ytimg.com/vi/cxRVNVoR0jQ/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+<p class="video-link"><a href="https://youtu.be/cxRVNVoR0jQ" target="_blank" rel="noopener">▶ YouTubeで見る<span class="u">youtu.be/cxRVNVoR0jQ</span></a></p>
 <p>国際宇宙ステーション(ISS)と中国の宇宙ステーション天宮が月や太陽の前を横切る場所と時刻を予測します。2つのステーションは一度にまとめて探します。円盤を横切るのは1秒もかからないので、正確な通過時間は選んだ結果で確認してください。ISSはNASAの軌道データ(OEM、なければCelesTrak TLE)、天宮はCelesTrakの軌道データで計算します。</p>
 <ol>
 <li><span class="ui">被写体</span>で<span class="ui">宇宙ステーション</span>、<span class="ui">対象</span>で<span class="ui">月</span>(または<span class="ui">太陽</span>)を選びます。ISSと天宮をまとめて探すので、ステーションを選ぶ必要はありません。</li>
@@ -276,6 +297,8 @@
 
 <section>
 <h2 id="plane">飛行機：ライブ監視</h2>
+<div class="video"><a class="yt" href="https://youtu.be/AdlOLq9gw14" data-yt="AdlOLq9gw14" data-title="飛行機：リアルタイム通過通知" aria-label="再生: 飛行機：リアルタイム通過通知"><img src="https://i.ytimg.com/vi/AdlOLq9gw14/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+<p class="video-link"><a href="https://youtu.be/AdlOLq9gw14" target="_blank" rel="noopener">▶ YouTubeで見る<span class="u">youtu.be/AdlOLq9gw14</span></a></p>
 <p>月の前を横切る飛行機は事前に予報できません。そこでMoonAlignは撮影地の周りのリアルタイムの航跡を監視し、通過の数秒前に知らせます。</p>
 <ol>
 <li><span class="ui">被写体</span>で<span class="ui">飛行機</span>を選び、撮影地を指定します。</li>
@@ -501,6 +524,19 @@
     }
     window.addEventListener('scroll', mark, { passive: true }); mark();
   })();
+  // 영상 썸네일을 누르면 그 자리에서 재생(랜딩과 같은 방식, 스크립트가 없으면 링크로 YouTube가 열린다).
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.yt');
+    if (!a) return;
+    e.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.yt + '?autoplay=1&rel=0&hl=' + document.documentElement.lang;
+    f.title = a.dataset.title;
+    f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    a.replaceWith(f);
+  });
 </script>
 </body>
 </html>
