@@ -79,6 +79,8 @@
   article .ui { font-weight: 600; }
   article .tip { background: var(--bg-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
   article .note { background: #fff8e6; border-left: 3px solid #d9a400; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article pre { background: var(--bg-soft); border-radius: 8px; padding: 10px 14px; margin: 8px 0 14px; overflow-x: auto; font-size: 0.82rem; line-height: 1.5; }
+  article pre code { white-space: pre; overflow-wrap: normal; }
   article .target { color: var(--target); font-weight: 600; }
   article .spot { color: var(--spot); font-weight: 600; }
   article table { border-collapse: collapse; margin: 8px 0 16px; font-size: 0.94rem; width: 100%; overflow-wrap: anywhere; }
@@ -302,7 +304,7 @@
 <p>A plane crossing the Moon can't be forecast in advance. Instead, MoonAlign watches live air traffic around your shooting spot from your own ADS-B receiver and warns you seconds before a crossing.</p>
 <ol>
 <li>Choose <span class="ui">Subject</span> <span class="ui">Plane</span> and set your shooting spot.</li>
-<li>Under <span class="ui">My receiver</span>, enter the <code>aircraft.json</code> address of your own ADS-B receiver (readsb, dump1090). You need to be on the same network as the receiver; live watch can't start without one.</li>
+<li>Under <span class="ui">My receiver</span>, enter the <code>aircraft.json</code> address of your own ADS-B receiver (readsb, dump1090). You need to be on the same network as the receiver; live watch can't start without one. See <a href="#plane-receiver">Setting up an ADS-B receiver</a>.</li>
 <li>Set <span class="ui">Max distance</span> (km) and tap <span class="ui">Start live watch</span>. Your receiver's data refreshes every second.</li>
 <li>Candidate rows show seconds remaining, separation, altitude, and distance. When a crossing is close you get a countdown and an alert to <em>get ready for burst</em>.</li>
 </ol>
@@ -313,6 +315,59 @@
 <li><span class="ui">Transit history</span> keeps past candidates.</li>
 <li><span class="ui">Camera auto capture (Sony · Canon)</span>: On Mac, iPhone, and iPad, connect a supported Sony or Canon camera over USB for burst shooting around a predicted plane crossing (Canon support is experimental). Use <span class="ui">Test shutter for 1 second</span> in the app before a shoot.</li>
 </ul>
+
+<h3 id="plane-receiver">Setting up an ADS-B receiver</h3>
+<p>Live watch uses data from an ADS-B receiver you run yourself. It picks up the position signals aircraft broadcast on 1090 MHz, and you can build one from a Raspberry Pi, a USB receiver, and an antenna. Below is the setup the developer actually uses. Products and stores may change.</p>
+<p><strong>What you need</strong></p>
+<ul>
+<li><b>Raspberry Pi</b>: used here on a Raspberry Pi 5. The receiver image below supports Pi 2 through 5. You also need a power adapter and a microSD card.</li>
+<li><b>USB receiver</b>: <a href="https://flightaware.store/products/pro-stick-plus" rel="noopener">FlightAware Pro Stick Plus</a>. Its built-in 1090 MHz filter and amplifier help in cities or near cell towers. The antenna port is SMA female.</li>
+<li><b>Antenna</b>: <a href="https://flightaware.store/products/antenna-1090mhz" rel="noopener">FlightAware 1090 MHz antenna</a> (about 66 cm, outdoor). Its connector is N-type female, so you need a separate <b>N-male to SMA-male coaxial cable</b>. Shorter, lower-loss cable is better.</li>
+</ul>
+<p><strong>Setup</strong></p>
+<ol>
+      <li><b>Download the receiver image.</b>
+        <span>Get the ADS-B Feeder Image for Raspberry Pi from <a href="https://adsb.im" rel="noopener">adsb.im</a>.</span></li>
+      <li><b>Write it to the microSD card.</b>
+        <span>Use a tool such as Raspberry Pi Imager to write the image to the microSD card.</span></li>
+      <li><b>Connect everything and power on.</b>
+        <span>Connect antenna → coaxial cable → Pro Stick Plus → a USB port on the Pi, connect it to your network (wired Ethernet is easiest), then power it on. The first boot takes a few minutes.</span></li>
+      <li><b>Open the setup page.</b>
+        <span>From a browser on the same network, go to <a href="https://my.adsb.im" rel="noopener">my.adsb.im</a> to find the receiver. If it isn't found, look up the Pi's IP address in your router and open <code>http://IP-address</code>.</span></li>
+      <li><b>Enter the basics.</b>
+        <span>Enter a receiver name, location (latitude and longitude), and antenna height, then pick the USB receiver. You can also choose here whether to share the data with community networks such as adsb.lol (optional).</span></li>
+      <li><b>Check reception.</b>
+        <span>If nearby aircraft appear under <span class="ui">MAP</span> on the setup page, the receiver is working.</span></li>
+    </ol>
+<p><strong>Where to put the antenna</strong>: 1090 MHz signals travel almost in straight lines, so the higher and more open the sky view, the farther you can receive. Outdoors (a rooftop or outside a balcony) is best; indoors, stand it by a window. Range varies a lot with terrain, buildings, and mounting height.</p>
+<p><strong>Connecting MoonAlign</strong></p>
+<ul>
+<li>The data address is <code>http://receiver-name.l.adsb.im:8080/data/aircraft.json</code>. Take the name address shown at the bottom of the receiver's setup page (<code>http://receiver-name.l.adsb.im/</code>) and add <code>:8080/data/aircraft.json</code>.</li>
+<li>If the name address doesn't open, use the IP address instead (<code>http://192.168.x.x:8080/data/aircraft.json</code>). Some routers block the name address.</li>
+<li>If opening the address in a browser shows a list of aircraft (JSON text), it's the right one.</li>
+<li>Enter the address under <span class="ui">My receiver</span> in the Plane section, and allow <b>local network access</b> when asked the first time you start watching.</li>
+</ul>
+<p><strong>Using it at the shooting spot</strong></p>
+<p>The receiver <b>needs to be at the shooting spot</b>. The app only works with aircraft the receiver picks up, so the receiver has to cover the sky around your spot to warn you of a crossing. In the field, use your phone's hotspot to put the receiver and the phone on the same network.</p>
+<ol>
+      <li><b>Turn on the hotspot.</b>
+        <span>On iPhone, go to Settings → Personal Hotspot and turn on "Allow Others to Join" and "Maximize Compatibility".</span></li>
+      <li><b>Add the hotspot to the receiver (once, at home).</b>
+        <span>Enter the hotspot name and password under Wi-Fi on the receiver's setup page. If the hotspot doesn't appear in the list (sometimes only the currently connected Wi-Fi shows up), add it with the advanced steps below.</span></li>
+      <li><b>Use the IP address in the field.</b>
+        <span>On the hotspot, the receiver gets a <code>172.20.10.x</code> address, and the name address (<code>…l.adsb.im</code>) may keep pointing to your home address for a while. If you pin the IP to <code>172.20.10.9</code> as below, enter <code>http://172.20.10.9:8080/data/aircraft.json</code> under <span class="ui">My receiver</span>.</span></li>
+      <li><b>Check the connection.</b>
+        <span>Power the Pi, receiver, and antenna from a power bank with enough output (USB-C PD), then open the address above in a browser on the phone running the hotspot. If you see the aircraft list, the app can connect too. At the spot, set the antenna up as high as you can with an open view of the sky.</span></li>
+    </ol>
+<p><strong>Advanced: add the hotspot and pin the IP over SSH</strong></p>
+<p>Register an SSH key on the receiver's setup page, connect to the receiver, and run the commands below. Replace the capitalized parts with your home Wi-Fi connection name, the hotspot name (Settings → General → About → Name on iPhone), and the hotspot password. At home the home Wi-Fi connects first; anywhere without it, the receiver joins the hotspot automatically. The <code>172.20.10.x</code> addresses are for iPhone hotspots; Android hotspots use a different range.</p>
+<pre><code>nmcli con modify "HOME_WIFI" connection.autoconnect-priority 10
+nmcli con add type wifi con-name phone-hotspot ifname wlan0 ssid "HOTSPOT_NAME" \
+  wifi.hidden yes wifi-sec.key-mgmt wpa-psk wifi-sec.psk "HOTSPOT_PASSWORD" \
+  connection.autoconnect yes connection.autoconnect-priority 0 \
+  ipv4.method manual ipv4.addresses 172.20.10.9/28 \
+  ipv4.gateway 172.20.10.1 ipv4.dns 172.20.10.1</code></pre>
+<div class="note">The receiver is separate equipment from MoonAlign; follow each product's and adsb.im's instructions for setup and operation. When mounting the antenna outdoors, secure it and take care with lightning protection.</div>
 </section>
 
 <section>

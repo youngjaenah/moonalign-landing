@@ -79,6 +79,8 @@
   article .ui { font-weight: 600; }
   article .tip { background: var(--bg-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
   article .note { background: #fff8e6; border-left: 3px solid #d9a400; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article pre { background: var(--bg-soft); border-radius: 8px; padding: 10px 14px; margin: 8px 0 14px; overflow-x: auto; font-size: 0.82rem; line-height: 1.5; }
+  article pre code { white-space: pre; overflow-wrap: normal; }
   article .target { color: var(--target); font-weight: 600; }
   article .spot { color: var(--spot); font-weight: 600; }
   article table { border-collapse: collapse; margin: 8px 0 16px; font-size: 0.94rem; width: 100%; overflow-wrap: anywhere; }
@@ -302,7 +304,7 @@
 <p>月の前を横切る飛行機は事前に予報できません。そこでMoonAlignは自分のADS-B受信機が受ける撮影地の周りのリアルタイムの航跡を監視し、通過の数秒前に知らせます。</p>
 <ol>
 <li><span class="ui">被写体</span>で<span class="ui">飛行機</span>を選び、撮影地を指定します。</li>
-<li><span class="ui">自分の受信機</span>に、自分で運用するADS-B受信機(readsb・dump1090)の<code>aircraft.json</code>のアドレスを入力します。受信機と同じネットワークにいる必要があり、受信機がないとライブ監視は始められません。</li>
+<li><span class="ui">自分の受信機</span>に、自分で運用するADS-B受信機(readsb・dump1090)の<code>aircraft.json</code>のアドレスを入力します。受信機と同じネットワークにいる必要があり、受信機がないとライブ監視は始められません。受信機の用意は<a href="#plane-receiver">ADS-B受信機の準備</a>を参照してください。</li>
 <li><span class="ui">最大距離</span>(km)を決めて<span class="ui">ライブ監視を開始</span>を押します。受信機のデータを1秒間隔で更新します。</li>
 <li>候補の行に残り秒数・離角・高度・距離が表示され、通過が近づくとカウントダウンと<em>連写準備</em>の通知が届きます。</li>
 </ol>
@@ -313,6 +315,59 @@
 <li><span class="ui">通過チャンスの記録</span>に過去の候補が残ります。</li>
 <li><span class="ui">カメラ自動撮影（Sony・Canon）</span>：Mac・iPhone・iPadで対応するソニー・キヤノン製カメラをUSB接続し、飛行機の予想通過時刻の前後に連写します(キヤノンは試験対応)。撮影前にアプリの<span class="ui">1秒間のテスト撮影</span>で確認してください。</li>
 </ul>
+
+<h3 id="plane-receiver">ADS-B受信機の準備</h3>
+<p>ライブ監視は、自分で運用するADS-B受信機のデータを使います。航空機が1090 MHzで送る位置信号を受ける機器で、Raspberry Pi、USB受信機、アンテナで組めます。以下は開発者が実際に使っている構成です。製品構成や販売先は変わることがあります。</p>
+<p><strong>用意するもの</strong></p>
+<ul>
+<li><b>Raspberry Pi</b>：Raspberry Pi 5で使っています。下記の受信機イメージはPi 2〜5に対応しています。電源アダプターとmicroSDカードも必要です。</li>
+<li><b>USB受信機</b>：<a href="https://flightaware.store/products/pro-stick-plus" rel="noopener">FlightAware Pro Stick Plus</a>。1090 MHzフィルターとアンプを内蔵し、都市部や基地局の近くで有利です。アンテナ端子はSMAメスです。</li>
+<li><b>アンテナ</b>：<a href="https://flightaware.store/products/antenna-1090mhz" rel="noopener">FlightAware 1090 MHzアンテナ</a>（長さ約66 cm、屋外用）。端子がN型メスなので、<b>N型オス↔SMAオスの同軸ケーブル</b>が別に必要です。ケーブルは短く、損失の少ないものほど良いです。</li>
+</ul>
+<p><strong>設置</strong></p>
+<ol>
+      <li><b>受信機イメージをダウンロードします。</b>
+        <span><a href="https://adsb.im" rel="noopener">adsb.im</a>からRaspberry Pi用のADS-B Feeder Imageを入手します。</span></li>
+      <li><b>microSDカードに書き込みます。</b>
+        <span>Raspberry Pi Imagerなどのツールでイメージを書き込みます。</span></li>
+      <li><b>機器をつないで電源を入れます。</b>
+        <span>アンテナ→同軸ケーブル→Pro Stick Plus→PiのUSBポートの順につなぎ、ネットワーク（有線LANが最も簡単）に接続してから電源を入れます。初回起動には数分かかります。</span></li>
+      <li><b>設定画面を開きます。</b>
+        <span>同じネットワークのブラウザーで<a href="https://my.adsb.im" rel="noopener">my.adsb.im</a>を開くと受信機を探してくれます。見つからない場合は、ルーターの管理画面でPiのIPアドレスを確認し、<code>http://IPアドレス</code>で開きます。</span></li>
+      <li><b>基本情報を入力します。</b>
+        <span>受信機の名前、位置（緯度・経度）、アンテナの高さを入力し、USB受信機を選びます。受信したデータをadsb.lolなどのコミュニティに共有するかもここで選べます（任意）。</span></li>
+      <li><b>受信を確認します。</b>
+        <span>設定画面の<span class="ui">MAP</span>に周辺の飛行機が表示されれば受信できています。</span></li>
+    </ol>
+<p><strong>アンテナの置き場所</strong>：1090 MHzの信号はほぼ直進するため、空が広く開けた高い場所ほど遠くまで受信できます。屋外（屋上やベランダの外側）が最適で、屋内なら窓際に立てます。受信できる距離は地形、建物、設置の高さによって大きく変わります。</p>
+<p><strong>MoonAlignとの接続</strong></p>
+<ul>
+<li>データのアドレスは<code>http://受信機名.l.adsb.im:8080/data/aircraft.json</code>です。受信機の設定画面の一番下に表示される名前のアドレス（<code>http://受信機名.l.adsb.im/</code>）に<code>:8080/data/aircraft.json</code>を付けます。</li>
+<li>名前のアドレスで開けない場合はIPアドレスを使います（<code>http://192.168.x.x:8080/data/aircraft.json</code>）。ルーターによっては名前のアドレスをブロックします。</li>
+<li>ブラウザーでこのアドレスを開き、機体の一覧（JSONの文字）が表示されれば正しいアドレスです。</li>
+<li>飛行機の節の<span class="ui">自分の受信機</span>にアドレスを入力し、初めて監視を始めるときに表示される<b>ローカルネットワークの許可</b>を許可します。</li>
+</ul>
+<p><strong>撮影現場で使う</strong></p>
+<p>受信機は<b>撮影地に置く必要があります</b>。アプリは受信機が受けた機体だけを計算するため、受信機が撮影地周辺の上空の飛行機を受信できなければ通過を知らせられません。撮影地では、スマートフォンのインターネット共有（テザリング）で受信機とスマートフォンを同じネットワークにします。</p>
+<ol>
+      <li><b>テザリングをオンにします。</b>
+        <span>iPhoneの設定→インターネット共有で「ほかの人の接続を許可」と「互換性を優先」をオンにします。</span></li>
+      <li><b>受信機にテザリングを登録します（自宅で一度）。</b>
+        <span>受信機の設定画面のWi-Fiで、テザリングの名前とパスワードを入力します。一覧にテザリングが表示されない場合は（接続中のWi-Fiしか表示されないことがあります）、下の上級設定で登録してください。</span></li>
+      <li><b>現場ではIPアドレスを使います。</b>
+        <span>テザリングにつながった受信機は<code>172.20.10.x</code>のアドレスを受け取り、名前のアドレス（<code>…l.adsb.im</code>）はしばらく自宅のアドレスを指すことがあります。下のようにIPを<code>172.20.10.9</code>に固定しておけば、<span class="ui">自分の受信機</span>に<code>http://172.20.10.9:8080/data/aircraft.json</code>を入れて使えます。</span></li>
+      <li><b>接続を確認します。</b>
+        <span>Pi、受信機、アンテナをモバイルバッテリー（USB-C PD、出力に余裕のあるもの）で動かし、テザリング中のスマートフォンのブラウザーで上のアドレスを開きます。機体の一覧が表示されればアプリも接続できます。撮影地でも、アンテナはできるだけ高く、空が開けた方向に立てます。</span></li>
+    </ol>
+<p><strong>上級：SSHでテザリングを登録しIPを固定する</strong></p>
+<p>受信機の設定画面でSSH鍵を登録し、受信機に接続して下のコマンドを実行します。大文字の部分は自宅Wi-Fiの接続名、テザリング名（iPhoneの設定→一般→情報→名前）、テザリングのパスワードに置き換えます。自宅では自宅Wi-Fiが先につながり、自宅Wi-Fiがない場所ではテザリングに自動でつながります。<code>172.20.10.x</code>のアドレスはiPhoneのテザリングの場合で、Androidのテザリングはアドレスの範囲が異なります。</p>
+<pre><code>nmcli con modify "HOME_WIFI" connection.autoconnect-priority 10
+nmcli con add type wifi con-name phone-hotspot ifname wlan0 ssid "HOTSPOT_NAME" \
+  wifi.hidden yes wifi-sec.key-mgmt wpa-psk wifi-sec.psk "HOTSPOT_PASSWORD" \
+  connection.autoconnect yes connection.autoconnect-priority 0 \
+  ipv4.method manual ipv4.addresses 172.20.10.9/28 \
+  ipv4.gateway 172.20.10.1 ipv4.dns 172.20.10.1</code></pre>
+<div class="note">受信機はMoonAlignとは別の機器です。設置と運用は各製品とadsb.imの案内に従ってください。アンテナを屋外に設置する場合は、固定と落雷対策に注意してください。</div>
 </section>
 
 <section>

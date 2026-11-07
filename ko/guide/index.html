@@ -79,6 +79,8 @@
   article .ui { font-weight: 600; }
   article .tip { background: var(--bg-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
   article .note { background: #fff8e6; border-left: 3px solid #d9a400; border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 14px 0; font-size: 0.95rem; }
+  article pre { background: var(--bg-soft); border-radius: 8px; padding: 10px 14px; margin: 8px 0 14px; overflow-x: auto; font-size: 0.82rem; line-height: 1.5; }
+  article pre code { white-space: pre; overflow-wrap: normal; }
   article .target { color: var(--target); font-weight: 600; }
   article .spot { color: var(--spot); font-weight: 600; }
   article table { border-collapse: collapse; margin: 8px 0 16px; font-size: 0.94rem; width: 100%; overflow-wrap: anywhere; }
@@ -304,7 +306,7 @@
 <p>MoonAlign은 개인 ADS-B 수신기가 받는 촬영지 주변의 실시간 비행 경로를 바탕으로 달 앞을 통과할 가능성을 계산하고 알림을 제공합니다. 장기간의 촬영 일정을 미리 예측하는 방식과는 다릅니다.</p>
 <ol>
 <li><span class="ui">피사체</span> <span class="ui">비행기</span>를 고르고 촬영지를 지정합니다.</li>
-<li><span class="ui">내 수신기</span>에 직접 운영하는 ADS-B 수신기(readsb·dump1090)의 <code>aircraft.json</code> 주소를 입력합니다. 수신기와 같은 네트워크에 있어야 하며, 수신기가 없으면 라이브 감시를 시작할 수 없습니다.</li>
+<li><span class="ui">내 수신기</span>에 직접 운영하는 ADS-B 수신기(readsb·dump1090)의 <code>aircraft.json</code> 주소를 입력합니다. 수신기와 같은 네트워크에 있어야 하며, 수신기가 없으면 라이브 감시를 시작할 수 없습니다. 수신기를 갖추는 방법은 <a href="#plane-receiver">ADS-B 수신기 준비</a>를 보세요.</li>
 <li><span class="ui">최대 거리</span>(km)를 정하고 <span class="ui">라이브 감시 시작</span>을 누릅니다. 수신기 데이터를 1초 간격으로 갱신합니다.</li>
 <li>후보 목록에는 예상 통과까지 남은 시간, 달과의 각거리, 비행 고도와 거리가 표시됩니다. 통과가 임박하면 카운트다운과 알림(<span class="ui">연사 준비</span>)이 표시됩니다.</li>
 </ol>
@@ -315,6 +317,59 @@
 <li><span class="ui">통과 기회 기록</span>에서 이전 통과 후보를 확인할 수 있습니다.</li>
 <li><span class="ui">카메라 자동 촬영 (Sony·Canon)</span>: Mac·iPhone·iPad에서 지원되는 Sony·Canon 카메라를 USB로 연결해 비행기 통과 전후로 연속 촬영합니다(Canon은 시험 지원). 촬영 전 앱의 ‘1초 시험 촬영’으로 동작을 확인하세요.</li>
 </ul>
+
+<h3 id="plane-receiver">ADS-B 수신기 준비</h3>
+<p>라이브 감시는 직접 운영하는 ADS-B 수신기의 데이터를 씁니다. 항공기가 1090 MHz로 내보내는 위치 신호를 받는 장비로, Raspberry Pi와 USB 수신기, 안테나로 꾸릴 수 있습니다. 아래는 개발자가 실제로 쓰는 구성입니다. 제품 구성과 판매처는 바뀔 수 있습니다.</p>
+<p><strong>준비물</strong></p>
+<ul>
+<li><b>Raspberry Pi</b>: Raspberry Pi 5에서 쓰고 있습니다. 아래 수신기 이미지는 Pi 2~5를 지원합니다. 전원 어댑터와 microSD 카드도 필요합니다.</li>
+<li><b>USB 수신기</b>: <a href="https://flightaware.store/products/pro-stick-plus" rel="noopener">FlightAware Pro Stick Plus</a>. 1090 MHz 필터와 증폭기가 들어 있어 도심이나 기지국 근처에서 유리합니다. 안테나 단자는 SMA 암입니다.</li>
+<li><b>안테나</b>: <a href="https://flightaware.store/products/antenna-1090mhz" rel="noopener">FlightAware 1090 MHz 안테나</a>(길이 약 66 cm, 실외용). 단자가 N형 암이라 <b>N형 수 ↔ SMA 수 동축 케이블</b>이 따로 필요합니다. 케이블은 짧을수록, 손실이 적은 종류일수록 좋습니다.</li>
+</ul>
+<p><strong>설치</strong></p>
+<ol>
+      <li><b>수신기 이미지를 내려받습니다.</b>
+        <span><a href="https://adsb.im" rel="noopener">adsb.im</a>에서 Raspberry Pi용 ADS-B Feeder Image를 받습니다.</span></li>
+      <li><b>microSD 카드에 씁니다.</b>
+        <span>Raspberry Pi Imager 같은 도구로 내려받은 이미지를 microSD 카드에 씁니다.</span></li>
+      <li><b>장비를 잇고 켭니다.</b>
+        <span>안테나 → 동축 케이블 → Pro Stick Plus → Pi의 USB 포트 순으로 잇고, 네트워크(유선 랜이 가장 쉽습니다)에 연결한 뒤 전원을 넣습니다. 첫 부팅은 몇 분 걸립니다.</span></li>
+      <li><b>설정 화면을 엽니다.</b>
+        <span>같은 네트워크의 브라우저에서 <a href="https://my.adsb.im" rel="noopener">my.adsb.im</a>에 접속하면 수신기를 찾아 줍니다. 찾지 못하면 공유기 관리 화면에서 Pi의 IP 주소를 확인해 <code>http://IP주소</code>로 엽니다.</span></li>
+      <li><b>기본 정보를 넣습니다.</b>
+        <span>수신기 이름, 위치(위도·경도), 안테나 높이를 넣고 USB 수신기를 고릅니다. 받은 데이터를 adsb.lol 같은 커뮤니티에 공유할지도 여기서 고를 수 있습니다(선택).</span></li>
+      <li><b>수신을 확인합니다.</b>
+        <span>설정 화면의 <span class="ui">MAP</span>에 주변 비행기가 보이면 수신하고 있는 것입니다.</span></li>
+    </ol>
+<p><strong>안테나 두는 곳</strong>: 1090 MHz 신호는 거의 직진하므로 하늘이 넓게 트인 높은 곳일수록 멀리 받습니다. 실외(옥상, 베란다 바깥)가 가장 좋고, 실내라면 창가에 세웁니다. 받을 수 있는 거리는 지형, 건물, 설치 높이에 따라 크게 달라집니다.</p>
+<p><strong>MoonAlign에 연결하기</strong></p>
+<ul>
+<li>데이터 주소는 <code>http://수신기이름.l.adsb.im:8080/data/aircraft.json</code>입니다. 수신기 설정 화면 맨 아래에 나오는 이름 주소(<code>http://수신기이름.l.adsb.im/</code>)에 <code>:8080/data/aircraft.json</code>을 붙이면 됩니다.</li>
+<li>이름 주소가 열리지 않으면 IP 주소로 씁니다(<code>http://192.168.x.x:8080/data/aircraft.json</code>). 공유기에 따라 이름 주소를 막기도 합니다.</li>
+<li>브라우저로 이 주소를 열었을 때 기체 목록(JSON 글자)이 보이면 올바른 주소입니다.</li>
+<li>비행기 절의 <span class="ui">내 수신기</span>에 주소를 넣고, 처음 감시를 시작할 때 묻는 <b>로컬 네트워크 권한</b>을 허용합니다.</li>
+</ul>
+<p><strong>촬영 현장에서 쓰기</strong></p>
+<p>수신기는 <b>촬영지에 두어야 합니다</b>. 앱은 수신기가 받은 기체만 계산하므로, 수신기가 촬영지 주변 상공의 비행기를 받아야 통과를 알릴 수 있습니다. 촬영지에서는 휴대폰 핫스팟으로 수신기와 휴대폰을 같은 네트워크에 둡니다.</p>
+<ol>
+      <li><b>핫스팟을 켭니다.</b>
+        <span>iPhone 설정 → 개인용 핫스팟에서 ‘다른 사람의 연결 허용’과 ‘호환성 최대화’를 켭니다.</span></li>
+      <li><b>수신기에 핫스팟을 등록합니다(집에서 한 번).</b>
+        <span>수신기 설정 화면의 Wi-Fi에서 핫스팟 이름과 비밀번호를 넣습니다. 목록에 핫스팟이 보이지 않으면(지금 연결된 Wi-Fi만 보이는 경우가 있습니다) 아래 고급 설정으로 등록하세요.</span></li>
+      <li><b>현장에서는 IP 주소를 씁니다.</b>
+        <span>핫스팟에 붙은 수신기는 <code>172.20.10.x</code> 주소를 받고, 이름 주소(<code>…l.adsb.im</code>)는 한동안 집 주소를 가리킬 수 있습니다. 아래처럼 IP를 <code>172.20.10.9</code>로 고정해 두면 <span class="ui">내 수신기</span>에 <code>http://172.20.10.9:8080/data/aircraft.json</code>을 넣고 쓰면 됩니다.</span></li>
+      <li><b>접속을 확인합니다.</b>
+        <span>Pi와 수신기, 안테나를 보조배터리(USB-C PD, 출력이 넉넉한 것)로 켜고, 핫스팟을 켠 휴대폰의 브라우저에서 위 주소를 엽니다. 기체 목록이 보이면 앱도 접속됩니다. 안테나는 촬영지에서도 하늘이 트인 쪽으로, 가능한 한 높이 세웁니다.</span></li>
+    </ol>
+<p><strong>고급: SSH로 핫스팟 등록하고 IP 고정하기</strong></p>
+<p>수신기 설정 화면에서 SSH 키를 등록한 뒤 수신기에 접속해 아래를 실행합니다. 대문자 부분은 집 Wi-Fi 연결 이름, 핫스팟 이름(iPhone 설정 → 일반 → 정보 → 이름), 핫스팟 비밀번호로 바꿉니다. 집에서는 집 Wi-Fi가 먼저 붙고, 집 Wi-Fi가 없는 곳에서는 핫스팟에 자동으로 붙습니다. 주소 <code>172.20.10.x</code>는 iPhone 핫스팟 기준이며, Android 핫스팟은 주소 범위가 다릅니다.</p>
+<pre><code>nmcli con modify "HOME_WIFI" connection.autoconnect-priority 10
+nmcli con add type wifi con-name phone-hotspot ifname wlan0 ssid "HOTSPOT_NAME" \
+  wifi.hidden yes wifi-sec.key-mgmt wpa-psk wifi-sec.psk "HOTSPOT_PASSWORD" \
+  connection.autoconnect yes connection.autoconnect-priority 0 \
+  ipv4.method manual ipv4.addresses 172.20.10.9/28 \
+  ipv4.gateway 172.20.10.1 ipv4.dns 172.20.10.1</code></pre>
+<div class="note">수신기는 MoonAlign과 별개의 장비이며, 설치와 운영은 각 제품과 adsb.im 안내를 따르세요. 안테나를 실외에 둘 때는 고정과 낙뢰 대비에 주의하세요.</div>
 </section>
 
 <section>
