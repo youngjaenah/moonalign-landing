@@ -313,8 +313,27 @@
 <ul>
 <li>While watching, the shooting spot and body are locked. Tap <span class="ui">Stop watching</span> first to change them.</li>
 <li><span class="ui">Transit history</span> keeps past candidates.</li>
-<li><span class="ui">Camera auto capture (Sony · Canon)</span>: On Mac, iPhone, and iPad, connect a supported Sony or Canon camera over USB for burst shooting around a predicted plane crossing (Canon support is experimental). Use <span class="ui">Test shutter for 1 second</span> in the app before a shoot.</li>
+<li><span class="ui">Camera auto capture</span>: Burst-shoot with a USB-connected camera around a plane crossing. Supported cameras and setup differ by device, so read <a href="#plane-camera">Camera auto capture</a> first.</li>
 </ul>
+
+<h3 id="plane-camera">Camera auto capture</h3>
+<p>The camera auto capture panel on the live watch screen presses the shutter of a camera connected over USB. With auto capture on, it follows likely and predicted transits: it presses the shutter at the <span class="ui">Start burst</span> time (before the transit) and releases it at the <span class="ui">End burst</span> time (after the transit). If aircraft position observations fall 5 seconds or more behind, it stops and releases the shutter. The app only presses the shutter; photos are saved to the camera's memory card and are not downloaded to the app.</p>
+<p>Camera setup for all devices:</p>
+<ul>
+<li>Set focus to MF and the drive mode to continuous.</li>
+<li>On a Sony α, enable PC Remote in the camera menu and set the remote-shooting still image destination to 'Camera Only'.</li>
+<li>After connecting, always use <span class="ui">Test shutter for 1 second</span> to check that capture and shutter release work. Not every model is compatible.</li>
+</ul>
+<p>These differ by the device you use:</p>
+<table>
+<tr><th>Item</th><th>Mac · iPhone · iPad</th><th>Android</th></tr>
+<tr><td>Supported cameras</td><td>Sony α · Canon EOS (Canon support is experimental)</td><td>Sony α only</td></tr>
+<tr><td>Sony USB connection mode</td><td>Set the camera's 'USB Connection Mode' to 'Remote Shooting', or pick 'Remote Shooting' on the selection screen that appears when you plug in the cable.</td><td>Set the camera's 'USB Connection Mode' to 'Remote Shooting' <strong>in advance</strong>. With the default 'Sel. When Connect', the camera shows a selection screen (Live Stream · Image Transfer (MSC) · Image Transfer (MTP) · Remote Shooting) when you plug in the cable, and picking 'Remote Shooting' there won't connect.</td></tr>
+<tr><td>Canon save destination</td><td>The app sets it to the memory card when connecting.</td><td>Not supported</td></tr>
+<tr><td>First connection</td><td>On the Mac, allow access to removable volumes in System Settings &gt; Privacy &amp; Security &gt; Files and Folders.</td><td>Allow the USB access request that appears when you tap <span class="ui">Connect USB</span>.</td></tr>
+<tr><td>During auto capture</td><td>The Mac stays awake. On iPhone and iPad, the screen stays on while the app is in the foreground; switching to another app turns auto capture off and releases the shutter.</td><td>The screen stays on while the app is in the foreground; turning the screen off or switching to another app turns auto capture off and releases the shutter.</td></tr>
+</table>
+<div class="note"><span class="ui">Release shutter</span> releases the shutter and turns auto capture off. If the app is force-stopped during auto capture, the shutter may stay pressed. If the camera keeps shooting, unplug the cable.</div>
 
 <h3 id="plane-receiver">Setting up an ADS-B receiver</h3>
 <p>Live watch uses data from an ADS-B receiver you run yourself. It picks up the position signals aircraft broadcast on 1090 MHz, and you can build one from a Raspberry Pi, a USB receiver, and an antenna. Below is the setup the developer actually uses. Products and stores may change.</p>
