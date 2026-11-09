@@ -208,6 +208,7 @@
 <li><span class="ui">Body</span>: what to shoot in the sky: <span class="ui">Moon</span> · <span class="ui">Sun</span> · <span class="ui">Milky Way</span>.</li>
 <li><span class="ui">Subject</span>: what to put in front of it: <span class="ui">Structure</span> (towers, bridges, skylines) · <span class="ui">Person</span> (a silhouette) · <span class="ui">None</span> (the body alone) · <span class="ui">Space station</span> (ISS, Tiangong) · <span class="ui">Plane</span>.</li>
 </ul>
+<p>For example, to plan a shot of the Moon behind N Seoul Tower, the <span class="ui">Body</span> is <span class="ui">Moon</span>, the <span class="ui">Subject</span> is <span class="ui">Structure</span>, and the <span class="target">target</span> you set on the map is N Seoul Tower. The app calls the moment the Moon appears right behind the target an 'alignment'.</p>
 
 <h3 id="plan-assign">Setting the target and shooting spot</h3>
 <p>The <span class="target">target</span> is what you line up with the Moon (teal); the <span class="spot">shooting spot</span> is where you stand (orange). There are several ways to set them, all with the same result.</p>
@@ -221,12 +222,17 @@
 </ul>
 
 <h3 id="plan-heights">Heights and ground elevation</h3>
-<p>Alignment is a matter of angles, so heights matter. The target card has <span class="ui">Ground elevation</span> and <span class="ui">Structure height</span> (<span class="ui">Person height</span> in person mode); the shooting spot has <span class="ui">Ground elevation</span> and <span class="ui">Camera height</span>.</p>
+<p>Alignment is a matter of angles, so heights matter. The target card has <span class="ui">Ground elevation</span> and <span class="ui">Structure height</span> (<span class="ui">Person height</span> in person mode); the shooting spot has <span class="ui">Ground elevation</span> and <span class="ui">Camera height</span>. The three values are defined as follows.</p>
+<ul>
+<li><span class="ui">Ground elevation</span>: the elevation above sea level of the floor at that spot. On a rooftop, it is the elevation of the roof floor.</li>
+<li><span class="ui">Structure height</span>: the height from the target's base to the top of the structure (not above sea level).</li>
+<li><span class="ui">Camera height</span>: the height from the floor you stand on to the camera. With a tripod on a rooftop, the spot's ground elevation is the roof floor's elevation, and if the camera is 1.4 m above the rooftop surface, enter 1.4 m as Camera height.</li>
+</ul>
 <ul>
 <li>The badge next to each value tells you where it came from: <span class="ui">Auto</span> (looked up from terrain data) · <span class="ui">Manual</span> (you typed it) · <span class="ui">Sim terrain</span> (corrected to the surface measured by the 3D simulation) · <span class="ui">Settings default</span>.</li>
 <li>Structures in the landmark list fill in their height automatically. If none is found you'll see <span class="ui">Couldn't find the structure height</span>: type it in, or measure it with <span class="ui">Measure height</span> in the simulation.</li>
 <li>Camera height has presets: <span class="ui">Prone 0.3</span> · <span class="ui">Tripod 1.4</span> · <span class="ui">Standing 1.6</span>.</li>
-<li>Shooting from a rooftop or bridge? Ground elevation is the floor <em>you stand on</em>. Opening the simulation once corrects it to the 3D model's surface automatically.</li>
+<li>Shooting from a rooftop or bridge? Ground elevation is the floor <em>you stand on</em>. If the spot's ground elevation is set to <span class="ui">Auto</span> and the height of the surface the camera stands on can be read in the 3D view, opening the simulation corrects it to that height (shown as <span class="ui">Sim terrain</span>). A manually entered value is kept, and if the surface height can't be read, the existing value stays. If the camera lands outside the roof in the 3D view, it is corrected to ground level, so check <a href="#sim-map-offset">Position differences between the map and the 3D view</a>.</li>
 </ul>
 
 <h3 id="plan-date">Date, time, and time zone</h3>
@@ -279,14 +285,14 @@
 <section>
 <h2 id="free">None and the Milky Way</h2>
 <p><span class="ui">Subject</span> <span class="ui">None</span> is for shooting the body itself with nothing in front. Set just a shooting spot and the map shows where it rises (yellow line) and sets (blue line).</p>
-<p>With <span class="ui">Body</span> <span class="ui">Milky Way</span>, the shooting spot card shows <span class="ui">Light pollution</span> (Bortle class and mag/arcsec², estimated from satellite night lights) and <span class="ui">When the Milky Way is visible</span> (the best time). A Moon in the sky shortens that window.</p>
+<p>With <span class="ui">Body</span> <span class="ui">Milky Way</span>, the shooting spot card shows <span class="ui">Light pollution</span> (how dark the night sky is at the shooting spot, shown as a Bortle class and mag/arcsec², estimated from satellite night lights) and <span class="ui">When the Milky Way is visible</span> (the best time). A Moon in the sky shortens that window.</p>
 </section>
 
 <section>
 <h2 id="iss">Space stations (ISS, Tiangong). Lunar and solar transits</h2>
 <div class="video"><a class="yt" href="https://youtu.be/-67cOfAY4CE" data-yt="-67cOfAY4CE" data-title="Space stations, the moment one crosses the Moon" aria-label="Play: Space stations, the moment one crosses the Moon"><img src="https://i.ytimg.com/vi/-67cOfAY4CE/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
 <p class="video-link"><a href="https://youtu.be/-67cOfAY4CE" target="_blank" rel="noopener">▶ Watch on YouTube<span class="u">youtu.be/-67cOfAY4CE</span></a></p>
-<p>MoonAlign predicts where and when the International Space Station (ISS) and China's Tiangong station cross in front of the Moon or Sun. Both stations are searched at the same time. A crossing of the disk takes less than a second; check the exact duration in the result you select. The ISS is computed from NASA orbit data (OEM, with CelesTrak TLE as a fallback), and Tiangong from CelesTrak orbit data.</p>
+<p>MoonAlign predicts where and when the International Space Station (ISS) and China's Tiangong station cross in front of the Moon or Sun. Both stations are searched at the same time. A crossing of the disk takes less than a second; check the exact duration in the result you select. Predictions use each station's orbit data. The ISS is computed from NASA's precise orbit data (OEM), falling back to CelesTrak TLE, and Tiangong from CelesTrak orbit data.</p>
 <ol>
 <li>Choose <span class="ui">Subject</span> <span class="ui">Space station</span> and <span class="ui">Body</span> <span class="ui">Moon</span> (or <span class="ui">Sun</span>). The ISS and Tiangong are searched together, so there is no station to pick.</li>
 <li>Not sure where to go? Tap <span class="ui">Find transit spots</span> under <span class="ui">Predicted transit areas</span>. It draws the <strong>bands</strong> where a transit is visible within the current map view. Each row shows the time, the Moon's altitude, its phase (for example, Full Moon 99%), and day or night. Tap a row to move the map to that band. Each station has its own band color (ISS purple, Tiangong pink), and each row is labeled with the station. Daytime and near-horizon bands are collected in a folded group.</li>
@@ -294,7 +300,7 @@
 <li>Check each result's station, grade (<span class="ui">Transit expected</span> · <span class="ui">Possible</span> · <span class="ui">Close pass</span>), separation, and duration, then tap <span class="ui">Select</span> to confirm. Confirming saves automatically, and the simulation lets you step through it in 0.1-second increments.</li>
 </ol>
 <p><span class="ui">Night-sky passes</span> (folded) lists the stations crossing the night sky rather than the Moon: brightness, peak altitude, direction, and how long it's visible.</p>
-<div class="note">Every forecast is a prediction from orbit data. Stations adjust their orbits from time to time, so <strong>search again the day before you shoot</strong>. The status line shows which data was used (NASA OEM or TLE) and how long it's valid. Tiangong is computed from orbit segments derived from the China Manned Space Agency's ephemeris for about the next 6 days, and from regular TLE beyond that, which can be well off. Check each result's source (<span class="ui">ephemeris</span> · <span class="ui">TLE</span>).</div>
+<div class="note">Every forecast is a prediction from orbit data. Stations adjust their orbits from time to time, so <strong>search again the day before you shoot</strong>. The status line shows which orbit data the result was computed from (NASA OEM or TLE) and how long that data is valid. Tiangong is computed from orbit segments derived from the China Manned Space Agency's ephemeris for about the next 6 days, and from regular TLE beyond that, which can be well off. Check each result's source (<span class="ui">ephemeris</span> · <span class="ui">TLE</span>).</div>
 </section>
 
 <section>
@@ -317,13 +323,14 @@
 </ul>
 
 <h3 id="plane-camera">Camera auto capture</h3>
-<p>The camera auto capture panel on the live watch screen presses the shutter of a camera connected over USB. With auto capture on, it follows likely and predicted transits: it presses the shutter at the <span class="ui">Start burst</span> time (before the transit) and releases it at the <span class="ui">End burst</span> time (after the transit). If aircraft position observations fall 5 seconds or more behind, it stops and releases the shutter. The app only presses the shutter; photos are saved to the camera's memory card and are not downloaded to the app.</p>
+<p>The camera auto capture panel on the live watch screen presses the shutter of a camera connected over USB. With auto capture on, it follows likely and predicted transits: it presses the shutter at the <span class="ui">Start burst</span> time (before the transit) and releases it at the <span class="ui">End burst</span> time (after the transit). If 5 seconds or more have passed since the aircraft's position was last observed, the app stops shooting and releases the shutter. The app only presses the shutter; photos are saved to the camera's memory card and are not downloaded to the app.</p>
 <p>Camera setup for all devices:</p>
 <ul>
-<li>Set focus to MF and the drive mode to continuous.</li>
+<li>Set the focus mode to manual focus (MF) and the drive mode to continuous shooting.</li>
 <li>On a Sony α, enable PC Remote in the camera menu and set the remote-shooting still image destination to 'Camera Only'.</li>
 <li>After connecting, always use <span class="ui">Test shutter for 1 second</span> to check that capture and shutter release work. Not every model is compatible.</li>
 </ul>
+<p>The order is: camera setup → <span class="ui">Connect USB</span> → <span class="ui">Test shutter for 1 second</span> → <span class="ui">Start live watch</span> → <span class="ui">Enable automatic capture</span>. Auto capture can be enabled only during a live watch with the camera connected.</p>
 <p>These differ by the device you use:</p>
 <table>
 <tr><th>Item</th><th>Mac · iPhone · iPad</th><th>Android</th></tr>
@@ -331,7 +338,7 @@
 <tr><td>Sony USB connection mode</td><td>Set the camera's 'USB Connection Mode' to 'Remote Shooting', or pick 'Remote Shooting' on the selection screen that appears when you plug in the cable.</td><td>Set the camera's 'USB Connection Mode' to 'Remote Shooting' <strong>in advance</strong>. With the default 'Sel. When Connect', the camera shows a selection screen (Live Stream · Image Transfer (MSC) · Image Transfer (MTP) · Remote Shooting) when you plug in the cable, and picking 'Remote Shooting' there won't connect.</td></tr>
 <tr><td>Canon save destination</td><td>The app sets it to the memory card when connecting.</td><td>Not supported</td></tr>
 <tr><td>First connection</td><td>On the Mac, allow access to removable volumes in System Settings &gt; Privacy &amp; Security &gt; Files and Folders.</td><td>Allow the USB access request that appears when you tap <span class="ui">Connect USB</span>.</td></tr>
-<tr><td>During auto capture</td><td>The Mac stays awake. On iPhone and iPad, the screen stays on while the app is in the foreground; switching to another app turns auto capture off and releases the shutter.</td><td>The screen stays on while the app is in the foreground; turning the screen off or switching to another app turns auto capture off and releases the shutter.</td></tr>
+<tr><td>During auto capture</td><td>The Mac stays awake. On iPhone and iPad, the screen stays on while the app is open on screen; switching to another app turns auto capture off and releases the shutter.</td><td>The screen stays on while the app is open on screen; turning the screen off or switching to another app turns auto capture off and releases the shutter.</td></tr>
 </table>
 <div class="note"><span class="ui">Release shutter</span> releases the shutter and turns auto capture off. If the app is force-stopped during auto capture, the shutter may stay pressed. If the camera keeps shooting, unplug the cable.</div>
 
@@ -363,18 +370,18 @@
 <ul>
 <li>The data address is <code>http://receiver-name.l.adsb.im:8080/data/aircraft.json</code>. Take the name address shown at the bottom of the receiver's setup page (<code>http://receiver-name.l.adsb.im/</code>) and add <code>:8080/data/aircraft.json</code>.</li>
 <li>If the name address doesn't open, use the IP address instead (<code>http://192.168.x.x:8080/data/aircraft.json</code>). Some routers block the name address.</li>
-<li>If opening the address in a browser shows a list of aircraft (JSON text), it's the right one.</li>
+<li>If opening the address in a browser shows aircraft data as JSON text, it's the right one.</li>
 <li>Enter the address under <span class="ui">My receiver</span> in the Plane section, and allow <b>local network access</b> when asked the first time you start watching.</li>
 </ul>
-<p><strong>Using it at the shooting spot</strong></p>
-<p>The receiver <b>needs to be at the shooting spot</b>. The app only works with aircraft the receiver picks up, so the receiver has to cover the sky around your spot to warn you of a crossing. In the field, use your phone's hotspot to put the receiver and the phone on the same network.</p>
+<p><strong>Using it at the shooting spot (iPhone hotspot example)</strong></p>
+<p>The receiver <b>needs to be at the shooting spot</b>. The app only works with aircraft the receiver picks up, so the receiver has to cover the sky around your spot to warn you of a crossing. In the field, use your phone's hotspot to put the receiver and the phone on the same network. The steps and the <code>172.20.10.x</code> address below are for an iPhone hotspot; on Android the hotspot menu and address range vary by device.</p>
 <ol>
       <li><b>Turn on the hotspot.</b>
         <span>On iPhone, go to Settings → Personal Hotspot and turn on "Allow Others to Join" and "Maximize Compatibility".</span></li>
       <li><b>Add the hotspot to the receiver (once, at home).</b>
         <span>Enter the hotspot name and password under Wi-Fi on the receiver's setup page. If the hotspot doesn't appear in the list (sometimes only the currently connected Wi-Fi shows up), add it with the advanced steps below.</span></li>
       <li><b>Use the IP address in the field.</b>
-        <span>On the hotspot, the receiver gets a <code>172.20.10.x</code> address, and the name address (<code>…l.adsb.im</code>) may keep pointing to your home address for a while. If you pin the IP to <code>172.20.10.9</code> as below, enter <code>http://172.20.10.9:8080/data/aircraft.json</code> under <span class="ui">My receiver</span>.</span></li>
+        <span>On the hotspot, the receiver gets a <code>172.20.10.x</code> address, and the name address (<code>…l.adsb.im</code>) may keep pointing to the IP address you used at home for a while. If you pin the IP to <code>172.20.10.9</code> as below, enter <code>http://172.20.10.9:8080/data/aircraft.json</code> under <span class="ui">My receiver</span>.</span></li>
       <li><b>Check the connection.</b>
         <span>Power the Pi, receiver, and antenna from a power bank with enough output (USB-C PD), then open the address above in a browser on the phone running the hotspot. If you see the aircraft list, the app can connect too. At the spot, set the antenna up as high as you can with an open view of the sky.</span></li>
     </ol>
@@ -405,8 +412,8 @@ nmcli con add type wifi con-name phone-hotspot ifname wlan0 ssid "HOTSPOT_NAME" 
 <p>The planning maps (Apple, Google, V-World) and the 3D view in the simulation are built from different aerial and satellite imagery and 3D models, so the same coordinates can put a building a few meters off. In Korea, the V-World 3D view is shifted a few meters from the maps in some areas, and on satellite maps the roofs of tall buildings can look offset to one side because the photos were taken at an angle. If you set the spot on a rooftop on the map but the 3D view puts you at the roof edge or on the ground beside the building, this is why.</p>
 <ul>
 <li><strong>Little effect on alignment with a distant target.</strong> For a tower 3 km away, moving the spot 3 m sideways shifts where the Moon sits by only about a tenth of its diameter.</li>
-<li><strong>The height can change a lot.</strong> The simulation uses the height of the surface the camera stands on in the 3D view (a roof or the ground) as the spot's ground elevation. If the spot lands on the ground outside the roof in the 3D view, it is calculated lower by the building's height.</li>
-<li><strong>How to check</strong>: Use <span class="ui">View camera position</span> in the simulation to see whether the camera is standing on the 3D building's roof. If not, move the spot a few meters on the planning map toward the roof as it appears in the 3D view. For the calculation, the place that stands on the roof in the 3D view is the right one.</li>
+<li><strong>The height can change a lot.</strong> When the spot's ground elevation is <span class="ui">Auto</span>, the simulation uses the height of the surface the camera stands on in the 3D view (a roof or the ground) as the spot's ground elevation (a manually entered value is kept). If the spot lands on the ground outside the roof in the 3D view, it is calculated lower by the building's height.</li>
+<li><strong>How to check</strong>: Use <span class="ui">View camera position</span> in the simulation to see whether the camera is standing on the 3D building's roof. If not, go back to the planning screen, move the spot a few meters toward the roof as it appears in the 3D view, then open the simulation again to confirm the camera stands on the roof. This aligns the placement within the 3D model; confirm where you can actually stand on site.</li>
 <li>When the target is close, as with a Person subject, a few meters can change the composition. Fine-tune on site with <a href="#photo">Photo Check</a> and <a href="#ar">AR Check</a>.</li>
 </ul>
 <h3 id="sim-overseas">Photorealistic 3D outside Korea</h3>
@@ -574,11 +581,11 @@ nmcli con add type wifi con-name phone-hotspot ifname wlan0 ssid "HOTSPOT_NAME" 
 <ol>
 <li>For <span class="ui">Subject</span>, choose <span class="ui">Structure</span>, set the target at the base of the building, and set the shooting spot. The simulation opens only once a shooting spot is set.</li>
 <li>Turn on <span class="ui">Measure height</span> in the simulation. A thin pillar stands at the target, with a wide disc at its base.</li>
-<li>First check that the disc sits on the ground. If it floats or is buried, fix the target's ground elevation first.</li>
+<li>First check that the disc sits on the ground. If it floats or is buried, check <span class="ui">Ground elevation</span> on the target card in the planning screen. If the value was entered manually, on Mac, iPhone, and iPad you can tap <span class="ui">Auto</span> to return to the automatic lookup; if you know a confirmed elevation, enter it directly (<a href="#plan-heights">Heights and ground elevation</a>). Don't guess a value you don't know.</li>
 <li>Use the slider to bring the top of the pillar level with the top of the building. Zooming in and turning the view so the top is clearly visible makes this easier.</li>
 <li>Tap <span class="ui">Use this height</span> to put the value into the plan's structure height. If you shoot there often, <a href="#structure-landmark">save it as my landmark</a>.</li>
 </ol>
-<div class="note">Measure height is accurate only on <a href="#sim-overseas">photorealistic 3D outside Korea</a>, which is built from imagery. Korea's 3D buildings are built from the heights in building data, so you just get back the value the app already entered. In Korea, if the height is empty or wrong, enter it yourself. Thin parts such as spires and antennas can't be measured.</div>
+<div class="note">What you measure is the height as represented in the 3D model. It works on <a href="#sim-overseas">photorealistic 3D outside Korea</a>, built from imagery, but the model itself can be off. Korea's 3D buildings are built from the heights registered in building data, so a measurement follows that registered height and is not an independent check of the real height. In Korea, if the height is empty or wrong, enter a published height yourself. Thin parts such as spires and antennas can't be measured.</div>
 </section>
 
 <section>
