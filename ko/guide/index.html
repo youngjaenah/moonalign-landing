@@ -574,6 +574,8 @@ nmcli con add type wifi con-name phone-hotspot ifname wlan0 ssid "HOTSPOT_NAME" 
 <p>곧게 뻗은 길의 끝, 다리 너머, 빌딩 사이 골목처럼 <strong>방향</strong>이 중요한 장면에는 맞출 구조물이 없습니다. 이럴 땐 그 방향에 <strong>가상의 높은 기둥</strong>을 세웠다고 가정하고 계획하면 됩니다. 앱은 그 자리에 실제로 무엇이 있는지와 상관없이, 해나 달이 그 기둥에 걸리는 날짜와 시각을 계산합니다.</p>
 <p>예시 프로젝트 <span class="ui">[데모] 홋카이도 하늘로 가는 길 일몰</span>이 이 방법을 씁니다. 언덕 위 촬영지에서 길이 향하는 약 11 km 앞 길 위에 타겟을 두고, 구조물 높이를 200 m로 넣어 해가 길 끝으로 지는 날을 찾습니다.</p>
 <p><strong>산 정상</strong>도 같은 방법으로 계획합니다. 산은 랜드마크 높이가 자동으로 들어가지 않으므로 정상을 타겟으로 지정하고 가상의 높이를 넣습니다. 높이를 0으로 두면 해·달이 정상 한 점에 정확히 닿는 순간만 정렬로 쳐서 날짜가 거의 나오지 않습니다. 넣은 높이는 "정상 위 얼마까지를 정렬로 볼지"를 정합니다. 예시 프로젝트 <span class="ui">[데모] 다누키호 다이아몬드 후지</span>는 약 16 km 떨어진 다누키호 물가에서 후지산 정상에 높이 100 m(약 0.36°, 해 지름보다 조금 작음)를 넣어, 2027년 4월 22일 06:05 해가 정상 위로 뜨는 날을 찾습니다. 산 정상 부근의 자동 지면고도는 지형 자료의 격자가 봉우리를 뭉개 실제보다 낮게 잡히기도 합니다(후지산 3,776 m → 약 3,728 m). 정확한 해발을 알면 <span class="ui">지면고도</span>에 직접 입력하세요.</p>
+<div class="video"><a class="yt" href="https://youtu.be/WiFDYFPVsBw" data-yt="WiFDYFPVsBw" data-title="산 정상에 해·달 맞추기: 다이아몬드 후지" aria-label="재생: 산 정상에 해·달 맞추기: 다이아몬드 후지"><img src="https://i.ytimg.com/vi/WiFDYFPVsBw/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+<p class="video-link"><a href="https://youtu.be/WiFDYFPVsBw" target="_blank" rel="noopener">▶ YouTube에서 보기<span class="u">youtu.be/WiFDYFPVsBw</span></a></p>
 <ol>
 <li><span class="ui">피사체</span> <span class="ui">구조물</span>을 고르고, 길이 향하는 먼 지점(길 끝이나 소실점 방향으로 몇 km 앞)을 타겟으로 지정합니다. 멀리 둘수록 방향이 정확해집니다.</li>
 <li><span class="ui">구조물 높이</span>에 가상의 높이를 직접 입력합니다. 이 높이는 "해·달이 지평선 위 얼마까지 올라와 있을 때를 정렬로 볼지"를 정합니다. <strong>1 km 앞의 17 m가 대략 1°</strong>이므로 11 km 앞이면 200 m가 약 1°이고, 해·달 지름(약 0.5°)의 두 배쯤입니다.</li>

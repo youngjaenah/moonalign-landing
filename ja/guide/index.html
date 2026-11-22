@@ -571,6 +571,8 @@ nmcli con add type wifi con-name phone-hotspot ifname wlan0 ssid "HOTSPOT_NAME" 
 <p>まっすぐ続く道の先、橋の向こう、ビルの間の通りのように、<strong>方向</strong>が大事な場面には合わせる構造物がありません。そんなときは、その方向に<strong>仮想の高い柱</strong>が立っていると考えて計画します。アプリはそこに実際に何があるかに関係なく、太陽や月がその柱に重なる日付と時刻を計算します。</p>
 <p>サンプルプロジェクト<span class="ui">[デモ] 北海道・天に続く道の日の入り</span>がこの方法を使っています。丘の上の撮影地から、道が向かう約11 km先の道の上にターゲットを置き、構造物の高さを200 mにして、太陽が道の先に沈む日を探しています。</p>
 <p><strong>山頂</strong>も同じ方法で計画します。山にはランドマークの高さが自動で入らないので、山頂をターゲットに指定して仮想の高さを入れます。高さを0にすると、太陽・月が山頂の一点にぴったり触れる瞬間しか重なりとみなさないため、日付がほとんど見つかりません。入れた高さは「山頂の上どこまでを重なりとみなすか」を決めます。サンプルプロジェクト<span class="ui">[デモ] 田貫湖ダイヤモンド富士</span>は、約16 km離れた田貫湖の岸から富士山の山頂に高さ100 m(約0.36°、太陽の直径より少し小さい)を入れ、2027年4月22日6:05に太陽が山頂から昇る日を見つけています。山頂付近の自動の地面標高は、地形データの格子が山頂をならしてしまい実際より低く出ることがあります(富士山3,776 m → 約3,728 m)。正確な標高が分かっていれば<span class="ui">地面標高</span>に直接入力してください。</p>
+<div class="video"><a class="yt" href="https://youtu.be/VMA4asE0fwo" data-yt="VMA4asE0fwo" data-title="山頂に太陽や月を合わせる：ダイヤモンド富士" aria-label="再生: 山頂に太陽や月を合わせる：ダイヤモンド富士"><img src="https://i.ytimg.com/vi/VMA4asE0fwo/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"><span class="yt-play" aria-hidden="true"></span></a></div>
+<p class="video-link"><a href="https://youtu.be/VMA4asE0fwo" target="_blank" rel="noopener">▶ YouTubeで見る<span class="u">youtu.be/VMA4asE0fwo</span></a></p>
 <ol>
 <li><span class="ui">被写体</span>で<span class="ui">構造物</span>を選び、道が向かう遠くの地点(道の先や消失点の方向に数km先)をターゲットに指定します。遠いほど方向が正確になります。</li>
 <li><span class="ui">構造物の高さ</span>に仮想の高さを直接入力します。この高さは「太陽・月が地平線からどのくらいの高さまでなら重なりとみなすか」を決めます。<strong>1 km先の17 mがおよそ1°</strong>なので、11 km先なら200 mで約1°、太陽・月の直径(約0.5°)の2倍ほどです。</li>
